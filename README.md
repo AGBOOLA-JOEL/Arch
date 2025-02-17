@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+---
 
-## Getting Started
+### **📂 Archcache – Architectural Archive Platform**  
 
-First, run the development server:
+#### **🔒 Private Repository – Not for Cloning or Redistribution**  
 
+Welcome to **Archcache**, an exclusive platform designed for architects, designers, and enthusiasts to explore, showcase, and archive groundbreaking architectural projects.  
+
+---
+
+## **✨ Features**  
+✅ **Innovative Design Repository** – Browse curated architectural works.  
+✅ **Advanced Search & Filtering** – Quickly find projects using ElasticSearch.  
+✅ **High-Quality Visuals** – Display architectural images and plans beautifully.  
+✅ **Secure & Scalable** – Built with **Next.js**, **TypeScript**, and **SCSS** for performance.  
+
+---
+
+## **🚀 Tech Stack**  
+- **Framework**: Next.js (App Router)  
+- **Styling**: SCSS with reusable mixins  
+- **Search Engine**: ElasticSearch for fast indexing  
+- **State Management**: Context API / Redux (if needed) / Zustand  
+- **Deployment**: Vercel / Custom Cloud Hosting  
+
+---
+
+## **🔧 Setup & Installation**  
+### **1️⃣ Clone the Repo (Authorized Access Only)**  
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <REPO_URL>  # Requires permission
+cd archcache
+```
+> 🚨 **Note:** This repository is private and cannot be cloned or redistributed.  
+
+### **2️⃣ Install Dependencies**  
+```bash
+npm install  # or yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **3️⃣ Set Up Environment Variables**  
+Create a `.env.local` file in the root directory and add the required values:  
+```env
+NEXT_PUBLIC_API_URL=https://api.archcache.com
+ELASTICSEARCH_URL=https://your-elastic-instance.com
+```
+> 🔒 **Ensure this file is added to `.gitignore` to keep credentials secure.**  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### **4️⃣ Start the Development Server**  
+```bash
+npm run dev  # or yarn dev
+```
+Visit **`http://localhost:3000`** in your browser.  
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+---
 
-## Learn More
+## **🛠️ Project Structure**  
+```
+/public         # Static assets (favicons, images, etc.)
+/src
+  ├── components  # Reusable UI components
+  ├── styles      # Global SCSS styles and mixins
+  ├── pages       # Next.js pages
+  ├── lib         # Utility functions and API calls
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## **🖼️ SEO & Metadata**  
+- **Dynamic Meta Tags** for better discoverability  
+- **Optimized OpenGraph Image** for social media sharing  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## **⚠️ License & Restrictions**  
+🚨 **This project is proprietary and belongs to [Company Name].**  
+- **❌ Not open-source**
+- **❌ Cannot be forked or cloned**
+- **❌ External contributions are not accepted**  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## **📌 Contributors**  
+👨‍💻 **Development Team:** [Your Name] + Team  
+📌 **Company:** [Archcache]  
+📬 **Contact:** [Your Email]  
+
+---
+
+> **Built with ❤️ by architects & developers to preserve architectural brilliance.** 🏗️✨  
+
+Would you like me to add anything else?
