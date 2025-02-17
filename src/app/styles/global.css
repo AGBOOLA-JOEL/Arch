@@ -5,12 +5,17 @@
   --white: #ffffff;
   --primary: #113a5a;
   --secondary: #2194ec;
-  --dark: #212121;
+  --dark: #040404;
   --darkone: #666666;
   --darktwo: #b2b2b2;
   --gray: #f8f8f8;
   --grayone: #f2f2f2;
   --graytwo: #e0e0e0;
+  --graytext: #c0c0c0;
+}
+
+* {
+  font-family: "Montserrat", sans-serif !important;
 }
 
 html {
@@ -31,7 +36,346 @@ a {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
+}
+.app .app_navbar {
+  height: 116px;
+  background-color: var(--white);
+}
+.app .app_children {
+  min-height: 100vh;
+  background-color: pink;
+}
+.app .app_footer {
+  background-color: yellow;
+}
+.app .nav_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.app .nav_container .nav_desktop {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 850px) {
+  .app .nav_container .nav_desktop {
+    display: none;
+  }
+}
+.app .nav_container .nav_desktop .nav_primary {
+  background-color: var(--white);
+  width: 100%;
+  height: 63px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   flex-direction: row;
+  box-sizing: border-box;
+  padding-right: 60px;
+  padding-left: 73px;
+}
+.app .nav_container .nav_desktop .nav_primary::before, .app .nav_container .nav_desktop .nav_primary::after {
+  box-sizing: border-box;
+}
+.app .nav_container .nav_desktop .nav_primary .nav_primarylogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+}
+.app .nav_container .nav_desktop .nav_primary .nav_primarylogo :nth-child(1) {
+  width: 60px;
+  height: 60px;
+}
+.app .nav_container .nav_desktop .nav_primary .nav_primarylogo :nth-child(2) {
+  width: 87px;
+  height: 18px;
+}
+.app .nav_container .nav_desktop .nav_primary ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  list-style-type: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  gap: 55px;
+}
+.app .nav_container .nav_desktop .nav_primary ul .nav_primarylink {
+  list-style-type: none;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--dark);
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+.app .nav_container .nav_desktop .nav_primary ul .nav_primarylink a {
+  list-style-type: none;
+  text-decoration: none;
+  color: var(--dark);
+}
+.app .nav_container .nav_desktop .nav_primary ul .nav_primarylink :hover {
+  color: var(--secondary);
+  transition: 0.3s ease-in-out;
+}
+.app .nav_container .nav_desktop .nav_primary .nav_primaryform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  height: 200px;
+}
+.app .nav_container .nav_desktop .nav_primary .nav_primaryform .nav_primaryformbtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  gap: 30px;
+  font-weight: 600;
+}
+.app .nav_container .nav_desktop .nav_primary .nav_primaryform .nav_primaryformbtn :nth-child(1) {
+  list-style-type: none;
+  cursor: pointer;
+}
+.app .nav_container .nav_desktop .nav_primary .nav_primaryform .nav_primaryformbtn button {
+  color: var(--dark);
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 14.63px;
+  text-align: left;
+  text-transform: uppercase;
+}
+.app .nav_container .nav_desktop .nav_primary .nav_primaryform .nav_primaryformbtn .nav_primaryout {
+  color: var(--primary);
+  transition: 0.3s ease-in-out;
+}
+.app .nav_container .nav_desktop .nav_primary .nav_primaryform .nav_primaryformbtn .nav_primaryout:hover {
+  color: var(--secondary);
+  transition: 0.3s ease-in-out;
+}
+.app .nav_container .nav_desktop .nav_primary .nav_primaryform .nav_primaryformbtn .nav_primaryjoin {
+  color: var(--primary);
+  border-radius: 48px;
+  height: 35px;
+  width: 77px;
+  border: 1px solid var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.app .nav_container .nav_desktop .nav_primary .nav_primaryform .nav_primaryformbtn .nav_primaryjoin:hover {
+  color: var(--secondary);
+  border: 1px solid var(--secondary);
+  transition: 0.3s ease-in-out;
+}
+.app .nav_container .nav_desktop .nav_sec {
+  height: 54px;
+  background-color: var(--dark);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  color: var(--white);
+  gap: 53px;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_seclink {
+  color: var(--graytext);
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_seclink :hover {
+  color: var(--secondary);
+  transition: 0.3s ease-in-out;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secarch {
+  color: var(--graytext);
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s ease-in-out;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secarch :hover {
+  color: var(--secondary);
+  transition: 0.3s ease-in-out;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secarch .nav_secarrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 20px;
+  padding-left: 20px;
+  cursor: pointer;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secarch .nav_secdrop {
+  box-sizing: border-box;
+  position: absolute;
+  margin-top: 49px;
+  margin-left: 20px;
+  overflow: hidden;
+  text-transform: lowercase;
+  height: 84px;
+  width: 189px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 2px 2px 0px var(--dark);
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secarch .nav_secdrop::before, .app .nav_container .nav_desktop .nav_sec .nav_secarch .nav_secdrop::after {
+  box-sizing: border-box;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secarch .nav_secdrop .nav_secdroptext {
+  width: 100%;
+  height: 42px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secarch .nav_secdrop .nav_secdroptext::before, .app .nav_container .nav_desktop .nav_sec .nav_secarch .nav_secdrop .nav_secdroptext::after {
+  box-sizing: border-box;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secarch .nav_secdrop .nav_secdroptext button {
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-sizing: border-box;
+  background: none;
+  outline: none;
+  border: none;
+  color: var(--darkone);
+  padding-left: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white);
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secarch .nav_secdrop .nav_secdroptext button::before, .app .nav_container .nav_desktop .nav_sec .nav_secarch .nav_secdrop .nav_secdroptext button::after {
+  box-sizing: border-box;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secarch .nav_secdrop .nav_secdroptext button:hover {
+  background-color: var(--gray);
+}
+.app .nav_container .nav_desktop .nav_sec .nav_seccart span {
+  background-color: var(--secondary);
+  position: absolute;
+  margin-left: 20px;
+  margin-top: -5px;
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 1rem;
+  color: var(--dark);
+}
+.app .nav_container .nav_desktop .nav_sec .nav_seccart svg {
+  color: var(--graytext);
+}
+.app .nav_container .nav_desktop .nav_sec .nav_seccart svg :hover {
+  color: var(--secondary);
+  transition: 0.3s ease-in-out;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secinput .navinput-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secinput .navinput-container .navinput {
+  width: 0px;
+  height: 0px;
+  border-radius: 3px;
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+  display: none;
+  cursor: pointer;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secinput .navinput-container .navinput ::-moz-placeholder {
+  color: transparent;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secinput .navinput-container .navinput ::placeholder {
+  color: transparent;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secinput .navinput-container .expanded {
+  color: var(--graytext);
+  background: none;
+  border-bottom: 1px solid var(--primary);
+  transition: 0.3s ease-in-out;
+  display: flex;
+  height: 40px;
+  width: 700px;
+  cursor: text;
+  padding-left: 35px;
+  margin-left: 35px;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secinput .navinput-container .expanded ::-moz-placeholder {
+  color: var(--darktwo);
+  opacity: 1;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secinput .navinput-container .expanded ::placeholder {
+  color: var(--darktwo);
+  opacity: 1;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secinput .navinput-container .expanded + .navicon {
+  display: none;
+  border: none;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secinput .navinput-container .navicon {
+  position: absolute;
+  left: 0px;
+  height: 25px;
+  width: 25px;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secinput .navinput-container .exp_navicon {
+  color: var(--graytext);
+  position: absolute;
+  left: 42px;
+  height: 25px;
+  width: 25px;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secinput .navinput-container .exp_navicon :hover {
+  color: var(--secondary);
+  transition: 0.3s ease-in-out;
+}
+.app .nav_container .nav_mobile {
+  display: none;
+}
+@media (max-width: 850px) {
+  .app .nav_container .nav_mobile {
+    display: flex;
+    height: 63px;
+  }
 }
 .app .home {
   width: 100%;

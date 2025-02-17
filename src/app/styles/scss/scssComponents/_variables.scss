@@ -9,6 +9,7 @@ $white: var(--white);
 $gray: var(--gray);
 $gray-one: var(--grayone);
 $gray-two: var(--graytwo);
+$gray-text: var(--graytext);
 
 @mixin flex($flow: row) {
   display: flex;
@@ -29,7 +30,7 @@ $gray-two: var(--graytwo);
   flex-direction: $flow;
 }
 
-@mixin borderdox {
+@mixin borderbox {
   box-sizing: border-box;
 
   // Apply to pseudo-elements as well
@@ -37,6 +38,17 @@ $gray-two: var(--graytwo);
   &::after {
     box-sizing: border-box;
   }
+}
+
+@mixin strip-list {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+@mixin clear-btn {
+  background: none;
+  outline: none;
+  border: none;
 }
 @mixin bgimage($image) {
   background-image: url($image);

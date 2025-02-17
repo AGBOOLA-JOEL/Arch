@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./styles/global.css";
+import App from "./App";
 
 export default function RootLayout({
   children,
@@ -11,7 +12,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </head>
-      <body className="app">{children}</body>
+      <App>{children}</App>
     </html>
   );
 }
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
       "Explore our archive of innovative architectural designs, projects, and resources. Discover inspiration for your next architectural venture.",
     images: [
       {
-        url: "/assets/icons/Archlogo.svg",
+        url: "/assets/svg/Archlogo.svg",
         width: 1200,
         height: 630,
         alt: "Archcache - Architectural Archive",
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
       "Explore our archive of innovative architectural designs, projects, and resources. Discover inspiration for your next architectural venture.",
     images: [
       {
-        url: "/assets/icons/Archlogo.svg",
+        url: "/assets/svg/Archlogo.svg",
         width: 1200,
         height: 630,
         alt: "Archcache - Architectural Archive",

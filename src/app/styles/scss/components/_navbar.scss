@@ -1,1 +1,297 @@
- 
+& .nav_container {
+  width: 100%;
+  @include flex(column);
+
+  & .nav_desktop {
+    position: fixed;
+    width: 100%;
+
+    @include flex(column);
+    @include sm {
+      display: none;
+    }
+
+    & .nav_primary {
+      background-color: $white;
+      width: 100%;
+      height: 63px;
+      @include full-flex(center, space-between, row);
+      @include borderbox;
+      padding-right: 60px;
+      padding-left: 73px;
+
+      & .nav_primarylogo {
+        @include full-flex($align: center, $flow: row);
+        gap: 10px;
+
+        & :nth-child(1) {
+          width: 60px;
+          height: 60px;
+        }
+        & :nth-child(2) {
+          width: 87px;
+          height: 18px;
+        }
+      }
+
+      & ul {
+        @include full-flex($align: center, $flow: row);
+        @include strip-list;
+        text-transform: uppercase;
+        gap: 55px;
+
+        & .nav_primarylink {
+          @include strip-list;
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: $dark;
+          transition: 0.3s ease-in-out;
+          cursor: pointer;
+          & a {
+            @include strip-list;
+            color: $dark;
+          }
+
+          & :hover {
+            color: $secondary;
+            transition: 0.3s ease-in-out;
+          }
+        }
+      }
+
+      & .nav_primaryform {
+        @include full-flex($align: center, $flow: row);
+        // background-color: yellow;
+        height: 200px;
+
+        & .nav_primaryformbtn {
+          @include full-flex($align: center, $flow: row);
+          text-transform: uppercase;
+          font-size: 1.2rem;
+          gap: 30px;
+          font-weight: 600;
+
+          & :nth-child(1) {
+            list-style-type: none;
+            cursor: pointer;
+          }
+
+          & button {
+            color: $dark;
+            background: none;
+            border: none;
+            outline: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 14.63px;
+            text-align: left;
+            text-transform: uppercase;
+          }
+          & .nav_primaryout {
+            color: $primary;
+            transition: 0.3s ease-in-out;
+            &:hover {
+              color: $secondary;
+              transition: 0.3s ease-in-out;
+            }
+          }
+
+          & .nav_primaryjoin {
+            color: $primary;
+            border-radius: 48px;
+            height: 35px;
+            width: 77px;
+            border: 1px solid $primary;
+            @include full-flex(center, center, row);
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            &:hover {
+              color: $secondary;
+              border: 1px solid $secondary;
+              transition: 0.3s ease-in-out;
+            }
+          }
+        }
+      }
+    }
+
+    & .nav_sec {
+      height: 54px;
+      background-color: $dark;
+      width: 100%;
+      @include full-flex(center, center, row);
+      color: $white;
+      gap: 53px;
+
+      & .nav_seclink {
+        color: $gray-text;
+        font-weight: 600;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: 0.3s ease-in-out;
+        & :hover {
+          color: $secondary;
+          transition: 0.3s ease-in-out;
+        }
+      }
+
+      .nav_secarch {
+        color: $gray-text;
+        font-weight: 600;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        @include flex(column);
+        transition: 0.3s ease-in-out;
+        & :hover {
+          color: $secondary;
+          transition: 0.3s ease-in-out;
+        }
+        & .nav_secarrow {
+          @include full-flex($align: center, $flow: row);
+          gap: 20px;
+          padding-left: 20px;
+          cursor: pointer;
+        }
+
+        & .nav_secdrop {
+          @include borderbox;
+          position: absolute;
+          margin-top: 49px;
+          margin-left: 20px;
+          overflow: hidden;
+          text-transform: lowercase;
+          height: 84px;
+          width: 189px;
+          border-radius: 4px;
+          @include flex(column);
+          box-shadow: 0px 2px 2px 0px $dark;
+
+          & .nav_secdroptext {
+            width: 100%;
+            height: 42px;
+            @include borderbox;
+            @include full-flex(center, center, row);
+
+            & button {
+              font-size: 1.2rem;
+              cursor: pointer;
+              @include borderbox;
+              @include clear-btn;
+              color: $dark-one;
+              padding-left: 20px;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              width: 100%;
+              height: 100%;
+              background-color: $white;
+              &:hover {
+                background-color: $gray;
+              }
+            }
+          }
+        }
+      }
+
+      & .nav_seccart {
+        & span {
+          background-color: $secondary;
+          position: absolute;
+          margin-left: 20px;
+          margin-top: -5px;
+          height: 13px;
+          width: 13px;
+          border-radius: 50%;
+          @include full-flex(center, center, row);
+          font-size: 1rem;
+          color: $dark;
+        }
+        & svg {
+          color: $gray-text;
+
+          & :hover {
+            color: $secondary;
+            transition: 0.3s ease-in-out;
+          }
+        }
+      }
+
+      & .nav_secinput {
+        & .navinput-container {
+          position: relative;
+          display: flex;
+          align-items: center;
+
+          .navinput {
+            width: 0px;
+            height: 0px;
+            border-radius: 3px;
+            @include clear-btn;
+            font-size: 1.5rem;
+            display: none;
+            cursor: pointer;
+
+            & ::placeholder {
+              color: transparent;
+            }
+          }
+          & .expanded {
+            color: $gray-text;
+            background: none;
+            border-bottom: 1px solid $primary;
+            transition: 0.3s ease-in-out;
+            display: flex;
+            height: 40px;
+            width: 700px;
+            cursor: text;
+            padding-left: 35px;
+            margin-left: 35px;
+
+            & ::placeholder {
+              color: $dark-two;
+              opacity: 1;
+            }
+          }
+          & .expanded + .navicon {
+            display: none;
+            border: none;
+          }
+
+          & .navicon {
+            position: absolute;
+            left: 0px;
+            height: 25px;
+            width: 25px;
+            pointer-events: auto;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+          }
+
+          & .exp_navicon {
+            color: $gray-text;
+            position: absolute;
+            left: 42px;
+            height: 25px;
+            width: 25px;
+            pointer-events: auto;
+            cursor: pointer;
+
+            & :hover {
+              color: $secondary;
+              transition: 0.3s ease-in-out;
+            }
+          }
+        }
+      }
+    }
+  }
+  & .nav_mobile {
+    display: none;
+    @include sm {
+      display: flex;
+      height: 63px;
+    }
+  }
+}
