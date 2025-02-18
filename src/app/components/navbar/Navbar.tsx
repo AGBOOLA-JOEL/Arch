@@ -6,7 +6,7 @@
 
 // import dropdown from "assets/svg/down.svg";
 // import { mainContext } from "pages/hooks/Context";
-// import { IoArchiveOutline } from "react-icons/io5";
+
 // import { useDetectClickOutside } from "react-detect-click-outside";
 import NavPrimary from "./component/NavPrimary";
 import NavSecondary from "./component/NavSecondary";
