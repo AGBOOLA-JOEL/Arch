@@ -25,7 +25,7 @@
     "history": "^5.3.0",
     "html-webpack-plugin": "^5.6.3",
     "jwt-decode": "^4.0.0",
-    "next": "14.2.4",
+    "next": "^15.1.7",
     "quill": "^2.0.3",
     "react": "^18",
     "react-bootstrap": "^2.10.9",
@@ -49,9 +49,11 @@
     "react-tag-input-component": "^2.0.2",
     "reactjs-social-login": "^2.6.3",
     "rsuite": "^5.77.1",
+    "use-sync-external-store": "^1.4.0",
     "uuid": "^11.0.5",
     "web-vitals": "^4.2.4",
-    "yup": "^1.6.1"
+    "yup": "^1.6.1",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@types/node": "^20",

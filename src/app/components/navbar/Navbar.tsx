@@ -8,8 +8,9 @@
 // import { mainContext } from "pages/hooks/Context";
 
 // import { useDetectClickOutside } from "react-detect-click-outside";
-import NavPrimary from "./component/NavPrimary";
-import NavSecondary from "./component/NavSecondary";
+import NavMobile from "./NavMobile";
+import NavPrimary from "./NavPrimary";
+import NavSecondary from "./NavSecondary";
 // import NavMobile from "./component/NavMobile";
 
 const Navbar = () => {
@@ -20,15 +21,9 @@ const Navbar = () => {
         <NavPrimary />
         <NavSecondary />
       </div>
-      {/* <div className="nav_mobile">
-        <NavMobile
-          cartLength={cartLength}
-          navigator={navigator}
-          isAuthenticated={isAuthenticated}
-          role={role}
-          signOut={signOut}
-        />
-      </div> */}
+      <div className="nav_mobile">
+        <NavMobile />
+      </div>
     </div>
   );
 };

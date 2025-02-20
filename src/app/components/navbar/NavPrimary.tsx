@@ -2,35 +2,12 @@ import React from "react";
 import { navprimary } from "@/app/db/components/navbar";
 import Link from "next/link";
 import Image from "next/image";
+import NavLogo from "./component/NavLogo";
 
 const NavPrimary = ({}) => {
   return (
     <nav className="nav_primary">
-      <div className="nav_primarylogo">
-        <Image
-          width={200}
-          height={200}
-          src={"/assets/svg/Archlogo.svg"}
-          alt={"logo"}
-          // onClick={() => {
-          //   navigator("/");
-
-          //   closeDropdown();
-          // }}
-        />
-
-        <Image
-          width={0}
-          height={0}
-          src={"/assets/svg/ArchCache.svg"}
-          alt={"Archcache"}
-          // onClick={() => {
-          //   closeDropdown();
-
-          //   navigator("/");
-          // }}
-        />
-      </div>
+      <NavLogo />
       <ul>
         {navprimary.map((data) => {
           return (

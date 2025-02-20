@@ -42,6 +42,11 @@ a {
   height: 116px;
   background-color: var(--white);
 }
+@media (max-width: 850px) {
+  .app .app_navbar {
+    height: 63px;
+  }
+}
 .app .app_children {
   min-height: 100vh;
   background-color: pink;
@@ -53,6 +58,30 @@ a {
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+.app .nav_container .nav_logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+@media (max-width: 850px) {
+  .app .nav_container .nav_logo {
+    margin-left: -15px;
+  }
+}
+.app .nav_container .nav_logo :nth-child(1) {
+  width: 60px;
+  height: 60px;
+}
+@media (max-width: 850px) {
+  .app .nav_container .nav_logo :nth-child(1) {
+    margin-right: -10px;
+  }
+}
+.app .nav_container .nav_logo :nth-child(2) {
+  width: 87px;
+  height: 18px;
 }
 .app .nav_container .nav_desktop {
   position: fixed;
@@ -79,21 +108,6 @@ a {
 }
 .app .nav_container .nav_desktop .nav_primary::before, .app .nav_container .nav_desktop .nav_primary::after {
   box-sizing: border-box;
-}
-.app .nav_container .nav_desktop .nav_primary .nav_primarylogo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  gap: 10px;
-}
-.app .nav_container .nav_desktop .nav_primary .nav_primarylogo :nth-child(1) {
-  width: 60px;
-  height: 60px;
-}
-.app .nav_container .nav_desktop .nav_primary .nav_primarylogo :nth-child(2) {
-  width: 87px;
-  height: 18px;
 }
 .app .nav_container .nav_desktop .nav_primary ul {
   display: flex;
@@ -373,9 +387,151 @@ a {
 }
 @media (max-width: 850px) {
   .app .nav_container .nav_mobile {
+    box-sizing: border-box;
+    padding-left: 3px;
+    padding-right: 7px;
+    width: 100%;
+    background-color: var(--white);
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
     height: 63px;
   }
+  .app .nav_container .nav_mobile::before, .app .nav_container .nav_mobile::after {
+    box-sizing: border-box;
+  }
+}
+.app .nav_container .nav_mobile .nav_mobham {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0px;
+}
+.app .nav_container .nav_mobile .nav_mobnavs .nav_mobtool {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 17px;
+}
+.app .nav_container .nav_mobile .nav_mobnavs .nav_mobtool button {
+  background: none;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 2rem;
+  color: var(--darkone);
+}
+.app .nav_container .nav_mobile .nav_mobnavs .nav_mobtool button:focus {
+  color: var(--secondary);
+}
+.app .nav_container .nav_mobile .nav_mobnavs .nav_mobtool button .nav_mobcart {
+  background-color: var(--secondary);
+  position: absolute;
+  margin-left: 14px;
+  margin-top: -17px;
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 10px;
+  color: var(--dark);
+}
+.app .nav_container .nav_mobile .nav_mobnavs .nav_mobtool :nth-child(3) {
+  font-size: 2.2rem;
+}
+.app .nav_container .nav_mobile .nav_mobnavs .nav_mobform {
+  gap: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.app .nav_container .nav_mobile .nav_mobnavs .nav_mobform button {
+  background: none;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+.app .nav_container .nav_mobile .nav_mobnavs .nav_mobform button:focus {
+  color: var(--secondary);
+}
+.app .nav_container .nav_mobile .nav_mobsearch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 60px;
+  width: 100%;
+  position: absolute;
+  top: 66px;
+  left: 0px;
+}
+.app .nav_container .nav_mobile .nav_mobsearch .nav_sch {
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 9px 11px 33px -14px rgba(0, 0, 0, 0.63);
+  background-color: var(--gray);
+  height: 100%;
+  width: 98.5%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.app .nav_container .nav_mobile .nav_mobsearch .nav_sch::before, .app .nav_container .nav_mobile .nav_mobsearch .nav_sch::after {
+  box-sizing: border-box;
+}
+.app .nav_container .nav_mobile .nav_mobsearch .nav_sch .nav_schinput {
+  gap: 5px;
+  background-color: var(--gray);
+  width: 82%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.app .nav_container .nav_mobile .nav_mobsearch .nav_sch .nav_schinput svg {
+  width: 10%;
+  font-size: 2rem;
+}
+.app .nav_container .nav_mobile .nav_mobsearch .nav_sch .nav_schinput input {
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 1.3rem;
+  color: var(--primary);
+  width: 90%;
+  height: 80%;
+}
+.app .nav_container .nav_mobile .nav_mobsearch .nav_sch .nav_schinput input::-moz-placeholder {
+  color: var(--primary);
+}
+.app .nav_container .nav_mobile .nav_mobsearch .nav_sch .nav_schinput input::placeholder {
+  color: var(--primary);
+}
+.app .nav_container .nav_mobile .nav_mobsearch .nav_sch .nav_schbtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 10px;
+  width: 18%;
+}
+.app .nav_container .nav_mobile .nav_mobsearch .nav_sch .nav_schbtn svg {
+  color: var(--darkone);
+  font-size: 2.2rem;
 }
 .app .home {
   width: 100%;

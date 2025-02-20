@@ -2,29 +2,29 @@
 "use client";
 import { TfiSearch } from "react-icons/tfi";
 import { MdOutlineCancel } from "react-icons/md";
-import { Dispatch, SetStateAction } from "react";
+import { shallow } from "zustand/shallow";
+import { useGenstore } from "@/app/lib/store/general-store";
 
-type NavInputProp = {
-  isExpanded: boolean;
-  setIsExpanded: Dispatch<SetStateAction<boolean>>;
-};
-
-const NavInput = ({ isExpanded, setIsExpanded }: NavInputProp) => {
-  const toggleInput = () => {
-    setIsExpanded(!isExpanded);
-  };
+const NavInput = () => {
+  const { toggle, toggleState } = useGenstore(
+    (state) => ({
+      toggle: state.toggle,
+      toggleState: state.toggleState,
+    }),
+    shallow
+  );
   return (
     <div className="navinput-container">
-      {isExpanded ? (
-        <MdOutlineCancel className="exp_navicon" onClick={toggleInput} />
+      {toggle ? (
+        <MdOutlineCancel className="exp_navicon" onClick={toggleState} />
       ) : (
-        <TfiSearch className="navicon" onClick={toggleInput} />
+        <TfiSearch className="navicon" onClick={toggleState} />
       )}
 
       <input
         type="text"
         name="text"
-        className={`navinput ${isExpanded ? "expanded" : ""}`}
+        className={`navinput ${toggle ? "expanded" : ""}`}
         placeholder="Enter search"
         autoComplete="off"
       />
