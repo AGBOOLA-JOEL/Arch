@@ -14,16 +14,13 @@ const NavSecondary = () => {
     <nav className="nav_sec">
       {toggle === false &&
         navsecondary.map((nav) => {
-          if (nav.drop) {
-            return (
-              <div className="nav_secarch" key={nav.name}>
-                <div className="nav_secarrow">
-                  <p>{nav.name}</p>
-
-                  <FaAngleDown />
-                  {/* <img src={dropdown} alt="" onClick={toggleDropdown} /> */}
-                </div>
-
+          return (
+            <div className="nav_secarch" key={nav.name}>
+              <div className="nav_secarrow">
+                <p>{nav.name}</p>
+                {nav.drop && <FaAngleDown />}
+              </div>
+              {nav.drop && (
                 <div className="nav_secdrop">
                   {nav.drop.map((data) => {
                     return (
@@ -33,40 +30,18 @@ const NavSecondary = () => {
                     );
                   })}
                 </div>
-              </div>
-            );
-          } else {
-            return (
-              <Link className="nav_seclink" href={nav.to} key={nav.name}>
-                <div
-                // style={{ color: seclinkColor(nav.linkstyle) }}
-                // onClick={() => {
-                //   // closeDropdown();
-                // }}
-                >
-                  <p> {nav.name}</p>
-                </div>
-              </Link>
-            );
-          }
+              )}
+            </div>
+          );
         })}
       <div className="nav_secinput">
         <NavInput />
       </div>
 
-      {/* {isAuthenticated ? ( */}
       <Link href="/user/userArchive" className="nav_seccart">
-        {/* {cartLength.length === 0 ? (
-            <></>
-          ) : (
-            <span className="cart_span">{cartLength.length}</span>
-          )} */}
         <span> 1</span>
         <IoArchiveOutline size={26} />
       </Link>
-      {/* ) : (
-        <></>
-      )} */}
     </nav>
   );
 };

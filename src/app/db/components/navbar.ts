@@ -1,14 +1,14 @@
-// import Mobproj from "assets/svg/mobproj.svg";
-// import Mobnews from "assets/svg/mobnews.svg";
-// import Mobport from "assets/svg/mobport.svg";
-// import Mobcomp from "assets/svg/mobcomp.svg";
-// import Mobsch from "assets/svg/mobsch.svg";
-// import Mobshow from "assets/svg/mobshow.svg";
-// import Mobpod from "assets/svg/mobpod.svg";
-// import Mobcomic from "assets/svg/mobcomic.svg";
-// import Mobit from "assets/svg/mobit.svg";
-// import Mobsub from "assets/svg/mobsub.svg";
-// import Mobarc from "assets/svg/mobarc.svg";
+// import Mobproj from "/assets/svg/navbar/mobproj.svg";
+// import Mobnews from "assets/svg/navbar/mobnews.svg";
+// import Mobport from "assets/svg/navbar/mobport.svg";
+// import Mobcomp from "assets/svg/navbar/mobcomp.svg";
+// import Mobsch from "assets/svg/navbar/mobsch.svg";
+// import Mobshow from "assets/svg/navbar/mobshow.svg";
+// import Mobpod from "assets/svg/navbar/mobpod.svg";
+// import Mobcomic from "assets/svg/navbar/mobcomic.svg";
+// import Mobit from "assets/svg/navbar/mobit.svg";
+// import Mobsub from "assets/svg/navbar/mobsub.svg";
+// import Mobarc from "assets/svg/navbar/mobarc.svg";
 
 export const navprimary = [
   {
@@ -75,64 +75,64 @@ export const navsecondary = [
   },
 ];
 
-// export const navmobileprimary = [
-//   {
-//     name: "projects",
-//     to: "/all/project",
-//     img: Mobproj,
-//   },
-//   {
-//     name: "news",
-//     to: "/all/news",
-//     img: Mobnews,
-//   },
-//   {
-//     name: "portfolios",
-//     to: "/all/portfolio",
-//     img: Mobport,
-//   },
-//   {
-//     name: "competitions",
-//     to: "/all/competition",
-//     img: Mobcomp,
-//   },
-//   {
-//     name: "scholarships",
-//     to: "/all/scholarships",
-//     img: Mobsch,
-//   },
-//   {
-//     name: "show rooms",
-//     to: "/all/showrooms",
-//     img: Mobshow,
-//   },
-//   {
-//     name: "architectural media",
-//     to: "",
-//     img: Mobpod,
-//     drop: [
-//       { name: "interviews", to: "/all/interviews" },
-//       { name: "podcast", to: "/all/podcast" },
-//     ],
-//   },
-//   {
-//     name: "comics",
-//     to: "/all/comic",
-//     img: Mobcomic,
-//   },
-//   {
-//     name: "it placements",
-//     to: "/all/placement",
-//     img: Mobit,
-//   },
-//   {
-//     name: "submit a project",
-//     to: "/form/submit",
-//     img: Mobsub,
-//   },
-//   {
-//     name: "be an architect",
-//     to: "",
-//     img: Mobarc,
-//   },
-// ];
+export const navmobile = [
+  {
+    name: "projects",
+    to: "/all/project",
+    img: "/assets/svg/navbar/mobproj.svg",
+  },
+  {
+    name: "news",
+    to: "/all/news",
+    img: "assets/svg/navbar/mobnews.svg",
+  },
+  {
+    name: "portfolios",
+    to: "/all/portfolio",
+    img: "assets/svg/navbar/mobport.svg",
+  },
+  {
+    name: "competitions",
+    to: "/all/competition",
+    img: "assets/svg/navbar/mobcomp.svg",
+  },
+  {
+    name: "scholarships",
+    to: "/all/scholarships",
+    img: "assets/svg/navbar/mobsch.svg",
+  },
+  {
+    name: "show rooms",
+    to: "/all/showrooms",
+    img: "assets/svg/navbar/mobshow.svg",
+  },
+  {
+    name: "architectural media",
+    to: "",
+    img: "assets/svg/navbar/mobpod.svg",
+    drop: [
+      { name: "interviews", to: "/all/interviews" },
+      { name: "podcast", to: "/all/podcast" },
+    ],
+  },
+  {
+    name: "comics",
+    to: "/all/comic",
+    img: "assets/svg/navbar/mobcomic.svg",
+  },
+  {
+    name: "it placements",
+    to: "/all/placement",
+    img: "assets/svg/navbar/mobit.svg",
+  },
+  {
+    name: "submit a project",
+    to: "/form/submit",
+    img: "assets/svg/navbar/mobsub.svg",
+  },
+  {
+    name: "be an architect",
+    to: "",
+    img: "assets/svg/navbar/mobarc.svg",
+  },
+];

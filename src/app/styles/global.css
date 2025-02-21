@@ -206,18 +206,6 @@ a {
   color: var(--white);
   gap: 53px;
 }
-.app .nav_container .nav_desktop .nav_sec .nav_seclink {
-  color: var(--graytext);
-  font-weight: 600;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: 0.3s ease-in-out;
-}
-.app .nav_container .nav_desktop .nav_sec .nav_seclink :hover {
-  color: var(--secondary);
-  transition: 0.3s ease-in-out;
-}
 .app .nav_container .nav_desktop .nav_sec .nav_secarch {
   color: var(--graytext);
   font-weight: 600;
@@ -532,6 +520,90 @@ a {
 .app .nav_container .nav_mobile .nav_mobsearch .nav_sch .nav_schbtn svg {
   color: var(--darkone);
   font-size: 2.2rem;
+}
+.app .nav_container .nav_mobile .nav_mobsearch .nav_sch .nav_schbtn svg:hover {
+  color: var(--secondary);
+}
+.app .nav_container .nav_mobile .nav_moblinks {
+  top: 64.5px;
+  position: absolute;
+  left: 0px;
+  width: 100%;
+}
+.app .nav_container .nav_mobile .nav_moblinks .navlink_container {
+  width: 65%;
+  height: 100%;
+  background-color: var(--gray);
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.34);
+}
+.app .nav_container .nav_mobile .nav_moblinks .navlink_container .navlink_map {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.app .nav_container .nav_mobile .nav_moblinks .navlink_container .navlink_map .navlink_icon {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  align-items: center;
+  text-transform: uppercase;
+  height: 47px;
+  border-bottom: 1px solid var(--graytwo);
+  gap: 16px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.app .nav_container .nav_mobile .nav_moblinks .navlink_container .navlink_map .navlink_icon::before, .app .nav_container .nav_mobile .nav_moblinks .navlink_container .navlink_map .navlink_icon::after {
+  box-sizing: border-box;
+}
+.app .nav_container .nav_mobile .nav_moblinks .navlink_container .navlink_map .navlink_icon img {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.app .nav_container .nav_mobile .nav_moblinks .navlink_container .navlink_map .navlink_icon a {
+  list-style-type: none;
+  text-decoration: none;
+  color: var(--darkone);
+}
+.app .nav_container .nav_mobile .nav_moblinks .navlink_container .navlink_map .navlink_icon svg {
+  color: var(--secondary);
+}
+.app .nav_container .nav_mobile .nav_moblinks .navlink_container .navlink_map .navlink_drop {
+  width: 100%;
+  border-bottom: 1px solid var(--graytwo);
+  display: flex;
+  flex-direction: column;
+  padding-left: 60px;
+  padding-right: 20px;
+  align-items: center;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.app .nav_container .nav_mobile .nav_moblinks .navlink_container .navlink_map .navlink_drop::before, .app .nav_container .nav_mobile .nav_moblinks .navlink_container .navlink_map .navlink_drop::after {
+  box-sizing: border-box;
+}
+.app .nav_container .nav_mobile .nav_moblinks .navlink_container .navlink_map .navlink_drop p {
+  height: 47px;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  color: var(--darkone);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .app .home {
   width: 100%;

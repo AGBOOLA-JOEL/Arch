@@ -11,13 +11,7 @@ const NavPrimary = ({}) => {
       <ul>
         {navprimary.map((data) => {
           return (
-            <li
-              key={data.name}
-              className="nav_primarylink"
-              // onClick={() => {
-              //   closeDropdown();
-              //   }}
-            >
+            <li key={data.name} className="nav_primarylink">
               <Link href={data.to}>{data.name}</Link>
             </li>
           );

@@ -127,19 +127,6 @@
       color: $white;
       gap: 53px;
 
-      & .nav_seclink {
-        color: $gray-text;
-        font-weight: 600;
-        font-size: 1.2rem;
-        text-transform: uppercase;
-        text-decoration: none;
-        transition: 0.3s ease-in-out;
-        & :hover {
-          color: $secondary;
-          transition: 0.3s ease-in-out;
-        }
-      }
-
       .nav_secarch {
         color: $gray-text;
         font-weight: 600;
@@ -411,108 +398,89 @@
             color: $dark-one;
             font-size: 2.2rem;
           }
+          & svg:hover {
+            color: $secondary;
+          }
           width: 18%;
+        }
+      }
+    }
+
+    & .nav_moblinks {
+      top: 64.5px;
+      position: absolute;
+      left: 0px;
+      width: 100%;
+
+      & .navlink_container {
+        width: 65%;
+        height: 100%;
+        background-color: $gray;
+        box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.34);
+
+        & .navlink_map {
+          width: 100%;
+          @include flex(column);
+          & .navlink_icon {
+            width: 100%;
+            @include flex(row);
+            @include borderbox;
+            @include strip-list;
+            padding-left: 20px;
+            padding-right: 20px;
+            align-items: center;
+            text-transform: uppercase;
+            height: 47px;
+            border-bottom: 1px solid $gray-two;
+            gap: 16px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 15px;
+            letter-spacing: 0em;
+            text-align: left;
+            & img {
+              width: 1.2rem;
+              height: 1.2rem;
+            }
+            & a {
+              @include strip-list;
+              color: $dark-one;
+            }
+            & svg {
+              color: $secondary;
+            }
+          }
+
+          & .navlink_drop {
+            width: 100%;
+            border-bottom: 1px solid $gray-two;
+            @include flex(column);
+            padding-left: 60px;
+            padding-right: 20px;
+            align-items: center;
+            @include borderbox;
+            text-transform: uppercase;
+
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 15px;
+            letter-spacing: 0em;
+            text-align: left;
+            & p {
+              height: 47px;
+              margin: 0px;
+              padding: 0px;
+              width: 100%;
+              color: $dark-one;
+              @include flex(row);
+              align-items: center;
+            }
+          }
         }
       }
     }
   }
 }
-
-// .mobilenav_toggle {
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   width: 25px;
-//   margin-left: 8px;
-//   margin-right: 10px;
-// }
-
-// .mobilenav_content {
-//   position: absolute;
-//   top: 64px;
-//   width: 286px;
-//   opacity: 1;
-//   transition: opacity 0.4s ease;
-//   background-color: rgba(242, 242, 242, 1);
-//   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
-// }
-// .mobilenav_contentopen {
-//   display: none;
-//   position: absolute;
-//   top: 61px;
-//   width: 0px;
-//   opacity: 0;
-//   background-color: rgba(242, 242, 242, 1);
-//   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
-// }
-// .mob_link {
-//   list-style-type: none;
-//   text-decoration: none;
-//   color: rgba(102, 102, 102, 1);
-// }
-// .mobile_navinfo {
-//   display: flex;
-//   flex-direction: row;
-//   text-transform: uppercase;
-//   align-items: center;
-//   width: 100%;
-//   height: 47px;
-//   border-bottom: 1px solid rgba(224, 224, 224, 1);
-//   gap: 15px;
-
-//   color: rgba(102, 102, 102, 1);
-//   font-family: Montserrat;
-//   font-size: 12px;
-//   font-weight: 500;
-//   line-height: 15px;
-//   letter-spacing: 0em;
-//   text-align: left;
-// }
-// .mobile_navinfo img {
-//   width: 12px;
-//   margin-left: 25px;
-// }
-// .mobile_navinfo p {
-//   width: 150px;
-//   cursor: pointer;
-//   margin-bottom: 0px;
-//   margin-top: -0.5px;
-//   margin-right: 10px;
-// }
-
-// .mob_drop {
-//   transform: rotate(0deg);
-//   transition: transform 0.3s ease;
-// }
-
-// .mob_droprot {
-//   transform: rotate(180deg);
-//   transition: transform 0.3s ease;
-// }
-// .mobile_navdrop {
-//   border-bottom: 1px solid rgba(224, 224, 224, 1);
-//   text-transform: uppercase;
-//   padding-top: 10px;
-//   padding-bottom: 10px;
-//   display: flex;
-//   flex-direction: column;
-//   border-bottom: 1px solid rgba(224, 224, 224, 1);
-//   padding-left: 70px;
-//   color: rgba(102, 102, 102, 1);
-//   font-family: Montserrat;
-//   font-size: 12px;
-//   font-weight: 500;
-//   line-height: 15px;
-//   letter-spacing: 0em;
-//   text-align: left;
-// }
-// .mobile_navdrop p:hover {
-//   color: black;
-// }
-
-// .mobile_navinfo p:hover {
-//   animation: jello-horizontal 0.9s both;
-// }
 
 // .mobilenav_account {
 //   position: absolute;
