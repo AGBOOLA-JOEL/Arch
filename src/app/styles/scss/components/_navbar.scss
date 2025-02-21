@@ -438,6 +438,7 @@
             line-height: 15px;
             letter-spacing: 0em;
             text-align: left;
+
             & img {
               width: 1.2rem;
               height: 1.2rem;
@@ -479,72 +480,43 @@
         }
       }
     }
+
+    & .nav_mobaccount {
+      // background-color: yellow;
+      top: 64.5px;
+      position: absolute;
+      left: 0px;
+      width: 100%;
+
+      & .nav_mobacc {
+        margin-left: auto;
+        width: 50%;
+        background-color: $gray;
+        box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.34);
+
+        & button {
+          width: 100%;
+          @include flex(row);
+          align-items: center;
+          color: $dark-one;
+          gap: 15px;
+          height: 50px;
+          font-size: 1.3rem;
+          font-weight: 500;
+          line-height: 14.63px;
+          text-align: left;
+          @include borderbox;
+          @include clear-btn;
+          padding-left: 20px;
+          text-transform: uppercase;
+          transition: 0.3s ease-in-out;
+          &:focus {
+            transition: 0.3s ease-in-out;
+            color: $secondary;
+            background-color: $primary;
+          }
+        }
+      }
+    }
   }
 }
-
-// .mobilenav_account {
-//   position: absolute;
-//   right: 0px;
-//   top: 65px;
-//   width: 210px;
-
-//   opacity: 1;
-//   transition: opacity 0.4s ease;
-//   background-color: rgba(242, 242, 242, 1);
-//   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-// }
-// .mobilenav_account .first {
-//   border-bottom: 1px solid rgba(224, 224, 224, 1);
-// }
-// .mobilenav_accountchild {
-//   width: 100%;
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   width: Fixed (180px) px;
-//   color: rgba(102, 102, 102, 1);
-//   gap: 20px;
-//   height: 50px;
-//   outline: none;
-//   border: none;
-//   font-size: 13px;
-//   font-weight: 400;
-//   line-height: 14.63px;
-//   text-align: left;
-
-//   /* justify-content: space-around; */
-//   /* gap: 20px; */
-// }
-// .mobilenav_accountchild :nth-child(1) {
-//   margin-left: 20px;
-// }
-
-// @keyframes jello-horizontal {
-//   0% {
-//     transform: scale3d(1, 1, 1);
-//   }
-
-//   30% {
-//     transform: scale3d(1.25, 0.75, 1);
-//   }
-
-//   40% {
-//     transform: scale3d(0.75, 1.25, 1);
-//   }
-
-//   50% {
-//     transform: scale3d(1.15, 0.85, 1);
-//   }
-
-//   65% {
-//     transform: scale3d(0.95, 1.05, 1);
-//   }
-
-//   75% {
-//     transform: scale3d(1.05, 0.95, 1);
-//   }
-
-//   100% {
-//     transform: scale3d(1, 1, 1);
-//   }
-// }

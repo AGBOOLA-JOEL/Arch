@@ -3,16 +3,11 @@
 import { TfiSearch } from "react-icons/tfi";
 import { MdOutlineCancel } from "react-icons/md";
 import { shallow } from "zustand/shallow";
-import { useGenstore } from "@/app/lib/store/general-store";
+import { useGenselectors, useGenstore } from "@/app/lib/store/general-store";
 
 const NavInput = () => {
-  const { toggle, toggleState } = useGenstore(
-    (state) => ({
-      toggle: state.toggle,
-      toggleState: state.toggleState,
-    }),
-    shallow
-  );
+  const toggle = useGenselectors.use.toggle();
+  const toggleState = useGenselectors.use.toggleState();
   return (
     <div className="navinput-container">
       {toggle ? (

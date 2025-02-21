@@ -9,6 +9,7 @@ const NavLogo = () => {
         height={0}
         src={"/assets/svg/Archlogo.svg"}
         alt={"logo"}
+        priority
         // onClick={() => {
         //   navigator("/");
 
@@ -21,6 +22,7 @@ const NavLogo = () => {
         height={0}
         src={"/assets/svg/ArchCache.svg"}
         alt={"Archcache"}
+        priority
         // onClick={() => {
         //   closeDropdown();
 

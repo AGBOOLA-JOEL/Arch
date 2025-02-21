@@ -11,7 +11,13 @@ const NavMoblink = () => {
         return (
           <div key={data.name} className="navlink_map">
             <div className="navlink_icon">
-              <Image src={data.img} alt={data.name} width={0} height={0} />
+              <Image
+                src={data.img}
+                alt={data.name}
+                width={0}
+                height={0}
+                priority
+              />
               <Link href={data.to}>{data.name}</Link>
               {data.drop && <FaAngleDown />}
             </div>

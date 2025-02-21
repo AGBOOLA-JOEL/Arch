@@ -4,11 +4,11 @@ import { FaAngleDown } from "react-icons/fa6";
 import { navsecondary } from "@/app/db/components/navbar";
 
 import Link from "next/link";
-import { useGenstore } from "@/app/lib/store/general-store";
+import { useGenselectors, useGenstore } from "@/app/lib/store/general-store";
 import NavInput from "./component/NavInput";
 
 const NavSecondary = () => {
-  const toggle = useGenstore((state) => state.toggle);
+  const toggle = useGenselectors.use.toggle();
 
   return (
     <nav className="nav_sec">

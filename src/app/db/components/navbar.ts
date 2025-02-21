@@ -84,32 +84,32 @@ export const navmobile = [
   {
     name: "news",
     to: "/all/news",
-    img: "assets/svg/navbar/mobnews.svg",
+    img: "/assets/svg/navbar/mobnews.svg",
   },
   {
     name: "portfolios",
     to: "/all/portfolio",
-    img: "assets/svg/navbar/mobport.svg",
+    img: "/assets/svg/navbar/mobport.svg",
   },
   {
     name: "competitions",
     to: "/all/competition",
-    img: "assets/svg/navbar/mobcomp.svg",
+    img: "/assets/svg/navbar/mobcomp.svg",
   },
   {
     name: "scholarships",
     to: "/all/scholarships",
-    img: "assets/svg/navbar/mobsch.svg",
+    img: "/assets/svg/navbar/mobsch.svg",
   },
   {
     name: "show rooms",
     to: "/all/showrooms",
-    img: "assets/svg/navbar/mobshow.svg",
+    img: "/assets/svg/navbar/mobshow.svg",
   },
   {
     name: "architectural media",
     to: "",
-    img: "assets/svg/navbar/mobpod.svg",
+    img: "/assets/svg/navbar/mobpod.svg",
     drop: [
       { name: "interviews", to: "/all/interviews" },
       { name: "podcast", to: "/all/podcast" },
@@ -118,21 +118,21 @@ export const navmobile = [
   {
     name: "comics",
     to: "/all/comic",
-    img: "assets/svg/navbar/mobcomic.svg",
+    img: "/assets/svg/navbar/mobcomic.svg",
   },
   {
     name: "it placements",
     to: "/all/placement",
-    img: "assets/svg/navbar/mobit.svg",
+    img: "/assets/svg/navbar/mobit.svg",
   },
   {
     name: "submit a project",
     to: "/form/submit",
-    img: "assets/svg/navbar/mobsub.svg",
+    img: "/assets/svg/navbar/mobsub.svg",
   },
   {
     name: "be an architect",
     to: "",
-    img: "assets/svg/navbar/mobarc.svg",
+    img: "/assets/svg/navbar/mobarc.svg",
   },
 ];

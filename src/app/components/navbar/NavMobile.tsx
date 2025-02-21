@@ -7,6 +7,7 @@ import { BsCart3 } from "react-icons/bs";
 import { RxAvatar } from "react-icons/rx";
 import NavSearch from "./component/NavSearch";
 import NavMoblink from "./component/NavMoblink";
+import NavAccount from "./component/NavAccount";
 
 const NavMobile = () => {
   return (
@@ -40,9 +41,13 @@ const NavMobile = () => {
         <NavSearch />
       </div> */}
 
-      {/* <div className="nav_moblinks">
+      <div className="nav_moblinks">
         <NavMoblink />
-      </div> */}
+      </div>
+
+      <div className="nav_mobaccount">
+        <NavAccount />
+      </div>
     </nav>
   );
 };
