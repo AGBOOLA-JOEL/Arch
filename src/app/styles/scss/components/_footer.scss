@@ -1,3 +1,101 @@
 & .footer {
-  background-color: red;
+  width: 100%;
+  background-color: #101010;
+  @include flex(column);
+  align-items: center;
+
+  & .footer_info {
+    @include borderbox;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    width: 80%;
+    @include flex(row);
+    justify-content: space-between;
+    @include sm {
+      padding-bottom: 40px;
+      gap: 50px;
+      flex-direction: column;
+    }
+
+    & .footer_logo {
+      height: 100%;
+    }
+  }
+  & .footer_mark {
+    color: $dark-one;
+    width: 100%;
+    background-color: $dark;
+    font-size: 1.6rem;
+    @include full-flex(center, center, row);
+    font-style: italic;
+  }
+
+  //component
+  & .footer_socials {
+    @include flex(column);
+    align-items: center;
+    gap: 5px;
+
+    & p {
+      font-size: 1.6rem;
+      font-style: italic;
+      color: $gray-text;
+      font-weight: 500;
+    }
+    .footer_media {
+      @include flex(row);
+      align-items: center;
+      gap: 15px;
+      & span {
+        @include full-flex(center, center, row);
+        border: 1px solid $dark-two;
+        border-radius: 50%;
+        padding: 5px;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+
+        & svg {
+          width: 70%;
+          height: auto;
+          color: $dark-two;
+          transition: 0.3s ease-in-out;
+          cursor: pointer;
+        }
+      }
+
+      & span:hover {
+        border-color: $secondary;
+      }
+
+      & span:hover svg {
+        fill: $secondary;
+      }
+    }
+  }
+  & .footer_links {
+    @include sm {
+      width: 100%;
+      @include full-flex(center, center, column);
+    }
+    height: 100%;
+    @include flex(column);
+    gap: 15px;
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    & a {
+      @include strip-list;
+      color: $dark-two;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+      &:hover {
+        color: $secondary;
+      }
+      &:focus {
+        color: $secondary;
+      }
+    }
+  }
 }

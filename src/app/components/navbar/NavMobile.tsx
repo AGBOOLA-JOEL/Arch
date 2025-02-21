@@ -16,7 +16,7 @@ const NavMobile = () => {
         <HamburgerMenu size={25} />
 
         <div className="nav_logo">
-          <ArchLogo />
+          <ArchLogo type={"/assets/svg/ArchCache.svg"} />
         </div>
       </div>
 

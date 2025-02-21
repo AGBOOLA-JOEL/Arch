@@ -7,7 +7,7 @@ const NavPrimary = ({}) => {
   return (
     <nav className="nav_primary">
       <div className="nav_logo">
-        <ArchLogo />
+        <ArchLogo type={"/assets/svg/ArchCache.svg"} />
       </div>
 
       <ul>

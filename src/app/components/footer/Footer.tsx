@@ -10,15 +10,18 @@ import {
 const Footer = () => {
   return (
     <div className="footer">
-      <div>
-        <NavLogo />
+      <div className="footer_info">
+        <div className="footer_logo">
+          <NavLogo type={"/assets/svg/ArchWhite.svg"} />
+        </div>
+
         <FooterLinks links={footerTwo} />
         <FooterLinks links={footerThree} />
         <FooterLinks links={footerFour} />
         <FooterSocials />
       </div>
 
-      <div>
+      <div className="footer_mark">
         <p> © 2022 ArchCache - All Rights Reserved</p>
       </div>
     </div>

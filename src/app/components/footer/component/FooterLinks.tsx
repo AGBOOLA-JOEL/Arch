@@ -3,16 +3,14 @@ import Link from "next/link";
 
 const FooterLinks = ({ links }: FooterPropType) => {
   return (
-    <div>
-      <div>
-        {links.map((data) => {
-          return (
-            <Link href={data.url} key={data.id}>
-              {data.name}
-            </Link>
-          );
-        })}
-      </div>
+    <div className="footer_links">
+      {links.map((data) => {
+        return (
+          <Link href={data.url} key={data.id}>
+            {data.name}
+          </Link>
+        );
+      })}
     </div>
   );
 };

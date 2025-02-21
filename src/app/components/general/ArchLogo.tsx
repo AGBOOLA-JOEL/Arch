@@ -1,7 +1,10 @@
 import Image from "next/image";
 import React from "react";
 
-const ArchLogo = () => {
+type LogoType = {
+  type: string;
+};
+const ArchLogo = ({ type }: LogoType) => {
   return (
     <div className="arch_logo">
       <Image
@@ -20,7 +23,7 @@ const ArchLogo = () => {
       <Image
         width={0}
         height={0}
-        src={"/assets/svg/ArchCache.svg"}
+        src={type}
         alt={"Archcache"}
         priority
         // onClick={() => {
