@@ -1,7 +1,7 @@
 "use client";
 
 import { Squash as HamburgerMenu } from "hamburger-react";
-import NavLogo from "./component/NavLogo";
+import ArchLogo from "../general/ArchLogo";
 import { ImSearch } from "react-icons/im";
 import { BsCart3 } from "react-icons/bs";
 import { RxAvatar } from "react-icons/rx";
@@ -15,7 +15,9 @@ const NavMobile = () => {
       <div className="nav_mobham">
         <HamburgerMenu size={25} />
 
-        <NavLogo />
+        <div className="nav_logo">
+          <ArchLogo />
+        </div>
       </div>
 
       <div className="nav_mobnavs">
@@ -41,13 +43,13 @@ const NavMobile = () => {
         <NavSearch />
       </div> */}
 
-      <div className="nav_moblinks">
+      {/* <div className="nav_moblinks">
         <NavMoblink />
-      </div>
+      </div> */}
 
-      <div className="nav_mobaccount">
+      {/* <div className="nav_mobaccount">
         <NavAccount />
-      </div>
+      </div> */}
     </nav>
   );
 };

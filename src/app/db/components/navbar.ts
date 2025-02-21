@@ -1,15 +1,3 @@
-// import Mobproj from "/assets/svg/navbar/mobproj.svg";
-// import Mobnews from "assets/svg/navbar/mobnews.svg";
-// import Mobport from "assets/svg/navbar/mobport.svg";
-// import Mobcomp from "assets/svg/navbar/mobcomp.svg";
-// import Mobsch from "assets/svg/navbar/mobsch.svg";
-// import Mobshow from "assets/svg/navbar/mobshow.svg";
-// import Mobpod from "assets/svg/navbar/mobpod.svg";
-// import Mobcomic from "assets/svg/navbar/mobcomic.svg";
-// import Mobit from "assets/svg/navbar/mobit.svg";
-// import Mobsub from "assets/svg/navbar/mobsub.svg";
-// import Mobarc from "assets/svg/navbar/mobarc.svg";
-
 export const navprimary = [
   {
     name: "projects",

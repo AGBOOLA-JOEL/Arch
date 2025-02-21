@@ -65,24 +65,6 @@ a {
   justify-content: center;
   flex-direction: row;
 }
-@media (max-width: 850px) {
-  .app .nav_container .nav_logo {
-    margin-left: -15px;
-  }
-}
-.app .nav_container .nav_logo :nth-child(1) {
-  width: 60px;
-  height: 60px;
-}
-@media (max-width: 850px) {
-  .app .nav_container .nav_logo :nth-child(1) {
-    margin-right: -10px;
-  }
-}
-.app .nav_container .nav_logo :nth-child(2) {
-  width: 87px;
-  height: 18px;
-}
 .app .nav_container .nav_desktop {
   position: fixed;
   width: 100%;
@@ -644,6 +626,33 @@ a {
   transition: 0.3s ease-in-out;
   color: var(--secondary);
   background-color: var(--primary);
+}
+.app .arch_logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+@media (max-width: 850px) {
+  .app .arch_logo {
+    margin-left: -15px;
+  }
+}
+.app .arch_logo :nth-child(1) {
+  width: 60px;
+  height: 60px;
+}
+@media (max-width: 850px) {
+  .app .arch_logo :nth-child(1) {
+    margin-right: -10px;
+  }
+}
+.app .arch_logo :nth-child(2) {
+  width: 87px;
+  height: 18px;
+}
+.app .footer {
+  background-color: red;
 }
 .app .home {
   width: 100%;

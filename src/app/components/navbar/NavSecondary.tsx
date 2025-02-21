@@ -20,7 +20,7 @@ const NavSecondary = () => {
                 <p>{nav.name}</p>
                 {nav.drop && <FaAngleDown />}
               </div>
-              {nav.drop && (
+              {/* {nav.drop && (
                 <div className="nav_secdrop">
                   {nav.drop.map((data) => {
                     return (
@@ -30,7 +30,7 @@ const NavSecondary = () => {
                     );
                   })}
                 </div>
-              )}
+              )} */}
             </div>
           );
         })}

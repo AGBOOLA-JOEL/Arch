@@ -1,13 +1,15 @@
 import React from "react";
 import { navprimary } from "@/app/db/components/navbar";
 import Link from "next/link";
-import Image from "next/image";
-import NavLogo from "./component/NavLogo";
+import ArchLogo from "../general/ArchLogo";
 
 const NavPrimary = ({}) => {
   return (
     <nav className="nav_primary">
-      <NavLogo />
+      <div className="nav_logo">
+        <ArchLogo />
+      </div>
+
       <ul>
         {navprimary.map((data) => {
           return (

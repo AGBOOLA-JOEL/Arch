@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
 
-const NavLogo = () => {
+const ArchLogo = () => {
   return (
-    <div className="nav_logo">
+    <div className="arch_logo">
       <Image
         width={0}
         height={0}
@@ -33,4 +33,4 @@ const NavLogo = () => {
   );
 };
 
-export default NavLogo;
+export default ArchLogo;

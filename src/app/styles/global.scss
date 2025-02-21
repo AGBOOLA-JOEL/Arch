@@ -59,7 +59,9 @@ a {
 
   // components
   @import "./scss/components/navbar";
-  @import "./scss/components/sidebar";
+  @import "./scss/components/general";
+
+  @import "./scss/components/footer";
 
   // pages
   @import "./scss/pages/homepage";
