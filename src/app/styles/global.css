@@ -39,6 +39,7 @@ a {
   flex-direction: column;
 }
 .app .app_navbar {
+  z-index: 100000000000;
   height: 116px;
   background-color: var(--white);
 }
@@ -49,10 +50,10 @@ a {
 }
 .app .app_children {
   min-height: 100vh;
-  background-color: pink;
+  width: 100%;
 }
 .app .app_footer {
-  background-color: yellow;
+  width: 100%;
 }
 .app .nav_container {
   width: 100%;
@@ -765,23 +766,190 @@ a {
 .app .footer .footer_links a:focus {
   color: var(--secondary);
 }
+.app .home_carousel {
+  width: 100%;
+  height: 408px;
+  position: relative;
+  /* overflow: hidden; */
+}
+@media (max-width: 850px) {
+  .app .home_carousel {
+    height: 440px;
+  }
+}
+.app .home_carousel .homecar_img {
+  width: 100%;
+  height: 100%;
+}
+.app .home_carousel .homecar_img .homecar_deskimg {
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 850px) {
+  .app .home_carousel .homecar_img .homecar_deskimg {
+    display: none;
+  }
+}
+.app .home_carousel .homecar_img .homecar_mobimg {
+  display: none;
+}
+@media (max-width: 850px) {
+  .app .home_carousel .homecar_img .homecar_mobimg {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+}
+.app .home_carousel .homecar_map {
+  width: 100%;
+  height: 100%;
+  background: rgb(9, 80, 135);
+  opacity: 82%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.app .home_carousel .homecar_map .homecar_info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 228px;
+  margin-top: 65px;
+}
+@media (max-width: 850px) {
+  .app .home_carousel .homecar_map .homecar_info {
+    margin-top: 0px;
+    height: 228px;
+    width: 100%;
+  }
+}
+.app .home_carousel .homecar_map .homecar_info .homecar_data {
+  padding-bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 40px;
+}
+@media (max-width: 850px) {
+  .app .home_carousel .homecar_map .homecar_info .homecar_data {
+    width: 100%;
+  }
+}
+.app .home_carousel .homecar_map .homecar_info .homecar_data h1 {
+  color: var(--white);
+  font-size: 1.9rem;
+  font-weight: 700px;
+  padding-bottom: 5px;
+}
+@media (max-width: 850px) {
+  .app .home_carousel .homecar_map .homecar_info .homecar_data h1 {
+    margin-top: 120px;
+    width: 260px;
+  }
+}
+.app .home_carousel .homecar_map .homecar_info .homecar_data p {
+  font-size: 1.6rem;
+  color: var(--white);
+  width: 569px;
+  line-height: 28px;
+  margin-top: 0px;
+  text-align: center;
+}
+@media (max-width: 850px) {
+  .app .home_carousel .homecar_map .homecar_info .homecar_data p {
+    width: 370px;
+  }
+}
+.app .home_carousel .homecar_map .homecar_info .homecar_data button {
+  margin-top: 15px;
+  font-weight: 400;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: none;
+  width: 198px;
+  height: 47px;
+  font-size: 1.4rem;
+  border-radius: 48px;
+  border: 1px solid var(--white);
+  cursor: pointer;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+.app .home_carousel .homecar_map .homecar_info .homecar_data button:hover {
+  color: var(--secondary);
+  border: 1px solid var(--secondary);
+}
+.app .home_carousel .homecar_map .homecar_info .carousel .control-dots .dot.selected {
+  background: rgb(167, 183, 194) !important;
+  box-shadow: none !important;
+  height: 10px !important;
+  width: 10px !important;
+  border: none !important;
+}
+.app .home_carousel .homecar_map .homecar_info .carousel .control-dots .dot {
+  height: 10px !important;
+  width: 10px !important;
+  background: none !important;
+  box-shadow: none !important;
+  border: 1px solid rgb(168, 168, 168) !important;
+  margin-right: 3px !important;
+}
+.app .home_carousel .homecar_map .homecar_info .control-dots {
+  margin-left: -3px !important;
+}
+@media (max-width: 850px) {
+  .app .home_carousel .homecar_map .homecar_info .carousel-root {
+    width: 100% !important;
+  }
+}
+.app .home_carousel .homecar_map .homecar_media {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  margin-top: 50px;
+}
+@media (max-width: 850px) {
+  .app .home_carousel .homecar_map .homecar_media {
+    margin-top: 120px;
+  }
+}
+.app .home_carousel .homecar_map .homecar_media span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border: 1px solid var(--darktwo);
+  border-radius: 50%;
+  padding: 5px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.app .home_carousel .homecar_map .homecar_media span svg {
+  width: 70%;
+  height: auto;
+  color: var(--white);
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+.app .home_carousel .homecar_map .homecar_media span:hover {
+  border-color: var(--secondary);
+}
+.app .home_carousel .homecar_map .homecar_media span:hover svg {
+  fill: var(--secondary);
+}
 .app .home {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: var(--secondary);
-}
-.app .home .home_box {
-  width: 500px;
-  height: 500px;
-  background-color: blue;
-  box-sizing: border-box;
-  padding: 20px 20px;
-}
-@media (max-width: 850px) {
-  .app .home .home_box {
-    width: 100px;
-    height: 100px;
-  }
 }/*# sourceMappingURL=global.css.map */

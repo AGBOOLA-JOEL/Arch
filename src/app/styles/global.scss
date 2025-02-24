@@ -42,6 +42,7 @@ a {
   @include flex(column);
 
   .app_navbar {
+    z-index: 100000000000;
     height: 116px;
     background-color: $white;
     @include sm {
@@ -51,10 +52,10 @@ a {
 
   .app_children {
     min-height: 100vh;
-    background-color: pink;
+    width: 100%;
   }
   .app_footer {
-    background-color: yellow;
+    width: 100%;
   }
 
   // components
@@ -62,6 +63,7 @@ a {
   @import "./scss/components/general";
 
   @import "./scss/components/footer";
+  @import "./scss/components/carousel";
 
   // pages
   @import "./scss/pages/homepage";

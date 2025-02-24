@@ -1,11 +1,17 @@
-const page = () => {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+import HomeCarousel from "./components/carousel/HomeCarousel";
+const Homepage = () => {
   return (
     <div className="home">
-      {/* page {apiUrl} */}
-      <div className="home_box">dddd</div>
+      <div className="home_carousel">
+        <HomeCarousel
+          deskimg={"/assets/images/carousel/homedesktop.png"}
+          mobimg={"/assets/images/carousel/homemobile.png"}
+        />
+      </div>
+
+      <div className="home_info">hhhhhd</div>
     </div>
   );
 };
 
-export default page;
+export default Homepage;
