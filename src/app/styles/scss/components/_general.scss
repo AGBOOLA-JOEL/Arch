@@ -16,3 +16,22 @@
     height: 18px;
   }
 }
+
+& .arch_arrow {
+  cursor: pointer;
+  @include full-flex(center, center, row);
+  @include strip-list;
+  gap: 15px;
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: $secondary;
+  text-decoration: none;
+}
+& .arch_arrow.primary {
+  text-decoration: none;
+  color: $primary;
+}
+
+& .arch_arrow.secondary {
+  color: $secondary;
+}

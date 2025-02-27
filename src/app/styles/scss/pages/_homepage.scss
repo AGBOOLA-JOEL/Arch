@@ -5,8 +5,38 @@
   flex-direction: column;
 
   & .home_carousel {
+    margin-bottom: 65px;
   }
 
   & .home_info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    @include sm {
+      flex-direction: column;
+    }
+
+    & .home_displays {
+      @include sm {
+        width: 100%;
+      }
+      width: 65%;
+      margin-right: 20px;
+      border: 1.5px solid rgba(220, 220, 220, 1);
+      // border-bottom: none;
+      /* padding-top: 20px; */
+      position: relative;
+      height: 100%;
+    }
+
+    & .home_sidebar {
+      @include sm {
+        width: 100%;
+      }
+      width: 35%;
+      margin-right: 50px;
+      border-bottom: none;
+      // background-color: red;
+    }
   }
 }

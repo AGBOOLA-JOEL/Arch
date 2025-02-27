@@ -7,7 +7,7 @@ import { homecarousel } from "@/app/db/components/carousel.db";
 import Image from "next/image";
 
 // // import useRole from "pages/hooks/useRole";
-// import { homecarousel } from "data/homecarousel";
+
 type HomeImgProp = {
   deskimg: string;
   mobimg: string;

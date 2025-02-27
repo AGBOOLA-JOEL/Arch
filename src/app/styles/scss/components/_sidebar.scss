@@ -1,1 +1,196 @@
- 
+@mixin sideheadstyle {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $dark;
+  height: 50px;
+  @include center(column);
+  width: 100%;
+  border-bottom: 1px solid $gray-two;
+  cursor: pointer;
+}
+
+& .sidebar {
+  width: 100%;
+  border: 1px solid $gray-two;
+  border-bottom: none;
+
+  @include sm {
+    border: none;
+  }
+  // style for gif bar
+  & .gifside {
+    width: 100%;
+    @include full-flex($align: center, $flow: column);
+
+    border-bottom: 1px solid $gray-two;
+    & .gifside_header {
+      @include sideheadstyle;
+    }
+    & .gifside_info {
+      height: 300px;
+      @include center(column);
+
+      & .gifside_image {
+        @include center(column);
+
+        & img {
+          height: 200px;
+          width: 200px;
+        }
+      }
+
+      & .gifside_link {
+        margin-bottom: 50px;
+        margin-top: -30px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  //style for news side
+  & .newside {
+    @include flex(column);
+    flex-direction: column;
+    border-bottom: 1px solid $gray-two;
+
+    & .newside_head {
+      @include sideheadstyle;
+      margin-bottom: 20px;
+    }
+
+    & .newside_info {
+      @include center(row);
+      gap: 25px;
+      margin-bottom: 15px;
+      width: 100%;
+      overflow: hidden;
+
+      & .newside_image {
+        height: 148px;
+        width: 30%;
+        margin-left: 20px;
+        // @include bgimage("../..//..//assets/images/mapimage.jpg");
+        // background-image: url("../..//..//assets/images/mapimage.jpg");
+        // background-repeat: no-repeat;
+        // background-position: center;
+        // background-size: cover;
+
+        @include sm {
+          height: 148px;
+          width: 40%;
+        }
+      }
+
+      & .newside_image img {
+        height: 100%;
+        width: 100%;
+      }
+
+      & .newside_text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        width: 70%;
+
+        @include sm {
+          width: 60%;
+        }
+
+        & :nth-child(1) {
+          font-size: 13.58px;
+          font-weight: 600;
+          line-height: 16px;
+          letter-spacing: 0em;
+          text-align: justify;
+          color: #666666;
+          width: 283px;
+          word-wrap: break-word;
+        }
+        & :nth-child(2) {
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 20px;
+          width: 283px;
+          word-wrap: break-word;
+          color: #212121;
+          text-align: left;
+          margin-top: -5px;
+        }
+
+        & :nth-child(3) {
+          font-size: 10px;
+          font-style: italic;
+          font-weight: 500;
+          line-height: 12px;
+          font-style: italic;
+          text-align: left;
+          color: #7c7979;
+          margin-top: -5px;
+        }
+      }
+    }
+
+    & .newside_link {
+      padding-top: 20px;
+      padding-bottom: 30px;
+    }
+  }
+
+  // style for comic side
+  & .comicside {
+    @include flex(column);
+    border-bottom: 1px solid $gray-two;
+
+    & .comicside_head {
+      @include sideheadstyle;
+      margin-bottom: 20px;
+    }
+    & .comicside_info {
+      @include center(column);
+      width: 100%;
+      margin-right: 20px;
+      & .comicside_image {
+        @include center(column);
+        // @include bgimage("../..//..//assets/images/mapimage.jpg");
+        width: 92.5%;
+        margin-bottom: 10px;
+        // background-image: url("../..//..//assets/images/mapimage.jpg");
+        // background-repeat: no-repeat;
+        // background-position: center;
+        // background-size: cover;
+        & img {
+          width: 100%;
+          height: 247px;
+        }
+      }
+
+      & .comicside_text {
+        @include center(column);
+
+        & :nth-child(1) {
+          font-size: 13rem;
+          font-weight: 400;
+          line-height: 14px;
+          color: #212121;
+          text-align: left;
+        }
+
+        & :nth-child(2) {
+          font-size: 1.2rem;
+          font-style: italic;
+          font-weight: 500;
+          line-height: 12px;
+          color: rgba(124, 121, 121, 1);
+          margin-top: 0px;
+        }
+      }
+    }
+
+    & .comicside_link {
+      padding-top: 20px;
+      padding-bottom: 30px;
+    }
+  }
+}
