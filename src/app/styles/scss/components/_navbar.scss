@@ -130,6 +130,15 @@
           gap: 20px;
           padding-left: 20px;
           cursor: pointer;
+
+          & a {
+            @include strip-list;
+            color: $white;
+
+            &:hover {
+              color: $secondary;
+            }
+          }
         }
 
         & .nav_secdrop {
@@ -268,21 +277,27 @@
     display: none;
     @include sm {
       @include borderbox;
-      padding-left: 3px;
-      padding-right: 7px;
       width: 100%;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
       background-color: $white;
       @include full-flex(center, space-between, row);
       height: 63px;
     }
 
     & .nav_mobham {
+      @include sm {
+        margin-left: 3px;
+      }
+
       @include flex(row);
       align-items: center;
       gap: 0px;
     }
     & .nav_mobnavs {
       & .nav_mobtool {
+        @include sm {
+          margin-right: 7px;
+        }
         @include flex(row);
         align-items: center;
         gap: 17px;

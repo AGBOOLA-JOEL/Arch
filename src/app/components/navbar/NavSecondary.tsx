@@ -17,7 +17,7 @@ const NavSecondary = () => {
           return (
             <div className="nav_secarch" key={nav.name}>
               <div className="nav_secarrow">
-                <p>{nav.name}</p>
+                <Link href={nav.to}>{nav.name}</Link>
                 {nav.drop && <FaAngleDown />}
               </div>
               {/* {nav.drop && (

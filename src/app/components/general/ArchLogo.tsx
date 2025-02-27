@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 type LogoType = {
@@ -6,13 +7,14 @@ type LogoType = {
 };
 const ArchLogo = ({ type }: LogoType) => {
   return (
-    <div className="arch_logo">
+    <Link href={"/"} className="arch_logo">
       <Image
         width={0}
         height={0}
         src={"/assets/svg/Archlogo.svg"}
         alt={"logo"}
         priority
+
         // onClick={() => {
         //   navigator("/");
 
@@ -32,7 +34,7 @@ const ArchLogo = ({ type }: LogoType) => {
         //   navigator("/");
         // }}
       />
-    </div>
+    </Link>
   );
 };
 

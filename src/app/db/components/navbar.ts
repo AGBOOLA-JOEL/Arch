@@ -1,27 +1,27 @@
 export const navprimary = [
   {
     name: "projects",
-    to: "/all/project",
+    to: "/project",
     linkstyle: "project",
   },
   {
     name: "news",
-    to: "/all/news",
+    to: "news",
     linkstyle: "news",
   },
   {
     name: "portfolios",
-    to: "/all/portfolio",
+    to: "/portfolio",
     linkstyle: "portfolio",
   },
   {
     name: "competitions",
-    to: "/all/competition",
+    to: "/competition",
     linkstyle: "competition",
   },
   {
     name: "scholarships",
-    to: "/all/scholarships",
+    to: "/scholarship",
     linkstyle: "scholarships",
   },
 ];
@@ -29,26 +29,26 @@ export const navprimary = [
 export const navsecondary = [
   {
     name: "show rooms",
-    to: "",
+    to: "/showroom",
     linkstyle: "",
   },
   {
     name: "architectural media",
-    to: "",
+    to: "/archmedia",
     linkstyle: "",
     drop: [
-      { name: "interviews", to: "/all/interviews" },
-      { name: "podcast", to: "/all/podcast" },
+      { name: "interviews", to: "/interviews" },
+      { name: "podcast", to: "/podcast" },
     ],
   },
   {
     name: "comics",
-    to: "/all/comic",
+    to: "/comic",
     linkstyle: "comic",
   },
   {
     name: "it placements",
-    to: "/all/placement",
+    to: "/placement",
     linkstyle: "placement",
   },
   {
@@ -58,7 +58,7 @@ export const navsecondary = [
   },
   {
     name: "be an architect",
-    to: "",
+    to: "/architect",
     linkstyle: "",
   },
 ];
