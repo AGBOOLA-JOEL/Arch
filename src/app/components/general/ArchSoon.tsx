@@ -4,7 +4,10 @@ import type React from "react";
 
 import { useState, useEffect, useRef } from "react";
 
-export default function ArchSoon() {
+type SoonProp = {
+  soontitle: string;
+};
+export default function ArchSoon({ soontitle }: SoonProp) {
   const [email, setEmail] = useState("");
   const [days, setDays] = useState(30);
   const [hours, setHours] = useState(0);
@@ -135,7 +138,7 @@ export default function ArchSoon() {
 
         <p className="description">
           {` 
-          Our new architectural portfolio is under construction. We're crafting
+          Our new ${soontitle}  is under construction. We're crafting
           something extraordinary that merges form, function, and innovation.`}
         </p>
 
@@ -160,7 +163,7 @@ export default function ArchSoon() {
         </div>
 
         <div className="architectural-elements">
-          {["ruler", "grid", "compass"].map((tool, index) => (
+          {["grid", "ruler", "compass"].map((tool, index) => (
             <div key={tool} className="element-group">
               <svg
                 className="element-icon"
@@ -169,12 +172,6 @@ export default function ArchSoon() {
                 stroke="currentColor"
                 strokeWidth="2"
               >
-                {tool === "ruler" && (
-                  <>
-                    <circle cx="12" cy="12" r="10" />
-                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
-                  </>
-                )}
                 {tool === "grid" && (
                   <>
                     <rect width="18" height="18" x="3" y="3" rx="2" />
@@ -184,6 +181,51 @@ export default function ArchSoon() {
                     <path d="M15 3v18" />
                   </>
                 )}
+                {tool === "ruler" && (
+                  <>
+                    <rect
+                      x="4"
+                      y="10"
+                      width="16"
+                      height="4"
+                      rx="1"
+                      transform="rotate(-20 12 12)"
+                    />
+                    <line
+                      x1="6"
+                      y1="11"
+                      x2="6.5"
+                      y2="13"
+                      stroke="black"
+                      strokeWidth="1.5"
+                    />
+                    <line
+                      x1="9"
+                      y1="10.5"
+                      x2="9.5"
+                      y2="12.5"
+                      stroke="black"
+                      strokeWidth="1.5"
+                    />
+                    <line
+                      x1="12"
+                      y1="10"
+                      x2="12.5"
+                      y2="12"
+                      stroke="black"
+                      strokeWidth="1.5"
+                    />
+                    <line
+                      x1="15"
+                      y1="9.5"
+                      x2="15.5"
+                      y2="11.5"
+                      stroke="black"
+                      strokeWidth="1.5"
+                    />
+                  </>
+                )}
+
                 {tool === "compass" && (
                   <>
                     <circle cx="12" cy="12" r="10" />

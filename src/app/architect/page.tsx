@@ -7,7 +7,7 @@ const ArchSoon = dynamic(() => import("../components/general/ArchSoon"), {
 const page = () => {
   return (
     <div className="archit">
-      <ArchSoon />;
+      <ArchSoon soontitle="architect info" />;
     </div>
   );
 };
