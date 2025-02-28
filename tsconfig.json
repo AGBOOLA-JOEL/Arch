@@ -21,10 +21,11 @@
         "name": "next"
       }
     ],
+ 
+    "baseUrl": "src", 
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["*"], 
+      "@components/*": ["app/components/*"]
     },
     "target": "ES2017"
   },

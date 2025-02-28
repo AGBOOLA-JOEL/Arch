@@ -4,6 +4,7 @@ import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 import Link from "next/link";
 import ArchArrow from "../../general/ArchArrow";
+import Skeletonside from "../../skeleton/skeletonside";
 
 const NewSide = () => {
   // const [apiData, setApiData] = useState([]);
@@ -60,27 +61,13 @@ const NewSide = () => {
           );
         })
       ) : ( */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Stack spacing={0.5}>
-          <Skeleton
-            variant="rectangular"
-            width={400}
-            height={235}
-            animation="wave"
-          />
-        </Stack>
+      <div className="newside_skel">
+        <Skeletonside />
       </div>
+
       <div className="newside_link">
         <ArchArrow text="See more" route="/all/news" />
       </div>
-
       {/* <Link
         href="/all/news"
         style={{ textDecoration: "none", listStyleType: "none" }}

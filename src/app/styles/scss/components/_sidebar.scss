@@ -131,7 +131,10 @@
         }
       }
     }
-
+    & .newside_skel {
+      width: 100%;
+      @include center(column);
+    }
     & .newside_link {
       padding-top: 20px;
       padding-bottom: 30px;
@@ -187,7 +190,10 @@
         }
       }
     }
-
+    & .comicside_skel {
+      width: 100%;
+      @include center(column);
+    }
     & .comicside_link {
       padding-top: 20px;
       padding-bottom: 30px;

@@ -7,6 +7,7 @@ import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 import Link from "next/link";
 import ArchArrow from "../../general/ArchArrow";
+import Skeletonside from "../../skeleton/skeletonside";
 
 const ComicSide = () => {
   // const { comicSlice } = useContext(mainContext);
@@ -71,23 +72,10 @@ const ComicSide = () => {
           );
         })
       ) : ( */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Stack spacing={0.5}>
-          <Skeleton
-            variant="rectangular"
-            width={400}
-            height={235}
-            animation="wave"
-          />
-        </Stack>
+      <div className="comicside_skel">
+        <Skeletonside />
       </div>
+
       {/* )} */}
 
       <div className="comicside_link">

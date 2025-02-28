@@ -12,7 +12,13 @@ const GifSide = () => {
       </div>
       <div className="gifside_info">
         <div className="gifside_image">
-          <Image src={"/assets/gifs/submit.gif"} alt="" width={0} height={0} />
+          <Image
+            src={"/assets/gifs/submit.gif"}
+            alt=""
+            width={0}
+            height={0}
+            unoptimized
+          />
         </div>
 
         <div className="gifside_link">
