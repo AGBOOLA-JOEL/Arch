@@ -3,7 +3,7 @@
 import { TfiSearch } from "react-icons/tfi";
 import { MdOutlineCancel } from "react-icons/md";
 import { shallow } from "zustand/shallow";
-import { useGenselectors, useGenstore } from "@/app/_lib/store/general-store";
+import { useGenselectors, useGenstore } from "@/_lib/store/general-store";
 
 const NavInput = () => {
   const toggle = useGenselectors.use.toggle();

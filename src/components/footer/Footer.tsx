@@ -1,11 +1,7 @@
 import NavLogo from "../general/ArchLogo";
 import FooterSocials from "./component/FooterSocials";
 import FooterLinks from "./component/FooterLinks";
-import {
-  footerFour,
-  footerThree,
-  footerTwo,
-} from "@/app/db/components/footer.db";
+import { footerFour, footerThree, footerTwo } from "@/db/components/footer.db";
 
 const Footer = () => {
   return (

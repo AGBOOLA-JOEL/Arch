@@ -1,4 +1,4 @@
-import { FooterPropType } from "@/app/types/footer.type";
+import { FooterPropType } from "@/types/footer.type";
 import Link from "next/link";
 
 const FooterLinks = ({ links }: FooterPropType) => {

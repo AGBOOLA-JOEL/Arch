@@ -1,4 +1,4 @@
-import { FooterProp } from "@/app/types/footer.type";
+import { FooterProp } from "@/types/footer.type";
 import { v4 as uuid } from "uuid";
 
 export const footerTwo: FooterProp = [

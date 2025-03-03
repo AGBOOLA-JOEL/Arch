@@ -15,10 +15,24 @@
   }
 
   & .form_child {
-    @include center(column);
+    @include flex(column);
+    align-items: center;
     background-color: rgba(9, 80, 135, 0.82);
     height: 100%;
     width: 100%;
     position: absolute;
+  }
+
+  & .form_header {
+    @include center(column);
+    height: 85px;
+
+    & p {
+      text-transform: uppercase;
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 29px;
+      color: $secondary;
+    }
   }
 }

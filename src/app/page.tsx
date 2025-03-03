@@ -1,5 +1,5 @@
-import HomeCarousel from "./components/carousel/HomeCarousel";
-import SideBar from "./components/sidebar/SideBar";
+import HomeCarousel from "@/components/carousel/HomeCarousel";
+import SideBar from "@/components/sidebar/SideBar";
 const Homepage = () => {
   return (
     <div className="home">
