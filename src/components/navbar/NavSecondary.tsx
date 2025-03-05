@@ -2,13 +2,12 @@
 import { IoArchiveOutline } from "react-icons/io5";
 import { FaAngleDown } from "react-icons/fa6";
 import { navsecondary } from "@/db/components/navbar";
-
 import Link from "next/link";
-import { useGenselectors, useGenstore } from "@/_lib/store/general-store";
 import NavInput from "./component/NavInput";
+import { useNavselectors } from "@/_lib/store/nav-store";
 
 const NavSecondary = () => {
-  const toggle = useGenselectors.use.toggle();
+  const toggle = useNavselectors.use.toggle();
 
   return (
     <nav className="nav_sec">

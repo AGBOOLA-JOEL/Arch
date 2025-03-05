@@ -49,6 +49,9 @@ a {
   }
 }
 .app .app_children {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   width: 100%;
 }
 .app .app_footer {
@@ -1625,16 +1628,15 @@ a {
   margin-top: 1.5px;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 1400px;
   position: relative;
 }
 .app .forms .form_bg {
   width: 100%;
-  height: 100%;
 }
 .app .forms .form_bg img {
   width: 100%;
-  height: 100%;
+  min-height: 1400px;
 }
 .app .forms .form_child {
   display: flex;
@@ -1659,33 +1661,41 @@ a {
   line-height: 29px;
   color: var(--secondary);
 }
+.app .forms .form_btn {
+  height: 59px;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  color: var(--white);
+  background-color: var(--dark);
+  outline: none;
+  border: none;
+  transition: 0.3s ease-in-out;
+}
+.app .forms .form_btn:hover {
+  transition: 0.3s ease-in-out;
+  background-color: var(--primary);
+}
 .app .register {
+  margin-top: 70px;
   width: 529px;
   background-color: var(--gray);
   border-radius: 10px;
+  padding-bottom: 20px;
 }
 .app .register .reg_fields {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 .app .register .reg_fields .reg_input {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
   height: 52px;
-  width: 90%;
+  width: 87%;
   margin-bottom: 20px;
   position: relative;
 }
 .app .register .reg_fields .reg_input input {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
   height: 100%;
   width: 100%;
   border-radius: 4px;
@@ -1701,9 +1711,6 @@ a {
   box-sizing: border-box;
 }
 .app .register .reg_fields .reg_input label {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
   position: absolute;
   top: 17px;
   left: 17px;
@@ -1792,4 +1799,103 @@ a {
 }
 .app .register .reg_fields .reg_input input::placeholder {
   color: transparent;
+}
+.app .register .reg_rolecheck {
+  margin-top: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app .register .reg_rolecheck .reg_role {
+  width: 87%;
+}
+.app .register .reg_rolecheck .reg_role .reg_roledesc {
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: var(--primary);
+}
+.app .register .reg_rolecheck .reg_role .reg_rolemap {
+  display: flex;
+  flex-direction: column;
+}
+.app .register .reg_rolecheck .reg_role .reg_rolemap .reg_roleinput {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.app .register .reg_rolecheck .reg_role .reg_rolemap .reg_roleinput input {
+  cursor: pointer;
+  accent-color: var(--primary);
+  width: 25px;
+  height: 25px;
+}
+.app .register .reg_rolecheck .reg_role .reg_rolemap .reg_roleinput input:hover {
+  accent-color: var(--secondary);
+}
+.app .register .reg_rolecheck .reg_role .reg_rolemap .reg_roleinput p {
+  color: var(--darkone);
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+.app .register .reg_rulecheck {
+  margin-top: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app .register .reg_rulecheck .reg_rule {
+  width: 87%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app .register .reg_rulecheck .reg_rule .reg_ruleinput {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.app .register .reg_rulecheck .reg_rule .reg_ruleinput input {
+  cursor: pointer;
+  accent-color: var(--primary);
+  width: 25px;
+  height: 25px;
+}
+.app .register .reg_rulecheck .reg_rule .reg_ruleinput input:hover {
+  accent-color: var(--secondary);
+}
+.app .register .reg_rulecheck .reg_rule .reg_ruleinput p {
+  color: var(--darkone);
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+.app .register .reg_button {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app .register .reg_signin {
+  margin-top: 30px;
+  width: 100%;
+  font-size: 1.9rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--darkone);
+}
+.app .register .reg_signin span {
+  color: var(--secondary);
+  margin-left: 5px;
+  cursor: pointer;
+  font-weight: 500;
 }/*# sourceMappingURL=global.css.map */

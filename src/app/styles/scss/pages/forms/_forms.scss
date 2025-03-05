@@ -1,16 +1,16 @@
 & .forms {
   margin-top: 1.5px;
   @include flex(column);
-  min-height: 100vh;
+  min-height: 1400px;
   position: relative;
 
   & .form_bg {
     width: 100%;
-    height: 100%;
+    // min-height: 1400px;
 
     & img {
       width: 100%;
-      height: 100%;
+      min-height: 1400px;
     }
   }
 
@@ -33,6 +33,22 @@
       font-weight: 700;
       line-height: 29px;
       color: $secondary;
+    }
+  }
+
+  & .form_btn {
+    height: 59px;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    color: $white;
+    background-color: $dark;
+    outline: none;
+    border: none;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      transition: 0.3s ease-in-out;
+      background-color: $primary;
     }
   }
 }

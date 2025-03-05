@@ -2,12 +2,11 @@
 "use client";
 import { TfiSearch } from "react-icons/tfi";
 import { MdOutlineCancel } from "react-icons/md";
-import { shallow } from "zustand/shallow";
-import { useGenselectors, useGenstore } from "@/_lib/store/general-store";
+import { useNavselectors } from "@/_lib/store/nav-store";
 
 const NavInput = () => {
-  const toggle = useGenselectors.use.toggle();
-  const toggleState = useGenselectors.use.toggleState();
+  const toggle = useNavselectors.use.toggle();
+  const toggleState = useNavselectors.use.toggleState();
   return (
     <div className="navinput-container">
       {toggle ? (

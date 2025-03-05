@@ -1,6 +1,4 @@
 "use client";
-
-import { useGenselectors } from "@/_lib/store/general-store";
 import { RegInputProp } from "@/types/forms.type";
 import React, { useState } from "react";
 import { FaRegEye } from "react-icons/fa6";
@@ -13,13 +11,12 @@ const RegisterInput = ({
   onChange,
   register,
 }: RegInputProp) => {
-  const toggle = useGenselectors.use.toggle();
-  const toggleState = useGenselectors.use.toggleState();
+  const [toggle, setToggle] = useState(false);
 
   return (
     <div className="reg_input">
       <input
-        type={isPassword ? (toggle ? "password" : "text") : "text"}
+        type={isPassword ? (toggle ? "text" : "password") : "text"}
         placeholder={label}
         {...register(name)}
         // value={value}
@@ -28,7 +25,12 @@ const RegisterInput = ({
       />
       <label htmlFor="">{label}</label>
       {isPassword && (
-        <div className="reg_inputtoggle" onClick={toggleState}>
+        <div
+          className="reg_inputtoggle"
+          onClick={() => {
+            setToggle(!toggle);
+          }}
+        >
           {!toggle ? <FaRegEye /> : <FaRegEyeSlash />}
         </div>
       )}

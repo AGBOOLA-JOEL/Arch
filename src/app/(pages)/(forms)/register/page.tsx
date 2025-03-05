@@ -7,8 +7,12 @@ import RegisterInput from "@/components/forms/RegisterInput";
 import { useState } from "react";
 import { JoinData } from "@/types/forms.type";
 import RegisterRole from "@/components/forms/RegisterRole";
+import RegisterRule from "@/components/forms/RegisterRule";
+import FormButton from "@/components/forms/FormButton";
 
 const Join = () => {
+  const [letter, setLetter] = useState(false);
+  const [checkTerms, setCheckterms] = useState(false);
   const { register, handleSubmit } = useForm({
     resolver: yupResolver(regschema),
   });
@@ -20,8 +24,26 @@ const Join = () => {
     setJoin({ ...join, [e.target.name]: e.target.value });
   };
 
+  const handleTermsChange = () => {
+    if (checkTerms === false) {
+      setCheckterms(true);
+    } else {
+      setCheckterms(false);
+    }
+    console.log("ceck terms", checkTerms);
+  };
+
+  const handleNewsChange = () => {
+    if (letter === false) {
+      setLetter(true);
+    } else {
+      setLetter(false);
+    }
+  };
+
+  const onSubmit = () => {};
   return (
-    <form action="" className="register">
+    <form action="" className="register" onSubmit={handleSubmit(onSubmit)}>
       <div className="form_header">
         <p>join us</p>
       </div>
@@ -69,9 +91,25 @@ const Join = () => {
           onChange={handleInputChange}
         />
       </div>
+
       <div className="reg_rolecheck">
-        <RegisterRole rank={rank} handleRolechange={handleInputChange} />
+        <RegisterRole rank={rank} handleRoleChange={handleInputChange} />
       </div>
+      <div className="reg_rulecheck">
+        <RegisterRule
+          handleTermsChange={handleTermsChange}
+          handleNewsChange={handleNewsChange}
+        />
+      </div>
+
+      <div className="reg_button">
+        <FormButton name={"Register"} onClick={onSubmit} width={86} />
+      </div>
+
+      <h2 className="reg_signin">
+        Already have an account?
+        <span>Sign in</span>
+      </h2>
     </form>
   );
 };
