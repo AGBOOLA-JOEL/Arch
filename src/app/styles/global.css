@@ -2243,4 +2243,119 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.app .submit {
+  margin-top: 70px;
+  width: 529px;
+  background-color: var(--gray);
+  border-radius: 10px;
+  padding-bottom: 30px;
+}
+@media (max-width: 1012px) {
+  .app .submit {
+    width: 100%;
+    background-color: var(--white);
+    margin-top: 0px;
+  }
+}
+.app .submit .submit_info .submit_infotitle {
+  width: 100%;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--secondary);
+  height: 45px;
+  border-bottom: 1px solid var(--graytwo);
+}
+.app .submit .submit_info .submit_infopub {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app .submit .submit_info .submit_infopub h1 {
+  color: var(--darkone);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.app .submit .submit_info .submit_infopub p {
+  width: 87%;
+  color: var(--dark);
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+  text-align: justify;
+  margin-top: 5px;
+}
+.app .submit .submit_info .submit_infocomic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app .submit .submit_info .submit_infocomic h1 {
+  color: var(--primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+  border-bottom: none;
+  margin-top: 0px;
+}
+.app .submit .submit_info .submit_infocomic p {
+  width: 85%;
+  color: var(--dark);
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+  text-align: justify;
+  margin-top: 0px;
+}
+.app .submit .submit_info .submit_infoarch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app .submit .submit_info .submit_infoarch h1 {
+  color: var(--primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-top: 0px;
+}
+.app .submit .submit_info .submit_infoarch p {
+  margin-top: 0px;
+  color: var(--dark);
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+  text-align: justify;
+  width: 87%;
+}
+.app .submit .submit_info .submit_infoarch span {
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  text-align: justify;
+  color: var(--secondary);
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
 }/*# sourceMappingURL=global.css.map */
