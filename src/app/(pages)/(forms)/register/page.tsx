@@ -4,42 +4,30 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { regschema } from "@/_utils/validation/forms";
 import RegisterInput from "@/components/forms/RegisterInput";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { JoinData } from "@/types/forms.type";
 import RegisterRole from "@/components/forms/RegisterRole";
 import RegisterRule from "@/components/forms/RegisterRule";
 import FormButton from "@/components/forms/FormButton";
 
-const Join = () => {
+const Register = () => {
   const [letter, setLetter] = useState(false);
-  const [checkTerms, setCheckterms] = useState(false);
+  const [terms, setTerms] = useState(false);
+  const [join, setJoin] = useState<JoinData>({} as JoinData);
+
   const { register, handleSubmit } = useForm({
     resolver: yupResolver(regschema),
   });
-  const [join, setJoin] = useState<JoinData>({} as JoinData);
-  const { username, email, institution, password, confirmPassword, rank } =
-    join;
 
-  const handleInputChange = (e: any) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setJoin({ ...join, [e.target.name]: e.target.value });
   };
 
-  const handleTermsChange = () => {
-    if (checkTerms === false) {
-      setCheckterms(true);
-    } else {
-      setCheckterms(false);
-    }
-    console.log("ceck terms", checkTerms);
-  };
+  const { username, email, institution, password, confirmPassword, rank } =
+    join;
 
-  const handleNewsChange = () => {
-    if (letter === false) {
-      setLetter(true);
-    } else {
-      setLetter(false);
-    }
-  };
+  const toggleTerms = () => setTerms((prev) => !prev);
+  const toggleNewsletter = () => setLetter((prev) => !prev);
 
   const onSubmit = () => {};
   return (
@@ -48,48 +36,26 @@ const Join = () => {
         <p>join us</p>
       </div>
       <div className="reg_fields">
-        <RegisterInput
-          register={register}
-          isPassword={false}
-          toggle={false}
-          label={"Username"}
-          name={"username"}
-          onChange={handleInputChange}
-        />
-        <RegisterInput
-          register={register}
-          isPassword={false}
-          toggle={false}
-          label={"Email"}
-          name={"email"}
-          onChange={handleInputChange}
-        />
-
-        <RegisterInput
-          register={register}
-          isPassword={false}
-          toggle={false}
-          label={"Institution/Firm"}
-          name={"institution"}
-          onChange={handleInputChange}
-        />
-
-        <RegisterInput
-          register={register}
-          isPassword={true}
-          toggle={false}
-          label={"Password"}
-          name={"password"}
-          onChange={handleInputChange}
-        />
-        <RegisterInput
-          register={register}
-          isPassword={true}
-          toggle={false}
-          label={"Re-enter password"}
-          name={"confirmPassword"}
-          onChange={handleInputChange}
-        />
+        {[
+          { label: "Username", name: "username", isPassword: false },
+          { label: "Email", name: "email", isPassword: false },
+          { label: "Institution/Firm", name: "institution", isPassword: false },
+          { label: "Password", name: "password", isPassword: true },
+          {
+            label: "Re-enter Password",
+            name: "confirmPassword",
+            isPassword: true,
+          },
+        ].map(({ label, name, isPassword }) => (
+          <RegisterInput
+            key={name}
+            register={register}
+            label={label}
+            name={name}
+            isPassword={isPassword}
+            onChange={handleInputChange}
+          />
+        ))}
       </div>
 
       <div className="reg_rolecheck">
@@ -97,13 +63,13 @@ const Join = () => {
       </div>
       <div className="reg_rulecheck">
         <RegisterRule
-          handleTermsChange={handleTermsChange}
-          handleNewsChange={handleNewsChange}
+          handleTermsChange={toggleTerms}
+          handleNewsChange={toggleNewsletter}
         />
       </div>
 
       <div className="reg_button">
-        <FormButton name={"Register"} onClick={onSubmit} width={86} />
+        <FormButton name={"Register"} onClick={onSubmit} />
       </div>
 
       <h2 className="reg_signin">
@@ -114,4 +80,4 @@ const Join = () => {
   );
 };
 
-export default Join;
+export default Register;

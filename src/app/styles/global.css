@@ -43,7 +43,7 @@ a {
   height: 116px;
   background-color: var(--white);
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .app_navbar {
     height: 63px;
   }
@@ -77,7 +77,7 @@ a {
   display: flex;
   flex-direction: column;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .nav_container .nav_desktop {
     display: none;
   }
@@ -375,7 +375,7 @@ a {
 .app .nav_container .nav_mobile {
   display: none;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .nav_container .nav_mobile {
     box-sizing: border-box;
     width: 100%;
@@ -397,7 +397,7 @@ a {
   align-items: center;
   gap: 0px;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .nav_container .nav_mobile .nav_mobham {
     margin-left: 3px;
   }
@@ -408,7 +408,7 @@ a {
   align-items: center;
   gap: 17px;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .nav_container .nav_mobile .nav_mobnavs .nav_mobtool {
     margin-right: 7px;
   }
@@ -663,7 +663,7 @@ a {
   justify-content: center;
   flex-direction: row;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_logo {
     margin-left: -15px;
   }
@@ -672,7 +672,7 @@ a {
   width: 60px;
   height: 60px;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_logo :nth-child(1) {
     margin-right: -10px;
   }
@@ -719,7 +719,7 @@ a {
   opacity: 0.5;
   z-index: 0;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon .grid-background {
     opacity: 0.3;
   }
@@ -732,7 +732,7 @@ a {
   padding: 4rem 1rem;
   text-align: center;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon .content {
     padding: 2rem 1rem;
   }
@@ -749,7 +749,7 @@ a {
   border-radius: 70px;
   padding: 0.7rem 2rem;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon .badge {
     padding: 0.25rem 0.75rem;
     margin-bottom: 1rem;
@@ -760,7 +760,7 @@ a {
   height: 2.5rem;
   margin-right: 20px;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon .badge .icon {
     width: 2rem;
     height: 2rem;
@@ -770,7 +770,7 @@ a {
   font-size: 2rem;
   font-weight: 500;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon .badge span {
     font-size: 2rem;
   }
@@ -785,7 +785,7 @@ a {
   background-clip: text;
   color: transparent;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon .title {
     font-size: 3.5rem;
     margin-bottom: 0.5rem;
@@ -799,7 +799,7 @@ a {
   margin-left: auto;
   margin-right: auto;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon .description {
     font-size: 1.5rem;
     margin-bottom: 2rem;
@@ -815,7 +815,7 @@ a {
   margin-left: auto;
   margin-right: auto;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon .countdown {
     max-width: 90%;
     grid-template-columns: repeat(2, 1fr);
@@ -836,7 +836,7 @@ a {
 .app .arch_soon .countdown-card:hover {
   transform: scale(1.05);
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon .countdown-card {
     padding: 0.75rem;
   }
@@ -847,7 +847,7 @@ a {
   color: var(--primary);
   margin-bottom: 0.25rem;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon .countdown-value {
     font-size: 3rem;
   }
@@ -865,7 +865,7 @@ a {
   flex-direction: row;
   margin-bottom: 3rem;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon .architectural-elements {
     margin-bottom: 2rem;
     flex-wrap: wrap;
@@ -877,7 +877,7 @@ a {
   align-items: center;
   margin: 0 2rem;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon .element-group {
     margin: 0 1rem;
   }
@@ -888,7 +888,7 @@ a {
   color: #a1a1aa;
   margin-right: 0.5rem;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon .element-icon {
     width: 2rem;
     height: 2rem;
@@ -899,7 +899,7 @@ a {
   margin: 0 auto;
   position: relative;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon .newsletter-form {
     max-width: 90%;
   }
@@ -909,7 +909,7 @@ a {
   display: flex;
   align-items: center;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon .input-container {
     flex-direction: column;
     gap: 0.75rem;
@@ -922,7 +922,7 @@ a {
   height: 2rem;
   color: #a1a1aa;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon .input-icon {
     top: 1.3rem;
     width: 2rem;
@@ -946,7 +946,7 @@ a {
   border-color: transparent;
   box-shadow: 0 0 0 2px var(--secondary);
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon input {
     padding: 1rem 1rem 1rem 3.5rem;
   }
@@ -973,7 +973,7 @@ a {
   width: 2rem;
   height: 2rem;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon button {
     position: relative;
     right: 0;
@@ -987,7 +987,7 @@ a {
   font-size: 1.5rem;
   color: var(--darkone);
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon .form-disclaimer {
     font-size: 1rem;
     margin-top: 1rem;
@@ -1000,7 +1000,7 @@ a {
   right: 2rem;
   z-index: 20;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .arch_soon .measurement-lines {
     display: none;
   }
@@ -1037,7 +1037,7 @@ a {
   border: 1px solid var(--graytwo);
   border-bottom: none;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .sidebar {
     border: none;
   }
@@ -1122,7 +1122,7 @@ a {
   width: 30%;
   margin-left: 20px;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .sidebar .newside .newside_info .newside_image {
     height: 148px;
     width: 40%;
@@ -1138,7 +1138,7 @@ a {
   justify-content: center;
   width: 70%;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .sidebar .newside .newside_info .newside_text {
     width: 60%;
   }
@@ -1275,7 +1275,7 @@ a {
 .app .footer .footer_info::before, .app .footer .footer_info::after {
   box-sizing: border-box;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .footer .footer_info {
     padding-bottom: 40px;
     gap: 50px;
@@ -1348,7 +1348,7 @@ a {
   font-size: 1.2rem;
   font-weight: 500;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .footer .footer_links {
     width: 100%;
     display: flex;
@@ -1378,7 +1378,7 @@ a {
   position: relative;
   /* overflow: hidden; */
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .home_carousel {
     height: 440px;
   }
@@ -1391,7 +1391,7 @@ a {
   width: 100%;
   height: 100%;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .home_carousel .homecar_img .homecar_deskimg {
     display: none;
   }
@@ -1399,7 +1399,7 @@ a {
 .app .home_carousel .homecar_img .homecar_mobimg {
   display: none;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .home_carousel .homecar_img .homecar_mobimg {
     display: flex;
     width: 100%;
@@ -1426,7 +1426,7 @@ a {
   height: 228px;
   margin-top: 65px;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .home_carousel .homecar_map .homecar_info {
     margin-top: 0px;
     height: 228px;
@@ -1441,7 +1441,7 @@ a {
   flex-direction: column;
   padding-bottom: 40px;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .home_carousel .homecar_map .homecar_info .homecar_data {
     width: 100%;
   }
@@ -1452,7 +1452,7 @@ a {
   font-weight: 700px;
   padding-bottom: 5px;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .home_carousel .homecar_map .homecar_info .homecar_data h1 {
     margin-top: 120px;
     width: 260px;
@@ -1466,7 +1466,7 @@ a {
   margin-top: 0px;
   text-align: center;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .home_carousel .homecar_map .homecar_info .homecar_data p {
     width: 370px;
   }
@@ -1510,7 +1510,7 @@ a {
 .app .home_carousel .homecar_map .homecar_info .control-dots {
   margin-left: -3px !important;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .home_carousel .homecar_map .homecar_info .carousel-root {
     width: 100% !important;
   }
@@ -1522,7 +1522,7 @@ a {
   gap: 15px;
   margin-top: 50px;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .home_carousel .homecar_map .homecar_media {
     margin-top: 120px;
   }
@@ -1575,7 +1575,7 @@ a {
   display: flex;
   flex-direction: row;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .home .home_info {
     flex-direction: column;
   }
@@ -1588,7 +1588,7 @@ a {
   position: relative;
   height: 100%;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .home .home_info .home_displays {
     width: 100%;
   }
@@ -1598,7 +1598,7 @@ a {
   margin-right: 50px;
   border-bottom: none;
 }
-@media (max-width: 850px) {
+@media (max-width: 1012px) {
   .app .home .home_info .home_sidebar {
     width: 100%;
   }
@@ -1634,6 +1634,11 @@ a {
 .app .forms .form_bg {
   width: 100%;
 }
+@media (max-width: 1012px) {
+  .app .forms .form_bg {
+    display: none;
+  }
+}
 .app .forms .form_bg img {
   width: 100%;
   min-height: 1400px;
@@ -1646,6 +1651,12 @@ a {
   height: 100%;
   width: 100%;
   position: absolute;
+}
+@media (max-width: 1012px) {
+  .app .forms .form_child {
+    background-color: var(--white);
+    position: relative;
+  }
 }
 .app .forms .form_header {
   display: flex;
@@ -1662,6 +1673,7 @@ a {
   color: var(--secondary);
 }
 .app .forms .form_btn {
+  width: 86%;
   height: 59px;
   font-size: 2rem;
   cursor: pointer;
@@ -1675,6 +1687,86 @@ a {
 .app .forms .form_btn:hover {
   transition: 0.3s ease-in-out;
   background-color: var(--primary);
+  color: var(--secondary);
+}
+@media (max-width: 1012px) {
+  .app .forms .form_btn {
+    font-size: 1.8rem;
+    width: 92.5%;
+  }
+}
+.app .forms .form_input {
+  height: 52px;
+  width: 87%;
+  position: relative;
+}
+@media (max-width: 1012px) {
+  .app .forms .form_input {
+    width: 92.5%;
+  }
+}
+.app .forms .form_input input {
+  height: 100%;
+  width: 100%;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid var(--darktwo);
+  background-color: var(--white);
+  color: var(--darkone);
+  font-size: 1.7rem;
+  box-sizing: border-box;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.app .forms .form_input input::before, .app .forms .form_input input::after {
+  box-sizing: border-box;
+}
+.app .forms .form_input input:focus {
+  border: 2px solid var(--darktwo);
+}
+.app .forms .form_input .form_inputtoggle {
+  position: absolute;
+  top: 30%;
+  left: 90%;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.app .forms .form_input .form_inputtoggle svg {
+  color: var(--darktwo);
+  font-size: 2rem;
+}
+.app .forms .form_google {
+  width: 87%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  height: 59px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid var(--darktwo);
+}
+@media (max-width: 1012px) {
+  .app .forms .form_google {
+    width: 92.5%;
+  }
+}
+.app .forms .form_google img {
+  width: 25px;
+  height: 25px;
+}
+.app .forms .form_google p {
+  font-weight: 500;
+  font-size: 2.1rem;
+  color: var(--darkone);
+}
+.app .forms .form_google:hover {
+  transition: 0.3s ease-in-out;
+  background-color: var(--primary);
+}
+.app .forms .form_google:hover p {
+  color: var(--secondary);
 }
 .app .register {
   margin-top: 70px;
@@ -1682,6 +1774,13 @@ a {
   background-color: var(--gray);
   border-radius: 10px;
   padding-bottom: 20px;
+}
+@media (max-width: 1012px) {
+  .app .register {
+    width: 100%;
+    background-color: var(--white);
+    margin-top: 0px;
+  }
 }
 .app .register .reg_fields {
   display: flex;
@@ -1694,6 +1793,11 @@ a {
   width: 87%;
   margin-bottom: 20px;
   position: relative;
+}
+@media (max-width: 1012px) {
+  .app .register .reg_fields .reg_input {
+    width: 92.5%;
+  }
 }
 .app .register .reg_fields .reg_input input {
   height: 100%;
@@ -1721,6 +1825,12 @@ a {
   text-align: left;
   color: var(--darkone);
   transition: top 0.5s;
+}
+@media (max-width: 1012px) {
+  .app .register .reg_fields .reg_input label {
+    font-size: 1.5rem;
+    background-color: none;
+  }
 }
 .app .register .reg_fields .reg_inputtoggle {
   position: absolute;
@@ -1760,6 +1870,15 @@ a {
 .app .register .reg_fields input:not(:placeholder-shown) + label::after {
   box-sizing: border-box;
 }
+@media (max-width: 1012px) {
+  .app .register .reg_fields input:not(:-moz-placeholder-shown) + label {
+    background-color: var(--white);
+  }
+  .app .register .reg_fields .reg_input input:focus + label,
+  .app .register .reg_fields input:not(:placeholder-shown) + label {
+    background-color: var(--white);
+  }
+}
 .app .register .reg_fields .reg_input input:not(:-moz-placeholder-shown) {
   height: 45px;
   font-size: 1.6rem;
@@ -1777,6 +1896,17 @@ a {
   border: 2px solid var(--graytwo);
   background-color: var(--gray);
 }
+@media (max-width: 1012px) {
+  .app .register .reg_fields .reg_input input:not(:-moz-placeholder-shown) {
+    font-size: 1.5rem;
+    background-color: var(--white);
+  }
+  .app .register .reg_fields .reg_input input:not(:placeholder-shown),
+  .app .register .reg_fields input {
+    font-size: 1.5rem;
+    background-color: var(--white);
+  }
+}
 .app .register .reg_fields .reg_input input:focus {
   font-size: 1.6rem;
   height: 45px;
@@ -1784,6 +1914,12 @@ a {
   border-radius: 4px;
   border: 2px solid var(--graytwo);
   background-color: var(--gray);
+}
+@media (max-width: 1012px) {
+  .app .register .reg_fields .reg_input input:focus {
+    font-size: 1.5rem;
+    background-color: var(--white);
+  }
 }
 .app .register .reg_fields .reg_input input:focus ~ .reg_inputtoggle {
   top: 13px;
@@ -1810,12 +1946,22 @@ a {
 .app .register .reg_rolecheck .reg_role {
   width: 87%;
 }
+@media (max-width: 1012px) {
+  .app .register .reg_rolecheck .reg_role {
+    width: 92.5%;
+  }
+}
 .app .register .reg_rolecheck .reg_role .reg_roledesc {
   font-size: 1.7rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   text-align: left;
   color: var(--primary);
+}
+@media (max-width: 1012px) {
+  .app .register .reg_rolecheck .reg_role .reg_roledesc {
+    font-size: 1.6rem;
+  }
 }
 .app .register .reg_rolecheck .reg_role .reg_rolemap {
   display: flex;
@@ -1841,6 +1987,11 @@ a {
   font-weight: 500;
   font-size: 1.5rem;
 }
+@media (max-width: 1012px) {
+  .app .register .reg_rolecheck .reg_role .reg_rolemap .reg_roleinput p {
+    font-size: 1.4rem;
+  }
+}
 .app .register .reg_rulecheck {
   margin-top: 25px;
   width: 100%;
@@ -1855,6 +2006,11 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+@media (max-width: 1012px) {
+  .app .register .reg_rulecheck .reg_rule {
+    width: 92.5%;
+  }
 }
 .app .register .reg_rulecheck .reg_rule .reg_ruleinput {
   width: 100%;
@@ -1877,6 +2033,14 @@ a {
   font-weight: 500;
   font-size: 1.5rem;
 }
+@media (max-width: 1012px) {
+  .app .register .reg_rulecheck .reg_rule .reg_ruleinput p {
+    font-size: 1.4rem;
+  }
+}
+.app .register .reg_rulecheck .reg_rule .reg_ruleinput span {
+  color: var(--secondary);
+}
 .app .register .reg_button {
   width: 100%;
   margin-top: 30px;
@@ -1893,9 +2057,190 @@ a {
   text-align: center;
   color: var(--darkone);
 }
+@media (max-width: 1012px) {
+  .app .register .reg_signin {
+    font-size: 1.7rem;
+  }
+}
 .app .register .reg_signin span {
   color: var(--secondary);
   margin-left: 5px;
   cursor: pointer;
   font-weight: 500;
+}
+.app .login {
+  margin-top: 70px;
+  width: 529px;
+  background-color: var(--gray);
+  border-radius: 10px;
+  padding-bottom: 30px;
+}
+@media (max-width: 1012px) {
+  .app .login {
+    width: 100%;
+    background-color: var(--white);
+    margin-top: 0px;
+  }
+}
+.app .login .login_fields {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+}
+.app .login .login_forgot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.app .login .login_forgot p {
+  margin-top: 10px;
+  width: 87%;
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: var(--secondary);
+  text-align: right;
+  cursor: pointer;
+}
+@media (max-width: 1012px) {
+  .app .login .login_forgot p {
+    width: 92.5%;
+  }
+}
+.app .login .login_forgot p:hover {
+  color: var(--primary);
+}
+.app .login .login_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 15px;
+}
+.app .login .login_join {
+  margin-top: 20px;
+  width: 100%;
+  font-size: 1.9rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--darkone);
+}
+@media (max-width: 1012px) {
+  .app .login .login_join {
+    font-size: 1.7rem;
+  }
+}
+.app .login .login_join span {
+  color: var(--secondary);
+  margin-left: 5px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.app .login .login_join span:hover {
+  color: var(--primary);
+}
+.app .login .login_google {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app .forgot {
+  margin-top: 70px;
+  width: 529px;
+  background-color: var(--gray);
+  border-radius: 10px;
+  padding-bottom: 30px;
+}
+@media (max-width: 1012px) {
+  .app .forgot {
+    width: 100%;
+    background-color: var(--white);
+    margin-top: 0px;
+  }
+}
+.app .forgot .forgot_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50px;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+.app .forgot .forgot_desc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: -20px;
+}
+.app .forgot .forgot_desc p {
+  font-size: 1.7rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 28px;
+  color: var(--primary);
+  text-align: center;
+  width: 87%;
+}
+@media (max-width: 1012px) {
+  .app .forgot .forgot_desc p {
+    width: 92%;
+  }
+}
+.app .forgot .forgot_field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app .forgot .forgot_button {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app .newpass {
+  margin-top: 70px;
+  width: 529px;
+  background-color: var(--gray);
+  border-radius: 10px;
+  padding-bottom: 30px;
+}
+@media (max-width: 1012px) {
+  .app .newpass {
+    width: 100%;
+    background-color: var(--white);
+    margin-top: 0px;
+  }
+}
+.app .newpass .newpass_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50px;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+.app .newpass .newpass_field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+.app .newpass .newpass_button {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }/*# sourceMappingURL=global.css.map */

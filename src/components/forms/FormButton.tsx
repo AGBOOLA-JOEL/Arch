@@ -1,16 +1,11 @@
 type BtnProp = {
   name: string;
-  width: number;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-const FormButton = ({ name, width, onClick }: BtnProp) => {
+const FormButton = ({ name, onClick }: BtnProp) => {
   return (
-    <button
-      className="form_btn"
-      onClick={onClick}
-      style={{ width: `${width}%` }}
-    >
+    <button className="form_btn" onClick={onClick}>
       {name}
     </button>
   );

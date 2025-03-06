@@ -1,10 +1,9 @@
-"use client";
 import { FormInputProp } from "@/types/forms.type";
 import React, { useState } from "react";
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegEyeSlash } from "react-icons/fa6";
 
-const RegisterInput = ({
+const FormInput = ({
   isPassword,
   label,
   name,
@@ -12,21 +11,19 @@ const RegisterInput = ({
   register,
 }: FormInputProp) => {
   const [toggle, setToggle] = useState(false);
-
   return (
-    <div className="reg_input">
+    <div className="form_input">
       <input
         type={isPassword ? (toggle ? "text" : "password") : "text"}
         placeholder={label}
         {...register(name)}
-        // value={value}
         name={name}
         onChange={onChange}
       />
-      <label htmlFor="">{label}</label>
+
       {isPassword && (
         <div
-          className="reg_inputtoggle"
+          className="form_inputtoggle"
           onClick={() => {
             setToggle(!toggle);
           }}
@@ -38,4 +35,4 @@ const RegisterInput = ({
   );
 };
 
-export default RegisterInput;
+export default FormInput;

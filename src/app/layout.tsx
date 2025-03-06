@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
 import "./styles/global.css";
 import App from "./App";
+// import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ProvidersTree from "@/_lib/providertree";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const queryClient = new QueryClient({});
   return (
-    <html lang="en">
+    <html>
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </head>
-      <App>{children}</App>
+      <ProvidersTree>
+        <App>{children}</App>
+      </ProvidersTree>
     </html>
   );
 }

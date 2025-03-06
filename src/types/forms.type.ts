@@ -1,6 +1,5 @@
-export type RegInputProp = {
+export type FormInputProp = {
   isPassword: boolean;
-  toggle: boolean;
   name: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   register: any;
@@ -14,4 +13,17 @@ export type JoinData = {
   password: string;
   confirmPassword: string;
   rank: string;
+};
+
+export type LoginData = {
+  username: string;
+  password: string;
+};
+
+export type ForgotData = {
+  email: string;
+};
+export type PasswordData = {
+  password: string;
+  confirmPassword: string;
 };
