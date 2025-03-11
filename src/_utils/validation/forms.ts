@@ -28,5 +28,16 @@ export const passwordschema = yup.object().shape({
     .oneOf([yup.ref("password")], "Password don't match")
     .required(),
 });
-
+export const submitschema = yup.object().shape({
+  name: yup.string().required(),
+  agency: yup.string().required(),
+  web: yup.string().required(),
+  country: yup.string().required(),
+  email: yup.string().email().required(),
+  drive: yup.string().required(),
+  client: yup.string().required(),
+  location: yup.string().required(),
+  username: yup.string().required(),
+  size: yup.number().required(),
+});
 //add error pop up if requirement is not met

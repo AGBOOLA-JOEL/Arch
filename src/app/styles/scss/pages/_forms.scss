@@ -1,7 +1,7 @@
 & .forms {
   margin-top: 1.5px;
   @include flex(column);
-  min-height: 1400px;
+  min-height: 1900px;
   position: relative;
 
   & .form_bg {
@@ -13,7 +13,7 @@
 
     & img {
       width: 100%;
-      min-height: 1400px;
+      min-height: 1900px;
     }
   }
 
@@ -103,6 +103,57 @@
     }
   }
 
+  & .form_textarea {
+    width: 100%;
+    @include center(column);
+
+    & textarea {
+      border: 1px solid $dark-two;
+      background-color: $gray;
+      color: $dark-one;
+      padding: 10px 10px;
+      @include borderbox;
+      width: 100%;
+      height: 78px;
+      resize: none;
+      border-radius: 4px;
+      border-radius: 4px;
+      outline: none;
+      word-wrap: break-word;
+      overflow-y: hidden;
+      overflow-wrap: break-word;
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: 20px;
+      text-align: left;
+
+      @include sm {
+        background-color: $white;
+      }
+    }
+
+    & label {
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: 13px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: $dark-one;
+      position: absolute;
+      margin-top: -78px;
+      margin-right: 20%;
+      // margin-top: -160px;
+      // margin-left: -318px;
+
+      padding-left: 7px;
+      padding-right: 7px;
+      background-color: $gray;
+      @include sm {
+        margin-right: 54%;
+        background-color: $white;
+      }
+    }
+  }
   & .form_google {
     width: 87%;
     @include center(row);
@@ -531,6 +582,8 @@
   background-color: $gray;
   border-radius: 10px;
   padding-bottom: 30px;
+  @include flex(column);
+  align-items: center;
 
   @include sm {
     width: 100%;
@@ -539,6 +592,7 @@
   }
 
   & .submit_info {
+    margin-bottom: 20px;
     & .submit_infotitle {
       width: 100%;
       font-size: 1.6rem;
@@ -548,11 +602,19 @@
       color: $secondary;
       height: 45px;
       border-bottom: 1px solid $gray-two;
+
+      @include sm {
+        height: 35px;
+        margin-top: 20px;
+        border-bottom: none;
+      }
     }
     & .submit_infopub {
       margin-top: 10px;
       @include center(column); // width: 100%;
-
+      @include sm {
+        margin-top: 0px;
+      }
       & h1 {
         color: $dark-one;
         font-size: 1.3rem;
@@ -570,6 +632,9 @@
         letter-spacing: -0.02em;
         text-align: justify;
         margin-top: 5px;
+        @include sm {
+          width: 92.5%;
+        }
       }
     }
 
@@ -595,6 +660,9 @@
         letter-spacing: -0.02em;
         text-align: justify;
         margin-top: 0px;
+        @include sm {
+          width: 92.5%;
+        }
       }
     }
 
@@ -620,6 +688,9 @@
         letter-spacing: -0.02em;
         text-align: justify;
         width: 87%;
+        @include sm {
+          width: 92.5%;
+        }
       }
 
       & span {
@@ -632,6 +703,79 @@
         margin-right: 5px;
         cursor: pointer;
       }
+    }
+  }
+
+  & .submit_select {
+    width: 87%;
+
+    margin-bottom: 20px;
+    @include sm {
+      width: 92.5%;
+    }
+    // @include center(row);
+  }
+
+  & .submit_form {
+    width: 87%;
+    @include flex(column);
+    gap: 20px;
+    @include sm {
+      width: 92.5%;
+    }
+    & .submit_input {
+      width: 100%;
+
+      position: relative;
+      & span {
+        color: $secondary;
+        position: absolute;
+        right: 5%;
+        margin-top: 18px;
+        @include sm {
+          right: 6%;
+        }
+      }
+      & input {
+        background: none;
+        @include borderbox;
+        outline: none;
+        height: 47px;
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 4px;
+        border: 1px solid $dark-two;
+        color: $dark-one;
+        font-size: 1.6rem;
+        font-weight: 500;
+        text-align: left;
+
+        &::placeholder {
+          color: $dark-one;
+        }
+      }
+    }
+  }
+
+  & .submit_btn {
+    width: 100%;
+    height: 59px;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    color: $white;
+    background-color: $dark;
+    outline: none;
+    border: none;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      transition: 0.3s ease-in-out;
+      background-color: $primary;
+      color: $secondary;
+    }
+    @include sm {
+      font-size: 1.8rem;
     }
   }
 }

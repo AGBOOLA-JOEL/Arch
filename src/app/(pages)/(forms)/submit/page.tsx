@@ -1,17 +1,26 @@
 "use client";
+import SubmitForm from "@/components/forms/SubmitForm";
 import SubmitInfo from "@/components/forms/SubmitInfo";
-import SubmitSelect from "@/components/forms/SubmitSelect";
+import ArchSelect from "@/components/general/ArchSelect";
 import { useState } from "react";
 
 const Submit = () => {
-  const [value, setValue] = useState("");
+  const [select, setSelect] = useState("Project");
   return (
     <div className="submit">
       <SubmitInfo />
 
-      <SubmitSelect value={value} setValue={setValue} />
-      {}
-      {}
+      <div className="submit_select">
+        <ArchSelect
+          title={"Project"}
+          value={select}
+          setValue={setSelect}
+          options={["Comic", "Project"]}
+        />
+      </div>
+
+      {select === "Comic" && <p>comic</p>}
+      {select === "Project" && <SubmitForm />}
     </div>
   );
 };

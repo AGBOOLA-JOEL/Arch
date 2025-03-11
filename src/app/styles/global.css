@@ -1032,6 +1032,153 @@ a {
   width: 1px;
   background-color: #a1a1aa;
 }
+.app .arch_select {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.app .arch_select .arch_selectbtn {
+  width: 100%;
+  height: 47px;
+  background: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 4px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  border: 1px solid var(--darktwo);
+  color: var(--darkone);
+}
+.app .arch_select .arch_selectbtn::before, .app .arch_select .arch_selectbtn::after {
+  box-sizing: border-box;
+}
+.app .arch_select .arch_selectdrop {
+  list-style-type: none;
+  text-decoration: none;
+  z-index: 1000;
+  max-height: 150px;
+  width: 60%;
+  overflow: hidden;
+  padding: 0px 0px;
+  background-color: var(--white);
+  position: absolute;
+  cursor: pointer;
+  border-radius: 2px;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.15);
+  margin-left: 39%;
+  margin-top: 5px;
+}
+.app .arch_select .arch_selectdrop::before, .app .arch_select .arch_selectdrop::after {
+  box-sizing: border-box;
+}
+.app .arch_select .arch_selectdrop li {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  align-items: center;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  text-align: left;
+  width: 100%;
+  height: 41px;
+  color: var(--darkone);
+  box-shadow: 5px, 5px, black;
+  padding-left: 15px;
+  cursor: pointer;
+}
+.app .arch_select .arch_selectdrop li::before, .app .arch_select .arch_selectdrop li::after {
+  box-sizing: border-box;
+}
+.app .arch_select .arch_selectdrop li:hover {
+  cursor: pointer;
+  background-color: rgb(248, 248, 248);
+}
+.app .arch_select .arch_selectdrop.scroll {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+.app .arch_tags h1 {
+  font-weight: 400;
+  width: 100%;
+  font-size: 1.4rem;
+  color: var(--darkone);
+  margin: 0px 0px;
+  margin-bottom: 10px;
+}
+.app .arch_tags .rti--container {
+  max-width: 100%;
+  min-height: 37px;
+  max-height: 150px;
+  background-color: var(--gray);
+}
+@media (max-width: 1012px) {
+  .app .arch_tags .rti--container {
+    background-color: var(--white);
+  }
+}
+.app .arch_tags .rti--tag {
+  background-color: var(--secondary);
+  padding: 5px 5px;
+}
+.app .arch_tags .rti--tag span {
+  color: var(--primary);
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+.app .arch_tags .rti--tag button {
+  color: var(--primary);
+}
+.app .arch_tags .rti--input {
+  font-size: 1.5rem;
+  box-sizing: border-box;
+  padding-left: 10px;
+  background-color: var(--gray);
+}
+.app .arch_tags .rti--input::before, .app .arch_tags .rti--input::after {
+  box-sizing: border-box;
+}
+@media (max-width: 1012px) {
+  .app .arch_tags .rti--input {
+    background-color: var(--white);
+  }
+}
+.app .arch_terms {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.app .arch_terms input {
+  cursor: pointer;
+  accent-color: var(--primary);
+  width: 25px;
+  height: 25px;
+}
+.app .arch_terms input:hover {
+  accent-color: var(--secondary);
+}
+.app .arch_terms p {
+  color: var(--darkone);
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+@media (max-width: 1012px) {
+  .app .arch_terms p {
+    font-size: 1.4rem;
+  }
+}
+.app .arch_terms span {
+  color: var(--secondary);
+}
 .app .sidebar {
   width: 100%;
   border: 1px solid var(--graytwo);
@@ -1628,7 +1775,7 @@ a {
   margin-top: 1.5px;
   display: flex;
   flex-direction: column;
-  min-height: 1400px;
+  min-height: 1900px;
   position: relative;
 }
 .app .forms .form_bg {
@@ -1641,7 +1788,7 @@ a {
 }
 .app .forms .form_bg img {
   width: 100%;
-  min-height: 1400px;
+  min-height: 1900px;
 }
 .app .forms .form_child {
   display: flex;
@@ -1734,6 +1881,61 @@ a {
 .app .forms .form_input .form_inputtoggle svg {
   color: var(--darktwo);
   font-size: 2rem;
+}
+.app .forms .form_textarea {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app .forms .form_textarea textarea {
+  border: 1px solid var(--darktwo);
+  background-color: var(--gray);
+  color: var(--darkone);
+  padding: 10px 10px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 78px;
+  resize: none;
+  border-radius: 4px;
+  border-radius: 4px;
+  outline: none;
+  word-wrap: break-word;
+  overflow-y: hidden;
+  overflow-wrap: break-word;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: left;
+}
+.app .forms .form_textarea textarea::before, .app .forms .form_textarea textarea::after {
+  box-sizing: border-box;
+}
+@media (max-width: 1012px) {
+  .app .forms .form_textarea textarea {
+    background-color: var(--white);
+  }
+}
+.app .forms .form_textarea label {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 13px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: var(--darkone);
+  position: absolute;
+  margin-top: -78px;
+  margin-right: 20%;
+  padding-left: 7px;
+  padding-right: 7px;
+  background-color: var(--gray);
+}
+@media (max-width: 1012px) {
+  .app .forms .form_textarea label {
+    margin-right: 54%;
+    background-color: var(--white);
+  }
 }
 .app .forms .form_google {
   width: 87%;
@@ -2250,6 +2452,9 @@ a {
   background-color: var(--gray);
   border-radius: 10px;
   padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 @media (max-width: 1012px) {
   .app .submit {
@@ -2257,6 +2462,9 @@ a {
     background-color: var(--white);
     margin-top: 0px;
   }
+}
+.app .submit .submit_info {
+  margin-bottom: 20px;
 }
 .app .submit .submit_info .submit_infotitle {
   width: 100%;
@@ -2271,12 +2479,24 @@ a {
   height: 45px;
   border-bottom: 1px solid var(--graytwo);
 }
+@media (max-width: 1012px) {
+  .app .submit .submit_info .submit_infotitle {
+    height: 35px;
+    margin-top: 20px;
+    border-bottom: none;
+  }
+}
 .app .submit .submit_info .submit_infopub {
   margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+@media (max-width: 1012px) {
+  .app .submit .submit_info .submit_infopub {
+    margin-top: 0px;
+  }
 }
 .app .submit .submit_info .submit_infopub h1 {
   color: var(--darkone);
@@ -2295,6 +2515,11 @@ a {
   letter-spacing: -0.02em;
   text-align: justify;
   margin-top: 5px;
+}
+@media (max-width: 1012px) {
+  .app .submit .submit_info .submit_infopub p {
+    width: 92.5%;
+  }
 }
 .app .submit .submit_info .submit_infocomic {
   display: flex;
@@ -2323,6 +2548,11 @@ a {
   text-align: justify;
   margin-top: 0px;
 }
+@media (max-width: 1012px) {
+  .app .submit .submit_info .submit_infocomic p {
+    width: 92.5%;
+  }
+}
 .app .submit .submit_info .submit_infoarch {
   display: flex;
   justify-content: center;
@@ -2349,6 +2579,11 @@ a {
   text-align: justify;
   width: 87%;
 }
+@media (max-width: 1012px) {
+  .app .submit .submit_info .submit_infoarch p {
+    width: 92.5%;
+  }
+}
 .app .submit .submit_info .submit_infoarch span {
   font-size: 1.4rem;
   font-weight: 500;
@@ -2358,4 +2593,85 @@ a {
   margin-left: 5px;
   margin-right: 5px;
   cursor: pointer;
+}
+.app .submit .submit_select {
+  width: 87%;
+  margin-bottom: 20px;
+}
+@media (max-width: 1012px) {
+  .app .submit .submit_select {
+    width: 92.5%;
+  }
+}
+.app .submit .submit_form {
+  width: 87%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+@media (max-width: 1012px) {
+  .app .submit .submit_form {
+    width: 92.5%;
+  }
+}
+.app .submit .submit_form .submit_input {
+  width: 100%;
+  position: relative;
+}
+.app .submit .submit_form .submit_input span {
+  color: var(--secondary);
+  position: absolute;
+  right: 5%;
+  margin-top: 18px;
+}
+@media (max-width: 1012px) {
+  .app .submit .submit_form .submit_input span {
+    right: 6%;
+  }
+}
+.app .submit .submit_form .submit_input input {
+  background: none;
+  box-sizing: border-box;
+  outline: none;
+  height: 47px;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--darktwo);
+  color: var(--darkone);
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-align: left;
+}
+.app .submit .submit_form .submit_input input::before, .app .submit .submit_form .submit_input input::after {
+  box-sizing: border-box;
+}
+.app .submit .submit_form .submit_input input::-moz-placeholder {
+  color: var(--darkone);
+}
+.app .submit .submit_form .submit_input input::placeholder {
+  color: var(--darkone);
+}
+.app .submit .submit_btn {
+  width: 100%;
+  height: 59px;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  color: var(--white);
+  background-color: var(--dark);
+  outline: none;
+  border: none;
+  transition: 0.3s ease-in-out;
+}
+.app .submit .submit_btn:hover {
+  transition: 0.3s ease-in-out;
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+@media (max-width: 1012px) {
+  .app .submit .submit_btn {
+    font-size: 1.8rem;
+  }
 }/*# sourceMappingURL=global.css.map */
