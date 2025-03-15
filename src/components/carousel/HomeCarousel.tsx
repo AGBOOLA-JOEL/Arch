@@ -3,7 +3,7 @@
 import { Carousel } from "react-responsive-carousel";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { homecarousel } from "@/db/components/carousel.db";
+import { homecarousel } from "@/data/carousel.db";
 import Image from "next/image";
 
 // // import useRole from "pages/hooks/useRole";

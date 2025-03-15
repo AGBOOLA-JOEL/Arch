@@ -1,5 +1,5 @@
 import React from "react";
-import { navprimary } from "@/db/components/navbar";
+import { navprimary } from "@/data/navbar";
 import Link from "next/link";
 import ArchLogo from "../general/ArchLogo";
 

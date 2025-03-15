@@ -5,6 +5,12 @@ export type ArchSelectProp = {
   options: string[];
 };
 
+export type ArchSelectFilter = {
+  title: string;
+  value: string;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
+};
+
 export type ArchTagProp = {
   title: string;
   tag: string[];

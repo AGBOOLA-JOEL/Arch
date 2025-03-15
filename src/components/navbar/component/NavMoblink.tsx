@@ -1,4 +1,4 @@
-import { navmobile } from "@/db/components/navbar";
+import { navmobile } from "@/data/navbar";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";

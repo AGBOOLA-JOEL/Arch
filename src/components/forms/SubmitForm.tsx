@@ -11,6 +11,7 @@ import ArchTags from "../general/ArchTags";
 import FormButton from "./FormButton";
 import SubmitButton from "./SubmitButton";
 import ArchTerms from "../general/ArchTerms";
+import { projectcategory } from "@/data/forms.db";
 
 const SubmitForm = () => {
   const [country, setCountry] = useState("");
@@ -156,29 +157,3 @@ const SubmitForm = () => {
 };
 
 export default SubmitForm;
-
-export const projectcategory = [
-  "Residential Architecture",
-
-  "Interior Design",
-
-  "Refurbishment",
-
-  "Cultural Architecture",
-
-  "Commercial & Offices",
-
-  "Hospitality Architecture",
-
-  "Public Architecture",
-
-  "Healthcare Architecture",
-
-  "Sports Architecture",
-
-  "Religious Architecture",
-
-  "Industrial & Infrastructure",
-
-  "Landscape & Urbanism",
-];

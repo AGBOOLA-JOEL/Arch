@@ -22,7 +22,9 @@
 //style for arch arrow
 & .arch_arrow {
   cursor: pointer;
-  @include full-flex(center, center, row);
+  @include flex(row);
+  align-items: center;
+  // @include full-flex(center, center, row);
   @include strip-list;
   gap: 15px;
   font-size: 1.7rem;

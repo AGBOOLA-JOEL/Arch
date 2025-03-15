@@ -1,7 +1,7 @@
 "use client";
 import { IoArchiveOutline } from "react-icons/io5";
 import { FaAngleDown } from "react-icons/fa6";
-import { navsecondary } from "@/db/components/navbar";
+import { navsecondary } from "@/data/navbar";
 import Link from "next/link";
 import NavInput from "./component/NavInput";
 import { useNavselectors } from "@/_lib/store/nav-store";

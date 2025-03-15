@@ -15,9 +15,6 @@
   border: 1px solid $gray-two;
   border-bottom: none;
 
-  @include sm {
-    border: none;
-  }
   // style for gif bar
   & .gifside {
     width: 100%;
@@ -136,6 +133,7 @@
       @include center(column);
     }
     & .newside_link {
+      @include center(row);
       padding-top: 20px;
       padding-bottom: 30px;
     }
@@ -195,6 +193,7 @@
       @include center(column);
     }
     & .comicside_link {
+      @include center(row);
       padding-top: 20px;
       padding-bottom: 30px;
     }
