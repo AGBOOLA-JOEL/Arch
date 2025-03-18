@@ -35,10 +35,21 @@
 & .arch_arrow.primary {
   text-decoration: none;
   color: $primary;
+  transition: 0.3s ease-in-out;
+}
+& .arch_arrow.primary:hover {
+  color: $secondary;
+  transition: 0.3s ease-in-out;
 }
 
 & .arch_arrow.secondary {
+  transition: 0.3s ease-in-out;
   color: $secondary;
+}
+
+& .arch_arrow.secondary:hover {
+  transition: 0.3s ease-in-out;
+  color: $primary;
 }
 
 //style for arch soon
@@ -516,5 +527,85 @@
 
   & span {
     color: $secondary;
+  }
+}
+
+& .arch_button {
+  padding: 8px 12px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: $white;
+  border-radius: 3px;
+  background-color: $primary;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+& .arch_button:hover {
+  color: $primary;
+  background-color: $secondary;
+  transition: opacity 0.3s ease-in-out;
+}
+
+& .arch_paginate {
+  @include center(row);
+  gap: 10px;
+
+  & .arch_paginateinput {
+    @include flex(row);
+    align-items: center;
+    & p {
+      color: $dark-one;
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-right: 10px;
+    }
+    & .arch_paginatedown {
+      position: relative;
+
+      & input {
+        appearance: auto;
+        border: none;
+        outline: none;
+        background: none;
+        border-bottom: 1px solid $dark-one;
+        width: 40px;
+        height: 25px;
+        padding-bottom: 0px;
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: $dark-one;
+        padding-left: 15px;
+      }
+    }
+  }
+
+  & .reactPaginate {
+    @include flex(row);
+    align-items: center;
+    p {
+      font-size: 1.2rem;
+      color: $dark-one;
+      font-weight: 500;
+    }
+    & .paginate {
+      @include flex(row);
+      list-style-type: none;
+      align-items: center;
+      gap: 10px;
+      margin-left: -20px;
+      cursor: pointer;
+
+      // font-size: 0px;
+      & li {
+        color: $secondary;
+        font-size: 1.3rem;
+      }
+      & .selected {
+        display: none;
+      }
+    }
   }
 }

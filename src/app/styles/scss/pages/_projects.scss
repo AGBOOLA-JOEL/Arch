@@ -1,0 +1,385 @@
+& .projects {
+  & .projects_header {
+    margin: 0px 0px;
+    height: 80px;
+    @include center(column);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2194ec;
+    text-transform: uppercase;
+  }
+
+  & .projects_child {
+    min-height: 100vh;
+  }
+}
+
+& .project_info {
+  width: 100%;
+  & .project_infotext {
+    font-size: 1.4rem;
+    //   width: 353px;
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: 7px;
+    color: $dark-one;
+    & span {
+      color: $primary;
+      font-weight: 500;
+      margin-right: 8px;
+    }
+  }
+
+  & .project_infonav {
+    @include full-flex(center, space-between, row);
+    // @include flex(row);
+
+    margin-top: 20px;
+    & .project_infoadd {
+      font-size: 1.5rem;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background-color: $white;
+      color: $dark-one;
+      padding: 8px 10px;
+      border-radius: 3px;
+      border: 1px solid $gray-text;
+      & svg {
+        margin-left: 5px;
+      }
+    }
+    & .project_infoadd:hover {
+      border: none;
+      color: $white;
+      background-color: $primary;
+    }
+
+    & .project_infoshare {
+      @include flex(row);
+      gap: 20px;
+      align-items: center;
+      & .project_infoshareicon {
+        @include clear-btn;
+        align-items: center;
+        color: $primary;
+      }
+
+      & .project_infosocials {
+        @include flex(row);
+        align-items: center;
+        gap: 10px;
+        font-size: 2rem;
+        color: $primary;
+
+        & svg {
+          font-size: 2rem;
+          color: $primary;
+          transition: 0.3s ease-in-out;
+        }
+        & svg:hover {
+          color: $secondary;
+          transition: 0.3s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+& .projects_feed {
+  width: 100%;
+  @include center(column);
+  margin-bottom: 200px;
+
+  & .project_feeddisplay {
+    width: 95%;
+    @include borderbox;
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 60px;
+    @include sm {
+      width: 92.5%;
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+& .project_feedname {
+  margin-top: 30px;
+  color: $dark-one;
+  @include flex(row);
+  width: 100%;
+  text-transform: uppercase;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+& .project_feedmore {
+  margin-top: -7px;
+  margin-bottom: 20px;
+  @include flex(row);
+  width: 100%;
+  justify-content: space-between;
+  text-align: left;
+  & :nth-child(1) {
+    margin: 0px 0px;
+    width: 100%;
+    color: $dark-one;
+    text-align: left;
+    font-weight: 500;
+    font-size: 1.4rem;
+  }
+
+  & :nth-child(2) {
+    margin: 0px 0px;
+    width: 100%;
+    color: $secondary;
+    text-align: right;
+    font-weight: 500;
+    font-size: 1.4rem;
+    &:hover {
+      cursor: pointer;
+      color: $primary;
+    }
+  }
+}
+
+& .project_feedhover {
+  text-align: center;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.482);
+  height: 80px;
+  @include borderbox;
+  padding-left: 20px;
+  padding-right: 20px;
+  /* min-width: 100px; */
+  position: absolute;
+  margin-top: -135px;
+  border-top-right-radius: 5px;
+  transition: display 0.5s ease-in-out;
+
+  & h1 {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    color: $secondary;
+    margin-bottom: -15px;
+  }
+  & :nth-child(2) {
+    text-transform: uppercase;
+    color: $white;
+    font-size: 1.3rem;
+    font-size: 600;
+  }
+  & :nth-child(3) {
+    font-style: italic;
+    font-size: 1.3rem;
+    color: $secondary;
+    margin-top: auto;
+    font-weight: 500;
+    & ::first-letter {
+      text-transform: uppercase;
+    }
+    & span {
+      color: $white;
+    }
+  }
+}
+
+& .project_feedmainimg {
+  cursor: pointer;
+  width: 100%;
+  height: 235px;
+
+  background-color: $primary;
+
+  & img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+& .project_feedsubimgmap {
+  @include flex(row);
+  align-items: center;
+  gap: 2px;
+
+  & .project_feedsubimg {
+    margin-top: 2.5px;
+    background-color: $primary;
+    @include flex(row);
+    height: 50px;
+    width: 25%;
+    position: relative;
+
+    & img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  & .project_feedsubcount {
+    background-color: $secondary;
+    color: $white;
+    height: 49px;
+    margin-top: 2px;
+    @include center(row);
+    width: 25%;
+    background-size: cover;
+
+    & a {
+      @include strip-list;
+      color: $white;
+    }
+  }
+}
+
+& .project_single {
+  @include flex(row);
+  margin-bottom: 100px;
+  @include sm {
+    @include center(column);
+    width: 100%;
+  }
+
+  & .project_singledisplay {
+    @include sm {
+      width: 100%;
+      @include center(column);
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+    width: 65%;
+    @include borderbox;
+    padding-right: 50px;
+    padding-left: 40px;
+    // border: 1.5px solid rgba(220, 220, 220, 1);
+    height: 100%;
+    & .project_singledetails {
+      @include sm {
+        width: 91.5%;
+        @include center(column);
+      }
+
+      & .project_singletime {
+        margin-top: 0px;
+        margin-bottom: 5px;
+        font-size: 1.1rem;
+        font-style: italic;
+        font-weight: 500;
+        letter-spacing: 0em;
+        text-align: left;
+        color: $dark-one;
+        @include sm {
+          text-align: center;
+        }
+      }
+      & .project_singletitle {
+        margin: 0px 0px;
+        color: rgba(17, 58, 90, 1);
+        font-weight: 600;
+        font-size: 1.8rem;
+        @include sm {
+          text-align: center;
+        }
+      }
+    }
+
+    & .project_singleothers {
+      @include sm {
+        width: 91.5%;
+        @include center(column);
+      }
+    }
+  }
+
+  & .project_singlesidebar {
+    @include sm {
+      width: 100%;
+      margin-right: 0px;
+      margin-top: 70px;
+    }
+    width: 35%;
+    margin-right: 50px;
+    border-bottom: none;
+  }
+  & .project_singleupgrade {
+    margin-top: 60px;
+    & p {
+      color: $dark-one;
+      font-size: 1.5rem;
+    }
+    & button {
+      font-size: 1.5rem;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background-color: $white;
+      color: $dark-one;
+      padding: 8px 10px;
+      border-radius: 3px;
+      border: 1px solid $gray-text;
+    }
+
+    & button:hover {
+      background-color: $primary;
+      border: none;
+      color: $white;
+    }
+  }
+
+  & .project_singlegallery {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-height: 300px;
+    background-color: $primary;
+  }
+}
+
+& .project_others {
+  width: 100%;
+  height: 100%;
+  @include sm {
+    @include center(column);
+  }
+  & .project_othershead {
+    margin: 0px 0px;
+    height: 80px;
+    @include center(column);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2194ec;
+    text-transform: uppercase;
+  }
+
+  & .project_othersgrid {
+    @include borderbox;
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: repeat(2, 1fr);
+    @include sm {
+      @include flex(column);
+      grid-gap: 35px;
+      width: 100%;
+      // width: 91.5%;
+    }
+
+    & .project_othersinfo {
+      @include borderbox;
+      @include flex(column);
+      margin-bottom: 0px;
+
+      & .project_othersimage {
+        height: 295px;
+        width: 100%;
+        background-color: $primary;
+        margin-bottom: 0px;
+        & img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

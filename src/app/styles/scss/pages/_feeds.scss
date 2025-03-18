@@ -1,19 +1,23 @@
+@mixin feedheadstyle {
+  margin: 0px 0px;
+  height: 80px;
+  @include center(column);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2194ec;
+  text-transform: uppercase;
+}
+
 .feeds {
   @include flex(column);
   margin-bottom: 100px;
 
   & .feeds_header {
-    margin: 0px 0px;
-    height: 70px;
-    @include center(column);
-    font-size: 18.72px;
-    font-weight: 600;
-    color: #2194ec;
-    text-transform: uppercase;
+    @include feedheadstyle;
   }
 
   & .feeds_content {
-    margin-top: 40px;
+    // margin-top: 0px;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -240,10 +244,202 @@
       @include center(row);
       width: 91.5%;
     }
-    margin-top: -40px;
+    // margin-top: -40px;
     margin-bottom: 30px;
     gap: 25px;
     width: 100%;
     @include flex(row);
+  }
+}
+
+& .feed_single {
+  // margin-top: -200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  & .feed_singlemap {
+    margin-bottom: 30px;
+    width: 100%;
+    @include sm {
+      // width: 91.5%;
+      @include center(column);
+    }
+  }
+
+  & .feed_singlehead {
+    @include sm {
+      @include center(column);
+    }
+    margin-top: 0px;
+    & :nth-child(1) {
+      @include sm {
+        text-align: center;
+      }
+      margin-top: 0px;
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 500;
+      line-height: 12px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #7c7979;
+      margin-bottom: -10px;
+    }
+    & :nth-child(2) {
+      color: rgba(17, 58, 90, 1);
+      font-weight: 600;
+      font-size: 1.8rem;
+      @include sm {
+        text-align: center;
+        width: 80%;
+      }
+    }
+  }
+
+  & .feed_singleimg {
+    width: 100%;
+    height: 422px;
+    background-color: $primary;
+    @include sm {
+      width: 91.5%;
+      @include center(column);
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+    }
+    // @include bgimage("")
+  }
+
+  & .feed_singledesc {
+  }
+
+  .feed_singleauthor {
+    @include sm {
+      width: 91.5%;
+    }
+    margin-top: 10px;
+    margin-bottom: -15px;
+    & p {
+      font-size: 1.4rem;
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      text-align: left;
+      color: $dark-one;
+    }
+  }
+
+  // .schsingle_desc {
+  //   font-family: Montserrat;
+  //   font-size: 16px;
+  //   font-weight: 400;
+  //   line-height: 28px;
+  //   letter-spacing: -0.02em;
+  //   text-align: justified;
+  //   color: rgba(0, 0, 0, 1);
+  //   margin-top: -8px;
+  //   margin-bottom: 35px;
+  // }
+
+  & .feed_singlereport {
+    padding: 8px 12px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: $white;
+    border-radius: 3px;
+    background-color: $primary;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+    // @include sm {
+    //   width: 91.5%;
+    // }
+  }
+
+  & .feed_singlereport:hover {
+    color: $primary;
+    background-color: $secondary;
+    transition: opacity 0.3s ease-in-out;
+  }
+  // .feed_singlereport:hover {
+  //   opacity: 0.4;
+  // }
+}
+
+& .feed_others {
+  width: 100%;
+  height: 100%;
+  @include sm {
+    @include center(column);
+  }
+  & .feed_othershead {
+    @include feedheadstyle;
+  }
+
+  & .feed_othersgrid {
+    @include borderbox;
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
+    @include sm {
+      @include flex(column);
+      width: 91.5%;
+    }
+    // grid-template-columns: 33.3% 33.3% 33.3%;
+
+    & .feed_othersinfo {
+      @include borderbox;
+      @include flex(column);
+      margin-bottom: 0px;
+
+      & .feed_othersimage {
+        height: 295px;
+        width: 100%;
+        background-color: $primary;
+        margin-bottom: 0px;
+        & img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      & .feed_otherstext {
+        @include flex(column);
+
+        & :nth-child(1) {
+          font-size: 1.4rem;
+          width: 100%;
+          font-weight: 600;
+          text-align: left;
+          color: $dark-one;
+          line-height: 24px;
+          word-wrap: break-word;
+          transition: 0.3s ease-in-out;
+        }
+
+        & :nth-child(2) {
+          width: 100%;
+          word-wrap: break-word;
+          font-size: 10px;
+          font-style: italic;
+          text-align: left;
+          margin-top: -7px;
+          font-weight: 500;
+          color: $dark-one;
+          transition: 0.3s ease-in-out;
+        }
+      }
+
+      & .feed_otherstext:hover {
+        & p {
+          transition: 0.3s ease-in-out;
+          color: $secondary;
+        }
+      }
+    }
   }
 }
