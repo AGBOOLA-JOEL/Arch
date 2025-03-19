@@ -48,6 +48,10 @@
             color: $secondary;
             transition: 0.3s ease-in-out;
           }
+
+          & .linkcolor {
+            color: $secondary;
+          }
         }
       }
 
@@ -141,6 +145,10 @@
             &:hover {
               color: $secondary;
             }
+          }
+
+          & .linkcolor {
+            color: $secondary;
           }
         }
 

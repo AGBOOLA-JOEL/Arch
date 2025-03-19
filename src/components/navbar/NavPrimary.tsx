@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 const NavPrimary = ({}) => {
   const pathname = usePathname();
   const linkColor = (name: string) => {
-    return pathname.split("/")[1] === name ? "#2194EC" : "";
+    return pathname.split("/")[1] === name ? "linkcolor" : "";
   };
   return (
     <nav className="nav_primary">
@@ -19,8 +19,11 @@ const NavPrimary = ({}) => {
       <ul>
         {navprimary.map((data) => {
           return (
-            <li key={data.name} className="nav_primarylink">
-              <Link href={data.to} style={{ color: linkColor(data.linkstyle) }}>
+            <li
+              key={data.name}
+              className={`nav_primarylink ${linkColor(data.linkstyle)}`}
+            >
+              <Link href={data.to} className={linkColor(data.linkstyle)}>
                 {data.name}
               </Link>
             </li>

@@ -12,7 +12,7 @@ const NavSecondary = () => {
 
   const pathname = usePathname();
   const linkColor = (name: string) => {
-    return pathname.split("/")[1] === name ? "#2194EC" : "";
+    return pathname.split("/")[1] === name ? "linkcolor" : "";
   };
   return (
     <nav className="nav_sec">
@@ -21,7 +21,7 @@ const NavSecondary = () => {
           return (
             <div className="nav_secarch" key={nav.name}>
               <div className="nav_secarrow">
-                <Link href={nav.to} style={{ color: linkColor(nav.linkstyle) }}>
+                <Link href={nav.to} className={linkColor(nav.linkstyle)}>
                   {nav.name}
                 </Link>
                 {nav.drop && <FaAngleDown />}

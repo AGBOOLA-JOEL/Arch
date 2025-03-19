@@ -128,6 +128,9 @@ a {
   color: var(--secondary);
   transition: 0.3s ease-in-out;
 }
+.app .nav_container .nav_desktop .nav_primary ul .nav_primarylink .linkcolor {
+  color: var(--secondary);
+}
 .app .nav_container .nav_desktop .nav_primary .nav_primaryform {
   display: flex;
   align-items: center;
@@ -229,6 +232,9 @@ a {
   color: var(--white);
 }
 .app .nav_container .nav_desktop .nav_sec .nav_secarch .nav_secarrow a:hover {
+  color: var(--secondary);
+}
+.app .nav_container .nav_desktop .nav_sec .nav_secarch .nav_secarrow .linkcolor {
   color: var(--secondary);
 }
 .app .nav_container .nav_desktop .nav_sec .nav_secarch .nav_secdrop {
