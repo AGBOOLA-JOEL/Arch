@@ -5,7 +5,7 @@
     @include center(column);
     font-size: 1.8rem;
     font-weight: 600;
-    color: #2194ec;
+    color: $secondary;
     text-transform: uppercase;
   }
 
@@ -349,7 +349,7 @@
     @include center(column);
     font-size: 1.8rem;
     font-weight: 600;
-    color: #2194ec;
+    color: $secondary;
     text-transform: uppercase;
   }
 

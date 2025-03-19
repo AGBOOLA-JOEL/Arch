@@ -759,7 +759,7 @@ a {
   flex-direction: row;
   display: inline-flex;
   margin-top: 4rem;
-  background-color: rgba(33, 148, 236, 0.2823529412);
+  background-color: var(--primary);
   color: var(--primary);
   border-radius: 70px;
   padding: 0.7rem 2rem;
@@ -3045,7 +3045,7 @@ a {
   flex-direction: column;
   font-size: 1.8rem;
   font-weight: 600;
-  color: #2194ec;
+  color: var(--secondary);
   text-transform: uppercase;
 }
 .app .feeds .feeds_content {
@@ -3457,7 +3457,7 @@ a {
   flex-direction: column;
   font-size: 1.8rem;
   font-weight: 600;
-  color: #2194ec;
+  color: var(--secondary);
   text-transform: uppercase;
 }
 .app .feed_others .feed_othersgrid {
@@ -3533,7 +3533,7 @@ a {
   flex-direction: column;
   font-size: 1.8rem;
   font-weight: 600;
-  color: #2194ec;
+  color: var(--secondary);
   text-transform: uppercase;
 }
 .app .projects .projects_child {
@@ -3904,7 +3904,7 @@ a {
   flex-direction: column;
   font-size: 1.8rem;
   font-weight: 600;
-  color: #2194ec;
+  color: var(--secondary);
   text-transform: uppercase;
 }
 .app .project_others .project_othersgrid {
