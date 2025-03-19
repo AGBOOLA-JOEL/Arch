@@ -1,9 +1,15 @@
+"use client";
 import React from "react";
 import { navprimary } from "@/data/navbar";
 import Link from "next/link";
 import ArchLogo from "../general/ArchLogo";
+import { usePathname } from "next/navigation";
 
 const NavPrimary = ({}) => {
+  const pathname = usePathname();
+  const linkColor = (name: string) => {
+    return pathname.split("/")[1] === name ? "#2194EC" : "";
+  };
   return (
     <nav className="nav_primary">
       <div className="nav_logo">
@@ -14,7 +20,9 @@ const NavPrimary = ({}) => {
         {navprimary.map((data) => {
           return (
             <li key={data.name} className="nav_primarylink">
-              <Link href={data.to}>{data.name}</Link>
+              <Link href={data.to} style={{ color: linkColor(data.linkstyle) }}>
+                {data.name}
+              </Link>
             </li>
           );
         })}

@@ -5,10 +5,15 @@ import { navsecondary } from "@/data/navbar";
 import Link from "next/link";
 import NavInput from "./component/NavInput";
 import { useNavselectors } from "@/_lib/store/nav-store";
+import { usePathname } from "next/navigation";
 
 const NavSecondary = () => {
   const toggle = useNavselectors.use.toggle();
 
+  const pathname = usePathname();
+  const linkColor = (name: string) => {
+    return pathname.split("/")[1] === name ? "#2194EC" : "";
+  };
   return (
     <nav className="nav_sec">
       {toggle === false &&
@@ -16,7 +21,9 @@ const NavSecondary = () => {
           return (
             <div className="nav_secarch" key={nav.name}>
               <div className="nav_secarrow">
-                <Link href={nav.to}>{nav.name}</Link>
+                <Link href={nav.to} style={{ color: linkColor(nav.linkstyle) }}>
+                  {nav.name}
+                </Link>
                 {nav.drop && <FaAngleDown />}
               </div>
               {/* {nav.drop && (

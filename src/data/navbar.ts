@@ -1,8 +1,8 @@
 export const navprimary = [
   {
     name: "projects",
-    to: "/project",
-    linkstyle: "project",
+    to: "/projects",
+    linkstyle: "projects",
   },
   {
     name: "news",
@@ -22,7 +22,7 @@ export const navprimary = [
   {
     name: "scholarships",
     to: "/scholarship",
-    linkstyle: "scholarships",
+    linkstyle: "scholarship",
   },
 ];
 
@@ -30,12 +30,12 @@ export const navsecondary = [
   {
     name: "show rooms",
     to: "/showroom",
-    linkstyle: "",
+    linkstyle: "showroom",
   },
   {
     name: "architectural media",
     to: "/archmedia",
-    linkstyle: "",
+    linkstyle: "archmedia",
     drop: [
       { name: "interviews", to: "/interviews" },
       { name: "podcast", to: "/podcast" },
@@ -53,13 +53,13 @@ export const navsecondary = [
   },
   {
     name: "submit a project",
-    to: "/form/submit",
+    to: "/submit",
     linkstyle: "submit",
   },
   {
     name: "be an architect",
     to: "/architect",
-    linkstyle: "",
+    linkstyle: "architect",
   },
 ];
 
