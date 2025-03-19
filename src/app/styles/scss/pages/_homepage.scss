@@ -7,6 +7,9 @@
 
   & .home_carousel {
     margin-bottom: 65px;
+    @include sm {
+      margin-bottom: 0px;
+    }
   }
 
   & .home_info {
@@ -22,12 +25,23 @@
         width: 100%;
       }
       width: 65%;
+      @include flex(column);
       margin-right: 20px;
       border: 1.5px solid rgba(220, 220, 220, 1);
-      // border-bottom: none;
-      /* padding-top: 20px; */
       position: relative;
       height: 100%;
+      border-bottom: none;
+      @include sm {
+        border-top: none;
+      }
+
+      & .home_soon {
+        // background-color: red;
+        @include sm {
+          border: none;
+        }
+        border-bottom: 1.5px solid rgba(220, 220, 220, 1);
+      }
     }
 
     & .home_sidebar {
@@ -39,5 +53,115 @@
       border-bottom: none;
       // background-color: red;
     }
+  }
+}
+
+& .home_project {
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(220, 220, 220, 1);
+  & .home_projecthead {
+    text-transform: uppercase;
+    @include center(column);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: $secondary;
+    height: 90px;
+  }
+  & .home_projectcar {
+    overflow: hidden;
+    & .home_projectfeed {
+      @include borderbox;
+      margin-bottom: 50px;
+      padding-left: 50px;
+      padding-right: 50px;
+      display: grid;
+      grid-gap: 35px;
+      grid-template-columns: repeat(2, 1fr);
+      @include sm {
+        @include flex(column);
+        width: 100%;
+        @include borderbox;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+    & .carousel .control-dots .dot.selected {
+      background: $primary !important;
+      box-shadow: none !important;
+      height: 10px !important ;
+      width: 10px !important;
+      border: none !important;
+    }
+
+    & .carousel .control-dots .dot {
+      height: 10px !important ;
+      width: 10px !important;
+      background: none !important;
+      box-shadow: none !important;
+      border: 1px solid $dark-one !important;
+      margin-right: 3px !important;
+    }
+  }
+
+  & .home_projectarrow {
+    height: 50px;
+    @include center(row);
+  }
+}
+
+& .home_feed {
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(220, 220, 220, 1);
+  & .home_feedhead {
+    text-transform: uppercase;
+    @include center(column);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: $secondary;
+    height: 90px;
+  }
+  & .home_feedcar {
+    overflow: hidden;
+    & .home_feedinfo {
+      @include borderbox;
+      margin-bottom: 50px;
+      padding-left: 50px;
+      padding-right: 50px;
+      display: grid;
+      grid-gap: 35px;
+      grid-template-columns: repeat(3, 1fr);
+      @include sm {
+        @include flex(column);
+        width: 100%;
+        @include borderbox;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+    & .carousel .control-dots .dot.selected {
+      background: $primary !important;
+      box-shadow: none !important;
+      height: 10px !important ;
+      width: 10px !important;
+      border: none !important;
+    }
+
+    & .carousel .control-dots .dot {
+      height: 10px !important ;
+      width: 10px !important;
+      background: none !important;
+      box-shadow: none !important;
+      border: 1px solid $dark-one !important;
+      margin-right: 3px !important;
+    }
+  }
+
+  & .home_projectarrow {
+    height: 50px;
+    @include center(row);
   }
 }

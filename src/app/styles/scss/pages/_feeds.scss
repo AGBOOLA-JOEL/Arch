@@ -390,56 +390,56 @@
       width: 91.5%;
     }
     // grid-template-columns: 33.3% 33.3% 33.3%;
+  }
+}
 
-    & .feed_othersinfo {
-      @include borderbox;
-      @include flex(column);
-      margin-bottom: 0px;
+& .feed_othersinfo {
+  @include borderbox;
+  @include flex(column);
+  margin-bottom: 0px;
 
-      & .feed_othersimage {
-        height: 295px;
-        width: 100%;
-        background-color: $primary;
-        margin-bottom: 0px;
-        & img {
-          height: 100%;
-          width: 100%;
-        }
-      }
+  & .feed_othersimage {
+    height: 295px;
+    width: 100%;
+    background-color: $primary;
+    margin-bottom: 0px;
+    & img {
+      height: 100%;
+      width: 100%;
+    }
+  }
 
-      & .feed_otherstext {
-        @include flex(column);
+  & .feed_otherstext {
+    @include flex(column);
 
-        & :nth-child(1) {
-          font-size: 1.4rem;
-          width: 100%;
-          font-weight: 600;
-          text-align: left;
-          color: $dark-one;
-          line-height: 24px;
-          word-wrap: break-word;
-          transition: 0.3s ease-in-out;
-        }
+    & :nth-child(1) {
+      font-size: 1.4rem;
+      width: 100%;
+      font-weight: 600;
+      text-align: left;
+      color: $dark-one;
+      line-height: 24px;
+      word-wrap: break-word;
+      transition: 0.3s ease-in-out;
+    }
 
-        & :nth-child(2) {
-          width: 100%;
-          word-wrap: break-word;
-          font-size: 10px;
-          font-style: italic;
-          text-align: left;
-          margin-top: -7px;
-          font-weight: 500;
-          color: $dark-one;
-          transition: 0.3s ease-in-out;
-        }
-      }
+    & :nth-child(2) {
+      width: 100%;
+      word-wrap: break-word;
+      font-size: 10px;
+      font-style: italic;
+      text-align: left;
+      margin-top: -7px;
+      font-weight: 500;
+      color: $dark-one;
+      transition: 0.3s ease-in-out;
+    }
+  }
 
-      & .feed_otherstext:hover {
-        & p {
-          transition: 0.3s ease-in-out;
-          color: $secondary;
-        }
-      }
+  & .feed_otherstext:hover {
+    & p {
+      transition: 0.3s ease-in-out;
+      color: $secondary;
     }
   }
 }
