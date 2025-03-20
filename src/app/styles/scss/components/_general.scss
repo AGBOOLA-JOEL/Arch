@@ -95,7 +95,7 @@
     display: inline-flex;
     margin-top: 4rem;
 
-    background-color: $primary;
+    background-color: $secondary;
     color: $primary;
     border-radius: 70px;
     padding: 0.7rem 2rem;
@@ -734,4 +734,52 @@
   //     font-size: 1.25rem;
   //   }
   // }
+}
+
+& .arch_dnd {
+  width: 100%;
+  height: 100%;
+  & .arch_dndbrowse {
+    @include center(column);
+    width: 100%;
+    height: 100%;
+    border: 1px dashed $gray-text;
+
+    & svg {
+      font-size: 3rem;
+      color: $primary;
+    }
+    & :nth-child(2) {
+      font-size: 1rem;
+      color: $dark-one;
+      margin: 3px 0;
+    }
+    & :nth-child(3) {
+      color: $dark-two;
+      margin: 3px 0;
+    }
+    & :nth-child(4) {
+      font-weight: 400;
+      font-size: 1.2rem;
+      color: $primary;
+      border: 1px solid $dark-two;
+      border-radius: 2px;
+      padding: 8px 10px;
+      background-color: $white;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
+    & :nth-child(4):hover {
+      transition: 0.3s ease-in-out;
+      color: $white;
+      background-color: $primary;
+    }
+    & :nth-child(5) {
+      color: $dark-two;
+    }
+  }
+
+  & .arch_dndbrowse:hover {
+    border: 1px solid $gray-text;
+  }
 }

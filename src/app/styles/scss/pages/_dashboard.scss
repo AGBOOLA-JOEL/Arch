@@ -1,0 +1,353 @@
+& .dashboard {
+  @include flex(column);
+  align-items: center;
+  min-height: 100vh;
+  margin-bottom: 200px;
+
+  & .dashboard_head {
+    @include center(row);
+    margin: 0px 0px;
+    height: 80px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: $secondary;
+    text-transform: uppercase;
+    @include sm {
+      gap: 10px;
+    }
+    & svg {
+      display: none;
+      @include sm {
+        display: block;
+      }
+    }
+  }
+  & .dashboard_display {
+    @include flex(row);
+    // background-color: yellow;
+    width: 93%;
+    position: relative;
+    @include sm {
+      @include flex(column);
+    }
+    & .dashboard_side {
+      @include sm {
+        position: absolute;
+        width: 100%;
+        align-items: center;
+        margin-top: -15px;
+      }
+      @include flex(column);
+      width: 20%;
+      padding: 0px 0px;
+      //   background-color: red;
+    }
+
+    & .dashboard_child {
+      //   background-color: pink;
+      min-height: 510px;
+      width: 80%;
+      @include sm {
+        width: 100%;
+        @include flex(column);
+        align-items: center;
+      }
+    }
+  }
+}
+
+& .dash_sidebar {
+  width: 100%;
+  background-color: $primary;
+  border-top-left-radius: 5px;
+  @include sm {
+    display: none;
+    width: 70%;
+    border-radius: 5px;
+    background-color: $gray;
+  }
+  & h1 {
+    @include sm {
+      display: none;
+    }
+    @include borderbox;
+    padding-left: 30px;
+    font-size: 1.7rem;
+    color: $white;
+    margin-top: 0px;
+    height: 54px;
+    width: 100%;
+    @include flex(row);
+    align-items: center;
+    border-bottom: 1px solid $secondary;
+  }
+
+  & ul {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    @include borderbox;
+    padding-left: 30px;
+    @include flex(column);
+    width: 100%;
+    gap: 15px;
+
+    & li {
+      @include strip-list;
+      & a {
+        font-size: 1.6rem;
+        color: $white;
+        @include flex(row);
+        align-items: center;
+        gap: 15px;
+        transition: 0.3s ease-in-out;
+        @include sm {
+          color: $primary;
+        }
+
+        & .dash_sidenotif {
+          @include borderbox;
+          @include center(row);
+          background-color: $secondary;
+          color: $white;
+          font-size: 1.2rem;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          margin-right: 25px;
+          margin-left: auto;
+        }
+      }
+      & a:hover {
+        color: $secondary;
+        transition: 0.3s ease-in-out;
+        // & svg {
+        //   color: $secondary;
+        // }
+      }
+    }
+  }
+}
+
+& .dash_stat {
+  border-top-right-radius: 5px;
+  width: 100%;
+  @include sm {
+    width: 87%;
+    border: none;
+    padding: 0px 0px;
+  }
+  border: 1px solid $gray-two;
+  min-height: 500px;
+  @include borderbox;
+  padding: 35px 40px 20px 40px;
+
+  & .dash_statmap {
+    width: 100%;
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
+    @include sm {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    & .dash_statdata {
+      cursor: pointer;
+      height: 143px;
+      background-color: $gray;
+      @include center(row);
+      gap: 24px;
+      border-radius: 10px;
+      transition: 0.3s ease-in-out;
+      & svg {
+        color: $primary;
+        font-size: 4.5rem;
+      }
+      & p {
+        @include flex(column);
+        gap: 20px;
+        & :nth-child(1) {
+          width: 150px;
+          color: $dark-one;
+          font-size: 1.7rem;
+          font-weight: 600;
+          margin-top: 15px;
+        }
+        & :nth-child(2) {
+          color: $primary;
+          font-weight: 700;
+          font-size: 2.5rem;
+          margin-top: -5px;
+        }
+      }
+    }
+
+    & .dash_statdata:hover {
+      background-color: $primary;
+      transition: 0.3s ease-in-out;
+
+      & svg {
+        color: $secondary;
+      }
+
+      & p {
+        & :nth-child(1) {
+          color: $gray-text;
+        }
+        & :nth-child(2) {
+          color: $gray-text;
+        }
+      }
+    }
+  }
+}
+
+& .dash_profile {
+  border-top-right-radius: 5px;
+  width: 100%;
+
+  @include sm {
+    width: 90%;
+    border: none;
+    padding: 0px 0px;
+  }
+  border: 1px solid $gray-two;
+  min-height: 500px;
+  @include borderbox;
+  padding: 45px 40px 40px 65px;
+
+  & .dash_profavatar {
+    @include sm {
+      @include center(column);
+    }
+    & .dash_profimg {
+      height: 152px;
+      width: 152px;
+      border-radius: 50%;
+      background-color: $primary;
+      cursor: pointer;
+    }
+    & p {
+      width: 152px;
+      text-align: center;
+      font-weight: 500;
+      font-size: 1.4rem;
+      color: $secondary;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
+    & p:hover {
+      color: $primary;
+      transition: 0.3s ease-in-out;
+    }
+  }
+  & .dash_profmap {
+    margin-top: 10px;
+    padding-left: 20px;
+
+    & .dash_profdata {
+      margin-bottom: -7px;
+      font-size: 1.6rem;
+      padding: 0px 0px;
+      @include sm {
+        font-size: 1.5rem;
+      }
+      & div {
+        @include flex(row);
+        align-items: center;
+
+        & p {
+          & :nth-child(1) {
+            font-weight: 600;
+            color: $primary;
+            margin-left: 5px;
+            margin-right: 20px;
+            width: 200px;
+          }
+
+          & :nth-child(2) {
+            color: $dark-one;
+          }
+
+          & input {
+            width: 220px;
+            font-size: 1.5rem;
+            outline: none;
+            border: none;
+            color: $dark-one;
+            border-bottom: 1px solid $dark-one;
+          }
+        }
+
+        & .dash_profedit {
+          @include clear-btn;
+          @include flex(row);
+          cursor: pointer;
+          align-items: center;
+          gap: 10px;
+          margin-left: auto;
+          margin-right: 200px;
+          color: $secondary;
+          font-size: 1.5rem;
+          transition: 0.3s ease-in-out;
+          @include sm {
+            margin-top: 30px;
+            margin-right: 0px;
+          }
+        }
+        & .dash_profedit:hover {
+          color: $primary;
+          transition: 0.3s ease-in-out;
+        }
+      }
+    }
+
+    & .dash_profdata::marker {
+      @include center(column);
+      font-size: 1.9rem;
+      color: $primary;
+    }
+  }
+
+  & .dash_profchange {
+    padding: 8px 10px;
+    border: 1px solid $gray-text;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: $primary;
+    border-radius: 5px;
+    background-color: $white;
+    margin-top: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+  }
+
+  & .dash_profchange:hover {
+    background-color: $primary;
+    color: $white;
+  }
+}
+
+& .dash_portfolio {
+  border-top-right-radius: 5px;
+  width: 100%;
+  @include sm {
+    width: 87%;
+    border: none;
+    padding: 0px 0px;
+  }
+  border: 1px solid $gray-two;
+  min-height: 500px;
+  @include borderbox;
+  padding: 35px 40px 20px 40px;
+
+  & .dash_porttitle {
+    font-weight: 500;
+    font-size: 1rem;
+    color: $primary;
+    margin-bottom: 20px;
+  }
+  & .dash_portcoverimg {
+    width: 285px;
+    height: 183px;
+  }
+}
