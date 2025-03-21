@@ -782,3 +782,91 @@
     border: 1px solid $gray-text;
   }
 }
+
+& .arch_portdnd {
+  @include flex(row);
+  gap: 20px;
+  @include sm {
+    width: 100%;
+    // display: grid;
+    // gap: 0px;
+    // grid-template-columns: 50% 50%;
+
+    display: grid;
+    gap: 15px;
+    grid-template-columns: calc(50% - 7.5px) calc(50% - 7.5px);
+    @include borderbox;
+  }
+  & .arch_portdndmap {
+    position: relative;
+    & .arch_portdndlabel {
+      @include center(column);
+      @include sm {
+        max-width: 100%;
+        @include borderbox;
+      }
+      width: 170px;
+      height: 121px;
+      border: 1px dashed $gray-text;
+      margin-bottom: 10px;
+      & label {
+        font-weight: 400;
+        font-size: 1.2rem;
+        color: $primary;
+        border: 1px solid $gray-text;
+        border-radius: 2px;
+        padding: 8px 10px;
+        @include borderbox;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+        text-align: center;
+      }
+      & label:hover {
+        background-color: $primary;
+        color: $white;
+        transition: 0.3s ease-in-out;
+      }
+    }
+
+    & .arch_portdndlock {
+      color: $secondary;
+      position: absolute;
+      @include center(column);
+      @include sm {
+        width: 100%;
+      }
+
+      width: 171px;
+      height: 121px;
+      background-color: rgba(200, 197, 197, 0.518);
+      margin-top: -132px;
+      font-size: 2rem;
+    }
+
+    & .arch_portdndtrash {
+      @include flex(row);
+      align-items: center;
+      width: 171px;
+      & p {
+        background-color: $dark;
+        color: $white;
+        border-radius: 2px;
+        width: 80px;
+        font-weight: 600;
+        height: 18px;
+        font-size: 1.2rem;
+        @include center(column);
+      }
+
+      & svg {
+        color: $secondary;
+        font-size: 1.5rem;
+        margin-left: auto;
+      }
+      & svg:hover {
+        cursor: pointer;
+        color: $primary;
+      }
+    }
+  }
+}

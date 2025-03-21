@@ -1428,6 +1428,111 @@ a {
 .app .arch_dnd .arch_dndbrowse:hover {
   border: 1px solid var(--graytext);
 }
+.app .arch_portdnd {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+@media (max-width: 1012px) {
+  .app .arch_portdnd {
+    width: 100%;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: calc(50% - 7.5px) calc(50% - 7.5px);
+    box-sizing: border-box;
+  }
+  .app .arch_portdnd::before, .app .arch_portdnd::after {
+    box-sizing: border-box;
+  }
+}
+.app .arch_portdnd .arch_portdndmap {
+  position: relative;
+}
+.app .arch_portdnd .arch_portdndmap .arch_portdndlabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 170px;
+  height: 121px;
+  border: 1px dashed var(--graytext);
+  margin-bottom: 10px;
+}
+@media (max-width: 1012px) {
+  .app .arch_portdnd .arch_portdndmap .arch_portdndlabel {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .app .arch_portdnd .arch_portdndmap .arch_portdndlabel::before, .app .arch_portdnd .arch_portdndmap .arch_portdndlabel::after {
+    box-sizing: border-box;
+  }
+}
+.app .arch_portdnd .arch_portdndmap .arch_portdndlabel label {
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: var(--primary);
+  border: 1px solid var(--graytext);
+  border-radius: 2px;
+  padding: 8px 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  text-align: center;
+}
+.app .arch_portdnd .arch_portdndmap .arch_portdndlabel label::before, .app .arch_portdnd .arch_portdndmap .arch_portdndlabel label::after {
+  box-sizing: border-box;
+}
+.app .arch_portdnd .arch_portdndmap .arch_portdndlabel label:hover {
+  background-color: var(--primary);
+  color: var(--white);
+  transition: 0.3s ease-in-out;
+}
+.app .arch_portdnd .arch_portdndmap .arch_portdndlock {
+  color: var(--secondary);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 171px;
+  height: 121px;
+  background-color: rgba(200, 197, 197, 0.518);
+  margin-top: -132px;
+  font-size: 2rem;
+}
+@media (max-width: 1012px) {
+  .app .arch_portdnd .arch_portdndmap .arch_portdndlock {
+    width: 100%;
+  }
+}
+.app .arch_portdnd .arch_portdndmap .arch_portdndtrash {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 171px;
+}
+.app .arch_portdnd .arch_portdndmap .arch_portdndtrash p {
+  background-color: var(--dark);
+  color: var(--white);
+  border-radius: 2px;
+  width: 80px;
+  font-weight: 600;
+  height: 18px;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app .arch_portdnd .arch_portdndmap .arch_portdndtrash svg {
+  color: var(--secondary);
+  font-size: 1.5rem;
+  margin-left: auto;
+}
+.app .arch_portdnd .arch_portdndmap .arch_portdndtrash svg:hover {
+  cursor: pointer;
+  color: var(--primary);
+}
 .app .sidebar {
   width: 100%;
   border: 1px solid var(--graytwo);
@@ -4367,7 +4472,7 @@ a {
 }
 @media (max-width: 1012px) {
   .app .dash_portfolio {
-    width: 87%;
+    width: 93%;
     border: none;
     padding: 0px 0px;
   }
@@ -4379,9 +4484,47 @@ a {
   font-weight: 500;
   font-size: 1rem;
   color: var(--primary);
-  margin-bottom: 20px;
+}
+@media (max-width: 1012px) {
+  .app .dash_portfolio .dash_porttitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
 }
 .app .dash_portfolio .dash_portcoverimg {
+  margin-top: 20px;
   width: 285px;
   height: 183px;
+  margin-bottom: 20px;
+}
+@media (max-width: 1012px) {
+  .app .dash_portfolio .dash_portcoverimg {
+    width: 100%;
+  }
+}
+.app .dash_portfolio .dash_portbtn {
+  padding: 8px 10px;
+  border: 1px solid var(--graytext);
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--primary);
+  border-radius: 5px;
+  background-color: var(--white);
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+@media (max-width: 1012px) {
+  .app .dash_portfolio .dash_portbtn {
+    margin-top: 25px;
+    width: 100%;
+  }
+}
+.app .dash_portfolio .dash_portbtn:hover {
+  background-color: var(--primary);
+  color: var(--white);
 }/*# sourceMappingURL=global.css.map */

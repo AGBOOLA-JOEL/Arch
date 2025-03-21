@@ -1,5 +1,5 @@
 import ArchDnd from "@/components/general/ArchDnd";
-import React from "react";
+import ArchPortDnd from "@/components/general/ArchPortdnd";
 
 const Page = () => {
   return (
@@ -8,6 +8,10 @@ const Page = () => {
       <div className="dash_portcoverimg">
         <ArchDnd header={"Drop your image here"} />
       </div>
+
+      <ArchPortDnd />
+
+      <button className="dash_portbtn">Submit</button>
     </div>
   );
 };

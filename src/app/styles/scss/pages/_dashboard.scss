@@ -331,7 +331,7 @@
   border-top-right-radius: 5px;
   width: 100%;
   @include sm {
-    width: 87%;
+    width: 93%;
     border: none;
     padding: 0px 0px;
   }
@@ -344,10 +344,42 @@
     font-weight: 500;
     font-size: 1rem;
     color: $primary;
-    margin-bottom: 20px;
+    @include sm {
+      @include center(column);
+      width: 100%;
+      text-align: center;
+    }
   }
+
   & .dash_portcoverimg {
+    margin-top: 20px;
     width: 285px;
     height: 183px;
+    margin-bottom: 20px;
+    @include sm {
+      width: 100%;
+    }
+  }
+
+  & .dash_portbtn {
+    padding: 8px 10px;
+    border: 1px solid $gray-text;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: $primary;
+    border-radius: 5px;
+    background-color: $white;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    @include sm {
+      margin-top: 25px;
+      width: 100%;
+    }
+  }
+
+  & .dash_portbtn:hover {
+    background-color: $primary;
+    color: $white;
   }
 }

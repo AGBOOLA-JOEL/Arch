@@ -1,36 +1,42 @@
 // export default ImageDropBox;
-import { Deleteicon } from "assets/svg/Deleteicon";
-import React, { useState, useRef, useContext } from "react";
+
+import React from "react";
 import { MdLockPerson } from "react-icons/md";
-import "../../styles/compstyle/portbox.css";
-import { mainContext } from "pages/hooks/Context";
+import { GoTrash } from "react-icons/go";
 
-const ArchPortDnd = ({ onImageChange, header, status }) => {
+const ArchPortDnd = () => {
   return (
-    <div className="portbox">
-       
-        <div
-          // className="userpf_drop"
-          className="port-img-select"
-          style={{ width: "170px", height: "120px" }}
-        >
-          <label className="userpf_btn">browse and drop files</label>
+    <div className="arch_portdnd">
+      <div className="arch_portdndmap">
+        <div className="arch_portdndlabel">
+          <label>browse and drop files</label>
         </div>
 
-     
+        {/* <div className="arch_portdndlock">
+          <MdLockPerson />
+        </div> */}
 
-    
-        <div className="portbox_lock">
-          <MdLockPerson fill="#113A5A" />
+        <div className="arch_portdndtrash">
+          <p>primary</p>
+          <GoTrash />
         </div>
-   
-      <div
-        
-       
-      >
-         <p className="portbox_primary">primary</p>}
- <Deleteicon />}
       </div>
+      {[{ id: 1 }, { id: 2 }, { id: 3 }].map(({ id }) => (
+        <div className="arch_portdndmap" key={id}>
+          <div className="arch_portdndlabel">
+            <label>browse and drop files</label>
+          </div>
+
+          <div className="arch_portdndlock">
+            <MdLockPerson />
+          </div>
+
+          <div className="arch_portdndtrash">
+            {/* <p>primary</p>
+            <GoTrash /> */}
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
