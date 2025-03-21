@@ -1,25 +1,71 @@
 "use client";
-
-import React from "react";
+import { useState } from "react";
 import dynamic from "next/dynamic";
-// import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import "quill/dist/quill.snow.css"; // Ensure styles are imported
 
-interface QuillEditorProps {
-  value: string;
-}
+const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+function ArchQuill() {
+  const [quillState, setQuillState] = useState("");
 
-const ArchQuill: React.FC<QuillEditorProps> = ({ value }) => {
+  const handleEditorChange = (content: string) => {
+    // setQuillState(content);
+
+    setQuillState(content);
+
+    console.log("quill content", JSON.stringify(content));
+    // console.log("quill content", content);
+  };
+
+  const modules = {
+    toolbar: [
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      ["bold", "italic", "underline", "strike"],
+      [{ list: "ordered" }, { list: "bullet" }], // Bullet list issue fixed
+      [{ script: "sub" }, { script: "super" }],
+      [{ indent: "-1" }, { indent: "+1" }],
+      [{ direction: "rtl" }],
+      [{ size: ["small", false, "large", "huge"] }],
+      [{ color: [] }, { background: [] }],
+      [{ font: [] }],
+      [{ align: [] }],
+      ["link", "image", "video"],
+      ["clean"],
+    ],
+  };
+
+  const formats = [
+    "header",
+    "bold",
+    "italic",
+    "underline",
+    "strike",
+    "list", // Ensure "list" is included
+    // "bullet", // Bullet should now work
+    "script",
+    "indent",
+    "direction",
+    "size",
+    "color",
+    "background",
+    "font",
+    "align",
+    "link",
+    "image",
+    "video",
+  ];
+
   return (
-    <ReactQuill
-      theme="snow"
-      value={value}
-      readOnly
-      modules={{ toolbar: false }}
-    />
+    <div className="arch_quill">
+      <ReactQuill
+        theme="snow"
+        value={quillState}
+        onChange={handleEditorChange}
+        modules={modules}
+        formats={formats}
+      />
+    </div>
   );
-};
+}
 
 export default ArchQuill;

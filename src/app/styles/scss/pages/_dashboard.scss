@@ -5,20 +5,85 @@
   margin-bottom: 200px;
 
   & .dashboard_head {
-    @include center(row);
-    margin: 0px 0px;
-    height: 80px;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: $secondary;
-    text-transform: uppercase;
-    @include sm {
-      gap: 10px;
-    }
-    & svg {
-      display: none;
+    @include center(column);
+    align-items: center;
+    & .dashboard_mainnav {
+      @include center(row);
+      margin: 0px 0px;
+      height: 80px;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: $secondary;
+      text-transform: uppercase;
       @include sm {
-        display: block;
+        gap: 10px;
+      }
+      & svg {
+        display: none;
+        @include sm {
+          display: block;
+        }
+      }
+    }
+    & .dashboard_mobilenav {
+      display: none;
+      @include center(column);
+
+      @include sm {
+        @include flex(row);
+        align-items: center;
+        width: 100%;
+        position: absolute;
+      }
+
+      & p {
+        width: 100%;
+        margin-top: 70px;
+        @include center(row);
+        gap: 10px;
+        font-size: 1.5rem;
+        color: $secondary;
+      }
+
+      & ul {
+        width: 50%;
+        @include strip-list;
+        height: auto;
+        padding: 0px 0px;
+        padding-bottom: 0px;
+        position: absolute;
+        cursor: pointer;
+        z-index: 10;
+        margin-top: 270px;
+        transition: 0.3s ease-in-out;
+        background-color: $gray;
+        box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.15);
+        & li {
+          @include flex(row);
+          @include strip-list;
+          @include borderbox;
+          transition: 0.3s ease-in-out;
+          align-items: center;
+          border-radius: 2px;
+          width: 100%;
+          height: 41px;
+          padding-left: 25px;
+          & a {
+            font-size: 1.4rem;
+            font-weight: 400;
+            text-align: left;
+            color: $dark-one;
+            cursor: pointer;
+          }
+
+          &:hover {
+            background-color: $secondary;
+            transition: 0.3s ease-in-out;
+            & a {
+              color: $white;
+            }
+          }
+        }
       }
     }
   }
@@ -28,6 +93,7 @@
     width: 93%;
     position: relative;
     @include sm {
+      width: 100%;
       @include flex(column);
     }
     & .dashboard_side {
@@ -40,11 +106,9 @@
       @include flex(column);
       width: 20%;
       padding: 0px 0px;
-      //   background-color: red;
     }
 
     & .dashboard_child {
-      //   background-color: pink;
       min-height: 510px;
       width: 80%;
       @include sm {
@@ -381,5 +445,97 @@
   & .dash_portbtn:hover {
     background-color: $primary;
     color: $white;
+  }
+}
+
+& .dash_posts {
+  border-top-right-radius: 5px;
+  width: 100%;
+  overflow: hidden;
+
+  @include sm {
+    width: 100%;
+    border: none;
+    padding: 0px 0px;
+  }
+  border: 1px solid $gray-two;
+  min-height: 500px;
+  padding: 0px 0px;
+  @include borderbox;
+  & .dash_postsnav {
+    margin-top: 0px;
+
+    width: 100%;
+  }
+
+  & .dash_postschild {
+    width: 100%;
+
+    & .dash_postnew {
+      @include borderbox;
+      @include flex(column);
+      gap: 15px;
+      padding: 35px 40px 20px 40px;
+      & .dash_postnewdnd {
+        height: 200px;
+      }
+
+      & .dash_postnewbtn {
+        @include flex(row);
+        align-items: center;
+        gap: 20px;
+      }
+    }
+  }
+}
+
+& .dash_navbar {
+  width: 100%;
+  height: 54px;
+  background-color: $gray;
+  @include flex(row);
+  @include sm {
+    display: none;
+  }
+  & .dash_navbarmap {
+    margin: 0px 0px;
+    @include flex(row);
+    // align-items: center;
+    text-decoration: none;
+    list-style-type: none;
+    gap: 35px;
+    margin-left: -7px;
+
+    & li {
+      margin-top: auto;
+      // background-color: red;
+      @include center(row);
+      @include borderbox;
+      padding: 8px 10px;
+      height: 90%;
+      transition: 0.3s ease-in-out;
+      & a {
+        font-size: 1.5rem;
+        font-weight: 500;
+        @include strip-list;
+        color: $primary;
+        transition: 0.3s ease-in-out;
+      }
+      & a:hover {
+        transition: 0.3s ease-in-out;
+        color: $secondary;
+      }
+    }
+
+    & .active {
+      background-color: white;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+      transition: 0.3s ease-in-out;
+      & a {
+        color: rgba(33, 148, 236, 1);
+        transition: 0.3s ease-in-out;
+      }
+    }
   }
 }

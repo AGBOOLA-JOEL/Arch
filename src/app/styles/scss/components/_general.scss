@@ -530,19 +530,40 @@
 }
 
 & .arch_button {
-  padding: 8px 12px;
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: $white;
-  border-radius: 3px;
-  background-color: $primary;
-  outline: none;
-  border: none;
   cursor: pointer;
   transition: opacity 0.3s ease-in-out;
 }
 
-& .arch_button:hover {
+& .arch_button.white {
+  padding: 7px 12px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  background-color: $white;
+  color: $primary;
+  border: 1px solid $primary;
+  transition: opacity 0.3s ease-in-out;
+}
+& .arch_button.white:hover {
+  color: $white;
+  border: none;
+  background-color: $primary;
+  transition: opacity 0.3s ease-in-out;
+}
+& .arch_button.primary {
+  padding: 8px 12px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  background-color: $primary;
+  color: $white;
+  transition: opacity 0.3s ease-in-out;
+}
+& .arch_button.primary:hover {
   color: $primary;
   background-color: $secondary;
   transition: opacity 0.3s ease-in-out;
@@ -867,6 +888,40 @@
         cursor: pointer;
         color: $primary;
       }
+    }
+  }
+}
+
+& .arch_textarea {
+  width: 100%;
+  & p {
+    margin-top: 0px;
+    margin-bottom: 7px;
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-align: left;
+    color: $dark-one;
+    & span {
+      font-weight: 500;
+    }
+  }
+
+  & textarea {
+    width: 100%;
+    min-height: 100px;
+  }
+}
+& .arch_quill {
+  & .ql-container {
+    min-height: 200px !important;
+
+    & h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $primary !important;
     }
   }
 }

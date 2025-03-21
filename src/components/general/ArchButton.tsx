@@ -15,11 +15,12 @@
 type BtnProp = {
   name: string;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  variant: "white" | "primary";
 };
 
-const ArchButton = ({ name, onClick }: BtnProp) => {
+const ArchButton = ({ name, onClick, variant }: BtnProp) => {
   return (
-    <button className="arch_button" onClick={onClick}>
+    <button className={`arch_button ${variant}`} onClick={onClick}>
       {name}
     </button>
   );

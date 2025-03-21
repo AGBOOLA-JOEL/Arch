@@ -40,4 +40,9 @@ export const submitschema = yup.object().shape({
   username: yup.string().required(),
   size: yup.number().required(),
 });
+
+export const postformschema = yup.object().shape({
+  title: yup.string().required(),
+  type: yup.string().required(),
+});
 //add error pop up if requirement is not met

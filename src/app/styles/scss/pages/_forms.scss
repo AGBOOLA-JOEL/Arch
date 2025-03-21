@@ -723,39 +723,6 @@
     @include sm {
       width: 92.5%;
     }
-    & .submit_input {
-      width: 100%;
-
-      position: relative;
-      & span {
-        color: $secondary;
-        position: absolute;
-        right: 5%;
-        margin-top: 18px;
-        @include sm {
-          right: 6%;
-        }
-      }
-      & input {
-        background: none;
-        @include borderbox;
-        outline: none;
-        height: 47px;
-        width: 100%;
-        padding-left: 20px;
-        padding-right: 20px;
-        border-radius: 4px;
-        border: 1px solid $dark-two;
-        color: $dark-one;
-        font-size: 1.6rem;
-        font-weight: 500;
-        text-align: left;
-
-        &::placeholder {
-          color: $dark-one;
-        }
-      }
-    }
   }
 
   & .submit_btn {
@@ -776,6 +743,40 @@
     }
     @include sm {
       font-size: 1.8rem;
+    }
+  }
+}
+
+& .submit_input {
+  width: 100%;
+
+  position: relative;
+  & span {
+    color: $secondary;
+    position: absolute;
+    right: 5%;
+    margin-top: 18px;
+    @include sm {
+      right: 6%;
+    }
+  }
+  & input {
+    background: none;
+    @include borderbox;
+    outline: none;
+    height: 47px;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 4px;
+    border: 1px solid $dark-two;
+    color: $dark-one;
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-align: left;
+
+    &::placeholder {
+      color: $dark-one;
     }
   }
 }

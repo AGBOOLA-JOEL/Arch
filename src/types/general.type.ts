@@ -16,3 +16,12 @@ export type ArchTagProp = {
   tag: string[];
   setTag: React.Dispatch<React.SetStateAction<string[]>>;
 };
+
+export type ArchTextareaProp = {
+  textarea: string;
+  setTextarea: React.Dispatch<React.SetStateAction<string>>;
+  desc: string;
+  maxword: number;
+
+  label: string;
+};

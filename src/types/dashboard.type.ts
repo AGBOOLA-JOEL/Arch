@@ -7,3 +7,8 @@ export type DashSideProp = {
   linkcolor?: string;
   notif?: boolean;
 }[];
+
+export type PostFormData = {
+  title: string;
+  type: string;
+};
