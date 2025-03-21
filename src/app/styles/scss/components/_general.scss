@@ -547,6 +547,7 @@
   transition: opacity 0.3s ease-in-out;
 }
 & .arch_button.white:hover {
+  padding: 8px 12px;
   color: $white;
   border: none;
   background-color: $primary;

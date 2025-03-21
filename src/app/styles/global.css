@@ -1211,6 +1211,7 @@ a {
   transition: opacity 0.3s ease-in-out;
 }
 .app .arch_button.white:hover {
+  padding: 8px 12px;
   color: var(--white);
   border: none;
   background-color: var(--primary);
