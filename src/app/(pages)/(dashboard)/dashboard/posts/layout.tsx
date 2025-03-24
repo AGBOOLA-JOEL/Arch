@@ -12,21 +12,21 @@ export default function RootLayout({
       route: "/dashboard/posts",
       linkstate: undefined,
     },
-    {
-      name: "Published Posts",
-      route: "/dashboard/posts/published",
-      linkstate: "published",
-    },
-    {
-      name: "Draft",
-      route: "/dashboard/posts/draft",
-      linkstate: "draft",
-    },
-    {
-      name: "Pending posts",
-      route: "/dashboard/posts/pending",
-      linkstate: "pending",
-    },
+    // {
+    //   name: "Published Posts",
+    //   route: "/dashboard/posts/published",
+    //   linkstate: "published",
+    // },
+    // {
+    //   name: "Draft",
+    //   route: "/dashboard/posts/draft",
+    //   linkstate: "draft",
+    // },
+    // {
+    //   name: "Pending posts",
+    //   route: "/dashboard/posts/pending",
+    //   linkstate: "pending",
+    // },
   ];
   return (
     <div className="dash_posts">

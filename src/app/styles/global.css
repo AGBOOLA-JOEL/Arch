@@ -1556,7 +1556,11 @@ a {
   color: var(--primary);
 }
 .app .arch_textarea {
+  box-sizing: border-box;
   width: 100%;
+}
+.app .arch_textarea::before, .app .arch_textarea::after {
+  box-sizing: border-box;
 }
 .app .arch_textarea p {
   margin-top: 0px;
@@ -1570,8 +1574,16 @@ a {
   font-weight: 500;
 }
 .app .arch_textarea textarea {
+  font-size: 1.5rem;
+  color: var(--darkone);
+  outline: none;
+  box-sizing: border-box;
   width: 100%;
   min-height: 100px;
+  border: 1px solid var(--graytext);
+}
+.app .arch_textarea textarea::before, .app .arch_textarea textarea::after {
+  box-sizing: border-box;
 }
 .app .arch_quill .ql-container {
   min-height: 200px !important;
@@ -4695,6 +4707,11 @@ a {
 .app .dash_posts .dash_postschild .dash_postnew::before, .app .dash_posts .dash_postschild .dash_postnew::after {
   box-sizing: border-box;
 }
+@media (max-width: 1012px) {
+  .app .dash_posts .dash_postschild .dash_postnew {
+    padding: 0px 10px 20px 10px;
+  }
+}
 .app .dash_posts .dash_postschild .dash_postnew .dash_postnewdnd {
   height: 200px;
 }
@@ -4703,6 +4720,19 @@ a {
   flex-direction: row;
   align-items: center;
   gap: 20px;
+}
+@media (max-width: 1012px) {
+  .app .dash_posts .dash_postschild .dash_postnew .dash_postnewbtn {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .app .dash_posts .dash_postschild .dash_postnew .dash_postnewbtn .arch_button {
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 0px 0px;
+    height: 48px;
+  }
 }
 .app .dash_navbar {
   width: 100%;
