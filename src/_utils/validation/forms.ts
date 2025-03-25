@@ -45,4 +45,9 @@ export const postformschema = yup.object().shape({
   title: yup.string().required(),
   type: yup.string().required(),
 });
+
+export const messageformschema = yup.object().shape({
+  title: yup.string().required(),
+  receipient: yup.string().required(),
+});
 //add error pop up if requirement is not met

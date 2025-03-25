@@ -38,7 +38,7 @@ export const dashdata: DashSideProp = [
   },
   {
     name: "Messages",
-    route: "/dashboard/messages",
+    route: "/dashboard/messages/all",
     logo: FaEnvelopeOpenText,
     linkcolor: "messages",
     notif: true,
@@ -57,7 +57,7 @@ export const dashdata: DashSideProp = [
   },
   {
     name: "Payment history",
-    route: "/dashboard/history",
+    route: "/dashboard/payment/approved",
     logo: FaHistory,
     notif: true,
   },

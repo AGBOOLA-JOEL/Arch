@@ -29,12 +29,11 @@ export default function RootLayout({
     // },
   ];
   return (
-    <div className="dash_posts">
-      <div className="dash_postsnav">
+    <div className="dash_pages">
+      <div className="dash_pagesnav">
         <DashNavbar data={dashdata} />
-        {/* <DashNavMobile data={dashdata} /> */}
       </div>
-      <div className="dash_postschild">{children}</div>
+      <div className="dash_pageschild">{children}</div>
     </div>
   );
 }
