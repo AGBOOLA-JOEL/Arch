@@ -45,7 +45,7 @@ export const dashdata: DashSideProp = [
   },
   {
     name: "Project status",
-    route: "/dashboard/status",
+    route: "/dashboard/project/approved",
     logo: SlInfo,
     linkcolor: "status",
     notif: true,

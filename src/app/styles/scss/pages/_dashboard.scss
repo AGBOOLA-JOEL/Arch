@@ -562,6 +562,7 @@
 }
 
 & .dash_statuspage {
+  margin-bottom: 20px;
   > div {
     &:nth-child(even) {
       background-color: $gray;
@@ -615,6 +616,12 @@
       text-align: left;
       color: $primary;
       cursor: pointer;
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+        transition: 0.3s ease-in-out;
+        color: $secondary;
+      }
     }
     & .dash_statusinfo {
       @include flex(row);
@@ -731,6 +738,61 @@
   & .dash_viewbtn {
     @include sm {
       @include center(row);
+    }
+  }
+}
+
+& .dash_archive {
+  padding: 40px 44px 0px 44px;
+  width: 100%;
+
+  @include borderbox;
+  @include flex(column);
+
+  & .dash_archivehead {
+    @include full-flex(center, space-between, row);
+    @include borderbox;
+    width: 100%;
+    height: 41px;
+    color: $white;
+    margin-bottom: 17px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    background-color: $primary;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  & .dash_archiveinfo {
+    @include flex(column);
+    & .dash_archivemap {
+      & .dash_archivedetails {
+        background-color: red;
+        width: 100%;
+        @include full-flex(center, space-between, row);
+
+        margin-bottom: 28px;
+        // gap: 61px;
+
+        // & .dash_archiveimg {
+        //   & span {
+        //   }
+        //   & img {
+        //     width: 114.85px;
+        //     height: 71px;
+        //   }
+        // }
+
+        & p {
+          // width: 332px;
+          word-wrap: break-word;
+        }
+      }
+    }
+
+    & .dash_archivebtn {
+      width: 100%;
+      @include flex(row);
+      justify-content: flex-end;
     }
   }
 }

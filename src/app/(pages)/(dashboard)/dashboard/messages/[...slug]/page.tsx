@@ -1,6 +1,6 @@
 import ArchBack from "@/components/general/ArchBack";
 
-const Propage = async ({ params }: { params: Promise<{ slug: string[] }> }) => {
+const Page = async ({ params }: { params: Promise<{ slug: string[] }> }) => {
   const { slug } = await params;
 
   return (
@@ -25,4 +25,4 @@ const Propage = async ({ params }: { params: Promise<{ slug: string[] }> }) => {
   );
 };
 
-export default Propage;
+export default Page;

@@ -12,7 +12,7 @@ const Page = () => {
         {[{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }].map(
           ({ id }) => (
             <div key={id}>
-              <DashStatus type={"payment"} />
+              <DashStatus type={"project"}  projecttype="Pending"/>
             </div>
           )
         )}

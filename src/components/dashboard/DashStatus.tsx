@@ -7,11 +7,15 @@ import { FaRegCircleCheck } from "react-icons/fa6";
 import { GrCurrency } from "react-icons/gr";
 import { BiCategory } from "react-icons/bi";
 import { MdOutlinePayments } from "react-icons/md";
+import { FaRegCheckCircle } from "react-icons/fa";
+import { GiCancel } from "react-icons/gi";
+import { TbCategory } from "react-icons/tb";
 
 type DashStatusProp = {
   type: "messages" | "payment" | "project";
+  projecttype?: "Approved" | "Rejected" | "Pending";
 };
-const DashStatus = ({ type }: DashStatusProp) => {
+const DashStatus = ({ type, projecttype }: DashStatusProp) => {
   return (
     <>
       {type === "messages" && (
@@ -61,6 +65,37 @@ const DashStatus = ({ type }: DashStatusProp) => {
                   {formatDate(
                     "Thu Dec 5 2024 21:50:26 GMT-00:00 (Coordinated Universal Time)"
                   )}
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+      {type === "project" && (
+        <div className="dash_status">
+          {projecttype === "Approved" && (
+            <FaRegCheckCircle className="dash_statusicon" />
+          )}
+          {projecttype === "Rejected" && (
+            <GiCancel className="dash_statusicon" />
+          )}
+          {projecttype === "Pending" && (
+            <MdOutlinePendingActions className="dash_statusicon" />
+          )}
+
+          <div className="dash_statusdetail">
+            <h1 className="dash_statustitle">Endpoint test</h1>
+
+            <div className="dash_statusinfo">
+              <p className="dash_statusdata">
+                <TbCategory />
+                <span>Residential architecture</span>
+              </p>
+              <p className="dash_statusdata">
+                <BiCategory />
+                <span>
+                  {projecttype}
+                  {projecttype === "Pending" ? "since" : "on"} Date
                 </span>
               </p>
             </div>

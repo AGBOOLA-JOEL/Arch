@@ -4789,6 +4789,9 @@ a {
     height: 48px;
   }
 }
+.app .dash_statuspage {
+  margin-bottom: 20px;
+}
 .app .dash_statuspage > div:nth-child(even) {
   background-color: var(--gray);
   height: 70px;
@@ -4844,6 +4847,11 @@ a {
   text-align: left;
   color: var(--primary);
   cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.app .dash_status .dash_statusdetail .dash_statustitle:hover {
+  transition: 0.3s ease-in-out;
+  color: var(--secondary);
 }
 .app .dash_status .dash_statusdetail .dash_statusinfo {
   display: flex;
@@ -4985,4 +4993,55 @@ a {
     align-items: center;
     flex-direction: row;
   }
+}
+.app .dash_archive {
+  padding: 40px 44px 0px 44px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.app .dash_archive::before, .app .dash_archive::after {
+  box-sizing: border-box;
+}
+.app .dash_archive .dash_archivehead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  box-sizing: border-box;
+  width: 100%;
+  height: 41px;
+  color: var(--white);
+  margin-bottom: 17px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  background-color: var(--primary);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.app .dash_archive .dash_archivehead::before, .app .dash_archive .dash_archivehead::after {
+  box-sizing: border-box;
+}
+.app .dash_archive .dash_archiveinfo {
+  display: flex;
+  flex-direction: column;
+}
+.app .dash_archive .dash_archiveinfo .dash_archivemap .dash_archivedetails {
+  background-color: red;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 28px;
+}
+.app .dash_archive .dash_archiveinfo .dash_archivemap .dash_archivedetails p {
+  word-wrap: break-word;
+}
+.app .dash_archive .dash_archiveinfo .dash_archivebtn {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }/*# sourceMappingURL=global.css.map */
