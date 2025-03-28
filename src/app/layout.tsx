@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./styles/global.css";
 import App from "./App";
-// import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ProvidersTree from "@/_lib/providertree";
 
 export default function RootLayout({
@@ -9,7 +8,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // const queryClient = new QueryClient({});
   return (
     <html>
       <head>

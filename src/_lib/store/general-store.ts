@@ -17,9 +17,9 @@ export const useGenstore = create<GenStoretype>((set) => ({
   openToast: (message, duration) => {
     set({ toast: message });
 
-    // setTimeout(() => {
-    //   set({ toast: null });
-    // }, duration);
+    setTimeout(() => {
+      set({ toast: null });
+    }, duration);
   },
   closeToast: () => set({ toast: null }),
 }));
@@ -27,22 +27,3 @@ export const useGenstore = create<GenStoretype>((set) => ({
 export const useGenselectors = createSelectors(useGenstore);
 
 // // global state for toast notification
-// interface ToastState {
-//   toast: string | null;
-//   openToast: (message: string, duration?: number) => void;
-//   closeToast: () => void;
-// }
-
-// const useToastStore = create<ToastState>((set) => ({
-//   toast: null,
-//   openToast: (message, duration) => {
-//     set({ toast: message });
-
-//     setTimeout(() => {
-//       set({ toast: null });
-//     }, duration);
-//   },
-//   closeToast: () => set({ toast: null }),
-// }));
-
-// export default useToastStore;

@@ -4,8 +4,17 @@ import { ReactNode, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const ProvidersTree = ({ children }: { children: ReactNode }) => {
-  // ✅ Ensure QueryClient is created only on the client
-  const [queryClient] = useState(() => new QueryClient());
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            refetchOnWindowFocus: false, // Prevent refetch on tab/window switch
+            retry: 1, // Retry failed queries once
+          },
+        },
+      })
+  );
 
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>

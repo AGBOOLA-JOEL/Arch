@@ -6,11 +6,28 @@ import ArchSideSoon from "@/components/general/ArchSideSoon";
 import HomeFeed from "@/components/homepage/HomeFeed";
 import HomeProject from "@/components/homepage/HomeProject";
 import SideBar from "@/components/sidebar/SideBar";
+import { api } from "@/services/api";
+import { useMutation } from "@tanstack/react-query";
 
+const fetchUserDetails = async () => {
+  const { data } = await api.get("/users/details");
+  return data;
+};
 const Homepage = () => {
   const { openModal } = useModalStore();
 
   const openToast = useGenselectors.use.openToast();
+
+  const userDetailsMutation = useMutation({
+    mutationFn: fetchUserDetails,
+    onSuccess: (data) => {
+      console.log("User API Response:", data.data);
+    },
+    onError: (error) => {
+      console.error("Fetch error:", error.message);
+    },
+  });
+
   return (
     <div className="home">
       <div className="home_carousel">
@@ -21,6 +38,18 @@ const Homepage = () => {
       </div>
 
       <button onClick={() => openModal("loading")}>Open Modal</button>
+      <button
+        onClick={() => {
+          // const token = localStorage.getItem("accessToken");
+          // axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+          userDetailsMutation.mutate();
+
+          // console.log("headers", axios.defaults.headers);
+        }}
+      >
+        fetchUSer
+      </button>
+
       <button
         onClick={() =>
           openToast("sucesssssssssssssssssssssssssssssssssssssssssssss", 5000)
