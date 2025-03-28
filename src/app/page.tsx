@@ -1,9 +1,16 @@
+"use client";
+import { useGenselectors } from "@/_lib/store/general-store";
+import useModalStore from "@/_lib/store/modal-store";
 import HomeCarousel from "@/components/carousel/HomeCarousel";
 import ArchSideSoon from "@/components/general/ArchSideSoon";
 import HomeFeed from "@/components/homepage/HomeFeed";
 import HomeProject from "@/components/homepage/HomeProject";
 import SideBar from "@/components/sidebar/SideBar";
+
 const Homepage = () => {
+  const { openModal } = useModalStore();
+
+  const openToast = useGenselectors.use.openToast();
   return (
     <div className="home">
       <div className="home_carousel">
@@ -12,6 +19,15 @@ const Homepage = () => {
           mobimg={"/assets/images/carousel/homemobile.png"}
         />
       </div>
+
+      <button onClick={() => openModal("loading")}>Open Modal</button>
+      <button
+        onClick={() =>
+          openToast("sucesssssssssssssssssssssssssssssssssssssssssssss", 5000)
+        }
+      >
+        Open toast
+      </button>
 
       <div className="home_info">
         <div className="home_displays">

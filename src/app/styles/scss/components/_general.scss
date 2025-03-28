@@ -932,3 +932,143 @@
     }
   }
 }
+
+& .arch_loader {
+  .pl1 {
+    display: block;
+    width: 8em;
+    height: 8em;
+  }
+
+  .pl1__g,
+  .pl1__rect {
+    animation: pl1-a 1.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+
+  .pl1__g {
+    transform-origin: 64px 64px;
+  }
+
+  .pl1__rect:first-child {
+    animation-name: pl1-b;
+  }
+
+  .pl1__rect:nth-child(2) {
+    animation-name: pl1-c;
+  }
+
+  @keyframes pl1-a {
+    from {
+      transform: rotate(0);
+    }
+
+    80%,
+    to {
+      animation-timing-function: steps(1, start);
+      transform: rotate(90deg);
+    }
+  }
+
+  @keyframes pl1-b {
+    from {
+      animation-timing-function: cubic-bezier(0.33, 0, 0.67, 0);
+      width: 40px;
+      height: 40px;
+    }
+
+    20% {
+      animation-timing-function: steps(1, start);
+      width: 40px;
+      height: 0;
+    }
+
+    60% {
+      animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+      width: 0;
+      height: 40px;
+    }
+
+    80%,
+    to {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  @keyframes pl1-c {
+    from {
+      animation-timing-function: cubic-bezier(0.33, 0, 0.67, 0);
+      width: 40px;
+      height: 40px;
+      transform: translate(0, 48px);
+    }
+
+    20% {
+      animation-timing-function: cubic-bezier(0.33, 1, 0.67, 1);
+      width: 40px;
+      height: 88px;
+      transform: translate(0, 0);
+    }
+
+    40% {
+      animation-timing-function: cubic-bezier(0.33, 0, 0.67, 0);
+      width: 40px;
+      height: 40px;
+      transform: translate(0, 0);
+    }
+
+    60% {
+      animation-timing-function: cubic-bezier(0.33, 1, 0.67, 1);
+      width: 88px;
+      height: 40px;
+      transform: translate(0, 0);
+    }
+
+    80%,
+    to {
+      width: 40px;
+      height: 40px;
+      transform: translate(48px, 0);
+    }
+  }
+}
+
+& .arch_toast {
+  padding: 8px 10px;
+  z-index: 1000000;
+  top: 130px;
+  right: 0px;
+  min-width: auto;
+  max-width: 30%;
+  // height: 500px;
+  position: fixed;
+  border-radius: 4px;
+  background-color: $primary;
+  @include full-flex(center, space-between, row);
+  gap: 25px;
+  color: $white;
+
+  @include sm {
+    @include borderbox;
+    max-width: 90%;
+    margin: 0 auto;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  & svg {
+    margin: 0px 0px;
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  & p {
+    flex: 1;
+    word-wrap: break-word;
+    overflow-y: hidden;
+    overflow-wrap: break-word;
+    margin: 0px 0px;
+    font-size: 1.6rem;
+  }
+}

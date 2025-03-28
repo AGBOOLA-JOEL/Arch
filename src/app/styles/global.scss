@@ -31,6 +31,12 @@ a {
   text-decoration: none;
 }
 
+.app.modal-open {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  padding-right: 15px;
+}
 .app {
   overflow-x: hidden;
   padding: 0px;
@@ -42,7 +48,7 @@ a {
   @include flex(column);
 
   .app_navbar {
-    z-index: 100000000000;
+    z-index: 10000;
     height: 116px;
     background-color: $white;
     @include sm {
@@ -64,6 +70,7 @@ a {
   @import "./scss/components/general";
   @import "./scss/components/sidebar";
   @import "./scss/components/footer";
+  @import "./scss/components/modal";
   @import "./scss/components/carousel";
   @import "./scss/components/skeleton";
 
