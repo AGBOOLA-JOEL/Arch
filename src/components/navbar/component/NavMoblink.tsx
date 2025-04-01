@@ -2,9 +2,16 @@ import { navmobile } from "@/data/navbar";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+// import { useDetectClickOutside } from "react-detect-click-outside";
 import { FaAngleDown } from "react-icons/fa6";
-
-const NavMoblink = () => {
+type LinksProp = {
+  setLinks: React.Dispatch<React.SetStateAction<boolean>>;
+};
+const NavMoblink = ({ setLinks }: LinksProp) => {
+  const closeLinks = () => {
+    setLinks(false);
+  };
+  // const linksref = useDetectClickOutside({ onTriggered: closeLinks });
   return (
     <div className="navlink_container">
       {navmobile.map((data) => {
@@ -18,7 +25,9 @@ const NavMoblink = () => {
                 height={0}
                 priority
               />
-              <Link href={data.to}>{data.name}</Link>
+              <Link href={data.to} onClick={closeLinks}>
+                {data.name}
+              </Link>
               {data.drop && <FaAngleDown />}
             </div>
 

@@ -83,7 +83,7 @@
             text-align: left;
             text-transform: uppercase;
           }
-          & .nav_primaryout {
+          & .nav_primarydash {
             color: $primary;
             transition: 0.3s ease-in-out;
             &:hover {
@@ -97,6 +97,22 @@
             border-radius: 48px;
             height: 35px;
             width: 77px;
+            border: 1px solid $primary;
+            @include full-flex(center, center, row);
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            &:hover {
+              color: $secondary;
+              border: 1px solid $secondary;
+              transition: 0.3s ease-in-out;
+            }
+          }
+
+          & .nav_primaryout {
+            color: $primary;
+            border-radius: 48px;
+            height: 35px;
+            width: 97px;
             border: 1px solid $primary;
             @include full-flex(center, center, row);
             cursor: pointer;
@@ -286,6 +302,7 @@
   }
   & .nav_mobile {
     display: none;
+    user-select: none;
     @include sm {
       @include borderbox;
       width: 100%;
@@ -313,7 +330,8 @@
         align-items: center;
         gap: 17px;
 
-        & button {
+        & a,
+        button {
           @include clear-btn;
           @include full-flex(center, center, row);
           font-size: 2rem;
@@ -344,9 +362,10 @@
       & .nav_mobform {
         gap: 25px;
         @include full-flex($align: center, $flow: row);
+        margin-right: 15px;
         // @include strip-list;
 
-        & button {
+        & a {
           @include clear-btn;
           text-transform: uppercase;
           font-size: 1.2rem;
@@ -505,7 +524,8 @@
         background-color: $gray;
         box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.34);
 
-        & button {
+        & a,
+        button {
           width: 100%;
           @include flex(row);
           align-items: center;

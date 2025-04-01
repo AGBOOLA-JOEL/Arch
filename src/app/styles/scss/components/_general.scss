@@ -570,6 +570,24 @@
   transition: opacity 0.3s ease-in-out;
 }
 
+& .arch_button.cancel {
+  padding: 7px 12px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  background-color: $white;
+  color: $primary;
+  border: 1px solid $dark-one;
+  transition: opacity 0.3s ease-in-out;
+}
+& .arch_button.cancel:hover {
+  color: $white;
+  background-color: rgb(241, 97, 97);
+  transition: opacity 0.3s ease-in-out;
+}
+
 & .arch_paginate {
   @include center(row);
   gap: 10px;

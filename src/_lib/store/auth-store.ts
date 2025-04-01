@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { jwtDecode } from "jwt-decode";
+import { createSelectors } from "./create-selectors";
 type Subscription = {
   expiryDate: string | null;
   userPlan: string;
@@ -54,8 +55,13 @@ const useAuthStore = create<AuthState>()(
         localStorage.removeItem("expiresAt");
       },
     }),
-    { name: "auth-storage" }
+    {
+      name: "auth-storage",
+      partialize: (state) => ({ loggedIn: state.loggedIn }),
+    }
   )
 );
 
 export default useAuthStore;
+
+export const useAuthselectors = createSelectors(useAuthStore);

@@ -4,12 +4,28 @@ import { navprimary } from "@/data/navbar";
 import Link from "next/link";
 import ArchLogo from "../general/ArchLogo";
 import { usePathname } from "next/navigation";
+import { useAuthselectors } from "@/_lib/store/auth-store";
+import { useUser } from "@/_hooks/useUser";
+import useModalStore from "@/_lib/store/modal-store";
 
 const NavPrimary = ({}) => {
+  const { user } = useUser();
   const pathname = usePathname();
+  const authenticated = useAuthselectors.use.loggedIn();
+
   const linkColor = (name: string) => {
     return pathname.split("/")[1] === name ? "linkcolor" : "";
   };
+  const roleroute = () => {
+    if (user?.role === "USER") {
+      return "/dashboard";
+    } else if (user?.role === "ADMIN") {
+      return "/admin";
+    }
+    return "/login";
+  };
+
+  const { openModal } = useModalStore();
   return (
     <nav className="nav_primary">
       <div className="nav_logo">
@@ -32,52 +48,30 @@ const NavPrimary = ({}) => {
       </ul>
       <div className="nav_primaryform">
         <div className="nav_primaryformbtn">
-          {/* {isAuthenticated ? (
-            <button
-              onClick={() => {
-                closeDropdown();
+          {authenticated ? (
+            <Link href={roleroute()} className="nav_primarydash">
+              Dashboard
+            </Link>
+          ) : (
+            <Link href={"/login"} className="nav_primarydash">
+              sign in
+            </Link>
+          )}
 
-                if (role === "USER") {
-                  navigator("/user/userDashboard");
-                } else if (role === "ADMIN") {
-                  navigator("/admin/adminDashboard");
-                } else {
-                  navigator("/naverror");
-                }
+          {authenticated ? (
+            <button
+              className="nav_primaryout"
+              onClick={() => {
+                openModal("logout");
               }}
             >
-              Dashboard
+              sign out
             </button>
           ) : (
-            <button
-              onClick={() => {
-                navigator("/form/login");
-
-                closeDropdown();
-              }}
-            >
-              sign in
-            </button>
-          )} */}
-          {/* {isAuthenticated ? ( */}
-          <button
-            // style={{ color: "rgba(20, 74, 116, 1)", cursor: "pointer" }}
-            // onClick={signOut}
-            className="nav_primaryout"
-          >
-            Sign Out
-          </button>
-          {/* ) : ( */}
-          <button
-            // onClick={() => {
-            //   navigator("/form/join");
-            //   closeDropdown();
-            // }}
-            className="nav_primaryjoin"
-          >
-            join
-          </button>
-          {/* )} */}
+            <Link href="/register" className="nav_primaryjoin">
+              join
+            </Link>
+          )}
         </div>
       </div>
     </nav>

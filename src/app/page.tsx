@@ -37,7 +37,7 @@ const Homepage = () => {
         />
       </div>
 
-      <button onClick={() => openModal("loading")}>Open Modal</button>
+      <button onClick={() => openModal("logout")}>Open Modal</button>
       <button
         onClick={() => {
           // const token = localStorage.getItem("accessToken");

@@ -1,21 +1,9 @@
-// type ArchButtonProp = {
-//   text: string;
-//   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
-// };
-// const ArchButton = ({ text, onClick }: ArchButtonProp) => {
-//   return (
-//     <button className="arch_button" onClick={onClick}>
-//       {text}
-//     </button>
-//   );
-// };
-
 "use client";
-// export default ArchButton;
+
 type BtnProp = {
   name: string;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  variant: "white" | "primary";
+  variant: "white" | "primary" | "cancel";
 };
 
 const ArchButton = ({ name, onClick, variant }: BtnProp) => {

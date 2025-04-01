@@ -36,6 +36,9 @@ a {
   height: 100vh;
   width: 100vw;
   padding-right: 15px;
+  @include sm {
+    padding-right: 0px;
+  }
 }
 .app {
   overflow-x: hidden;

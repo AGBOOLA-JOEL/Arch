@@ -2,6 +2,7 @@
 import useModalStore from "@/_lib/store/modal-store";
 import ModalLoading from "./modal-loading";
 import { useEffect } from "react";
+import ModalLogout from "./modal-logout";
 
 const ModalProvider = () => {
   const { activeModal, closeModal } = useModalStore();
@@ -24,6 +25,10 @@ const ModalProvider = () => {
     >
       {activeModal === "loading" && (
         <ModalLoading isOpen={true} onClose={closeModal} />
+      )}
+
+      {activeModal === "logout" && (
+        <ModalLogout isOpen={true} onClose={closeModal} />
       )}
     </div>
   );

@@ -66,37 +66,37 @@ export const navsecondary = [
 export const navmobile = [
   {
     name: "projects",
-    to: "/all/project",
+    to: "projects",
     img: "/assets/svg/navbar/mobproj.svg",
   },
   {
     name: "news",
-    to: "/all/news",
+    to: "news",
     img: "/assets/svg/navbar/mobnews.svg",
   },
   {
-    name: "portfolios",
-    to: "/all/portfolio",
+    name: "portfolio",
+    to: "portfolio",
     img: "/assets/svg/navbar/mobport.svg",
   },
   {
     name: "competitions",
-    to: "/all/competition",
+    to: "competition",
     img: "/assets/svg/navbar/mobcomp.svg",
   },
   {
     name: "scholarships",
-    to: "/all/scholarships",
+    to: "scholarship",
     img: "/assets/svg/navbar/mobsch.svg",
   },
   {
     name: "show rooms",
-    to: "/all/showrooms",
+    to: "/showroom",
     img: "/assets/svg/navbar/mobshow.svg",
   },
   {
     name: "architectural media",
-    to: "",
+    to: "/archmedia",
     img: "/assets/svg/navbar/mobpod.svg",
     drop: [
       { name: "interviews", to: "/all/interviews" },
@@ -105,22 +105,22 @@ export const navmobile = [
   },
   {
     name: "comics",
-    to: "/all/comic",
+    to: "/comic",
     img: "/assets/svg/navbar/mobcomic.svg",
   },
   {
     name: "it placements",
-    to: "/all/placement",
+    to: "/placement",
     img: "/assets/svg/navbar/mobit.svg",
   },
   {
     name: "submit a project",
-    to: "/form/submit",
+    to: "/submit",
     img: "/assets/svg/navbar/mobsub.svg",
   },
   {
     name: "be an architect",
-    to: "",
+    to: "/architect",
     img: "/assets/svg/navbar/mobarc.svg",
   },
 ];
