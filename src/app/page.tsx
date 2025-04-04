@@ -43,7 +43,6 @@ const Homepage = () => {
           // const token = localStorage.getItem("accessToken");
           // axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
           userDetailsMutation.mutate();
-
           // console.log("headers", axios.defaults.headers);
         }}
       >

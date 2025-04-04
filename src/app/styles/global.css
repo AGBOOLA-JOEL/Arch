@@ -1753,6 +1753,7 @@ a {
 @media (max-width: 1012px) {
   .app .arch_toast {
     box-sizing: border-box;
+    min-width: 90%;
     max-width: 90%;
     margin: 0 auto;
     right: auto;
@@ -1770,6 +1771,7 @@ a {
 }
 .app .arch_toast p {
   flex: 1;
+  text-align: justify;
   word-wrap: break-word;
   overflow-y: hidden;
   overflow-wrap: break-word;
@@ -3176,13 +3178,13 @@ a {
     font-size: 1.7rem;
   }
 }
-.app .login .login_join span {
+.app .login .login_join a {
   color: var(--secondary);
   margin-left: 5px;
   cursor: pointer;
   font-weight: 500;
 }
-.app .login .login_join span:hover {
+.app .login .login_join a:hover {
   color: var(--primary);
 }
 .app .login .login_google {

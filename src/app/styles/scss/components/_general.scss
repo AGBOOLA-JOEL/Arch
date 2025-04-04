@@ -1068,6 +1068,7 @@
 
   @include sm {
     @include borderbox;
+    min-width: 90%;
     max-width: 90%;
     margin: 0 auto;
     right: auto;
@@ -1083,6 +1084,7 @@
 
   & p {
     flex: 1;
+    text-align: justify;
     word-wrap: break-word;
     overflow-y: hidden;
     overflow-wrap: break-word;

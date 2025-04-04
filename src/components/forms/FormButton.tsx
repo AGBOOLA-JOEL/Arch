@@ -1,12 +1,12 @@
 type BtnProp = {
   name: string;
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  // onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
 };
 
-const FormButton = ({ name, onClick, disabled }: BtnProp) => {
+const FormButton = ({ name, disabled }: BtnProp) => {
   return (
-    <button className="form_btn" onClick={onClick} disabled={disabled}>
+    <button className="form_btn" disabled={disabled} type="submit">
       {name}
     </button>
   );

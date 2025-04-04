@@ -1,27 +1,25 @@
 "use client";
 import { useAuth } from "@/_hooks/useAuth";
+import { useGenselectors } from "@/_lib/store/general-store";
 import { loginschema } from "@/_utils/validation/forms";
 import FormButton from "@/components/forms/FormButton";
 import FormGoogle from "@/components/forms/FormGoogle";
 import FormInput from "@/components/forms/FormInput";
 import { LoginData } from "@/types/forms.type";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Link from "next/link";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { FieldErrors } from "react-hook-form";
 
 const Login = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<LoginData>({
+  const openToast = useGenselectors.use.openToast();
+  const { register, handleSubmit } = useForm<LoginData>({
     resolver: yupResolver(loginschema),
     mode: "onChange",
   });
 
   const [login, setLogin] = useState<LoginData>({} as LoginData);
-
-  // const { username, password } = login;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLogin({ ...login, [e.target.name]: e.target.value });
@@ -29,15 +27,23 @@ const Login = () => {
 
   const { loginMutation } = useAuth();
 
-  const onSubmit = (data: any) => {
-    console.log("data", data);
-    loginMutation.mutate(data);
-    // loginMutation.mutate(data);
+  const onError = (errors: FieldErrors<LoginData>) => {
+    Object.values(errors).forEach((err) => {
+      if (err?.message) {
+        openToast(err.message as string, 5000);
+      }
+    });
   };
 
-  // const onSubmit = () => {};
+  const onSubmit = (data: LoginData) => {
+    loginMutation.mutate(data);
+  };
   return (
-    <form action="" className="login" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      action=""
+      className="login"
+      onSubmit={handleSubmit(onSubmit, onError)}
+    >
       <div className="form_header">
         <p>sign in </p>
       </div>
@@ -62,11 +68,11 @@ const Login = () => {
       </div>
 
       <div className="login_button">
-        <FormButton name={"Login"} onClick={onSubmit} />
+        <FormButton name={"Login"} />
       </div>
 
       <h2 className="login_join">
-        Don’t have an account? <span> Click to create.</span>
+        Don’t have an account? <Link href="/register"> Click to create.</Link>
       </h2>
 
       <div className="login_google">
