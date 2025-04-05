@@ -5,8 +5,9 @@ import Link from "next/link";
 import ArchLogo from "../general/ArchLogo";
 import { usePathname } from "next/navigation";
 import { useAuthselectors } from "@/_lib/store/auth-store";
-import { useUser } from "@/_hooks/useUser";
+
 import useModalStore from "@/_lib/store/modal-store";
+import { useUser } from "@/_hooks/useUser";
 
 const NavPrimary = ({}) => {
   const { user } = useUser();
