@@ -1,37 +1,58 @@
 "use client";
-
-import { useForm } from "react-hook-form";
+import { FieldErrors, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { regschema } from "@/_utils/validation/forms";
 import RegisterInput from "@/components/forms/RegisterInput";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { JoinData } from "@/types/forms.type";
 import RegisterRole from "@/components/forms/RegisterRole";
 import RegisterRule from "@/components/forms/RegisterRule";
 import FormButton from "@/components/forms/FormButton";
+import { useGenselectors } from "@/_lib/store/general-store";
+import { useAuth } from "@/_hooks/useAuth";
 
 const Register = () => {
-  const [letter, setLetter] = useState(false);
-  const [terms, setTerms] = useState(false);
+  const { registerMutation, newsletterMutation } = useAuth();
   const [join, setJoin] = useState<JoinData>({} as JoinData);
-
-  const { register, handleSubmit } = useForm({
+  const openToast = useGenselectors.use.openToast();
+  const { register, handleSubmit } = useForm<JoinData>({
     resolver: yupResolver(regschema),
+    mode: "onSubmit",
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setJoin({ ...join, [e.target.name]: e.target.value });
+    const { name, checked, value } = e.target;
+    if (name === "terms" || name === "letter") {
+      setJoin({ ...join, [name]: checked });
+    } else {
+      setJoin({ ...join, [name]: value });
+    }
   };
 
-  const { username, email, institution, password, confirmPassword, rank } =
-    join;
+  const onError = (errors: FieldErrors<JoinData>) => {
+    for (const [fieldName, err] of Object.entries(errors)) {
+      if (err?.message) {
+        openToast(err.message, 2500);
+        break;
+      }
+    }
+  };
 
-  const toggleTerms = () => setTerms((prev) => !prev);
-  const toggleNewsletter = () => setLetter((prev) => !prev);
-
-  const onSubmit = () => {};
+  const onSubmit = (data: JoinData) => {
+    const { terms, letter, ...apiData } = data;
+    registerMutation.mutate(apiData);
+    letter &&
+      newsletterMutation.mutate({
+        email: apiData.email,
+        username: apiData.username,
+      });
+  };
   return (
-    <form action="" className="register" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      action=""
+      className="register"
+      onSubmit={handleSubmit(onSubmit, onError)}
+    >
       <div className="form_header">
         <p>join us</p>
       </div>
@@ -59,17 +80,21 @@ const Register = () => {
       </div>
 
       <div className="reg_rolecheck">
-        <RegisterRole rank={rank} handleRoleChange={handleInputChange} />
+        <RegisterRole
+          rank={join.rank}
+          handleRoleChange={handleInputChange}
+          register={register}
+        />
       </div>
       <div className="reg_rulecheck">
         <RegisterRule
-          handleTermsChange={toggleTerms}
-          handleNewsChange={toggleNewsletter}
+          handleInputChange={handleInputChange}
+          register={register}
         />
       </div>
 
       <div className="reg_button">
-        <FormButton name={"Register"} onClick={onSubmit} />
+        <FormButton name={"Register"} />
       </div>
 
       <h2 className="reg_signin">

@@ -1,18 +1,29 @@
 import React from "react";
 type RuleProp = {
-  handleNewsChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleTermsChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  // handleTermsChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  register: any;
 };
 
-const RegisterRule = ({ handleNewsChange, handleTermsChange }: RuleProp) => {
+const RegisterRule = ({ handleInputChange, register }: RuleProp) => {
   return (
     <div className="reg_rule">
       <div className="reg_ruleinput">
-        <input type="checkbox" name="news" onChange={handleNewsChange} />
+        <input
+          type="checkbox"
+          name="letter"
+          onChange={handleInputChange}
+          {...register("letter")}
+        />
         <p>Subscribe to our newsletter</p>
       </div>
       <div className="reg_ruleinput">
-        <input type="checkbox" name="terms" onChange={handleTermsChange} />
+        <input
+          type="checkbox"
+          name="terms"
+          onChange={handleInputChange}
+          {...register("terms")}
+        />
 
         <p>
           I agree to the{" "}

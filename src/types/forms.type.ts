@@ -29,6 +29,8 @@ export type JoinData = {
   password: string;
   confirmPassword: string;
   rank: string;
+  terms: boolean;
+  letter?: boolean | null;
 };
 
 export type SubmitData = {

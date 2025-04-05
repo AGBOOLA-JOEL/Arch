@@ -16,7 +16,7 @@ const Login = () => {
   const openToast = useGenselectors.use.openToast();
   const { register, handleSubmit } = useForm<LoginData>({
     resolver: yupResolver(loginschema),
-    mode: "onChange",
+    mode: "onSubmit",
   });
 
   const [login, setLogin] = useState<LoginData>({} as LoginData);
@@ -28,11 +28,12 @@ const Login = () => {
   const { loginMutation } = useAuth();
 
   const onError = (errors: FieldErrors<LoginData>) => {
-    Object.values(errors).forEach((err) => {
+    for (const [fieldName, err] of Object.entries(errors)) {
       if (err?.message) {
-        openToast(err.message as string, 5000);
+        openToast(err.message, 2500);
+        break;
       }
-    });
+    }
   };
 
   const onSubmit = (data: LoginData) => {

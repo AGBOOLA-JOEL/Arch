@@ -5,6 +5,7 @@ import useAuthStore from "@/_lib/store/auth-store";
 import { useGenselectors } from "@/_lib/store/general-store";
 import useModalStore from "@/_lib/store/modal-store";
 import axios from "axios";
+import { JoinData, LoginData } from "@/types/forms.type";
 
 export const useAuth = () => {
   const { login, logout } = useAuthStore();
@@ -19,7 +20,7 @@ export const useAuth = () => {
   }, [logout]);
 
   const loginMutation = useMutation({
-    mutationFn: async (data: { username: string; password: string }) => {
+    mutationFn: async (data: LoginData) => {
       openModal("loading");
 
       const res = await axios.post(
@@ -44,6 +45,42 @@ export const useAuth = () => {
       logout();
     },
   });
+  const registerMutation = useMutation({
+    mutationFn: async (data: Omit<JoinData, "letter" | "terms">) => {
+      openModal("loading");
 
-  return { loginMutation };
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_BACKEND_URL}/users/register`,
+        data
+      );
+      return res.data;
+    },
+    onSuccess: (data) => {
+      const { description } = data;
+      closeModal();
+      openToast(description, 3000);
+      // navigate to checkmail page
+      //then redirect to sign in page after
+    },
+    onError: (error: any) => {
+      const message = error?.response?.data?.message;
+      closeModal();
+      openToast(message, 3000);
+    },
+  });
+
+  const newsletterMutation = useMutation({
+    mutationFn: async (data: { email: string; username: string }) => {
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_BACKEND_URL}/newsletter-list`,
+        {
+          email: data.email,
+          name: data.username,
+        }
+      );
+      return res.data;
+    },
+  });
+
+  return { loginMutation, newsletterMutation, registerMutation };
 };

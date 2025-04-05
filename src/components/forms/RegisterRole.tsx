@@ -1,9 +1,10 @@
 type RoleProp = {
   rank: string;
+  register: any;
   handleRoleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const RegisterRole = ({ rank, handleRoleChange }: RoleProp) => {
+const RegisterRole = ({ rank, handleRoleChange, register }: RoleProp) => {
   return (
     <div className="reg_role">
       <h1 className="reg_roledesc">Tell us more about yourself</h1>
@@ -16,6 +17,7 @@ const RegisterRole = ({ rank, handleRoleChange }: RoleProp) => {
                 type="checkbox"
                 value={data.value}
                 name={"rank"}
+                {...register("rank")}
                 checked={rank === data.value ? true : false}
                 onChange={handleRoleChange}
               />

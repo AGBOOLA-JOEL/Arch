@@ -4,12 +4,33 @@ export const regschema = yup.object().shape({
   username: yup.string().required(),
   email: yup.string().email().required(),
   institution: yup.string().required(),
-  // age: yup.number().positive().integer().min(18).required(),
-  password: yup.string().min(4).max(10).required(),
+  password: yup
+    .string()
+    .min(8, "password must be at least 8 characters long")
+    .matches(/[A-Z]/, "password must contain at least one uppercase letter")
+    .matches(
+      /[!@#$%^&*(),.?":{}|<>]/,
+      "password must contain at least one special character"
+    )
+    .matches(/\d/, "password must contain at least one number")
+    .required("password is required"),
+
   confirmPassword: yup
     .string()
-    .oneOf([yup.ref("password")], "Password don't match")
-    .required(),
+    .test("password-match", "your passwords do not match", function (value) {
+      const { password } = this.parent; // Get parent values
+      return password && value === password;
+    })
+    .required("confirm your password"),
+  rank: yup
+    .string()
+    .required("Rank is required")
+    .transform((value) => (Array.isArray(value) ? value.join(",") : value)), // Convert array to string if needed
+  terms: yup
+    .boolean()
+    .oneOf([true], "please accept the terms and conditions") // Enforces the checkbox must be true
+    .required("Terms are required"),
+  letter: yup.boolean().nullable(),
 });
 
 export const loginschema = yup.object().shape({

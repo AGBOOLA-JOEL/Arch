@@ -1736,8 +1736,8 @@ a {
 .app .arch_toast {
   padding: 8px 10px;
   z-index: 1000000;
-  top: 130px;
-  right: 0px;
+  top: 190px;
+  right: 20px;
   min-width: auto;
   max-width: 30%;
   position: fixed;
@@ -1749,16 +1749,16 @@ a {
   flex-direction: row;
   gap: 25px;
   color: var(--white);
+  transform: translateY(100%);
+  opacity: 0;
+  visibility: hidden;
+  animation: slide-in 300ms ease-out forwards, slide-out 200ms ease-in 3s forwards;
 }
 @media (max-width: 1012px) {
   .app .arch_toast {
     box-sizing: border-box;
-    min-width: 90%;
-    max-width: 90%;
-    margin: 0 auto;
-    right: auto;
-    left: 50%;
-    transform: translateX(-50%);
+    min-width: 60%;
+    max-width: 60%;
   }
   .app .arch_toast::before, .app .arch_toast::after {
     box-sizing: border-box;
@@ -1771,12 +1771,31 @@ a {
 }
 .app .arch_toast p {
   flex: 1;
+  -webkit-hyphens: auto;
+          hyphens: auto;
   text-align: justify;
   word-wrap: break-word;
   overflow-y: hidden;
   overflow-wrap: break-word;
   margin: 0px 0px;
   font-size: 1.6rem;
+}
+.app .arch_toast:hover {
+  animation-play-state: paused;
+}
+@keyframes slide-in {
+  to {
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes slide-out {
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 .app .sidebar {
   width: 100%;
