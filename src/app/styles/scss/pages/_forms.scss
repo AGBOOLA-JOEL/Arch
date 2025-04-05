@@ -57,7 +57,7 @@
     &:hover {
       transition: 0.3s ease-in-out;
       background-color: $primary;
-      color: $secondary;
+      // color: $secondary;
     }
     @include sm {
       font-size: 1.8rem;
@@ -176,10 +176,9 @@
     }
     &:hover {
       transition: 0.3s ease-in-out;
-
       background-color: $primary;
       & p {
-        color: $secondary;
+        color: $white;
       }
     }
   }

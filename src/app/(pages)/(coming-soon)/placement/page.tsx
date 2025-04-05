@@ -6,8 +6,8 @@ const ArchSoon = dynamic(() => import("@/components/general/ArchSoon"), {
 });
 const page = () => {
   return (
-    <div className="archmedia">
-      <ArchSoon soontitle="architectural media" />;
+    <div className="arch_soonpages">
+      <ArchSoon soontitle="placement page" />;
     </div>
   );
 };

@@ -1797,6 +1797,9 @@ a {
     visibility: hidden;
   }
 }
+.app .arch_soonpages {
+  min-height: 50vh;
+}
 .app .sidebar {
   width: 100%;
   border: 1px solid var(--graytwo);
@@ -2697,7 +2700,6 @@ a {
 .app .forms .form_btn:hover {
   transition: 0.3s ease-in-out;
   background-color: var(--primary);
-  color: var(--secondary);
 }
 @media (max-width: 1012px) {
   .app .forms .form_btn {
@@ -2831,7 +2833,7 @@ a {
   background-color: var(--primary);
 }
 .app .forms .form_google:hover p {
-  color: var(--secondary);
+  color: var(--white);
 }
 .app .register {
   margin-top: 70px;
