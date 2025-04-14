@@ -50,16 +50,43 @@ export const passwordschema = yup.object().shape({
     .required(),
 });
 export const submitschema = yup.object().shape({
-  name: yup.string().required(),
-  agency: yup.string().required(),
-  web: yup.string().required(),
-  country: yup.string().required(),
-  email: yup.string().email().required(),
-  drive: yup.string().required(),
-  client: yup.string().required(),
-  location: yup.string().required(),
-  username: yup.string().required(),
-  size: yup.number().required(),
+  name: yup.string().required("project name is a required field"), //set
+  username: yup.string().required("contact name is a required field"), //set
+  email: yup.string().email().required(), //set
+  agency: yup.string().nullable(), //set
+  web: yup.string().nullable(), //set
+
+  country: yup.string().nullable(),
+  projectCategory: yup.string().nullable(),
+
+  googleDriveLink: yup.string().required("google drive link is required"),
+  built: yup.boolean().required("project status is a required field"),
+
+  // client: yup.string().required(),
+  // location: yup.string().required(),
+  client: yup.string().when("built", {
+    is: true,
+    then: (schema) => schema.required("Client field is required "),
+    otherwise: (schema) => schema.nullable().notRequired(),
+  }),
+
+  location: yup.string().when("built", {
+    is: false,
+    then: (schema) => schema.required("Location field is required"),
+    otherwise: (schema) => schema.nullable().notRequired(),
+  }),
+  // validation for built
+  consult: yup.string().nullable(),
+  constructionYear: yup.number().when("built", {
+    is: true,
+    then: (schema) => schema.required("construction year is required "),
+    otherwise: (schema) => schema.nullable().notRequired(),
+  }),
+  // validation for unbuilt
+  softwares: yup.array().required(),
+
+  size: yup.number().required("size in sqft is required"),
+  terms: yup.boolean().nullable(),
 });
 
 export const postformschema = yup.object().shape({

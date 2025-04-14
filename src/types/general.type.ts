@@ -1,6 +1,6 @@
 export type ArchSelectProp = {
   title: string;
-  value: string;
+  value?: string | null;
   setValue: React.Dispatch<React.SetStateAction<string>>;
   options: string[];
 };

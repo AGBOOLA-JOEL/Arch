@@ -19,7 +19,7 @@ const Submit = () => {
         />
       </div>
 
-      {select === "Comic" && <p>comic</p>}
+      {/* {select === "Comic" && <p>comic</p>} */}
       {select === "Project" && <SubmitForm />}
     </div>
   );

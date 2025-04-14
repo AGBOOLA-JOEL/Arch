@@ -1,12 +1,11 @@
 type BtnProp = {
   name: string;
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-const SubmitButton = ({ name, onClick }: BtnProp) => {
+const SubmitButton = ({ name }: BtnProp) => {
   return (
     <div className="submit_btn">
-      <button className="submit_btn" onClick={onClick}>
+      <button className="submit_btn" type={"submit"}>
         {name}
       </button>
     </div>

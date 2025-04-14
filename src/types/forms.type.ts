@@ -1,3 +1,6 @@
+import { submitschema } from "@/_utils/validation/forms";
+import { InferType } from "yup";
+
 export type FormInputProp = {
   isPassword: boolean;
   name: string;
@@ -33,18 +36,33 @@ export type JoinData = {
   letter?: boolean | null;
 };
 
-export type SubmitData = {
-  name: string;
-  agency: string;
-  web: string;
-  size: number;
-  email: string;
-  drive: string;
-  consult: string;
-  client: string;
-  username: string;
-  location: string;
-};
+// type SubmitData = {
+//   name: string;
+//   username: string;
+//   email: string;
+//   agency?: string | null;
+//   web?: string | null;
+
+//   country?: string | null;
+//   projectCategory?: string | null;
+
+//   googleDriveLink: string;
+//   built: boolean;
+
+//   client?: string | null;
+//   location?: string | null;
+
+//   //for buillt
+//   consult?: string | null;
+//   constructionYear?: number | null;
+
+//   // for unbuilt
+//   softwares: string[];
+
+//   size: number;
+//   terms?: boolean | null;
+// };
+export type SubmitData = InferType<typeof submitschema>;
 
 export type LoginData = {
   username: string;
