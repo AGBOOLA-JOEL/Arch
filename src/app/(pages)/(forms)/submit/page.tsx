@@ -14,7 +14,7 @@ const Submit = () => {
         <ArchSelect
           title={"Project"}
           value={select}
-          setValue={setSelect}
+          onChange={setSelect}
           options={["Comic", "Project"]}
         />
       </div>

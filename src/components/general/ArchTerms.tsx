@@ -1,10 +1,17 @@
 type TermProp = {
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  name: string;
+  register: any;
+  // onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
-const ArchTerms = ({ onChange }: TermProp) => {
+const ArchTerms = ({ name, register }: TermProp) => {
   return (
     <div className="arch_terms">
-      <input type="checkbox" name="terms" onChange={onChange} />
+      <input
+        type="checkbox"
+        name={name}
+        // onChange={onChange}
+        {...register(name)}
+      />
 
       <p>
         I agree to the{" "}

@@ -12,7 +12,7 @@ export type FormInputProp = {
 export type FormTextareaProp = {
   name: string;
   placeholder: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  // onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   register: any;
   label: string;
 };
@@ -20,7 +20,7 @@ export type SubmitInputProp = {
   isRequired: boolean;
   type: string;
   name: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  // onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   register: any;
   label: string;
 };

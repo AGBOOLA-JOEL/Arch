@@ -4,7 +4,7 @@ import React from "react";
 const FormTextarea = ({
   label,
   name,
-  onChange,
+  // onChange,
   register,
   placeholder,
 }: FormTextareaProp) => {
@@ -16,7 +16,7 @@ const FormTextarea = ({
         type="text"
         {...register(name)}
         name={name}
-        onChange={onChange}
+        // onChange={onChange}
       ></textarea>
     </div>
   );

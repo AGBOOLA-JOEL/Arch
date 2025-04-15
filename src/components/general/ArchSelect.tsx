@@ -4,11 +4,11 @@ import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa6";
 import { useDetectClickOutside } from "react-detect-click-outside";
 
-const ArchSelect = ({ value, setValue, options, title }: ArchSelectProp) => {
+const ArchSelect = ({ value, onChange, options, title }: ArchSelectProp) => {
   const [open, setOpen] = useState(false);
   const toggleDrop = () => setOpen((prev) => !prev);
   const handleClick = (select: any) => {
-    setValue(select);
+    onChange(select);
     setOpen(false);
   };
   const closeSelect = () => {

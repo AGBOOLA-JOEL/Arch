@@ -8,7 +8,7 @@ const SubmitInput = ({
   isRequired,
   label,
   name,
-  onChange,
+  // onChange,
   register,
 }: SubmitInputProp) => {
   return (
@@ -18,7 +18,7 @@ const SubmitInput = ({
         placeholder={label}
         {...register(name)}
         name={name}
-        onChange={onChange}
+        // onChange={onChange}
       />
 
       {isRequired && (

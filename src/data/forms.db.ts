@@ -1,3 +1,5 @@
+import { SubmitData } from "@/types/forms.type";
+
 export const projectcategory = [
   "Residential Architecture",
 
@@ -22,4 +24,23 @@ export const projectcategory = [
   "Industrial & Infrastructure",
 
   "Landscape & Urbanism",
+];
+
+export const submitfieldPriority: (keyof SubmitData)[] = [
+  "name",
+  "username",
+  "email",
+  "agency",
+  "web",
+  "country",
+  "projectCategory",
+  "googleDriveLink",
+  "built",
+  "client",
+  "location",
+  "consult",
+  "constructionYear",
+  "softwares",
+  "size",
+  "terms",
 ];

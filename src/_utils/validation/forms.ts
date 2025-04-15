@@ -60,18 +60,18 @@ export const submitschema = yup.object().shape({
   projectCategory: yup.string().nullable(),
 
   googleDriveLink: yup.string().required("google drive link is required"),
-  built: yup.boolean().required("project status is a required field"),
+  built: yup.string().required("project status is a required field"),
 
   // client: yup.string().required(),
   // location: yup.string().required(),
   client: yup.string().when("built", {
-    is: true,
+    is: "Built",
     then: (schema) => schema.required("Client field is required "),
     otherwise: (schema) => schema.nullable().notRequired(),
   }),
 
   location: yup.string().when("built", {
-    is: false,
+    is: "Unbuilt",
     then: (schema) => schema.required("Location field is required"),
     otherwise: (schema) => schema.nullable().notRequired(),
   }),
@@ -82,11 +82,22 @@ export const submitschema = yup.object().shape({
     then: (schema) => schema.required("construction year is required "),
     otherwise: (schema) => schema.nullable().notRequired(),
   }),
-  // validation for unbuilt
-  softwares: yup.array().required(),
+  softwares: yup
+    .array()
+    .of(yup.string())
+    .min(1, "Please add at least one software")
+    .nullable(),
 
-  size: yup.number().required("size in sqft is required"),
-  terms: yup.boolean().nullable(),
+  // size: yup.number().nullable(),
+  size: yup
+    .number()
+    .transform((value, originalValue) => (originalValue === "" ? null : value))
+    .nullable(),
+
+  terms: yup
+    .boolean()
+    .oneOf([true], "please accept the terms and conditions") // Enforces the checkbox must be true
+    .required("Terms are required"),
 });
 
 export const postformschema = yup.object().shape({
