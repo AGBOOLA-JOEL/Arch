@@ -11,13 +11,17 @@ import SubmitButton from "./SubmitButton";
 import ArchTerms from "../general/ArchTerms";
 import { projectcategory, submitfieldPriority } from "@/data/forms.db";
 import { useGenselectors } from "@/_lib/store/general-store";
+import { useAuth } from "@/_hooks/useAuth";
 
 const SubmitForm = () => {
   const openToast = useGenselectors.use.openToast();
-  const { register, handleSubmit, control, watch } = useForm({
+  const { submitMutation } = useAuth();
+  const { register, handleSubmit, control, watch, setValue } = useForm({
     resolver: yupResolver(submitschema),
     mode: "onSubmit",
     defaultValues: {
+      projectCategory: "",
+      country: "",
       softwares: ["Autodesk Revit", "Sketchup"],
     },
   });
@@ -33,20 +37,32 @@ const SubmitForm = () => {
     }
   };
   const onSubmit = (data: SubmitData) => {
-    console.log(data, "submit data");
+    const { terms, ...apiData } = data;
+    console.log(apiData, "submit data");
+    // const { terms, ...apiData } = data;
+    submitMutation.mutate(apiData);
   };
   return (
     <form
       action=""
       className="submit_form"
       onSubmit={handleSubmit(onSubmit, onError)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          e.preventDefault(); // Prevent form submit on Enter
+        }
+      }}
     >
       {[
-        { label: "Project Name", name: "name", isRequired: true },
-        { label: "Contact Name", name: "username", isRequired: true },
+        { label: "Project Name", name: "projectName", isRequired: true },
+        { label: "Contact Name", name: "name", isRequired: true },
         { label: "Contact Email", name: "email", isRequired: true },
-        { label: "Institution/Firm", name: "agency", isRequired: false },
-        { label: "Website", name: "web", isRequired: false },
+        {
+          label: "Institution/Firm",
+          name: "institutionOrFirm",
+          isRequired: false,
+        },
+        { label: "Website", name: "website", isRequired: false },
       ].map(({ label, name, isRequired }) => (
         <SubmitInput
           type={"text"}
@@ -100,7 +116,11 @@ const SubmitForm = () => {
           <ArchSelect
             title="Project status"
             value={field.value}
-            onChange={field.onChange} // Pass `onChange` from `react-hook-form`
+            onChange={(val) => {
+              field.onChange(val);
+              setValue("constructionYear", "");
+              setValue("consultant", "");
+            }}
             options={["Built", "Unbuilt"]} // Example options
           />
         )}
@@ -111,8 +131,21 @@ const SubmitForm = () => {
             type={"text"}
             register={register}
             label={"Consultants"}
-            name={"consult"}
+            name={"consultant"}
             isRequired={false}
+          />
+
+          <Controller
+            name="constructionYear"
+            control={control}
+            render={({ field }) => (
+              <ArchSelect
+                title="Construction Year"
+                value={field.value}
+                onChange={field.onChange} // Pass `onChange` from `react-hook-form`
+                options={["1999", "2000"]} // Example options
+              />
+            )}
           />
         </>
       )}

@@ -4,8 +4,8 @@ export type ArchSelectProp = {
   // setValue: React.Dispatch<React.SetStateAction<string>>;
   // options: string[];
   title: string;
-  value?: string | null; // current value from the form
-  onChange: (value: string) => void; // handle change from RHF
+  value?: any | null; // current value from the form
+  onChange: (value: any) => void; // handle change from RHF
   options: string[];
 };
 

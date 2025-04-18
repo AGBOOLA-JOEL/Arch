@@ -50,34 +50,38 @@ export const passwordschema = yup.object().shape({
     .required(),
 });
 export const submitschema = yup.object().shape({
-  name: yup.string().required("project name is a required field"), //set
-  username: yup.string().required("contact name is a required field"), //set
+  projectName: yup.string().required("project name is a required field"), //set
+  name: yup.string().required("contact name is a required field"), //set
   email: yup.string().email().required(), //set
-  agency: yup.string().nullable(), //set
-  web: yup.string().nullable(), //set
+  institutionOrFirm: yup.string().required(), //set
+  website: yup.string().nullable(), //set
 
   country: yup.string().nullable(),
-  projectCategory: yup.string().nullable(),
+  projectCategory: yup.string().required(),
 
   googleDriveLink: yup.string().required("google drive link is required"),
-  built: yup.string().required("project status is a required field"),
+  // built: yup.string().required("project status is a required field"),\
+  built: yup
+    .mixed()
+    .required("Project status is a required field")
+    .transform((value: string) => value === "Built"),
 
   // client: yup.string().required(),
   // location: yup.string().required(),
   client: yup.string().when("built", {
-    is: "Built",
+    is: true,
     then: (schema) => schema.required("Client field is required "),
     otherwise: (schema) => schema.nullable().notRequired(),
   }),
 
   location: yup.string().when("built", {
-    is: "Unbuilt",
+    is: false,
     then: (schema) => schema.required("Location field is required"),
     otherwise: (schema) => schema.nullable().notRequired(),
   }),
   // validation for built
-  consult: yup.string().nullable(),
-  constructionYear: yup.number().when("built", {
+  consultant: yup.string().nullable(),
+  constructionYear: yup.string().when("built", {
     is: true,
     then: (schema) => schema.required("construction year is required "),
     otherwise: (schema) => schema.nullable().notRequired(),
@@ -90,7 +94,7 @@ export const submitschema = yup.object().shape({
 
   // size: yup.number().nullable(),
   size: yup
-    .number()
+    .string()
     .transform((value, originalValue) => (originalValue === "" ? null : value))
     .nullable(),
 

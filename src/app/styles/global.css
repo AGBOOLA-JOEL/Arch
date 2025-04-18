@@ -2616,27 +2616,6 @@ a {
   align-items: center;
   flex-direction: row;
 }
-.app .portfolio {
-  min-height: 50vh;
-}
-.app .archit {
-  min-height: 50vh;
-}
-.app .archmedia {
-  min-height: 50vh;
-}
-.app .compet {
-  min-height: 50vh;
-}
-.app .placem {
-  min-height: 50vh;
-}
-.app .schol {
-  min-height: 50vh;
-}
-.app .showroom {
-  min-height: 50vh;
-}
 .app .forms {
   margin-top: 1.5px;
   display: flex;

@@ -27,10 +27,10 @@ export const projectcategory = [
 ];
 
 export const submitfieldPriority: (keyof SubmitData)[] = [
+  "projectName",
   "name",
-  "username",
   "email",
-  "agency",
+  "institutionOrFirm",
   "web",
   "country",
   "projectCategory",

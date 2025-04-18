@@ -5,12 +5,18 @@ import useAuthStore from "@/_lib/store/auth-store";
 import { useGenselectors } from "@/_lib/store/general-store";
 import useModalStore from "@/_lib/store/modal-store";
 import axios from "axios";
-import { JoinData, LoginData } from "@/types/forms.type";
+import { JoinData, LoginData, SubmitData } from "@/types/forms.type";
+import { useUser } from "./useUser";
+import { api } from "@/services/api";
+import { useRouter } from "next/navigation";
+import { Router } from "next/router";
 
 export const useAuth = () => {
   const { login, logout } = useAuthStore();
   const { openModal, closeModal } = useModalStore();
   const openToast = useGenselectors.use.openToast();
+  const { user } = useUser();
+  const router = useRouter();
 
   useEffect(() => {
     const expiresAt = localStorage.getItem("expiresAt");
@@ -82,5 +88,33 @@ export const useAuth = () => {
     },
   });
 
-  return { loginMutation, newsletterMutation, registerMutation };
+  const submitapi =
+    user?.role === "USER"
+      ? `/projects/submit-project`
+      : `/projects/anonymous/submit-project`;
+  const submitMutation = useMutation({
+    mutationFn: async (data: Omit<SubmitData, "terms">) => {
+      openModal("loading");
+      const res = await api.post(submitapi, data);
+      return res.data;
+    },
+    onSuccess: () => {
+      // const { description } = data;
+      closeModal();
+      router.push("/");
+      openToast("Project submitted ongoing review", 3000);
+    },
+    onError: (error: any) => {
+      const message = error?.response?.data?.message;
+      closeModal();
+      openToast(message, 3000);
+    },
+  });
+
+  return {
+    loginMutation,
+    newsletterMutation,
+    registerMutation,
+    submitMutation,
+  };
 };
