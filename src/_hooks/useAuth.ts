@@ -100,8 +100,8 @@ export const useAuth = () => {
     },
     onSuccess: () => {
       // const { description } = data;
-      closeModal();
       router.push("/");
+      closeModal();
       openToast("Project submitted ongoing review", 3000);
     },
     onError: (error: any) => {

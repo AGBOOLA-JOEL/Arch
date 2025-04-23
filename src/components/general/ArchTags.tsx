@@ -10,6 +10,12 @@ const ArchTags = ({ title, tag, setTag }: ArchTagProp) => {
       {/* <pre>{JSON.stringify(selected)}</pre> */}
 
       <TagsInput
+        onKeyUp={(e) => {
+          const target = e.target as HTMLInputElement;
+          if (e.key === "Enter" && !target.value.trim()) {
+            e.preventDefault();
+          }
+        }}
         value={tag}
         onChange={setTag}
         name="tags"

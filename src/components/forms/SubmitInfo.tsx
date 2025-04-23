@@ -1,4 +1,12 @@
+"use client";
+import { useDownloadTemplate } from "@/_utils/downloadtemplate";
+
 const SubmitInfo = () => {
+  const { download } = useDownloadTemplate();
+  const handleDownload = (e: any) => {
+    e.preventDefault();
+    download.mutate();
+  };
   return (
     <div className="submit_info">
       <h1 className="submit_infotitle">SUBMIT A PROJECT</h1>
@@ -19,7 +27,9 @@ const SubmitInfo = () => {
         <h1>Architectural Submission</h1>
         <p>
           First, please download our template for your submission
-          <span style={{ fontWeight: "700" }}>here</span>
+          <span style={{ fontWeight: "700" }} onClick={handleDownload}>
+            here
+          </span>
           and upload them in your googledrive.
         </p>
 

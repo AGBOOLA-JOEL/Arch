@@ -19,6 +19,7 @@ const ArchSelect = ({ value, onChange, options, title }: ArchSelectProp) => {
   return (
     <div className="arch_select" ref={selectref}>
       <button
+        type="button"
         className="arch_selectbtn"
         onClick={toggleDrop}
         aria-expanded={open}

@@ -12,10 +12,15 @@ import ArchTerms from "../general/ArchTerms";
 import { projectcategory, submitfieldPriority } from "@/data/forms.db";
 import { useGenselectors } from "@/_lib/store/general-store";
 import { useAuth } from "@/_hooks/useAuth";
+import { useCountry } from "@/_hooks/useCountry";
+import { useYear } from "@/_hooks/useYear";
+import { useDownloadTemplate } from "@/_utils/downloadtemplate";
 
 const SubmitForm = () => {
   const openToast = useGenselectors.use.openToast();
   const { submitMutation } = useAuth();
+  const { country } = useCountry();
+  const { year } = useYear();
   const { register, handleSubmit, control, watch, setValue } = useForm({
     resolver: yupResolver(submitschema),
     mode: "onSubmit",
@@ -82,7 +87,7 @@ const SubmitForm = () => {
             title="Country"
             value={field.value}
             onChange={field.onChange} // Pass `onChange` from `react-hook-form`
-            options={["Algeria", "Togo"]} // Example options
+            options={country} // Example options
           />
         )}
       />
@@ -143,7 +148,7 @@ const SubmitForm = () => {
                 title="Construction Year"
                 value={field.value}
                 onChange={field.onChange} // Pass `onChange` from `react-hook-form`
-                options={["1999", "2000"]} // Example options
+                options={year} // Example options
               />
             )}
           />
