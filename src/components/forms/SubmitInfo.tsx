@@ -1,5 +1,6 @@
 "use client";
 import { useDownloadTemplate } from "@/_utils/downloadtemplate";
+import Link from "next/link";
 
 const SubmitInfo = () => {
   const { download } = useDownloadTemplate();
@@ -41,7 +42,8 @@ const SubmitInfo = () => {
 
         <p>
           Lastly, kindly fill out the form below and ensure you agree to our{" "}
-          <span>Terms of use</span> and <span>privacy policy</span> .
+          <Link href="/policy/terms">Terms of use</Link> and{" "}
+          <Link href="/policy/privacy">privacy policy</Link> .
         </p>
       </div>
     </div>
