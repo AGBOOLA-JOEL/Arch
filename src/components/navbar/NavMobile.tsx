@@ -11,9 +11,11 @@ import NavAccount from "./component/NavAccount";
 import { useAuthselectors } from "@/_lib/store/auth-store";
 import Link from "next/link";
 import { useState } from "react";
+import { useNavselectors } from "@/_lib/store/nav-store";
 
 const NavMobile = () => {
   const authenticated = useAuthselectors.use.loggedIn();
+  const cartLength = useNavselectors.use.cartLength();
   const [account, setAccount] = useState(false);
   const [links, setLinks] = useState(false);
   const [search, setSearch] = useState(false);
@@ -50,7 +52,8 @@ const NavMobile = () => {
               <ImSearch />
             </button>
             <Link href="/dashboard/archive">
-              <span className="nav_mobcart">1</span>
+              {cartLength && <span className="nav_mobcart"> {cartLength}</span>}
+
               <BsCart3 />
             </Link>
             <button

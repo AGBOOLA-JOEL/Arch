@@ -10,6 +10,7 @@ import { useUser } from "./useUser";
 import { api } from "@/services/api";
 import { useRouter } from "next/navigation";
 import { Router } from "next/router";
+import { useCart } from "./useCart";
 
 export const useAuth = () => {
   const { login, logout } = useAuthStore();
@@ -17,6 +18,7 @@ export const useAuth = () => {
   const openToast = useGenselectors.use.openToast();
   const { user } = useUser();
   const router = useRouter();
+  const { refetchCart } = useCart();
 
   useEffect(() => {
     const expiresAt = localStorage.getItem("expiresAt");
@@ -39,7 +41,7 @@ export const useAuth = () => {
 
       return res.data;
     },
-    onSuccess: (data) => {
+    onSuccess: async (data) => {
       const { access_token, message } = data;
       login(access_token);
       openToast(message, 3000);
@@ -61,10 +63,11 @@ export const useAuth = () => {
       );
       return res.data;
     },
-    onSuccess: (data) => {
+    onSuccess: async (data) => {
       const { description } = data;
       closeModal();
       openToast(description, 3000);
+      await refetchCart();
       // navigate to checkmail page
       //then redirect to sign in page after
     },

@@ -22,7 +22,7 @@ const GifSide = () => {
         </div>
 
         <div className="gifside_link">
-          <ArchArrow text="Submit a project" route="/form/submit" />
+          <ArchArrow text="Submit a project" route="/submit" />
         </div>
       </div>
     </div>

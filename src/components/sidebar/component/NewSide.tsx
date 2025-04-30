@@ -1,82 +1,53 @@
-import { FaArrowRight } from "react-icons/fa";
-
 import Skeleton from "@mui/material/Skeleton";
-import Stack from "@mui/material/Stack";
-import Link from "next/link";
 import ArchArrow from "../../general/ArchArrow";
 import Skeletonside from "../../skeleton/skeletonside";
+import { fullFormatDate } from "@/_utils/formatdate";
+import Image from "next/image";
 
-const NewSide = () => {
-  // const [apiData, setApiData] = useState([]);
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         `${process.env.REACT_APP_CACHE_URL}/news/public/all`
-  //       );
-  //       setApiData(response.data.data.newsArray);
-  //       console.log("single API Response:", response.data);
-  //     } catch (error) {
-  //       console.error(error.message);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
-
-  // const formatCalendarDate = (dateString) => {
-  //   const options = {
-  //     weekday: "long",
-  //     year: "numeric",
-  //     month: "long",
-  //     day: "numeric",
-  //   };
-
-  //   const formattedDate = new Date(dateString);
-  //   return new Intl.DateTimeFormat("en-US", options).format(formattedDate);
-  // };
+const NewSide = ({ news }: { news: any }) => {
+  const apiData = news;
 
   return (
     <div className="newside">
       <div className="newside_head">
         <p>top news</p>
       </div>
-      {/* {apiData.length > 0 ? (
-        apiData.slice(0, 2).map((singleData) => {
+      {apiData.length > 0 ? (
+        apiData.slice(0, 2).map((singleData: any) => {
+          const formattedDate = fullFormatDate(singleData?.date);
           return (
-            <div key={singleData.postId} className="newside_Info">
+            <div key={singleData?.postId} className="newside_info">
               <div className="newside_image">
-                <img src={singleData.image} alt="" />
+                <Image
+                  priority
+                  src={singleData?.image || "/assets/images/noimage.png"}
+                  width={0}
+                  height={0}
+                  alt="feed image"
+                  sizes="100vw"
+                />
               </div>
 
               <div className="newside_text">
-                <p>{singleData.title}</p>
-                <p>{singleData.desc}</p>
+                <p>{singleData?.title}</p>
+                <p>{singleData?.desc}</p>
                 <p>
                   {" "}
-                  By {singleData.user.username} on{" "}
-                  {formatCalendarDate(singleData.date)}{" "}
+                  By {singleData?.user?.username} on {formattedDate}{" "}
                 </p>
               </div>
             </div>
           );
         })
-      ) : ( */}
-      <div className="newside_skel">
-        <Skeletonside />
-      </div>
+      ) : (
+        <div className="newside_skel">
+          <Skeletonside />
+        </div>
+      )}
 
       <div className="newside_link">
-        <ArchArrow text="See more" route="/all/news" />
+        <ArchArrow text="See more" route="/news" />
       </div>
-      {/* <Link
-        href="/all/news"
-        style={{ textDecoration: "none", listStyleType: "none" }}
-      >
-        <div className="newside_link">
-          <p>See more</p>
-          <FaArrowRight />
-        </div>
-      </Link> */}
     </div>
   );
 };

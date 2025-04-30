@@ -2,7 +2,10 @@ import ComicSide from "./component/ComicSide";
 import GifSide from "./component/GifSide";
 import NewSide from "./component/NewSide";
 
-const SideBar = () => {
+type sideProp = {
+  news: any[];
+};
+const SideBar = ({ news }: sideProp) => {
   // const schBar = "scholarships";
   // const itBar = "it placements";
   // const schnav = "scholarships";
@@ -11,7 +14,7 @@ const SideBar = () => {
     <div className="sidebar">
       <GifSide />
 
-      <NewSide />
+      <NewSide news={news} />
 
       <ComicSide />
 

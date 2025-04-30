@@ -9,6 +9,19 @@ export type ArchSelectProp = {
   options: string[];
 };
 
+export type FeedSelectProp = {
+  title: string;
+  value?: string | null;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
+  options: string[];
+};
+
+export type FeedDropdownProp = {
+  title: string;
+  value?: boolean | null;
+  setValue: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
 export type ArchSelectFilter = {
   title: string;
   value: string;

@@ -1,16 +1,23 @@
 import ProjectFeedInfo from "./ProjectFeedInfo";
 import ProjectFeedImg from "./ProjectFeedImg";
+import Link from "next/link";
 
-const ProjectFeed = () => {
+const ProjectFeed = ({ data }: { data: any }) => {
   return (
     <div>
-      <ProjectFeedImg id="ggggg" data={["s", "2"]} />
-      <h1 className="project_feedname">projectName</h1>
+      <ProjectFeedImg id={data?.projectId} data={data} />
+      <h1 className="project_feedname">{data?.projectName}</h1>
       <div className="project_feedmore">
-        <p>location</p>
-        <p>Read more {">>>"}</p>
+        <p>{data?.location}</p>
+        <Link
+          href={`/projects/${data?.projectId}/${
+            data?.premium === true ? "premium" : "free"
+          }`}
+        >
+          Read more {">>>"}
+        </Link>
       </div>
-      <ProjectFeedInfo id={"sssss"} status={true} />
+      <ProjectFeedInfo id={"sssss"} status={data?.built} data={data} />
     </div>
   );
 };

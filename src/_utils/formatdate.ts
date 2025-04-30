@@ -18,3 +18,15 @@ export const formatDate = (inputDate: string) => {
   const formattedDate = `${formattedDay} - ${formattedMonth} - ${formattedYear}`;
   return formattedDate;
 };
+
+export const fullFormatDate = (dateString: string) => {
+  const options: Intl.DateTimeFormatOptions = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+
+  const formattedDate = new Date(dateString);
+  return new Intl.DateTimeFormat("en-US", options).format(formattedDate);
+};

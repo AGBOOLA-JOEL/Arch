@@ -2,6 +2,8 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { jwtDecode } from "jwt-decode";
 import { createSelectors } from "./create-selectors";
+import { useNavstore } from "./nav-store";
+ 
 type Subscription = {
   expiryDate: string | null;
   userPlan: string;
@@ -20,7 +22,7 @@ type UserPayload = {
 };
 
 type AuthState = {
-  loggedIn: boolean;
+  loggedIn: boolean | null;
   user: UserPayload | null;
   accessToken: string | null;
   login: (token: string) => void;
@@ -49,8 +51,10 @@ const useAuthStore = create<AuthState>()(
           console.error("Invalid token", error);
         }
       },
-      logout: () => {
+      logout: async () => {
         set({ loggedIn: false, user: null, accessToken: null });
+        await useAuthStore.persist.clearStorage();
+        await useNavstore.persist.clearStorage();
         localStorage.removeItem("accessToken");
         localStorage.removeItem("expiresAt");
       },

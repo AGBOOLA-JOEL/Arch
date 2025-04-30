@@ -63,8 +63,11 @@
         @include clear-btn;
         align-items: center;
         color: $primary;
+        cursor: pointer;
       }
-
+      & .project_infoshareicon:hover {
+        color: $secondary;
+      }
       & .project_infosocials {
         @include flex(row);
         align-items: center;
@@ -91,7 +94,18 @@
   @include center(column);
   margin-bottom: 200px;
 
-  & .project_feeddisplay {
+  & .projects_feedheader {
+    // background-color: red;
+
+    @include flex(row);
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  & .projects_feeddisplay {
     width: 95%;
     @include borderbox;
     display: grid;
@@ -156,7 +170,7 @@
   padding-right: 20px;
   /* min-width: 100px; */
   position: absolute;
-  margin-top: -135px;
+  margin-top: -80px;
   border-top-right-radius: 5px;
   transition: display 0.5s ease-in-out;
 
@@ -191,12 +205,18 @@
   cursor: pointer;
   width: 100%;
   height: 235px;
-
-  background-color: $primary;
+  @include bgimage("/assets/images/noimage.png");
+  // background-color: $primary;
 
   & img {
     height: 100%;
     width: 100%;
+
+    // @include bgimage("../..//..//assets/images/mapimage.jpg");
+    // background-image: url("../..//..//assets/images/mapimage.jpg");
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // background-size: cover;
   }
 }
 

@@ -7,11 +7,12 @@ import { RiBuilding2Fill } from "react-icons/ri";
 
 type FeedImgProp = {
   id: string;
-  data: any[];
+  data: any;
 };
 const ProjectFeedImg = ({ id, data }: FeedImgProp) => {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
-  //   const nonCoverImages = data?.images?.filter((img) => !img.coverImage);
+  // const nonCoverImages = data?.images?.filter((img: any) => !img.coverImage);
+
   return (
     <>
       <div
@@ -19,68 +20,46 @@ const ProjectFeedImg = ({ id, data }: FeedImgProp) => {
         onMouseEnter={() => setHoveredProject(id)}
         onMouseLeave={() => setHoveredProject(null)}
       >
-        <Link href={"/"}>
+        <Link
+          href={`/projects/${data?.projectId}/${
+            data?.premium === true ? "premium" : "free"
+          }`}
+        >
           <Image
-            src={"/"}
-            alt={"kksksks"}
+            priority
+            src={data?.coverImage || "/assets/images/noimage.png"}
+            alt={"project-coverimage"}
             width={0}
             height={0}
             sizes={"100vw"}
           />
         </Link>
       </div>
-      <div className="project_feedsubimgmap">
-        {/* {nonCoverImages.slice(0, 3).map((img) => ( */}
-        <div className="project_feedsubimg">
-          <Image
-            src={"/"}
-            alt="Project image"
-            width={100}
-            height={100}
-            sizes={"100vw"}
-          />
-        </div>
-        <div className="project_feedsubimg">
-          <Image
-            src={"/"}
-            alt="Project image"
-            width={100}
-            height={100}
-            sizes={"100vw"}
-          />
-        </div>
-        <div className="project_feedsubimg">
-          <Image
-            src={"/"}
-            alt="Project image"
-            width={100}
-            height={100}
-            sizes={"100vw"}
-          />
-        </div>
-        <div className="project_feedsubimg">
-          <Image
-            src={"/"}
-            alt="Project image"
-            width={100}
-            height={100}
-            sizes={"100vw"}
-          />
-        </div>
-        {/* ))} */}
-        {/* {nonCoverImages.length > 3 && ( */}
-        <div className="project_feedsubcount">
-          <Link href={"/"}>+{3}</Link>
-        </div>
-        {/* )} */}
-      </div>
+      {/* <div className="project_feedsubimgmap">
+        {nonCoverImages.slice(0, 3).map((img: any) => (
+          <div className="project_feedsubimg" key={img.imageUrl}>
+            <Image
+              src={img.imageUrl}
+              alt="Project image"
+              width={100}
+              height={100}
+              sizes={"100vw"}
+            />
+          </div>
+        ))}
+        {nonCoverImages.length > 3 && (
+          <div className="project_feedsubcount">
+            <Link href={"/"}>+{3}</Link>
+          </div>
+        )}
+      </div> */}
       {hoveredProject === id && (
         <div className="project_feedhover">
           <h1>
-            <RiBuilding2Fill /> add category
+            <RiBuilding2Fill /> {data?.category}
           </h1>
-          <p>add location</p>
-          <p>add username</p>
+          <p>{data?.location}</p>
+          <p>{data?.user.user}</p>
         </div>
       )}
     </>

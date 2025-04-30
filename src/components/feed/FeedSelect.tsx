@@ -1,11 +1,11 @@
 "use client";
-import { ArchSelectProp } from "@/types/general.type";
+import { ArchSelectProp, FeedSelectProp } from "@/types/general.type";
 import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa6";
 import { useDetectClickOutside } from "react-detect-click-outside";
 import { FiX } from "react-icons/fi";
 
-const FeedSelect = ({ value, setValue, options, title }: ArchSelectProp) => {
+const FeedSelect = ({ value, setValue, options, title }: FeedSelectProp) => {
   const [open, setOpen] = useState(false);
   const toggleDrop = () => setOpen((prev) => !prev);
   const handleClick = (select: any) => {

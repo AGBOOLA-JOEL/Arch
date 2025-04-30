@@ -1,74 +1,72 @@
 "use client";
 import { IoDownloadOutline } from "react-icons/io5";
-import { BsTwitter } from "react-icons/bs";
-import { FaFacebookSquare } from "react-icons/fa";
-import { MdOutlineEmail } from "react-icons/md";
-import { SlLink } from "react-icons/sl";
 import { IoMdShareAlt } from "react-icons/io";
-import {
-  FacebookShareButton,
-  TwitterShareButton,
-  EmailShareButton,
-} from "react-share";
 import { useState } from "react";
+import { ProjectShare } from "./ProjectShare";
+import { useCart } from "@/_hooks/useCart";
 
 type InfoProp = {
   id: string;
   status: boolean;
+  data: any;
 };
-const ProjectFeedInfo = ({ id, status }: InfoProp) => {
-  const [clickedProject, setClickedProject] = useState<string | null>(null);
+const ProjectFeedInfo = ({ id, status, data }: InfoProp) => {
+  const [isClicked, setIsClicked] = useState<string | null>(null);
+  const shareClicked = isClicked === data?.projectId;
+  const { addToCart } = useCart();
   return (
     <div className="project_info">
-      {[
-        { title: "Architects", value: `${"data.architect"}` },
-        { title: "Size", value: `${"data.size"} sqm` },
-        { title: "Client", value: `${"data.client"}` },
-      ].map(({ title, value }) => (
-        <p key={title} className="project_infotext">
-          {title}: <span>{value} </span>
-        </p>
-      ))}
+      <p className="project_infotext">
+        Architects :
+        <span>
+          {"   " +
+            data?.architect?.map((data: any) => {
+              return data;
+            })}
+        </span>
+      </p>
+      <p className="project_infotext">
+        Size :<span>{data?.size}</span>
+      </p>
+      <p className="project_infotext">
+        Client :<span>{data?.client}</span>
+      </p>
 
       {status ? (
         <p className="project_infotext">
-          Construction Year:<span> 2000 (B)</span>
+          Construction Year:<span> 2000 {status ? "(B)" : "(P)"}</span>
         </p>
       ) : (
         <p className="project_infotext">
-          Software: <span> Revit</span>
+          Software:
+          <span>
+            {` ${data?.softwares?.map((data: any) => {
+              return data;
+            })}`}
+          </span>
         </p>
       )}
       <div className="project_infonav">
-        <button className="project_infoadd">
+        <button
+          className="project_infoadd"
+          onClick={(e) => {
+            e.preventDefault();
+            addToCart.mutate(data?.projectId);
+          }}
+        >
           Add to archive <IoDownloadOutline />
         </button>
 
         <div className="project_infoshare">
-          <button className="project_infoshareicon">
+          <button
+            className="project_infoshareicon"
+            onClick={() => {
+              setIsClicked(data?.projectId);
+            }}
+          >
             <IoMdShareAlt size={35} />
           </button>
-          {clickedProject === id && (
-            <div className="project_infosocials">
-              <TwitterShareButton
-                url={""}
-                title="Check out this project on ArchCache!"
-              >
-                <BsTwitter />
-              </TwitterShareButton>
-              <FacebookShareButton url={""}>
-                <FaFacebookSquare />
-              </FacebookShareButton>
-              <EmailShareButton
-                subject="View this project on ArchCache"
-                url={"/"}
-              >
-                <MdOutlineEmail />
-              </EmailShareButton>
-
-              <SlLink />
-            </div>
-          )}
+          {shareClicked && <ProjectShare data={data} />}
         </div>
       </div>
     </div>

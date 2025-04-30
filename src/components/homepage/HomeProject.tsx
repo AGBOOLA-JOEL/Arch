@@ -6,9 +6,10 @@ import ArchArrow from "../general/ArchArrow";
 
 type HomeProjectProp = {
   header: string;
+  data: any[];
 };
 
-const HomeProject = ({ header }: HomeProjectProp) => {
+const HomeProject = ({ header, data }: { header: string; data: any[] }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -20,20 +21,11 @@ const HomeProject = ({ header }: HomeProjectProp) => {
 
   // Adjust number of items per slide based on screen size
   const groupSize = isMobile ? 1 : 2;
-  const fakeData = [
-    { id: 1, title: "Project 1" },
-    { id: 2, title: "Project 2" },
-    { id: 3, title: "Project 3" },
-    { id: 4, title: "Project 4" },
-    { id: 5, title: "Project 5" },
-    { id: 6, title: "Project 6" },
-    { id: 7, title: "Project 7" },
-    { id: 8, title: "Project 8" },
-  ];
+  const apiData = data;
 
-  const sections = fakeData.reduce<{ id: number; title: string }[][]>(
+  const sections = apiData.reduce<{ id: number; title: string }[][]>(
     (acc, _, i) => {
-      if (i % groupSize === 0) acc.push(fakeData.slice(i, i + groupSize));
+      if (i % groupSize === 0) acc.push(apiData.slice(i, i + groupSize));
       return acc;
     },
     []
@@ -60,8 +52,8 @@ const HomeProject = ({ header }: HomeProjectProp) => {
         >
           {displayedSections.map((section, index) => (
             <div className="home_projectfeed" key={index}>
-              {section.map((project) => (
-                <ProjectFeed key={project.id} />
+              {section.map((project: any) => (
+                <ProjectFeed key={project?.projectId} data={project} />
               ))}
             </div>
           ))}

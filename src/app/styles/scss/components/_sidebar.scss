@@ -65,7 +65,7 @@
 
       & .newside_image {
         height: 148px;
-        width: 30%;
+        width: 40%;
         margin-left: 20px;
         // @include bgimage("../..//..//assets/images/mapimage.jpg");
         // background-image: url("../..//..//assets/images/mapimage.jpg");
@@ -89,7 +89,7 @@
         flex-direction: column;
         justify-content: center;
 
-        width: 70%;
+        width: 60%;
 
         @include sm {
           width: 60%;

@@ -1,17 +1,28 @@
+import { formatDate } from "@/_utils/formatdate";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const FeedOthersInfo = () => {
+const FeedOthersInfo = ({ data }: { data: any }) => {
+  const formattedDate = formatDate(data?.date);
   return (
     <div className="feed_othersinfo">
-      <Link href={`/${"news"}/${""}`}>
+      <Link href={`/${"news"}/${data?.postId}`}>
         <div className="feed_othersimage">
-          {/* <Image src="" width={0} height={0} alt="feed image" sizes="100vw" /> */}
+          <Image
+            src={data?.image || "/assets/images/noimage.png"}
+            width={0}
+            height={0}
+            alt="feed image"
+            sizes="100vw"
+          />
         </div>
 
         <div className="feed_otherstext">
-          <p>Architecture Beyond Design: Getting to Know BLOCO</p>
-          <p>By Archcache on 5-2-2022</p>
+          <p>{data?.title}</p>
+          <p>
+            By {data?.user?.username} on {formattedDate}
+          </p>
         </div>
       </Link>
     </div>

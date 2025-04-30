@@ -1882,7 +1882,7 @@ a {
 }
 .app .sidebar .newside .newside_info .newside_image {
   height: 148px;
-  width: 30%;
+  width: 40%;
   margin-left: 20px;
 }
 @media (max-width: 1012px) {
@@ -1899,7 +1899,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 70%;
+  width: 60%;
 }
 @media (max-width: 1012px) {
   .app .sidebar .newside .newside_info .newside_text {
@@ -2631,20 +2631,19 @@ a {
 }
 .app .policy_wrapper .policy_container .policy_details li {
   font-weight: 500;
-  font-size: 16px;
-  /* text-align: justify; */
+  font-size: 1.6rem;
 }
 .app .policy_wrapper .policy_container .policy_version {
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 700;
 }
 .app .policy_wrapper .policy_container .policy_header {
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 600;
 }
 .app .policy_wrapper .policy_container .policy_info {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 19.5px;
   text-align: justify;
   margin-bottom: 5px;
@@ -2657,7 +2656,7 @@ a {
 }
 .app .policy_wrapper .policy_container .policy_address p {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1.6rem;
   margin-bottom: -13px;
   text-align: left;
 }
@@ -3819,6 +3818,39 @@ a {
   overflow-y: scroll;
   scrollbar-width: thin;
 }
+.app .feed_dropdown {
+  position: relative;
+}
+.app .feed_dropdown .feed_dropdownbtn {
+  gap: 20px;
+  position: relative;
+  width: 120px;
+  background: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  border: 1px solid var(--darktwo);
+  color: var(--darkone);
+}
+.app .feed_dropdown .feed_dropdownbtn::before, .app .feed_dropdown .feed_dropdownbtn::after {
+  box-sizing: border-box;
+}
+.app .feed_dropdown .feed_dropdownbtn:hover {
+  transition: 0.3s ease-in-out;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+.app .feed_dropdown .feed_dropdownbtn.selected {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
 .app .feed_filter {
   gap: 10px;
   background: none;
@@ -4067,6 +4099,336 @@ a {
   transition: 0.3s ease-in-out;
   color: var(--secondary);
 }
+.app .feedcategory-dropdown {
+  position: relative;
+  /* Category items */
+  /* Subcategory items */
+  /* Sub-subcategory items */
+  /* Search results */
+}
+.app .feedcategory-dropdown .dropdown-header {
+  width: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  border: 1px solid var(--darktwo);
+  color: var(--darkone);
+  background: none;
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.app .feedcategory-dropdown .dropdown-header:hover {
+  border-color: #cbd5e0;
+}
+.app .feedcategory-dropdown .selected-category {
+  font-size: 14px;
+  font-weight: 500;
+}
+.app .feedcategory-dropdown .dropdown-icon {
+  color: var(--darkone);
+  transition: transform 0.2s ease;
+}
+.app .feedcategory-dropdown .dropdown-icon.open {
+  transform: rotate(180deg);
+}
+.app .feedcategory-dropdown .dropdown-panel {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  max-height: 350px;
+  overflow-y: auto;
+}
+.app .feedcategory-dropdown .search-container {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  z-index: 1;
+}
+.app .feedcategory-dropdown .search-icon {
+  color: #718096;
+  margin-right: 8px;
+}
+.app .feedcategory-dropdown .search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #1a202c;
+}
+.app .feedcategory-dropdown .search-input::-moz-placeholder {
+  color: #a0aec0;
+}
+.app .feedcategory-dropdown .search-input::placeholder {
+  color: #a0aec0;
+}
+.app .feedcategory-dropdown .categories-container {
+  padding: 8px 0;
+}
+.app .feedcategory-dropdown .category-item .category-header {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.app .feedcategory-dropdown .category-item .category-header:hover {
+  background-color: #f7fafc;
+}
+.app .feedcategory-dropdown .category-item .expand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #718096;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.app .feedcategory-dropdown .category-item .spacer {
+  width: 24px;
+}
+.app .feedcategory-dropdown .category-item .category-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a202c;
+}
+.app .feedcategory-dropdown .subcategories .subcategory-item .subcategory-header {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px 8px 32px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.app .feedcategory-dropdown .subcategories .subcategory-item .subcategory-header:hover {
+  background-color: #f7fafc;
+}
+.app .feedcategory-dropdown .subcategories .subcategory-item .expand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #718096;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.app .feedcategory-dropdown .subcategories .subcategory-item .spacer {
+  width: 22px;
+}
+.app .feedcategory-dropdown .subcategories .subcategory-item .subcategory-name {
+  font-size: 14px;
+  color: #4a5568;
+}
+.app .feedcategory-dropdown .sub-subcategories .sub-subcategory-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px 8px 56px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.app .feedcategory-dropdown .sub-subcategories .sub-subcategory-item:hover {
+  background-color: #f7fafc;
+}
+.app .feedcategory-dropdown .sub-subcategories .sub-subcategory-item .spacer {
+  width: 22px;
+}
+.app .feedcategory-dropdown .sub-subcategories .sub-subcategory-item .sub-subcategory-name {
+  font-size: 14px;
+  color: #718096;
+}
+.app .feedcategory-dropdown .search-results {
+  padding: 8px 0;
+}
+.app .feedcategory-dropdown .search-result-item {
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f1f5f9;
+}
+.app .feedcategory-dropdown .search-result-item:hover {
+  background-color: #f7fafc;
+}
+.app .feedcategory-dropdown .search-result-item .result-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a202c;
+  margin-bottom: 2px;
+}
+.app .feedcategory-dropdown .search-result-item .result-path {
+  font-size: 12px;
+  color: #718096;
+}
+.app .feed_search {
+  gap: 10px;
+  background: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  border: 1px solid var(--darktwo);
+  color: var(--darkone);
+}
+.app .feed_search::before, .app .feed_search::after {
+  box-sizing: border-box;
+}
+.app .feed_search svg {
+  height: 16px;
+  width: 16px;
+}
+.app .feed_search input {
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--darkone);
+  font-size: 1.6rem;
+}
+.app .feed_area {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  width: 120px;
+  padding: 0px 0px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  overflow: hidden;
+}
+.app .feed_area input {
+  width: 98%;
+  padding-left: 20px;
+  box-sizing: border-box;
+  height: 45px;
+  outline: none;
+  border: none;
+}
+.app .feed_area input::before, .app .feed_area input::after {
+  box-sizing: border-box;
+}
+.app .feed_area button {
+  background-color: #f7fafc;
+  height: 35px;
+  width: 100%;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  color: var(--darkone);
+  margin: 0px 0px;
+}
+.app .feed_area button:hover {
+  color: var(--white);
+  background-color: var(--secondary);
+  transition: 0.3s ease-in-out;
+}
+.app .feed_year {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  width: 120px;
+  height: 190px;
+  padding: 0px 0px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  overflow: hidden;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+.app .feed_year input {
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-top: 10px;
+  color: var(--darkone);
+  font-size: 1.6rem;
+  outline: none;
+  border: none;
+}
+.app .feed_year input::before, .app .feed_year input::after {
+  box-sizing: border-box;
+}
+.app .feed_year input[type=number]::-webkit-inner-spin-button,
+.app .feed_year input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+.app .feed_year .feed_yearlist {
+  list-style-type: none;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.6rem;
+  padding: 0px 0px;
+}
+.app .feed_year .feed_yearlist .feed_yearitem {
+  box-sizing: border-box;
+  padding: 8px 10px;
+  color: var(--darkone);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  cursor: pointer;
+}
+.app .feed_year .feed_yearlist .feed_yearitem::before, .app .feed_year .feed_yearlist .feed_yearitem::after {
+  box-sizing: border-box;
+}
+.app .feed_year .feed_yearlist .feed_yearitem .selected {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: var(--secondary);
+}
+.app .feed_type {
+  cursor: pointer;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  width: 120px;
+  padding: 0px 0px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+.app .feed_type p {
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 40px;
+  margin: 0px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.6rem;
+  color: var(--darkone);
+}
+.app .feed_type p:hover {
+  background-color: #f7fafc;
+}
 .app .projects .projects_header {
   margin: 0px 0px;
   height: 80px;
@@ -4135,6 +4497,10 @@ a {
   border: none;
   align-items: center;
   color: var(--primary);
+  cursor: pointer;
+}
+.app .project_info .project_infonav .project_infoshare .project_infoshareicon:hover {
+  color: var(--secondary);
 }
 .app .project_info .project_infonav .project_infoshare .project_infosocials {
   display: flex;
@@ -4161,7 +4527,16 @@ a {
   flex-direction: column;
   margin-bottom: 200px;
 }
-.app .projects_feed .project_feeddisplay {
+.app .projects_feed .projects_feedheader {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
+.app .projects_feed .projects_feeddisplay {
   width: 95%;
   box-sizing: border-box;
   display: grid;
@@ -4169,11 +4544,11 @@ a {
   grid-template-columns: repeat(3, 1fr);
   grid-row-gap: 60px;
 }
-.app .projects_feed .project_feeddisplay::before, .app .projects_feed .project_feeddisplay::after {
+.app .projects_feed .projects_feeddisplay::before, .app .projects_feed .projects_feeddisplay::after {
   box-sizing: border-box;
 }
 @media (max-width: 1012px) {
-  .app .projects_feed .project_feeddisplay {
+  .app .projects_feed .projects_feeddisplay {
     width: 92.5%;
     grid-template-columns: repeat(1, 1fr);
   }
@@ -4228,7 +4603,7 @@ a {
   padding-right: 20px;
   /* min-width: 100px; */
   position: absolute;
-  margin-top: -135px;
+  margin-top: -80px;
   border-top-right-radius: 5px;
   transition: display 0.5s ease-in-out;
 }
@@ -4264,7 +4639,10 @@ a {
   cursor: pointer;
   width: 100%;
   height: 235px;
-  background-color: var(--primary);
+  background-image: url("/assets/images/noimage.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .app .project_feedmainimg img {
   height: 100%;
