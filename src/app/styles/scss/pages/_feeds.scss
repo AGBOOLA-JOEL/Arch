@@ -780,6 +780,10 @@
       @include center(row);
       cursor: pointer;
     }
+
+    & .feed_yearitem:hover {
+      background-color: #f7fafc;
+    }
     & .feed_yearitem .selected {
       width: 100%;
       @include center(row);

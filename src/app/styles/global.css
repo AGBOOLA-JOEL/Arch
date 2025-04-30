@@ -4394,6 +4394,9 @@ a {
 .app .feed_year .feed_yearlist .feed_yearitem::before, .app .feed_year .feed_yearlist .feed_yearitem::after {
   box-sizing: border-box;
 }
+.app .feed_year .feed_yearlist .feed_yearitem:hover {
+  background-color: #f7fafc;
+}
 .app .feed_year .feed_yearlist .feed_yearitem .selected {
   width: 100%;
   display: flex;
