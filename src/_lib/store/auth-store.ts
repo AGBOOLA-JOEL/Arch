@@ -3,7 +3,7 @@ import { persist } from "zustand/middleware";
 import { jwtDecode } from "jwt-decode";
 import { createSelectors } from "./create-selectors";
 import { useNavstore } from "./nav-store";
- 
+
 type Subscription = {
   expiryDate: string | null;
   userPlan: string;
@@ -44,6 +44,9 @@ const useAuthStore = create<AuthState>()(
             set({ loggedIn: false, user: null, accessToken: null });
             return;
           }
+          document.cookie = `auth_token=${token}; Path=/; SameSite=Strict; Expires=${new Date(
+            expiresAt
+          ).toUTCString()}`;
           set({ loggedIn: true, user: decoded, accessToken: token });
           localStorage.setItem("accessToken", token);
           localStorage.setItem("expiresAt", String(expiresAt));
@@ -52,6 +55,7 @@ const useAuthStore = create<AuthState>()(
         }
       },
       logout: async () => {
+        document.cookie = "auth_token=; Max-Age=0; Path=/; SameSite=Strict";
         set({ loggedIn: false, user: null, accessToken: null });
         await useAuthStore.persist.clearStorage();
         await useNavstore.persist.clearStorage();

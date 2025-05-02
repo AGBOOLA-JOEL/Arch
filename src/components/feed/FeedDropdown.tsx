@@ -12,7 +12,7 @@ import FeedType from "./FeedType";
 const FeedDropdown = ({ value, setValue, title }: FeedDropdownProp) => {
   const [open, setOpen] = useState(false);
   const handleClick = () => {
-    setValue((prev) => !prev);
+    // setDrop((prev) => !prev);
     setOpen((prev) => !prev);
   };
   const closeSelect = () => {
@@ -25,22 +25,35 @@ const FeedDropdown = ({ value, setValue, title }: FeedDropdownProp) => {
         className={`feed_dropdownbtn ${value ? "selected" : ""}`}
         onClick={handleClick}
       >
-        <span>{title}</span>
-        {value == true ? (
+        <span>{value || title}</span>
+        {value ? (
           <FiX
-          // onClick={() => {
-          //   setValue((prev) => !prev);
-          // }}
+            onClick={() => {
+              setValue("");
+              setOpen(false);
+            }}
           />
         ) : (
-          <FaAngleDown />
+          <FaAngleDown
+            className={`feed_dropdownsvg ${open === true ? "rotate" : ""}`}
+          />
         )}
       </button>
       {open && (
         <>
-          {title === "Area" && <FeedArea />}
-          {title === "Year" && <FeedYear />}
-          {title === "Type" && <FeedType />}
+          {title === "Area" && (
+            <FeedArea setValue={setValue} setOpen={setOpen} />
+          )}
+          {title === "Year" && (
+            <FeedYear value={value} setValue={setValue} setOpen={setOpen} />
+          )}
+          {title === "Type" && (
+            <FeedType
+              setValue={setValue}
+              setOpen={setOpen}
+              option={["Basic", "Premium"]}
+            />
+          )}
         </>
       )}
     </div>

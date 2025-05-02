@@ -4,7 +4,7 @@ export const revalidate = 60; // ISR every 60s
 
 const Page = async () => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BACKEND_URL}/projects/public/all?pageSize=15`,
+    `${process.env.NEXT_PUBLIC_API_BACKEND_URL}/projects/public/all?page=1`,
     {
       next: { revalidate: 60 },
     }

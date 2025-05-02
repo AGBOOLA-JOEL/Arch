@@ -1,8 +1,26 @@
-const FeedType = () => {
+type TypeProp = {
+  value?: string | number;
+  setValue: (value: any) => void;
+  setOpen: (value: boolean) => void;
+  option: string[];
+};
+
+const FeedType = ({ setValue, setOpen, option }: TypeProp) => {
   return (
     <div className="feed_type">
-      <p onClick={() => {}}>Basic</p>
-      <p onClick={() => {}}>Premium</p>
+      {option.map((data) => {
+        return (
+          <p
+            key={data}
+            onClick={() => {
+              setValue(data);
+              setOpen(false);
+            }}
+          >
+            {data}
+          </p>
+        );
+      })}
     </div>
   );
 };

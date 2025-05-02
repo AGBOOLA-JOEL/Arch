@@ -3,7 +3,7 @@ import type React from "react";
 import { useState, useEffect, useRef } from "react";
 import { Search, ChevronDown, ChevronRight } from "lucide-react";
 import { filtercategories } from "@/data/feed.data";
-
+import { FiX } from "react-icons/fi";
 // Define our search result type
 type SearchResult = {
   id: string;
@@ -12,10 +12,15 @@ type SearchResult = {
   level: "header" | "subheader" | "content";
 };
 
-export const FeedCategory = () => {
+export const FeedCategory = ({
+  selectedCategory,
+  setSelectedCategory,
+}: {
+  selectedCategory: string;
+  setSelectedCategory: (value: string) => void;
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] =
-    useState<string>("Select Category");
+
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [expandedCategories, setExpandedCategories] = useState<
@@ -204,12 +209,27 @@ export const FeedCategory = () => {
 
   return (
     <div className="feedcategory-dropdown" ref={dropdownRef}>
-      <div className="dropdown-header" onClick={() => setIsOpen(!isOpen)}>
-        <span className="selected-category">{selectedCategory}</span>
-        <ChevronDown
-          className={`dropdown-icon ${isOpen ? "open" : ""}`}
-          size={20}
-        />
+      <div
+        className={`dropdown-header ${selectedCategory ? "selected" : ""}`}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span className="selected-category">
+          {selectedCategory || "Select Category"}
+        </span>
+        {selectedCategory ? (
+          <FiX
+            size={20}
+            onClick={() => {
+              setSelectedCategory("");
+              setIsOpen(false);
+            }}
+          />
+        ) : (
+          <ChevronDown
+            className={`dropdown-icon ${isOpen ? "open" : ""}`}
+            size={20}
+          />
+        )}
       </div>
 
       {isOpen && (

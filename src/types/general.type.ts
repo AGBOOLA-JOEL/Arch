@@ -18,8 +18,8 @@ export type FeedSelectProp = {
 
 export type FeedDropdownProp = {
   title: string;
-  value?: boolean | null;
-  setValue: React.Dispatch<React.SetStateAction<boolean>>;
+  value?: string | number;
+  setValue: (value: any) => void;
 };
 
 export type ArchSelectFilter = {

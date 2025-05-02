@@ -12,7 +12,7 @@ const NewSide = ({ news }: { news: any }) => {
       <div className="newside_head">
         <p>top news</p>
       </div>
-      {apiData.length > 0 ? (
+      {apiData?.length > 0 ? (
         apiData.slice(0, 2).map((singleData: any) => {
           const formattedDate = fullFormatDate(singleData?.date);
           return (

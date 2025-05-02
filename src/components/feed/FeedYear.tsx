@@ -1,9 +1,14 @@
 "use client";
 import React, { useState } from "react";
 
-const FeedYear = () => {
+type YearProp = {
+  value?: string | number;
+  setValue: (value: any) => void;
+  setOpen: (value: boolean) => void;
+};
+const FeedYear = ({ value, setValue, setOpen }: YearProp) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedYear, setSelectedYear] = useState<number | null>(null);
+  // const [selectedYear, setSelectedYear] = useState<number | null>(null);
   const years = Array.from(
     { length: 50 },
     (_, i) => new Date().getFullYear() - i
@@ -14,8 +19,9 @@ const FeedYear = () => {
   );
 
   const handleYearSelect = (year: number) => {
-    setSelectedYear(year);
+    setValue(year);
     setSearchTerm("");
+    setOpen(false);
   };
 
   return (
@@ -32,12 +38,10 @@ const FeedYear = () => {
           filteredYears.map((year: any) => (
             <li
               key={year}
-              className={`feed_yearitem ${
-                selectedYear === year ? "selected" : ""
-              }`}
+              className={`feed_yearitem ${value === year ? "selected" : ""}`}
               onClick={() => handleYearSelect(year)}
               role="option"
-              aria-selected={selectedYear === year}
+              aria-selected={value === year}
             >
               {year}
             </li>

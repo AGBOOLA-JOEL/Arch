@@ -22,8 +22,9 @@ const NavPrimary = ({}) => {
       return "/dashboard";
     } else if (user?.role === "ADMIN") {
       return "/admin";
+    } else {
+      return "/login";
     }
-    return "/login";
   };
 
   const { openModal } = useModalStore();
@@ -52,6 +53,7 @@ const NavPrimary = ({}) => {
           {authenticated ? (
             <Link href={roleroute()} className="nav_primarydash">
               Dashboard
+              {/* {user?.role} */}
             </Link>
           ) : (
             <Link href={"/login"} className="nav_primarydash">

@@ -9,7 +9,7 @@ const Page = async () => {
       }
     ),
     fetch(
-      `${process.env.NEXT_PUBLIC_API_BACKEND_URL}/news/public/all?pageSize=8`,
+      `${process.env.NEXT_PUBLIC_API_BACKEND_URL}/news/public/all?pageSize=2`,
       {
         next: { revalidate: 60 },
       }

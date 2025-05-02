@@ -30,3 +30,14 @@ export const fullFormatDate = (dateString: string) => {
   const formattedDate = new Date(dateString);
   return new Intl.DateTimeFormat("en-US", options).format(formattedDate);
 };
+
+export const formatTime = (timeString: any) => {
+  const options: Intl.DateTimeFormatOptions = {
+    hour: "numeric",
+    minute: "numeric",
+    // second: "numeric",
+  };
+
+  const formattedTime = new Date(timeString);
+  return new Intl.DateTimeFormat("en-US", options).format(formattedTime);
+};

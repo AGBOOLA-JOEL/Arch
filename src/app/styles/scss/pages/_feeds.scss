@@ -167,7 +167,7 @@
     color: $primary;
   }
 
-  & .feed_selectbtn.selected {
+  &.selected {
     border: 1px solid $primary;
     color: $primary;
   }
@@ -231,13 +231,21 @@
   }
   & .feed_dropdownbtn:hover {
     transition: 0.3s ease-in-out;
-    border: 1px solid $primary;
-    color: $primary;
+    border-color: #cbd5e0;
+    // border: 1px solid $secondary;
+    // color: $secondary;
   }
 
-  & .feed_dropdownbtn.selected {
-    border: 1px solid $primary;
-    color: $primary;
+  &.selected {
+    border: 1px solid $secondary;
+    color: $secondary;
+  }
+  & .feed_dropdownsvg {
+    transition: 0.3s ease-in-out;
+  }
+  & .feed_dropdownsvg.rotate {
+    transition: 0.3s ease-in-out;
+    transform: rotate(180deg);
   }
 }
 
@@ -258,7 +266,7 @@
     display: none;
   }
 }
-& .feed_filter.selected {
+&.selected {
   border: 1px solid $primary;
   color: $primary;
 }
@@ -493,6 +501,11 @@
     border-color: #cbd5e0;
   }
 
+  .dropdown-header.selected {
+    border: 1px solid $secondary;
+    color: $secondary;
+  }
+
   .selected-category {
     font-size: 14px;
     font-weight: 500;
@@ -673,7 +686,8 @@
   background: none;
   cursor: pointer;
   @include borderbox;
-  @include full-flex(center, space-between, row);
+  @include flex(row);
+  align-items: center;
   padding: 6px 8px;
   border-radius: 4px;
 
@@ -692,7 +706,25 @@
     font-size: 1.6rem;
     // caret-color: $dark-two;
   }
+
+  &.selected {
+    border: 1px solid $secondary;
+    color: $secondary;
+
+    & input {
+      color: $secondary;
+    }
+  }
 }
+
+// & .feed_search.selected {
+//   border: 1px solid $secondary;
+//   color: $secondary;
+
+//   & input {
+//     color: $secondary;
+//   }
+// }
 
 & .feed_area {
   background-color: #ffffff;
@@ -784,7 +816,7 @@
     & .feed_yearitem:hover {
       background-color: #f7fafc;
     }
-    & .feed_yearitem .selected {
+    &.selected {
       width: 100%;
       @include center(row);
       background-color: $secondary;
