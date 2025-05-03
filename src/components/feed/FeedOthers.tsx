@@ -4,8 +4,10 @@ import FeedOthersInfo from "./FeedOthersInfo";
 
 type FeedProp = {
   name: string;
+  data: any;
 };
-const FeedOthers = ({ name }: FeedProp) => {
+const FeedOthers = ({ name, data }: FeedProp) => {
+  const infodata = data;
   return (
     <div className="feed_others">
       <div className="feed_othershead">
@@ -15,7 +17,12 @@ const FeedOthers = ({ name }: FeedProp) => {
       <div className="feed_othersgrid">
         {/* {newsFilter.map((singleData) => {
           return ( */}
-        <FeedOthersInfo />
+
+        {/* <FeedOthersInfo data={data} /> */}
+
+        {infodata?.map((news: any) => (
+          <FeedOthersInfo key={news.postId} data={news} />
+        ))}
 
         {/* );
         })} */}

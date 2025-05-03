@@ -24,3 +24,26 @@ export const useNews = () => {
     refetchNews: refetch,
   };
 };
+
+export const useNewsById = (id: string) => {
+  const getNews = async () => {
+    const { data } = await api.get(`/news/public/${id}`);
+    return data;
+  };
+
+  const { data, isLoading, isError, refetch } = useQuery({
+    queryKey: ["news-id", id], // Ensures the query runs only once
+    queryFn: getNews,
+    staleTime: Infinity, // Prevents automatic background refetching
+    enabled: true,
+    refetchOnWindowFocus: false, // Prevents refetching when tab is focused
+    refetchOnReconnect: false, // Prevents refetching when internet reconnects
+  });
+
+  return {
+    newsid: data?.data || null,
+    isLoading,
+    isError,
+    refetchNews: refetch,
+  };
+};
