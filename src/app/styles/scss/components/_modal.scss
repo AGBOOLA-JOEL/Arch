@@ -75,3 +75,172 @@
     }
   }
 }
+
+& .modal_report {
+  height: 100%;
+  width: 100%;
+  @include center(column);
+
+  & .modal_rep {
+    background-color: $white;
+    @include borderbox;
+    width: 40%;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(224, 224, 224, 1);
+    cursor: pointer;
+    @include center(column);
+    @include sm {
+      width: 90%;
+    }
+
+    & .modal_rephead {
+      padding: 0px 0px;
+      width: 85%;
+      @include full-flex(center, space-between, row);
+      height: 55px;
+      border-bottom: 1px solid rgba(224, 224, 224, 1);
+      & p {
+        font-size: 1.7rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        text-align: left;
+        color: rgb(125, 52, 52);
+      }
+      & span {
+        @include center(row);
+        width: 24px;
+        height: 24px;
+        background-color: rgba(242, 242, 242, 1);
+        border-radius: 50%;
+      }
+    }
+  }
+
+  & .modal_reptitle {
+    @include center(column);
+    width: 100%;
+
+    & h1 {
+      width: 85%;
+      color: $primary;
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+    & p {
+      width: 85%;
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin-top: -5px;
+      font-weight: 500;
+      letter-spacing: 0em;
+      text-align: left;
+      color: $dark-one;
+      margin-bottom: -10px;
+    }
+  }
+
+  & .modal_repselect {
+    @include center(column);
+    width: 100%;
+
+    margin-top: 10px;
+
+    & .modal_repradio {
+      width: 91%;
+      @include center(row);
+      margin-bottom: -10px;
+
+      & input {
+        cursor: pointer;
+        margin-left: -3px;
+        width: 10%;
+        height: 20px;
+        accent-color: $primary;
+        margin-right: -5px;
+        @include sm {
+          margin-left: 6px;
+          margin-right: 5px;
+        }
+      }
+
+      p {
+        width: 90%;
+        font-weight: 500;
+        font-size: 1.4rem;
+        text-align: left;
+        color: $dark-one;
+        @include sm {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  & .modal_repdesc {
+    @include center(column);
+    width: 100%;
+
+    & .modal_repdeschead {
+      @include full-flex(center, space-between, row);
+      width: 84%;
+      & h1 {
+        font-size: 1.4rem;
+      }
+      & span {
+        color: $dark-two;
+        font-style: italic;
+        font-size: 1.4rem;
+      }
+    }
+    & textarea {
+      border-radius: 5px;
+      max-width: 84%;
+      min-width: 84%;
+      min-height: 68px;
+      max-height: 138px;
+      border: 1px solid hsl(0, 1%, 48%);
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+  }
+
+  & .modal_repsubmit {
+    @include center(column);
+
+    & button {
+      @include center(column);
+      font-size: 1.6rem;
+      background-color: $primary;
+      width: 85%;
+      height: 48px;
+      border: none;
+      outline: none;
+      color: $white;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 3px;
+      transition: opacity 0.3s ease-in-out;
+
+      &:hover {
+        background-color: $secondary;
+        transition: opacity 0.3s ease-in-out;
+      }
+      &:disabled {
+        background-color: $secondary;
+      }
+    }
+
+    & p {
+      font-weight: 600;
+      font-size: 1.2rem;
+      text-align: justify;
+      width: 84%;
+      word-spacing: 0em;
+    }
+    & a {
+      @include strip-list;
+      color: $secondary;
+    }
+  }
+}

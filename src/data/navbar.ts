@@ -6,7 +6,7 @@ export const navprimary = [
   },
   {
     name: "news",
-    to: "news",
+    to: "/news",
     linkstyle: "news",
   },
   {
@@ -66,27 +66,27 @@ export const navsecondary = [
 export const navmobile = [
   {
     name: "projects",
-    to: "projects",
+    to: "/projects",
     img: "/assets/svg/navbar/mobproj.svg",
   },
   {
     name: "news",
-    to: "news",
+    to: "/news",
     img: "/assets/svg/navbar/mobnews.svg",
   },
   {
     name: "portfolio",
-    to: "portfolio",
+    to: "/portfolio",
     img: "/assets/svg/navbar/mobport.svg",
   },
   {
     name: "competitions",
-    to: "competition",
+    to: "/competition",
     img: "/assets/svg/navbar/mobcomp.svg",
   },
   {
     name: "scholarships",
-    to: "scholarship",
+    to: "/scholarship",
     img: "/assets/svg/navbar/mobsch.svg",
   },
   {

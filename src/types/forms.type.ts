@@ -1,4 +1,8 @@
-import { submitschema } from "@/_utils/validation/forms";
+import {
+  reportformschema,
+  submitschema,
+  updateuserschema,
+} from "@/_utils/validation/forms";
 import { InferType } from "yup";
 
 export type FormInputProp = {
@@ -36,6 +40,9 @@ export type JoinData = {
   letter?: boolean | null;
 };
 
+export type ReportData = InferType<typeof reportformschema>;
+
+export type UpdateuserData = InferType<typeof updateuserschema>;
 // type SubmitData = {
 //   name: string;
 //   username: string;

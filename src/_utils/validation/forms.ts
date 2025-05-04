@@ -113,4 +113,15 @@ export const messageformschema = yup.object().shape({
   title: yup.string().required(),
   receipient: yup.string().required(),
 });
+
+export const reportformschema = yup.object().shape({
+  title: yup.string().required("Select a category"),
+  desc: yup.string().nullable(),
+});
+
+export const updateuserschema = yup.object().shape({
+  institution: yup.string().nullable(""),
+  rank: yup.string().nullable(),
+});
+
 //add error pop up if requirement is not met

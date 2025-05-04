@@ -9,17 +9,18 @@ import { useParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import { formatTime, fullFormatDate } from "@/_utils/formatdate";
 import Image from "next/image";
+import useModalStore from "@/_lib/store/modal-store";
+import SkeletonFeed from "@/components/skeleton/skeletonfeed";
 
 const Page = () => {
   const params = useParams();
   const { news } = useNews();
   const { user } = useUser();
-  const authenticated = useAuthselectors.use.loggedIn();
+  const { openModal, closeModal } = useModalStore();
+  // const authenticated = useAuthselectors.use.loggedIn();
   const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
   const id = (params?.slug as string[])?.[0];
-
   const { newsid, isLoading, isError } = useNewsById(id);
-
   const name = "News";
 
   const offmodules = {
@@ -34,7 +35,6 @@ const Page = () => {
     }
   }, [newsid?.body]);
 
-  console.log("newsid", newsid);
   return (
     <>
       {!isLoading ? (
@@ -59,18 +59,27 @@ const Page = () => {
               />
             </div>
 
-            <div className="feed_singledesc">
-              <ReactQuill
-                theme="snow"
-                value={quillState}
-                readOnly
-                modules={offmodules}
-              />
-            </div>
+            {newsid?.body && (
+              <div className="feed_singledesc">
+                <ReactQuill
+                  theme="snow"
+                  value={quillState}
+                  readOnly
+                  modules={offmodules}
+                />
+              </div>
+            )}
 
             <div className="feed_singleauthor">
-              <p>By {newsid?.user?.username}</p>
-              <button className="feed_singlereport">Report</button>
+              {/* <p>By {newsid?.user?.username}</p> */}
+              <button
+                className="feed_singlereport"
+                onClick={() => {
+                  openModal("report");
+                }}
+              >
+                Report
+              </button>
             </div>
           </div>
           <div className="feed_singleothers">
@@ -78,7 +87,9 @@ const Page = () => {
           </div>
         </div>
       ) : (
-        <>loading feed skeleton</>
+        <div className="feed_singleskeleton">
+          <SkeletonFeed />
+        </div>
       )}
     </>
   );

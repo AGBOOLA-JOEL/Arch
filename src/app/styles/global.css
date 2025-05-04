@@ -2305,6 +2305,202 @@ a {
   align-items: center;
   gap: 17px;
 }
+.app .modal_report {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app .modal_report .modal_rep {
+  background-color: var(--white);
+  box-sizing: border-box;
+  width: 40%;
+  padding-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid rgb(224, 224, 224);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app .modal_report .modal_rep::before, .app .modal_report .modal_rep::after {
+  box-sizing: border-box;
+}
+@media (max-width: 1012px) {
+  .app .modal_report .modal_rep {
+    width: 90%;
+  }
+}
+.app .modal_report .modal_rep .modal_rephead {
+  padding: 0px 0px;
+  width: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 55px;
+  border-bottom: 1px solid rgb(224, 224, 224);
+}
+.app .modal_report .modal_rep .modal_rephead p {
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: rgb(125, 52, 52);
+}
+.app .modal_report .modal_rep .modal_rephead span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 24px;
+  height: 24px;
+  background-color: rgb(242, 242, 242);
+  border-radius: 50%;
+}
+.app .modal_report .modal_reptitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.app .modal_report .modal_reptitle h1 {
+  width: 85%;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.app .modal_report .modal_reptitle p {
+  width: 85%;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-top: -5px;
+  font-weight: 500;
+  letter-spacing: 0em;
+  text-align: left;
+  color: var(--darkone);
+  margin-bottom: -10px;
+}
+.app .modal_report .modal_repselect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 10px;
+}
+.app .modal_report .modal_repselect .modal_repradio {
+  width: 91%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: -10px;
+}
+.app .modal_report .modal_repselect .modal_repradio input {
+  cursor: pointer;
+  margin-left: -3px;
+  width: 10%;
+  height: 20px;
+  accent-color: var(--primary);
+  margin-right: -5px;
+}
+@media (max-width: 1012px) {
+  .app .modal_report .modal_repselect .modal_repradio input {
+    margin-left: 6px;
+    margin-right: 5px;
+  }
+}
+.app .modal_report .modal_repselect .modal_repradio p {
+  width: 90%;
+  font-weight: 500;
+  font-size: 1.4rem;
+  text-align: left;
+  color: var(--darkone);
+}
+@media (max-width: 1012px) {
+  .app .modal_report .modal_repselect .modal_repradio p {
+    width: 100%;
+  }
+}
+.app .modal_report .modal_repdesc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.app .modal_report .modal_repdesc .modal_repdeschead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 84%;
+}
+.app .modal_report .modal_repdesc .modal_repdeschead h1 {
+  font-size: 1.4rem;
+}
+.app .modal_report .modal_repdesc .modal_repdeschead span {
+  color: var(--darktwo);
+  font-style: italic;
+  font-size: 1.4rem;
+}
+.app .modal_report .modal_repdesc textarea {
+  border-radius: 5px;
+  max-width: 84%;
+  min-width: 84%;
+  min-height: 68px;
+  max-height: 138px;
+  border: 1px solid hsl(0, 1%, 48%);
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+.app .modal_report .modal_repsubmit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app .modal_report .modal_repsubmit button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.6rem;
+  background-color: var(--primary);
+  width: 85%;
+  height: 48px;
+  border: none;
+  outline: none;
+  color: var(--white);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 3px;
+  transition: opacity 0.3s ease-in-out;
+}
+.app .modal_report .modal_repsubmit button:hover {
+  background-color: var(--secondary);
+  transition: opacity 0.3s ease-in-out;
+}
+.app .modal_report .modal_repsubmit button:disabled {
+  background-color: var(--secondary);
+}
+.app .modal_report .modal_repsubmit p {
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-align: justify;
+  width: 84%;
+  word-spacing: 0em;
+}
+.app .modal_report .modal_repsubmit a {
+  list-style-type: none;
+  text-decoration: none;
+  color: var(--secondary);
+}
 .app .home_carousel {
   width: 100%;
   height: 408px;
@@ -4014,13 +4210,12 @@ a {
 }
 .app .feed_single .feed_singlehead :nth-child(1) {
   margin-top: 0px;
-  font-size: 1.1rem;
-  font-style: italic;
+  font-size: 1.4rem;
   font-weight: 500;
   line-height: 12px;
   letter-spacing: 0em;
   text-align: left;
-  color: #7c7979;
+  color: var(--darkone);
   margin-bottom: -10px;
 }
 @media (max-width: 1012px) {
@@ -4029,7 +4224,7 @@ a {
   }
 }
 .app .feed_single .feed_singlehead :nth-child(2) {
-  color: rgb(17, 58, 90);
+  color: var(--primary);
   font-weight: 600;
   font-size: 1.8rem;
 }
@@ -4058,6 +4253,9 @@ a {
   width: 100%;
   height: 100%;
 }
+.app .feed_single .feed_singledesc .ql-container.ql-snow {
+  border: none !important;
+}
 .app .feed_single .feed_singleauthor {
   margin-top: 10px;
   margin-bottom: -15px;
@@ -4075,6 +4273,14 @@ a {
   text-align: left;
   color: var(--darkone);
 }
+.app .feed_single .feed_singledesc {
+  font-size: 1;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  text-align: justified;
+  margin-top: -8px;
+}
 .app .feed_single .feed_singlereport {
   padding: 8px 12px;
   font-size: 1.4rem;
@@ -4091,6 +4297,13 @@ a {
   color: var(--primary);
   background-color: var(--secondary);
   transition: opacity 0.3s ease-in-out;
+}
+.app .feed_singleskeleton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 30px;
 }
 .app .feed_others {
   width: 100%;
@@ -4845,8 +5058,7 @@ a {
 .app .project_single .project_singledisplay .project_singledetails .project_singletime {
   margin-top: 0px;
   margin-bottom: 5px;
-  font-size: 1.1rem;
-  font-style: italic;
+  font-size: 1.3rem;
   font-weight: 500;
   letter-spacing: 0em;
   text-align: left;

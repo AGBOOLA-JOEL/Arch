@@ -23,21 +23,18 @@ const FeedPagination: React.FC<ArchPaginationProps> = ({
     setCurrentItems(data.slice(itemOffset, endOffset));
   }, [itemOffset, itemsPerPage, endOffset]);
 
-  const handlePageClick = (event: { selected: number }) => {};
+  const handlePageClick = (event: { selected: number }) => {
+    console.log("selected", event.selected);
+  };
 
   return (
-    <div className="arch_paginate">
+    <div className="feed_paginate">
       <div className="reactPaginate">
         <p>
           {itemOffset + 1} - {endOffset} of {data.length}
         </p>
-        <ReactPaginate
-          previousLabel={<IoIosArrowBack />}
-          nextLabel={<IoIosArrowForward />}
-          containerClassName="paginate"
-          pageCount={pageCount}
-          onPageChange={handlePageClick}
-        />
+        {/* <IoIosArrowBack />
+        <IoIosArrowForward /> */}
       </div>
     </div>
   );

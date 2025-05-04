@@ -313,17 +313,17 @@
         text-align: center;
       }
       margin-top: 0px;
-      font-size: 1.1rem;
-      font-style: italic;
+      font-size: 1.4rem;
+      // font-style: italic;
       font-weight: 500;
       line-height: 12px;
       letter-spacing: 0em;
       text-align: left;
-      color: #7c7979;
+      color: $dark-one;
       margin-bottom: -10px;
     }
     & :nth-child(2) {
-      color: rgba(17, 58, 90, 1);
+      color: $primary;
       font-weight: 600;
       font-size: 1.8rem;
       @include sm {
@@ -351,9 +351,12 @@
   }
 
   & .feed_singledesc {
+    & .ql-container.ql-snow {
+      border: none !important;
+    }
   }
 
-  .feed_singleauthor {
+  & .feed_singleauthor {
     @include sm {
       width: 91.5%;
     }
@@ -369,17 +372,15 @@
     }
   }
 
-  // .schsingle_desc {
-  //   font-family: Montserrat;
-  //   font-size: 16px;
-  //   font-weight: 400;
-  //   line-height: 28px;
-  //   letter-spacing: -0.02em;
-  //   text-align: justified;
-  //   color: rgba(0, 0, 0, 1);
-  //   margin-top: -8px;
-  //   margin-bottom: 35px;
-  // }
+  & .feed_singledesc {
+    font-size: 1;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: -0.02em;
+    text-align: justified;
+
+    margin-top: -8px;
+  }
 
   & .feed_singlereport {
     padding: 8px 12px;
@@ -405,6 +406,10 @@
   // .feed_singlereport:hover {
   //   opacity: 0.4;
   // }
+}
+& .feed_singleskeleton {
+  @include center(row);
+  gap: 30px;
 }
 
 & .feed_others {
