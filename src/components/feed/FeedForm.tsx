@@ -5,44 +5,66 @@ import ArchDnd from "../general/ArchDnd";
 import ArchTextarea from "../general/ArchTextarea";
 import ArchQuill from "../general/ArchQuill";
 import ArchButton from "../general/ArchButton";
+import { Controller } from "react-hook-form";
+import ArchImageSelect from "../general/ArchImageSelect";
 
 type FeedFormProp = {
-  textarea: string;
-  setTextarea: React.Dispatch<React.SetStateAction<string>>;
+  watch: any;
+  register: any;
+  control: any;
+  setValue: any;
 };
-const FeedForm = ({ textarea, setTextarea }: FeedFormProp) => {
-  const [tag, setTag] = useState(["Autodesk Revit", "Sketchup"]);
+const FeedForm = ({ register, control, setValue, watch }: FeedFormProp) => {
   const handlePreviewClick = () => {};
+
   return (
     <>
-      <ArchTags
-        tag={tag}
-        setTag={setTag}
-        title="Add tags 
-        (press enter to add new tag)"
+      <Controller
+        name="tags"
+        control={control}
+        render={({ field }) => (
+          <ArchTags
+            // tag={field.value ?? []}
+            tag={(field.value ?? []).filter(
+              (v: any): v is string => typeof v === "string"
+            )}
+            setTag={field.onChange}
+            title="Add tags  
+            (press enter to add new tag)"
+          />
+        )}
       />
+
       <div className="dash_postnewdnd">
-        <ArchDnd header="Choose a cover image" />
+        {/* <ArchImageSelect setValue={setValue} header={"Choose a cover image"} /> */}
+        {/* <p>* Choose a cover image</p>
+        <input
+          type="file"
+          accept="image/*" // Specify accepted file types (in this case, images)
+          // onChange={handleFileChange}
+        /> */}
+        {/* <ArchDnd header="Choose a cover image" setValue={setValue} /> */}
       </div>
 
       <ArchTextarea
-        label={"Not more than 350 characters"}
-        desc={"*Provide a short decription of your news"}
+        register={register}
+        watch={watch}
+        placeholder={"Not more than 350 characters"}
+        label={"*Provide a short decription of your news"}
         maxword={350}
-        textarea={textarea}
-        setTextarea={setTextarea}
       />
-      <ArchQuill />
+      <ArchQuill setValue={setValue} />
 
       <div className="dash_postnewbtn">
-        <ArchButton
+        {/* <ArchButton 
           name="preview"
           onClick={handlePreviewClick}
           variant="white"
-        />
+        /> */}
         <ArchButton
           name="Submit"
-          onClick={handlePreviewClick}
+          type={"submit"}
+          // onClick={handlePreviewClick}
           variant="primary"
         />
       </div>

@@ -5676,6 +5676,20 @@ a {
   background-color: var(--primary);
   color: var(--white);
 }
+@media (max-width: 1012px) {
+  .app .dash_profile .dash_profskeleton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .app .dash_profile .dash_profskeleton .MuiStack-root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
 .app .dash_portfolio {
   border-top-right-radius: 5px;
   width: 100%;
@@ -5741,6 +5755,10 @@ a {
 .app .dash_portfolio .dash_portbtn:hover {
   background-color: var(--primary);
   color: var(--white);
+}
+.app .dash_portfolio .dash_portbtn:disabled {
+  background-color: rgb(194, 194, 194);
+  color: gray;
 }
 .app .dash_pages {
   border-top-right-radius: 5px;

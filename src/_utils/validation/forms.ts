@@ -104,9 +104,25 @@ export const submitschema = yup.object().shape({
     .required("Terms are required"),
 });
 
-export const postformschema = yup.object().shape({
+export const postnewsschema = yup.object().shape({
   title: yup.string().required(),
-  type: yup.string().required(),
+  // type: yup.string().required(),
+  tags: yup
+    .array()
+    .of(yup.string())
+    .min(1, "Please add at least one tag")
+    .nullable(),
+
+  newsImage: yup.mixed().nullable(),
+
+  // .test("fileType", "Only image files are allowed", (value) => {
+  //   if (value) {
+  //     return value instanceof File && value.type.startsWith("image/");
+  //   }
+  //   return true; // Allow no file to be selected initially
+  // }),
+  desc: yup.string().nullable(),
+  newsBody: yup.string().nullable(),
 });
 
 export const messageformschema = yup.object().shape({

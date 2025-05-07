@@ -5,22 +5,29 @@ import { updateuserschema } from "@/_utils/validation/forms";
 import SkeletonProfile from "@/components/skeleton/skeletonprofile";
 import { UpdateuserData } from "@/types/forms.type";
 import { useForm, FieldErrors } from "react-hook-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CiEdit } from "react-icons/ci";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 const Profile = () => {
-  const { user, isLoading } = useUser();
+  const { user, isLoading, refetchUser, isFetching } = useUser();
   const { updateUserMutation } = useUpdateProfile();
   const [open, setOpen] = useState(false);
 
   const [showInput, setShowInput] = useState<string | null>(null);
 
   const openToast = useGenselectors.use.openToast();
-  const { register, handleSubmit, watch } = useForm({
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { isSubmitSuccessful },
+  } = useForm({
     resolver: yupResolver(updateuserschema),
     mode: "onSubmit",
   });
+
   const institution = watch("institution") || "";
   const rank = watch("rank") || "";
 
@@ -32,6 +39,12 @@ const Profile = () => {
       }
     }
   };
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [isSubmitSuccessful, reset]);
   const onSubmit = (data: UpdateuserData) => {
     console.log(data, "mydata");
 
@@ -41,7 +54,8 @@ const Profile = () => {
       setShowInput(null);
     } else {
       setOpen(false);
-      updateUserMutation.mutate({ data, name: user?.username });
+      updateUserMutation.mutate(data);
+      refetchUser();
     }
 
     // const reportdata = {

@@ -5,15 +5,18 @@ import "quill/dist/quill.snow.css"; // Ensure styles are imported
 
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 
-function ArchQuill() {
+type QuillProp = {
+  setValue: any;
+};
+function ArchQuill({ setValue }: QuillProp) {
   const [quillState, setQuillState] = useState("");
 
   const handleEditorChange = (content: string) => {
     // setQuillState(content);
+    setValue("newsBody", content);
+    // setQuillState(content);
 
-    setQuillState(content);
-
-    console.log("quill content", JSON.stringify(content));
+    // console.log("quill content", JSON.stringify(content));
     // console.log("quill content", content);
   };
 

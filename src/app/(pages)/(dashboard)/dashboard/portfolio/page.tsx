@@ -11,7 +11,9 @@ const Page = () => {
 
       <ArchPortDnd />
 
-      <button className="dash_portbtn">Submit</button>
+      <button className="dash_portbtn" disabled={true}>
+        Submit
+      </button>
     </div>
   );
 };

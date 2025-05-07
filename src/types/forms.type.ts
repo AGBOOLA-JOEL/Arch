@@ -1,4 +1,5 @@
 import {
+  postnewsschema,
   reportformschema,
   submitschema,
   updateuserschema,
@@ -43,6 +44,8 @@ export type JoinData = {
 export type ReportData = InferType<typeof reportformschema>;
 
 export type UpdateuserData = InferType<typeof updateuserschema>;
+
+export type PostNewsData = InferType<typeof postnewsschema>;
 // type SubmitData = {
 //   name: string;
 //   username: string;

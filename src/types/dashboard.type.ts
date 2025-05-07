@@ -8,10 +8,10 @@ export type DashSideProp = {
   notif?: boolean;
 }[];
 
-export type PostFormData = {
-  title: string;
-  type: string;
-};
+// export type PostFormData = {
+//   title: string;
+//   type: string;
+// };
 
 export type MessageFormData = {
   title: string;

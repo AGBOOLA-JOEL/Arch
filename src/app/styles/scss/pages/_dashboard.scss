@@ -389,6 +389,16 @@
     background-color: $primary;
     color: $white;
   }
+
+  & .dash_profskeleton {
+    @include sm {
+      @include center(column);
+
+      & .MuiStack-root {
+        @include center(column);
+      }
+    }
+  }
 }
 
 & .dash_portfolio {
@@ -445,6 +455,11 @@
   & .dash_portbtn:hover {
     background-color: $primary;
     color: $white;
+  }
+
+  & .dash_portbtn:disabled {
+    background-color: rgb(194, 194, 194);
+    color: gray;
   }
 }
 

@@ -11,7 +11,7 @@ export const useUser = () => {
     return data;
   };
 
-  const { data, isLoading, isError, refetch } = useQuery({
+  const { data, isLoading, isError, refetch, isFetching } = useQuery({
     queryKey: ["user"], // Ensures the query runs only once
     queryFn: getUser,
     staleTime: Infinity, // Prevents automatic background refetching
@@ -24,6 +24,7 @@ export const useUser = () => {
     user: data?.data || null,
     isLoading,
     isError,
+    isFetching,
     refetchUser: refetch,
   };
 };
@@ -32,14 +33,8 @@ export const useUpdateProfile = () => {
   const openToast = useGenselectors.use.openToast();
 
   const updateUserMutation = useMutation({
-    mutationFn: async ({
-      data,
-      name,
-    }: {
-      data: UpdateuserData;
-      name: string;
-    }) => {
-      const res = await api.patch(`/users/${name}/update`, data);
+    mutationFn: async (data: UpdateuserData) => {
+      const res = await api.patch(`/users/update`, data);
       return res.data;
     },
     onSuccess: () => {

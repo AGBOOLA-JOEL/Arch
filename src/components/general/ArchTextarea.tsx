@@ -4,35 +4,29 @@ import React, { useState } from "react";
 
 const ArchTextarea = ({
   label,
-
-  textarea,
-  setTextarea,
-  desc,
+  register,
+  watch,
+  placeholder,
   maxword,
 }: ArchTextareaProp) => {
-  const [textCount, setTextCount] = useState(0);
-  const handleTextareaChange = (event: any) => {
-    const inputValue = event.target.value;
-    setTextCount(inputValue.length);
+  const desc = watch("desc") || "";
 
-    if (inputValue.length <= maxword) {
-      setTextarea(inputValue);
-    }
-  };
   return (
     <div className="arch_textarea">
       <p>
-        {desc} (
+        {label} (
         <span>
-          {textCount} / {maxword}
+          <span>
+            {desc.length} / {maxword}
+          </span>
         </span>
         )
       </p>
       <textarea
-        placeholder={label}
-        value={textarea}
-        name={"description"}
-        onChange={handleTextareaChange}
+        placeholder={placeholder}
+        {...register("desc")}
+        name={"desc"}
+        maxLength={maxword}
       ></textarea>
     </div>
   );

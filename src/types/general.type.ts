@@ -38,10 +38,9 @@ export type ArchTagProp = {
 };
 
 export type ArchTextareaProp = {
-  textarea: string;
-  setTextarea: React.Dispatch<React.SetStateAction<string>>;
-  desc: string;
+  watch: any;
+  register: any;
+  placeholder: string;
   maxword: number;
-
   label: string;
 };
