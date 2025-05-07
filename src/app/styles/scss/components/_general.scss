@@ -588,6 +588,25 @@
   transition: opacity 0.3s ease-in-out;
 }
 
+& .arch_button.disabled {
+  padding: 7px 12px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  background-color: $gray-two;
+  color: $gray-text;
+  border: none;
+  transition: opacity 0.3s ease-in-out;
+}
+& .arch_button.disabled:hover {
+  background-color: $gray-two;
+  color: $gray-text;
+  border: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
 & .arch_paginate {
   @include center(row);
   gap: 10px;

@@ -1,21 +1,22 @@
+"use client";
+import { useMessages } from "@/_hooks/useMessages";
 import DashStatus from "@/components/dashboard/DashStatus";
+import SkeletonStatus from "@/components/skeleton/skeletonstatus";
 
 import React from "react";
 
 const Page = () => {
+  const { messages, isLoading } = useMessages();
+  const filteredmsg = messages?.filter((data: any) => data?.hasRead === false);
   return (
     <div className="dash_statuspage">
-      {[
-        { id: 1, status: "unread" },
-        { id: 2, status: "unread" },
-        { id: 3, status: "unread" },
-        { id: 4, status: "unread" },
-        { id: 5, status: "unread" },
-      ].map(({ id, status }) => (
-        <div key={id} style={{ opacity: `${status === "unread" ? 1 : 0.5}` }}>
-          <DashStatus type={"messages"} />
+      {!isLoading ? (
+        <DashStatus type={"messages"} data={filteredmsg} msgtype="unread" />
+      ) : (
+        <div className="dash_statusskeleton">
+          <SkeletonStatus />
         </div>
-      ))}
+      )}
     </div>
   );
 };

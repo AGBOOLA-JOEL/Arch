@@ -1291,6 +1291,24 @@ a {
   background-color: rgb(241, 97, 97);
   transition: opacity 0.3s ease-in-out;
 }
+.app .arch_button.disabled {
+  padding: 7px 12px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  background-color: var(--graytwo);
+  color: var(--graytext);
+  border: none;
+  transition: opacity 0.3s ease-in-out;
+}
+.app .arch_button.disabled:hover {
+  background-color: var(--graytwo);
+  color: var(--graytext);
+  border: none;
+  transition: opacity 0.3s ease-in-out;
+}
 .app .arch_paginate {
   display: flex;
   justify-content: center;
@@ -5891,6 +5909,22 @@ a {
   background-color: var(--white);
   height: 70px;
 }
+.app .dash_statuspage .dash_statusskeleton {
+  box-sizing: border-box;
+  padding: 40px 0px 0px 40px;
+}
+.app .dash_statuspage .dash_statusskeleton::before, .app .dash_statuspage .dash_statusskeleton::after {
+  box-sizing: border-box;
+}
+@media (max-width: 1012px) {
+  .app .dash_statuspage .dash_statusskeleton {
+    padding: 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
 .app .dash_status {
   display: flex;
   flex-direction: row;
@@ -6083,6 +6117,22 @@ a {
     justify-content: center;
     align-items: center;
     flex-direction: row;
+  }
+}
+.app .dash_viewskeleton {
+  box-sizing: border-box;
+  padding: 40px 0px 0px 42px;
+}
+.app .dash_viewskeleton::before, .app .dash_viewskeleton::after {
+  box-sizing: border-box;
+}
+@media (max-width: 1012px) {
+  .app .dash_viewskeleton {
+    padding: 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 }
 .app .dash_archive {

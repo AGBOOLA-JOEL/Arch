@@ -5,7 +5,7 @@ import SubmitInput from "@/components/forms/SubmitInput";
 import ArchButton from "@/components/general/ArchButton";
 import ArchQuill from "@/components/general/ArchQuill";
 
-import { MessageFormData, PostFormData } from "@/types/dashboard.type";
+import { MessageFormData } from "@/types/dashboard.type";
 import { yupResolver } from "@hookform/resolvers/yup";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -15,7 +15,7 @@ const Page = () => {
     {} as MessageFormData
   );
 
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, setValue } = useForm({
     resolver: yupResolver(messageformschema),
   });
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +31,7 @@ const Page = () => {
         label={"Post title"}
         name={"title"}
         isRequired={false}
-        onChange={handleInputChange}
+        // onChange={handleInputChange}
       />
 
       <SubmitInput
@@ -40,17 +40,13 @@ const Page = () => {
         label={"Receipient"}
         name={"receipient"}
         isRequired={false}
-        onChange={handleInputChange}
+        // onChange={handleInputChange}
       />
 
-      <ArchQuill />
+      <ArchQuill setValue={setValue} />
 
       <div className="dash_composebtn">
-        <ArchButton
-          name="Send message"
-          onClick={handleBtnClick}
-          variant="primary"
-        />
+        <ArchButton name="Send message" type="submit" variant="disabled" />
       </div>
     </form>
   );

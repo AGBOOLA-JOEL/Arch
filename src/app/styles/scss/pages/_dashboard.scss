@@ -589,6 +589,15 @@
       height: 70px;
     }
   }
+
+  & .dash_statusskeleton {
+    @include borderbox;
+    padding: 40px 0px 0px 40px;
+    @include sm {
+      padding: 0px 0px;
+      @include center(column);
+    }
+  }
 }
 & .dash_status {
   display: flex;
@@ -756,7 +765,14 @@
     }
   }
 }
-
+& .dash_viewskeleton {
+  @include borderbox;
+  padding: 40px 0px 0px 42px;
+  @include sm {
+    padding: 0px 0px;
+    @include center(column);
+  }
+}
 & .dash_archive {
   padding: 40px 44px 0px 44px;
   width: 100%;
