@@ -590,6 +590,10 @@
     }
   }
 
+  & .arch_paginate {
+    background-color: $white !important;
+  }
+
   & .dash_statusskeleton {
     @include borderbox;
     padding: 40px 0px 0px 40px;
@@ -711,7 +715,7 @@
   @include borderbox;
   @include flex(column);
   gap: 20px;
-  padding: 40px 0px 0px 42px;
+  padding: 40px 0px 20px 42px;
   @include sm {
     padding: 0px 20px 0px 20px;
   }
@@ -750,12 +754,18 @@
       @include sm {
         text-align: center;
       }
+
       margin: 0px 0px;
       font-size: 1.35rem;
       font-weight: 500;
-      line-height: 17px;
+      line-height: 24px;
       text-align: left;
       color: $dark-one;
+
+      & span {
+        color: $secondary;
+        font-weight: 600;
+      }
     }
   }
 

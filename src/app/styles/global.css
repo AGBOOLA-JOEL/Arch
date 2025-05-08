@@ -5909,6 +5909,9 @@ a {
   background-color: var(--white);
   height: 70px;
 }
+.app .dash_statuspage .arch_paginate {
+  background-color: var(--white) !important;
+}
 .app .dash_statuspage .dash_statusskeleton {
   box-sizing: border-box;
   padding: 40px 0px 0px 40px;
@@ -6047,7 +6050,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 40px 0px 0px 42px;
+  padding: 40px 0px 20px 42px;
 }
 .app .dash_view::before, .app .dash_view::after {
   box-sizing: border-box;
@@ -6102,7 +6105,7 @@ a {
   margin: 0px 0px;
   font-size: 1.35rem;
   font-weight: 500;
-  line-height: 17px;
+  line-height: 24px;
   text-align: left;
   color: var(--darkone);
 }
@@ -6110,6 +6113,10 @@ a {
   .app .dash_view .dash_viewcontent p {
     text-align: center;
   }
+}
+.app .dash_view .dash_viewcontent p span {
+  color: var(--secondary);
+  font-weight: 600;
 }
 @media (max-width: 1012px) {
   .app .dash_view .dash_viewbtn {

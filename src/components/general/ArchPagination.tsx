@@ -78,7 +78,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 interface ArchPaginationProps {
   data: any[];
   type: "Rows" | "Columns";
-  setCurrentItems: (items: any[]) => void;
+  setCurrentItems: (items: any) => void;
 }
 
 const ArchPagination: React.FC<ArchPaginationProps> = ({

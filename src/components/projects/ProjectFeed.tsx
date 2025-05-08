@@ -17,7 +17,7 @@ const ProjectFeed = ({ data }: { data: any }) => {
           Read more {">>>"}
         </Link>
       </div>
-      <ProjectFeedInfo id={"sssss"} status={data?.built} data={data} />
+      <ProjectFeedInfo id={data?.projectId} status={data?.built} data={data} />
     </div>
   );
 };
