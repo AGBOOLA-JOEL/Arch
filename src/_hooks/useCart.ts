@@ -4,6 +4,7 @@ import { useGenselectors } from "@/_lib/store/general-store";
 import axios from "axios";
 import { api } from "@/services/api";
 import { useNavselectors } from "@/_lib/store/nav-store";
+import { useEffect } from "react";
 
 export const useCart = () => {
   const openToast = useGenselectors.use.openToast();
@@ -20,12 +21,13 @@ export const useCart = () => {
     staleTime: Infinity,
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
-    select: (data) => {
-      // cartData is the result of queryFn
-      setCartLength(data?.data?.cart?.length); // ✅ Immediately set cart length
-      return data;
-    },
   });
+
+  useEffect(() => {
+    if (data?.data?.cart) {
+      setCartLength(data.data.cart.length);
+    }
+  }, [data?.data?.cart?.length, setCartLength]);
 
   const addToCart = useMutation({
     mutationFn: async (id: string) => {

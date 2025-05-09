@@ -806,6 +806,12 @@
     padding-left: 20px;
     padding-right: 20px;
   }
+
+  & .dash_archivespinner {
+    width: 100%;
+    @include center(column);
+    margin-top: 60px;
+  }
   & .dash_archiveinfo {
     @include flex(column);
     & .dash_archivemap {

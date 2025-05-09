@@ -5,9 +5,11 @@ import { useDownloadTemplate } from "@/_utils/downloadtemplate";
 import ArchButton from "@/components/general/ArchButton";
 import ArchSpinner from "@/components/general/ArchSpinner";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { ImCancelCircle } from "react-icons/im";
 
 const Page = () => {
+  const router = useRouter();
   const { cart, isLoading, deleteCart } = useCart();
   const { user } = useUser();
 
@@ -28,9 +30,9 @@ const Page = () => {
         <p>Price</p>
       </div>
       {isLoading ? (
-        <>
+        <div className="dash_archivespinner">
           <ArchSpinner />
-        </>
+        </div>
       ) : (
         <>
           {cart?.length > 0 ? (
@@ -105,7 +107,9 @@ const Page = () => {
               name=" Add projects to cart"
               type="button"
               variant="white"
-              onClick={() => {}}
+              onClick={() => {
+                router.push("/projects");
+              }}
             />
           )}
         </>
