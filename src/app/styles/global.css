@@ -6143,7 +6143,7 @@ a {
   }
 }
 .app .dash_archive {
-  padding: 40px 44px 0px 44px;
+  padding: 40px 44px 40px 44px;
   width: 100%;
   box-sizing: border-box;
   display: flex;
@@ -6151,6 +6151,11 @@ a {
 }
 .app .dash_archive::before, .app .dash_archive::after {
   box-sizing: border-box;
+}
+@media (max-width: 1012px) {
+  .app .dash_archive {
+    padding: 0px 14px 0px 14px;
+  }
 }
 .app .dash_archive .dash_archivehead {
   display: flex;
@@ -6162,7 +6167,7 @@ a {
   height: 41px;
   color: var(--white);
   margin-bottom: 17px;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   font-weight: 500;
   background-color: var(--primary);
   padding-left: 20px;
@@ -6175,16 +6180,60 @@ a {
   display: flex;
   flex-direction: column;
 }
+.app .dash_archive .dash_archiveinfo .dash_archivemap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .app .dash_archive .dash_archiveinfo .dash_archivemap .dash_archivedetails {
-  background-color: red;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  margin-bottom: 28px;
+}
+.app .dash_archive .dash_archiveinfo .dash_archivemap .dash_archivedetails .dash_archiveimg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 40px;
+}
+@media (max-width: 1012px) {
+  .app .dash_archive .dash_archiveinfo .dash_archivemap .dash_archivedetails .dash_archiveimg {
+    gap: 20px;
+  }
+}
+.app .dash_archive .dash_archiveinfo .dash_archivemap .dash_archivedetails .dash_archiveimg span {
+  color: var(--darkone);
+  cursor: pointer;
+  font-size: 2rem;
+  transition: 0.3s ease-in-out;
+}
+.app .dash_archive .dash_archiveinfo .dash_archivemap .dash_archivedetails .dash_archiveimg span:hover {
+  color: var(--primary);
+  transition: 0.3s ease-in-out;
+}
+.app .dash_archive .dash_archiveinfo .dash_archivemap .dash_archivedetails .dash_archiveimg img {
+  width: 114.85px;
+  height: 71px;
+  background-image: url("/assets/images/noimage.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.app .dash_archive .dash_archiveinfo .dash_archivemap .dash_archivedetails .dash_archivetitle {
+  box-sizing: border-box;
+  padding-left: 14px;
+  padding-right: 14px;
+  text-align: center;
+}
+.app .dash_archive .dash_archiveinfo .dash_archivemap .dash_archivedetails .dash_archivetitle::before, .app .dash_archive .dash_archiveinfo .dash_archivemap .dash_archivedetails .dash_archivetitle::after {
+  box-sizing: border-box;
 }
 .app .dash_archive .dash_archiveinfo .dash_archivemap .dash_archivedetails p {
+  font-size: 1.4rem;
+  color: var(--darkone);
   word-wrap: break-word;
 }
 .app .dash_archive .dash_archiveinfo .dash_archivebtn {

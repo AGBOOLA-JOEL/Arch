@@ -5,17 +5,31 @@ type BtnProp = {
   // onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   variant: "white" | "primary" | "cancel" | "disabled";
   type: "submit" | "reset" | "button" | undefined;
+  onClick?: (value: any) => void;
 };
 
-const ArchButton = ({ name, variant, type }: BtnProp) => {
+const ArchButton = ({ name, variant, type, onClick }: BtnProp) => {
   return (
-    <button
-      className={`arch_button ${variant}`}
-      type={type}
-      disabled={variant === "disabled"}
-    >
-      {name}
-    </button>
+    <>
+      {type === "submit" ? (
+        <button
+          className={`arch_button ${variant}`}
+          type={type}
+          disabled={variant === "disabled"}
+        >
+          {name}
+        </button>
+      ) : (
+        <button
+          className={`arch_button ${variant}`}
+          type={type}
+          disabled={variant === "disabled"}
+          onClick={onClick}
+        >
+          {name}
+        </button>
+      )}
+    </>
   );
 };
 

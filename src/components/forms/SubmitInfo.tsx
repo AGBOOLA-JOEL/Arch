@@ -3,10 +3,12 @@ import { useDownloadTemplate } from "@/_utils/downloadtemplate";
 import Link from "next/link";
 
 const SubmitInfo = () => {
-  const { download } = useDownloadTemplate();
+  const { download } = useDownloadTemplate({
+    filename: "Architectural submission template (ARCHCACHE).zip",
+  });
   const handleDownload = (e: any) => {
     e.preventDefault();
-    download.mutate();
+    download.mutate("/format/download");
   };
   return (
     <div className="submit_info">

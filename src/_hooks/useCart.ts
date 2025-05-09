@@ -33,10 +33,26 @@ export const useCart = () => {
       return res.data;
     },
     onSuccess: async () => {
-      openToast("Project added to cart", 3000);
       await queryClient.invalidateQueries({ queryKey: ["cart"] });
       const { data } = await api.get(`/cart`); // ✅ manually fetch cart data after adding
       setCartLength(data?.data?.cart?.length || null);
+      openToast("Project added to cart", 3000);
+    },
+    onError: (err: any) => {
+      openToast(err?.response?.data?.message, 3000);
+    },
+  });
+
+  const deleteCart = useMutation({
+    mutationFn: async (id: string) => {
+      const res = await api.delete(`/cart/item/${id}`);
+      return res.data;
+    },
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ["cart"] });
+      const { data } = await api.get(`/cart`); // ✅ manually fetch cart data after adding
+      setCartLength(data?.data?.cart?.length || null);
+      openToast("Project removed from cart", 3000);
     },
     onError: (err: any) => {
       openToast(err?.response?.data?.message, 3000);
@@ -44,10 +60,11 @@ export const useCart = () => {
   });
 
   return {
-    cart: data?.data?.data?.cart || null,
+    cart: data?.data?.cart || null,
     isLoading,
     isError,
     refetchCart: refetch,
     addToCart,
+    deleteCart,
   };
 };
