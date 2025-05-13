@@ -6,18 +6,20 @@ import "quill/dist/quill.snow.css"; // Ensure styles are imported
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 
 type QuillProp = {
+  fieldname: string;
   setValue: any;
 };
-function ArchQuill({ setValue }: QuillProp) {
+function ArchQuill({ setValue, fieldname }: QuillProp) {
   const [quillState, setQuillState] = useState("");
 
-  const handleEditorChange = (content: string) => {
-    // setQuillState(content);
-    setValue("newsBody", content);
-    // setQuillState(content);
-
-    // console.log("quill content", JSON.stringify(content));
-    // console.log("quill content", content);
+  const handleEditorChange = (
+    value: string,
+    delta: any,
+    source: any,
+    editor: any
+  ) => {
+    setQuillState(value);
+    setValue(fieldname, editor.getContents());
   };
 
   const modules = {
@@ -62,8 +64,10 @@ function ArchQuill({ setValue }: QuillProp) {
     <div className="arch_quill">
       <ReactQuill
         theme="snow"
-        value={quillState}
-        onChange={handleEditorChange}
+        onChange={(value, delta, source, editor) =>
+          handleEditorChange(value, delta, source, editor)
+        }
+        // onChange={handleEditorChange}
         modules={modules}
         formats={formats}
       />

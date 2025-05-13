@@ -25,8 +25,18 @@ const ModalLogout = ({ isOpen, onClose }: ModalProp) => {
 
         <p className="modal_confirmtitle">Are you sure you want to logout?</p>
         <div className="modal_confirmbtn">
-          <ArchButton name="Yes" onClick={handleClick} variant="primary" />
-          <ArchButton name="Cancel" onClick={onClose} variant="cancel" />
+          <ArchButton
+            type="button"
+            name="Yes"
+            onClick={handleClick}
+            variant="primary"
+          />
+          <ArchButton
+            type="button"
+            name="Cancel"
+            onClick={onClose}
+            variant="cancel"
+          />
         </div>
       </div>
     </div>

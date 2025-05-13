@@ -1,0 +1,415 @@
+/* Main container */
+& .contact_selcontainer {
+  min-height: 100vh;
+  background-color: $white;
+  @include center(column);
+  @include borderbox;
+  padding: 2rem;
+
+  & .contact_sel {
+    width: 90%;
+    background-color: $white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Header styles */
+  & .contact_selheader {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid $gray-text;
+    padding-bottom: 1.5rem;
+    position: relative;
+    & h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: $dark-one;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+
+    & p {
+      font-size: 1.8rem;
+      color: $dark-one;
+      font-weight: 500;
+    }
+  }
+
+  /* Button styles */
+  .contact_selbtnwrapper {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .contact_selbutton {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact_selbtn {
+    padding: 2rem 3rem;
+    background-color: $white;
+    border: 1px solid $dark-two;
+    border-radius: 4px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: $dark-one;
+    text-align: left;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+  }
+
+  .contact_selbtn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background-color: $primary;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+  }
+
+  .contact_selbtn:hover {
+    background-color: $white;
+    border-color: #ddd;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .contact_selbtn:hover::before {
+    transform: scaleY(1);
+  }
+
+  .contact_selbtn:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Location styles */
+  .contact_sellocation {
+    margin-bottom: 3rem;
+    position: relative;
+  }
+
+  .contact_sellocation h1,
+  .contact_selphone h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: $dark-one;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1.5px;
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 0.5rem;
+  }
+
+  .contact_seloffice {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .contact_seloffice:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .contact_selimg {
+    flex-shrink: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border: 3px solid $white;
+    background-color: $white;
+    @include center(column);
+    width: 100px;
+    height: 100px;
+  }
+
+  .contact_seldesc {
+    flex: 1;
+  }
+
+  .contact_seldesc h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: $dark-one;
+  }
+
+  .contact_seldesc p {
+    margin: 0.3rem 0;
+    color: $dark-one;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  /* Phone styles */
+  .contact_selphone {
+    background-color: rgba(245, 245, 245, 0.6);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
+  }
+
+  .contact_selphone h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: $dark-one;
+    font-family: "Playfair Display", serif;
+  }
+
+  .contact_selphone p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .contact_selphone span {
+    font-weight: 600;
+    color: $dark-one;
+    margin-right: 0.5rem;
+    position: relative;
+  }
+
+  .contact_selphone span::after {
+    content: "";
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 80%;
+    background-color: #e0e0e0;
+  }
+
+  /* Responsive styles */
+  @include sm {
+    .contact_selcontainer {
+      padding: 1rem;
+    }
+
+    .contact_sel {
+      padding: 1.5rem;
+    }
+
+    .contact_selheader h1 {
+      font-size: 1.8rem;
+    }
+
+    .contact_sellocation h1,
+    .contact_selphone h1 {
+      font-size: 1.8rem;
+    }
+
+    .contact_selbtnwrapper {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact_seloffice {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .contact_selimg {
+      margin: 0 auto 1rem;
+    }
+
+    .contact_seldesc {
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
+
+& .contact_gen {
+  max-width: 90%;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  color: $dark-one;
+  background-color: $white;
+
+  .contact_genheader {
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 20px;
+  }
+
+  .contact_genheader::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 2px;
+    background-color: $secondary;
+  }
+
+  .contact_genheader h1 {
+    font-size: 3.2rem;
+    font-weight: 300;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+    color: $dark-one;
+  }
+
+  .contact_genheader p {
+    font-size: 2.2rem;
+    color: $dark-one;
+    font-weight: 400;
+  }
+
+  .contact_genlinks {
+    margin-bottom: 40px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .contact_genmap {
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background-color: $white;
+  }
+
+  .contact_genmap:hover {
+    background-color: #f7f7f7;
+  }
+
+  .contact_genmap:last-child {
+    border-bottom: none;
+  }
+
+  .contact_genmain {
+    padding: 22px 30px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: $dark-one;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+  }
+
+  .contact_genmain::before {
+    content: ">>";
+    margin-right: 15px;
+    color: $secondary;
+    font-weight: 700;
+    transition: all 0.2s ease;
+  }
+
+  .contact_genmap:hover .contact_genmain::before {
+    transform: translateX(5px);
+    color: $secondary;
+  }
+
+  .contact_genmain:hover {
+    color: $primary;
+  }
+
+  .contact_gensub {
+    padding: 16px 30px 16px 80px;
+    margin: 0;
+    font-size: 15px;
+    background-color: $white;
+    border-top: 1px solid #eeeeee;
+    color: $dark-one;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .contact_gensub::before {
+    content: ">>";
+    position: absolute;
+    left: 50px;
+    color: $dark-one;
+
+    transition: all 0.2s ease;
+  }
+
+  .contact_gensub:hover {
+    background-color: $white;
+    color: $primary;
+  }
+
+  .contact_gensub:hover::before {
+    transform: translateX(5px);
+    color: $secondary;
+  }
+
+  .contact_genhelp {
+    text-align: center;
+    font-size: 16px;
+    color: $dark-one;
+    margin-top: 50px;
+  }
+
+  .contact_genhelp span {
+    color: $secondary;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .contact_genhelp span:hover {
+    color: $secondary;
+  }
+
+  /* You mentioned you have this defined on your end */
+  @include sm {
+    .contact_gen {
+      padding: 40px 20px;
+    }
+
+    .contact_genheader h1 {
+      font-size: 32px;
+    }
+
+    .contact_genheader p {
+      font-size: 16px;
+    }
+
+    .contact_genmain {
+      padding: 18px 20px;
+      font-size: 15px;
+    }
+
+    .contact_gensub {
+      padding: 14px 20px 14px 60px;
+      font-size: 14px;
+    }
+
+    .contact_gensub::before {
+      left: 35px;
+    }
+
+    .contact_genheader::after {
+      width: 60px;
+    }
+  }
+}

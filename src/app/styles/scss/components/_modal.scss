@@ -244,3 +244,208 @@
     }
   }
 }
+
+& .modal_helpbg {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: white;
+  min-width: 50%;
+  height: auto;
+  margin-top: 100px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  @include center(column);
+  cursor: pointer;
+  @include sm {
+    margin-top: 40px;
+    width: 90%;
+  }
+
+  & .modal_helpheader {
+    width: 90%;
+    @include full-flex(center, space-between, row);
+    @include sm {
+      gap: 30px;
+    }
+
+    & h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: $primary;
+      @include sm {
+        text-align: justify;
+      }
+    }
+    & span {
+      @include center(row);
+      background-color: $gray-text;
+      height: 24px;
+      width: 24px;
+      border-radius: 50%;
+      @include sm {
+        background: none;
+      }
+      & svg {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  & .modal_helpmail {
+    width: 90%;
+
+    & p {
+      width: 100%;
+      font-size: 1.5rem;
+      color: $dark-one;
+      margin-bottom: 8px;
+    }
+    & input {
+      width: 100%;
+      @include borderbox;
+      padding: 12px 16px;
+      border: 1px solid #dddddd;
+      border-radius: 8px;
+      font-size: 1.5rem;
+      color: $dark-one;
+      background-color: $white;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      &:focus {
+        outline: none;
+        border-color: $secondary;
+        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+      }
+    }
+  }
+
+  & .modal_helpacc {
+    margin-bottom: 20px;
+    width: 90%;
+    position: relative;
+
+    & .modal_helpaccheader {
+      width: 100%;
+      font-size: 1.5rem;
+      color: $dark-one;
+      margin-bottom: 8px;
+    }
+
+    & .modal_helpaccinput {
+      @include borderbox;
+      @include full-flex(center, space-between, row);
+      width: 100%;
+      padding: 11px 15px;
+      border: 1px solid #dddddd;
+      border-radius: 8px;
+      background-color: $white;
+      cursor: pointer;
+      position: relative;
+
+      & p {
+        margin: 0;
+        font-size: 1.5rem;
+        color: $dark-one;
+        font-weight: 400;
+      }
+
+      & span {
+        color: $dark-one;
+        font-size: 1.5rem;
+        cursor: pointer;
+        @include center(row);
+      }
+    }
+  }
+
+  & .modal_helpaccdrop {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: $white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    margin-top: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+
+    & p {
+      padding: 12px 16px;
+      margin: 0;
+      font-size: 15px;
+      color: $dark-one;
+      cursor: pointer;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: $white;
+      }
+    }
+  }
+
+  & .modal_helptextarea {
+    margin-bottom: 20px;
+    min-width: 90%;
+    max-width: 90%;
+    min-height: 150px;
+    max-width: 1500px;
+    @include borderbox;
+    padding: 16px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    color: $dark-one;
+    background-color: $white;
+    resize: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    &:focus {
+      outline: none;
+      border-color: $secondary;
+      box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+    }
+  }
+
+  & .modal_helpdrop {
+    margin-bottom: 20px;
+    @include borderbox;
+    width: 90%;
+    padding: 12px;
+    border: 1px dashed #dddddd;
+    border-radius: 8px;
+    background-color: $white;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: $dark-one;
+    &:hover {
+      border-color: $secondary;
+    }
+  }
+
+  & .modal_helpbtn {
+    @include borderbox;
+    @include center(row);
+    width: 90%;
+    height: 50px;
+    // padding: 14px 24px;
+    background-color: $primary;
+    color: $white;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+
+    &:hover {
+      background-color: $secondary;
+    }
+    &:disabled {
+      background-color: $secondary;
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}

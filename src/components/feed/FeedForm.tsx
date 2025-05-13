@@ -43,7 +43,7 @@ const FeedForm = ({ register, control, setValue, watch }: FeedFormProp) => {
           accept="image/*" // Specify accepted file types (in this case, images)
           // onChange={handleFileChange}
         /> */}
-        {/* <ArchDnd header="Choose a cover image" setValue={setValue} /> */}
+        <ArchDnd header="Choose a cover image" setValue={setValue} />
       </div>
 
       <ArchTextarea
@@ -53,7 +53,7 @@ const FeedForm = ({ register, control, setValue, watch }: FeedFormProp) => {
         label={"*Provide a short decription of your news"}
         maxword={350}
       />
-      <ArchQuill setValue={setValue} />
+      <ArchQuill fieldname={"newsBody"} setValue={setValue} />
 
       <div className="dash_postnewbtn">
         {/* <ArchButton 

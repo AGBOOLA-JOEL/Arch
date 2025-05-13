@@ -19,7 +19,11 @@ export const useFeed = () => {
 
   const postMutation = useMutation({
     mutationFn: async (data: PostNewsData) => {
-      const res = await api.post(`/news/create-news`, data);
+      const res = await api.post(`/news/create-news`, data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       return res.data;
     },
     onSuccess: () => {

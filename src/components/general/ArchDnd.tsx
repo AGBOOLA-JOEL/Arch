@@ -73,22 +73,7 @@ const ArchDnd = ({ header, setValue }: ArchDndProp) => {
         onDragLeave={handleDragLeave}
       >
         {selectedImage ? (
-          <Image
-            src={selectedImage}
-            alt="Selected"
-            width={100}
-            height={100}
-            // style={{
-            //   display: "flex",
-            //   flexDirection: "column",
-            //   justifyContent: "center",
-            //   alignItems: "center",
-            //   width: "285px",
-            //   height: "183px",
-            //   fontSize: "8px",
-            //   margin: "10px 0",
-            // }}
-          />
+          <Image src={selectedImage} alt="Selected" width={100} height={100} />
         ) : (
           <>
             {" "}

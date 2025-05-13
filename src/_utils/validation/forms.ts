@@ -122,7 +122,7 @@ export const postnewsschema = yup.object().shape({
   //   return true; // Allow no file to be selected initially
   // }),
   desc: yup.string().nullable(),
-  newsBody: yup.string().nullable(),
+  newsBody: yup.mixed().nullable(),
 });
 
 export const messageformschema = yup.object().shape({
@@ -138,6 +138,13 @@ export const reportformschema = yup.object().shape({
 export const updateuserschema = yup.object().shape({
   institution: yup.string().nullable(""),
   rank: yup.string().nullable(),
+});
+
+export const contactmoreschema = yup.object().shape({
+  email: yup.string().email().required(),
+  issue: yup.string().required("Select an account issue"),
+  reportBody: yup.string().nullable(),
+  image: yup.mixed().nullable(),
 });
 
 //add error pop up if requirement is not met

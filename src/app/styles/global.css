@@ -49,6 +49,7 @@ a {
   height: 100%;
   display: flex;
   flex-direction: column;
+  /* Main container */
 }
 .app .app_navbar {
   z-index: 10000;
@@ -1491,6 +1492,10 @@ a {
   height: 100%;
   border: 1px dashed var(--graytext);
 }
+.app .arch_dnd .arch_dndbrowse img {
+  width: 100%;
+  height: 100%;
+}
 .app .arch_dnd .arch_dndbrowse svg {
   font-size: 3rem;
   color: var(--primary);
@@ -2519,6 +2524,233 @@ a {
   text-decoration: none;
   color: var(--secondary);
 }
+.app .modal_helpbg {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: white;
+  min-width: 50%;
+  height: auto;
+  margin-top: 100px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+@media (max-width: 1012px) {
+  .app .modal_helpbg {
+    margin-top: 40px;
+    width: 90%;
+  }
+}
+.app .modal_helpbg .modal_helpheader {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+@media (max-width: 1012px) {
+  .app .modal_helpbg .modal_helpheader {
+    gap: 30px;
+  }
+}
+.app .modal_helpbg .modal_helpheader h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+@media (max-width: 1012px) {
+  .app .modal_helpbg .modal_helpheader h1 {
+    text-align: justify;
+  }
+}
+.app .modal_helpbg .modal_helpheader span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: var(--graytext);
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+}
+@media (max-width: 1012px) {
+  .app .modal_helpbg .modal_helpheader span {
+    background: none;
+  }
+}
+.app .modal_helpbg .modal_helpheader span svg {
+  font-size: 1.8rem;
+}
+.app .modal_helpbg .modal_helpmail {
+  width: 90%;
+}
+.app .modal_helpbg .modal_helpmail p {
+  width: 100%;
+  font-size: 1.5rem;
+  color: var(--darkone);
+  margin-bottom: 8px;
+}
+.app .modal_helpbg .modal_helpmail input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 16px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  color: var(--darkone);
+  background-color: var(--white);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.app .modal_helpbg .modal_helpmail input::before, .app .modal_helpbg .modal_helpmail input::after {
+  box-sizing: border-box;
+}
+.app .modal_helpbg .modal_helpmail input:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+.app .modal_helpbg .modal_helpacc {
+  margin-bottom: 20px;
+  width: 90%;
+  position: relative;
+}
+.app .modal_helpbg .modal_helpacc .modal_helpaccheader {
+  width: 100%;
+  font-size: 1.5rem;
+  color: var(--darkone);
+  margin-bottom: 8px;
+}
+.app .modal_helpbg .modal_helpacc .modal_helpaccinput {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  padding: 11px 15px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  background-color: var(--white);
+  cursor: pointer;
+  position: relative;
+}
+.app .modal_helpbg .modal_helpacc .modal_helpaccinput::before, .app .modal_helpbg .modal_helpacc .modal_helpaccinput::after {
+  box-sizing: border-box;
+}
+.app .modal_helpbg .modal_helpacc .modal_helpaccinput p {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--darkone);
+  font-weight: 400;
+}
+.app .modal_helpbg .modal_helpacc .modal_helpaccinput span {
+  color: var(--darkone);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.app .modal_helpbg .modal_helpaccdrop {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  margin-top: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.app .modal_helpbg .modal_helpaccdrop p {
+  padding: 12px 16px;
+  margin: 0;
+  font-size: 15px;
+  color: var(--darkone);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.app .modal_helpbg .modal_helpaccdrop p:hover {
+  background-color: var(--white);
+}
+.app .modal_helpbg .modal_helptextarea {
+  margin-bottom: 20px;
+  min-width: 90%;
+  max-width: 90%;
+  min-height: 150px;
+  max-width: 1500px;
+  box-sizing: border-box;
+  padding: 16px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  color: var(--darkone);
+  background-color: var(--white);
+  resize: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.app .modal_helpbg .modal_helptextarea::before, .app .modal_helpbg .modal_helptextarea::after {
+  box-sizing: border-box;
+}
+.app .modal_helpbg .modal_helptextarea:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+.app .modal_helpbg .modal_helpdrop {
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  width: 90%;
+  padding: 12px;
+  border: 1px dashed #dddddd;
+  border-radius: 8px;
+  background-color: var(--white);
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--darkone);
+}
+.app .modal_helpbg .modal_helpdrop::before, .app .modal_helpbg .modal_helpdrop::after {
+  box-sizing: border-box;
+}
+.app .modal_helpbg .modal_helpdrop:hover {
+  border-color: var(--secondary);
+}
+.app .modal_helpbg .modal_helpbtn {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 90%;
+  height: 50px;
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+.app .modal_helpbg .modal_helpbtn::before, .app .modal_helpbg .modal_helpbtn::after {
+  box-sizing: border-box;
+}
+.app .modal_helpbg .modal_helpbtn:hover {
+  background-color: var(--secondary);
+}
+.app .modal_helpbg .modal_helpbtn:disabled {
+  background-color: var(--secondary);
+}
+.app .modal_helpbg .modal_helpbtn:active {
+  transform: translateY(1px);
+}
 .app .home_carousel {
   width: 100%;
   height: 408px;
@@ -2947,6 +3179,370 @@ a {
   font-size: 1.6rem;
   margin-bottom: -13px;
   text-align: left;
+}
+.app .contact_selcontainer {
+  min-height: 100vh;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 2rem;
+  /* Header styles */
+  /* Button styles */
+  /* Location styles */
+  /* Phone styles */
+  /* Responsive styles */
+}
+.app .contact_selcontainer::before, .app .contact_selcontainer::after {
+  box-sizing: border-box;
+}
+.app .contact_selcontainer .contact_sel {
+  width: 90%;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.app .contact_selcontainer .contact_selheader {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--graytext);
+  padding-bottom: 1.5rem;
+  position: relative;
+}
+.app .contact_selcontainer .contact_selheader h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--darkone);
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+.app .contact_selcontainer .contact_selheader p {
+  font-size: 1.8rem;
+  color: var(--darkone);
+  font-weight: 500;
+}
+.app .contact_selcontainer .contact_selbtnwrapper {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+.app .contact_selcontainer .contact_selbutton {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.app .contact_selcontainer .contact_selbtn {
+  padding: 2rem 3rem;
+  background-color: var(--white);
+  border: 1px solid var(--darktwo);
+  border-radius: 4px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--darkone);
+  text-align: left;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+}
+.app .contact_selcontainer .contact_selbtn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: var(--primary);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+.app .contact_selcontainer .contact_selbtn:hover {
+  background-color: var(--white);
+  border-color: #ddd;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+.app .contact_selcontainer .contact_selbtn:hover::before {
+  transform: scaleY(1);
+}
+.app .contact_selcontainer .contact_selbtn:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+.app .contact_selcontainer .contact_sellocation {
+  margin-bottom: 3rem;
+  position: relative;
+}
+.app .contact_selcontainer .contact_sellocation h1,
+.app .contact_selcontainer .contact_selphone h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--darkone);
+  margin-bottom: 1.5rem;
+  letter-spacing: 1.5px;
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 0.5rem;
+}
+.app .contact_selcontainer .contact_seloffice {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.app .contact_selcontainer .contact_seloffice:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+.app .contact_selcontainer .contact_selimg {
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--white);
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100px;
+  height: 100px;
+}
+.app .contact_selcontainer .contact_seldesc {
+  flex: 1;
+}
+.app .contact_selcontainer .contact_seldesc h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--darkone);
+}
+.app .contact_selcontainer .contact_seldesc p {
+  margin: 0.3rem 0;
+  color: var(--darkone);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+.app .contact_selcontainer .contact_selphone {
+  background-color: rgba(245, 245, 245, 0.6);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
+}
+.app .contact_selcontainer .contact_selphone h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--darkone);
+  font-family: "Playfair Display", serif;
+}
+.app .contact_selcontainer .contact_selphone p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+.app .contact_selcontainer .contact_selphone span {
+  font-weight: 600;
+  color: var(--darkone);
+  margin-right: 0.5rem;
+  position: relative;
+}
+.app .contact_selcontainer .contact_selphone span::after {
+  content: "";
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 80%;
+  background-color: #e0e0e0;
+}
+@media (max-width: 1012px) {
+  .app .contact_selcontainer .contact_selcontainer {
+    padding: 1rem;
+  }
+  .app .contact_selcontainer .contact_sel {
+    padding: 1.5rem;
+  }
+  .app .contact_selcontainer .contact_selheader h1 {
+    font-size: 1.8rem;
+  }
+  .app .contact_selcontainer .contact_sellocation h1,
+  .app .contact_selcontainer .contact_selphone h1 {
+    font-size: 1.8rem;
+  }
+  .app .contact_selcontainer .contact_selbtnwrapper {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .app .contact_selcontainer .contact_seloffice {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  .app .contact_selcontainer .contact_selimg {
+    margin: 0 auto 1rem;
+  }
+  .app .contact_selcontainer .contact_seldesc {
+    text-align: center;
+    width: 100%;
+  }
+}
+.app .contact_gen {
+  max-width: 90%;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  color: var(--darkone);
+  background-color: var(--white);
+  /* You mentioned you have this defined on your end */
+}
+.app .contact_gen .contact_genheader {
+  margin-bottom: 50px;
+  position: relative;
+  padding-bottom: 20px;
+}
+.app .contact_gen .contact_genheader::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 2px;
+  background-color: var(--secondary);
+}
+.app .contact_gen .contact_genheader h1 {
+  font-size: 3.2rem;
+  font-weight: 300;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+  color: var(--darkone);
+}
+.app .contact_gen .contact_genheader p {
+  font-size: 2.2rem;
+  color: var(--darkone);
+  font-weight: 400;
+}
+.app .contact_gen .contact_genlinks {
+  margin-bottom: 40px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+.app .contact_gen .contact_genmap {
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background-color: var(--white);
+}
+.app .contact_gen .contact_genmap:hover {
+  background-color: #f7f7f7;
+}
+.app .contact_gen .contact_genmap:last-child {
+  border-bottom: none;
+}
+.app .contact_gen .contact_genmain {
+  padding: 22px 30px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--darkone);
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+.app .contact_gen .contact_genmain::before {
+  content: ">>";
+  margin-right: 15px;
+  color: var(--secondary);
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+.app .contact_gen .contact_genmap:hover .contact_genmain::before {
+  transform: translateX(5px);
+  color: var(--secondary);
+}
+.app .contact_gen .contact_genmain:hover {
+  color: var(--primary);
+}
+.app .contact_gen .contact_gensub {
+  padding: 16px 30px 16px 80px;
+  margin: 0;
+  font-size: 15px;
+  background-color: var(--white);
+  border-top: 1px solid #eeeeee;
+  color: var(--darkone);
+  transition: all 0.2s ease;
+  position: relative;
+}
+.app .contact_gen .contact_gensub::before {
+  content: ">>";
+  position: absolute;
+  left: 50px;
+  color: var(--darkone);
+  transition: all 0.2s ease;
+}
+.app .contact_gen .contact_gensub:hover {
+  background-color: var(--white);
+  color: var(--primary);
+}
+.app .contact_gen .contact_gensub:hover::before {
+  transform: translateX(5px);
+  color: var(--secondary);
+}
+.app .contact_gen .contact_genhelp {
+  text-align: center;
+  font-size: 16px;
+  color: var(--darkone);
+  margin-top: 50px;
+}
+.app .contact_gen .contact_genhelp span {
+  color: var(--secondary);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.app .contact_gen .contact_genhelp span:hover {
+  color: var(--secondary);
+}
+@media (max-width: 1012px) {
+  .app .contact_gen .contact_gen {
+    padding: 40px 20px;
+  }
+  .app .contact_gen .contact_genheader h1 {
+    font-size: 32px;
+  }
+  .app .contact_gen .contact_genheader p {
+    font-size: 16px;
+  }
+  .app .contact_gen .contact_genmain {
+    padding: 18px 20px;
+    font-size: 15px;
+  }
+  .app .contact_gen .contact_gensub {
+    padding: 14px 20px 14px 60px;
+    font-size: 14px;
+  }
+  .app .contact_gen .contact_gensub::before {
+    left: 35px;
+  }
+  .app .contact_gen .contact_genheader::after {
+    width: 60px;
+  }
 }
 .app .forms {
   margin-top: 1.5px;
@@ -5877,7 +6473,7 @@ a {
   }
 }
 .app .dash_postnew .dash_postnewdnd {
-  height: 200px;
+  height: 300px;
 }
 .app .dash_postnew .dash_postnewbtn {
   display: flex;

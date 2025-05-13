@@ -1,4 +1,5 @@
 import {
+  contactmoreschema,
   postnewsschema,
   reportformschema,
   submitschema,
@@ -46,6 +47,8 @@ export type ReportData = InferType<typeof reportformschema>;
 export type UpdateuserData = InferType<typeof updateuserschema>;
 
 export type PostNewsData = InferType<typeof postnewsschema>;
+
+export type ContactMoreData = InferType<typeof contactmoreschema>;
 // type SubmitData = {
 //   name: string;
 //   username: string;

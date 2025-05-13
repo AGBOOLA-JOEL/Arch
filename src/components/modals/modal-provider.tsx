@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import ModalLogout from "./modal-logout";
 import ModalReport from "./modal-report";
 import ModalProfile from "./modal-profile";
+import ModalHelp from "./modal-help";
 
 const ModalProvider = () => {
   const { activeModal, closeModal } = useModalStore();
@@ -37,6 +38,10 @@ const ModalProvider = () => {
       )}
       {activeModal === "profile" && (
         <ModalProfile isOpen={true} onClose={closeModal} />
+      )}
+
+      {activeModal === "help" && (
+        <ModalHelp isOpen={true} onClose={closeModal} />
       )}
     </div>
   );
