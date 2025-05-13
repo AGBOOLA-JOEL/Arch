@@ -47,7 +47,7 @@ const NavSecondary = () => {
         <NavInput />
       </div>
       {authenticated && (
-        <Link href="/user/userArchive" className="nav_seccart">
+        <Link href="/dashboard/archive" className="nav_seccart">
           {cartLength && cartLength > 0 ? <span>{cartLength}</span> : ""}
 
           <IoArchiveOutline size={26} />
