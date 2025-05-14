@@ -43,7 +43,11 @@ const FeedForm = ({ register, control, setValue, watch }: FeedFormProp) => {
           accept="image/*" // Specify accepted file types (in this case, images)
           // onChange={handleFileChange}
         /> */}
-        <ArchDnd header="Choose a cover image" setValue={setValue} />
+        <ArchDnd
+          header="Choose a cover image"
+          fieldname={"newsImage"}
+          setValue={setValue}
+        />
       </div>
 
       <ArchTextarea

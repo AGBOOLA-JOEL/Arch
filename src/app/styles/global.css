@@ -1897,6 +1897,176 @@ a {
   transform: rotate(330deg) translate(0, -130%);
   animation-delay: -0.1s;
 }
+.app .arch_upgrade {
+  /* .pay_tablecomic {
+
+  } */
+}
+.app .arch_upgrade .pay_tablespinner {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+.app .arch_upgrade .pay_tablespinner p {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 2rem;
+}
+.app .arch_upgrade .pay_table {
+  margin-top: 50px;
+  margin-bottom: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app .arch_upgrade .pay_tabledesc {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.app .arch_upgrade .pay_tabledesc h1 {
+  margin: 0px 0px;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 3.2rem;
+}
+.app .arch_upgrade .pay_tabledesc p {
+  font-size: 2rem;
+  width: 100%;
+  text-align: center;
+  color: var(--darkone);
+}
+.app .arch_upgrade table {
+  box-sizing: border-box;
+  border-right: 1px solid var(--graytext) !important;
+  border-bottom: 1px solid var(--graytext) !important;
+}
+.app .arch_upgrade table::before, .app .arch_upgrade table::after {
+  box-sizing: border-box;
+}
+.app .arch_upgrade table,
+.app .arch_upgrade th,
+.app .arch_upgrade td {
+  border-bottom: 1px solid var(--graytext);
+  border-collapse: collapse;
+}
+.app .arch_upgrade td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.app .arch_upgrade .pay_tableheaders :nth-child(1) {
+  /* background-color: red; */
+  width: 200px;
+}
+.app .arch_upgrade .pay_tablehead {
+  color: var(--white);
+  background-color: var(--primary);
+  font-size: 1.7rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 300px;
+}
+.app .arch_upgrade .pay_tableothers .pay_tabledatahead {
+  font-size: 1.5rem;
+  background-color: rgb(181, 181, 181);
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  width: 100px;
+  color: var(--dark);
+  font-weight: 600;
+}
+.app .arch_upgrade .pay_tableothers :nth-child(2) {
+  font-size: 1.5rem;
+  /* background-color: rgb(181, 181, 181); */
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100px;
+  color: var(--dark);
+  font-weight: 600;
+}
+.app .arch_upgrade .pay_tableothers :nth-child(3) {
+  font-size: 1.5rem;
+  /* background-color: rgb(181, 181, 181); */
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100px;
+  color: var(--dark);
+  font-weight: 600;
+}
+.app .arch_upgrade .pay_tableothers :nth-child(4) {
+  font-size: 1.5rem;
+  /* background-color: rgb(181, 181, 181); */
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100px;
+  color: var(--dark);
+  font-weight: 600;
+}
+.app .arch_upgrade .pay_tabledata {
+  text-align: center;
+}
+.app .arch_upgrade .pay_tabledata p {
+  text-align: center;
+}
+.app .arch_upgrade .pay_comichead {
+  font-size: 15px;
+  background-color: rgb(181, 181, 181);
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100px;
+  color: var(--dark);
+  font-weight: 600;
+  text-align: center;
+}
+.app .arch_upgrade .pay_comichead p {
+  margin-top: -40px;
+}
+.app .arch_upgrade .pay_comicdata {
+  height: 100px;
+  text-align: center;
+}
+.app .arch_upgrade .pay_comicbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.app .arch_upgrade .pay_comicbtn span {
+  font-size: 1.5rem;
+  width: 100%;
+  text-align: center;
+  color: var(--dark);
+  font-weight: 600;
+}
+.app .arch_upgrade .pay_comicbtn button {
+  width: 70%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: var(--white);
+  font-weight: 600;
+  background-color: var(--primary);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.app .arch_upgrade .pay_comicbtn button:hover {
+  transition: 0.3s ease-in-out;
+  background-color: var(--secondary);
+}
+.app .arch_upgrade .pay_comicbtn button:disabled {
+  background-color: var(--secondary);
+}
 .app .sidebar {
   width: 100%;
   border: 1px solid var(--graytwo);
@@ -3698,7 +3868,7 @@ a {
   color: var(--darkone);
   position: absolute;
   margin-top: -78px;
-  margin-right: 20%;
+  margin-right: 300px;
   padding-left: 7px;
   padding-right: 7px;
   background-color: var(--gray);
@@ -5896,12 +6066,11 @@ a {
     flex-direction: row;
     align-items: center;
     width: 100%;
-    position: absolute;
   }
 }
 .app .dashboard .dashboard_head .dashboard_mobilenav p {
   width: 100%;
-  margin-top: 70px;
+  margin-top: -20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -5909,6 +6078,7 @@ a {
   gap: 10px;
   font-size: 1.5rem;
   color: var(--secondary);
+  position: relative;
 }
 .app .dashboard .dashboard_head .dashboard_mobilenav ul {
   width: 50%;
@@ -5920,7 +6090,7 @@ a {
   position: absolute;
   cursor: pointer;
   z-index: 10;
-  margin-top: 270px;
+  margin-top: 370px;
   transition: 0.3s ease-in-out;
   background-color: var(--gray);
   box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.15);
@@ -5931,6 +6101,7 @@ a {
   list-style-type: none;
   text-decoration: none;
   box-sizing: border-box;
+  border-bottom: 1px solid var(--graytext) !important;
   transition: 0.3s ease-in-out;
   align-items: center;
   border-radius: 2px;
@@ -5994,6 +6165,76 @@ a {
     align-items: center;
   }
 }
+.app .dash_mobilesubnav {
+  display: none;
+}
+@media (max-width: 1012px) {
+  .app .dash_mobilesubnav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+}
+.app .dash_mobilesubnav p {
+  margin-top: 0px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  font-size: 1.5rem;
+  color: var(--secondary);
+  position: relative;
+}
+.app .dash_mobilesubnav ul {
+  width: 50%;
+  list-style-type: none;
+  text-decoration: none;
+  height: auto;
+  padding: 0px 0px;
+  padding-bottom: 0px;
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+  margin-top: 50px;
+  transition: 0.3s ease-in-out;
+  background-color: var(--gray);
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.15);
+}
+.app .dash_mobilesubnav ul li {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: 0.3s ease-in-out;
+  align-items: center;
+  border-radius: 2px;
+  width: 100%;
+  height: 41px;
+  padding-left: 25px;
+}
+.app .dash_mobilesubnav ul li::before, .app .dash_mobilesubnav ul li::after {
+  box-sizing: border-box;
+}
+.app .dash_mobilesubnav ul li a {
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-align: left;
+  color: var(--darkone);
+  cursor: pointer;
+}
+.app .dash_mobilesubnav ul li:hover {
+  background-color: var(--secondary);
+  transition: 0.3s ease-in-out;
+}
+.app .dash_mobilesubnav ul li:hover a {
+  color: var(--white);
+}
 .app .dash_sidebar {
   width: 100%;
   background-color: var(--primary);
@@ -6028,7 +6269,7 @@ a {
 .app .dash_sidebar h1::before, .app .dash_sidebar h1::after {
   box-sizing: border-box;
 }
-.app .dash_sidebar ul {
+.app .dash_sidebar .dash_sidelinks {
   padding-top: 10px;
   padding-bottom: 10px;
   box-sizing: border-box;
@@ -6038,14 +6279,14 @@ a {
   width: 100%;
   gap: 15px;
 }
-.app .dash_sidebar ul::before, .app .dash_sidebar ul::after {
+.app .dash_sidebar .dash_sidelinks::before, .app .dash_sidebar .dash_sidelinks::after {
   box-sizing: border-box;
 }
-.app .dash_sidebar ul li {
+.app .dash_sidebar .dash_sidelinks .dash_sidelist {
   list-style-type: none;
   text-decoration: none;
 }
-.app .dash_sidebar ul li a {
+.app .dash_sidebar .dash_sidelinks .dash_sidelist a {
   font-size: 1.6rem;
   color: var(--white);
   display: flex;
@@ -6055,11 +6296,18 @@ a {
   transition: 0.3s ease-in-out;
 }
 @media (max-width: 1012px) {
-  .app .dash_sidebar ul li a {
+  .app .dash_sidebar .dash_sidelinks .dash_sidelist a {
     color: var(--primary);
   }
 }
-.app .dash_sidebar ul li a .dash_sidenotif {
+.app .dash_sidebar .dash_sidelinks .dash_sidelist a.active {
+  color: var(--secondary);
+}
+.app .dash_sidebar .dash_sidelinks .dash_sidelist a:hover {
+  color: var(--secondary);
+  transition: 0.3s ease-in-out;
+}
+.app .dash_sidebar .dash_sidelinks .dash_sidelist a .dash_sidenotif {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -6074,12 +6322,8 @@ a {
   margin-right: 25px;
   margin-left: auto;
 }
-.app .dash_sidebar ul li a .dash_sidenotif::before, .app .dash_sidebar ul li a .dash_sidenotif::after {
+.app .dash_sidebar .dash_sidelinks .dash_sidelist a .dash_sidenotif::before, .app .dash_sidebar .dash_sidelinks .dash_sidelist a .dash_sidenotif::after {
   box-sizing: border-box;
-}
-.app .dash_sidebar ul li a:hover {
-  color: var(--secondary);
-  transition: 0.3s ease-in-out;
 }
 .app .dash_stat {
   border-top-right-radius: 5px;

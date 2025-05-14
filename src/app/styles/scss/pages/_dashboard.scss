@@ -25,6 +25,7 @@
         }
       }
     }
+
     & .dashboard_mobilenav {
       display: none;
       // @include center(column);
@@ -33,16 +34,17 @@
         @include center(row);
         align-items: center;
         width: 100%;
-        position: absolute;
+        // position: absolute;
       }
 
       & p {
         width: 100%;
-        margin-top: 70px;
+        margin-top: -20px;
         @include center(row);
         gap: 10px;
         font-size: 1.5rem;
         color: $secondary;
+        position: relative;
       }
 
       & ul {
@@ -54,7 +56,7 @@
         position: absolute;
         cursor: pointer;
         z-index: 10;
-        margin-top: 270px;
+        margin-top: 370px;
         transition: 0.3s ease-in-out;
         background-color: $gray;
         box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.15);
@@ -62,12 +64,14 @@
           @include flex(row);
           @include strip-list;
           @include borderbox;
+          border-bottom: 1px solid $gray-text !important;
           transition: 0.3s ease-in-out;
           align-items: center;
           border-radius: 2px;
           width: 100%;
           height: 41px;
           padding-left: 25px;
+
           & a {
             font-size: 1.4rem;
             font-weight: 400;
@@ -87,6 +91,7 @@
       }
     }
   }
+
   & .dashboard_display {
     @include flex(row);
     // background-color: yellow;
@@ -120,6 +125,68 @@
   }
 }
 
+& .dash_mobilesubnav {
+  display: none;
+  // @include center(column);
+
+  @include sm {
+    @include center(row);
+    align-items: center;
+    width: 100%;
+    // position: absolute;
+  }
+
+  & p {
+    margin-top: 0px;
+    margin-bottom: 30px;
+    @include center(row);
+    gap: 10px;
+    font-size: 1.5rem;
+    color: $secondary;
+    position: relative;
+  }
+
+  & ul {
+    width: 50%;
+    @include strip-list;
+    height: auto;
+    padding: 0px 0px;
+    padding-bottom: 0px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+    margin-top: 50px;
+    transition: 0.3s ease-in-out;
+    background-color: $gray;
+    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.15);
+    & li {
+      @include flex(row);
+      @include strip-list;
+      @include borderbox;
+      transition: 0.3s ease-in-out;
+      align-items: center;
+      border-radius: 2px;
+      width: 100%;
+      height: 41px;
+      padding-left: 25px;
+      & a {
+        font-size: 1.4rem;
+        font-weight: 400;
+        text-align: left;
+        color: $dark-one;
+        cursor: pointer;
+      }
+
+      &:hover {
+        background-color: $secondary;
+        transition: 0.3s ease-in-out;
+        & a {
+          color: $white;
+        }
+      }
+    }
+  }
+}
 & .dash_sidebar {
   width: 100%;
   background-color: $primary;
@@ -146,7 +213,7 @@
     border-bottom: 1px solid $secondary;
   }
 
-  & ul {
+  & .dash_sidelinks {
     padding-top: 10px;
     padding-bottom: 10px;
     @include borderbox;
@@ -155,7 +222,7 @@
     width: 100%;
     gap: 15px;
 
-    & li {
+    & .dash_sidelist {
       @include strip-list;
       & a {
         font-size: 1.6rem;
@@ -166,6 +233,14 @@
         transition: 0.3s ease-in-out;
         @include sm {
           color: $primary;
+        }
+        &.active {
+          color: $secondary;
+        }
+        &:hover {
+          color: $secondary;
+          // color: $secondary;
+          transition: 0.3s ease-in-out;
         }
 
         & .dash_sidenotif {
@@ -180,13 +255,6 @@
           margin-right: 25px;
           margin-left: auto;
         }
-      }
-      & a:hover {
-        color: $secondary;
-        transition: 0.3s ease-in-out;
-        // & svg {
-        //   color: $secondary;
-        // }
       }
     }
   }

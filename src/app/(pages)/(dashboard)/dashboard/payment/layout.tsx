@@ -1,3 +1,4 @@
+import DashMobileNav from "@/components/dashboard/DashMobileNav";
 import DashNavbar from "@/components/dashboard/DashNavbar";
 
 export default function RootLayout({
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <div className="dash_pages">
       <div className="dash_pagesnav">
+        <DashMobileNav data={dashdata} header={"All"} />
         <DashNavbar data={dashdata} />
       </div>
 

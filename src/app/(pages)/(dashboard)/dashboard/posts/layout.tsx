@@ -1,4 +1,6 @@
+import DashMobileNav from "@/components/dashboard/DashMobileNav";
 import DashNavbar from "@/components/dashboard/DashNavbar";
+import { dashdata } from "@/data/dashboard.data";
 // import DashNavMobile from "@/components/dashboard/DashNavMobile";
 
 export default function RootLayout({
@@ -6,7 +8,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const dashdata = [
+  const dropdata = [
     {
       name: "Create New",
       route: "/dashboard/posts",
@@ -31,7 +33,8 @@ export default function RootLayout({
   return (
     <div className="dash_pages">
       <div className="dash_pagesnav">
-        <DashNavbar data={dashdata} />
+        <DashMobileNav data={dropdata} header={"Create New"} />
+        <DashNavbar data={dropdata} />
       </div>
       <div className="dash_pageschild">{children}</div>
     </div>

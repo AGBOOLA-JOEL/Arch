@@ -4,7 +4,7 @@ export type DashSideProp = {
   name: string;
   route: string;
   logo: IconType;
-  linkcolor?: string;
+  linkcolor?: string | undefined;
   notif?: boolean;
 }[];
 

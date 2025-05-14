@@ -47,7 +47,7 @@ export const dashdata: DashSideProp = [
     name: "Project status",
     route: "/dashboard/project/approved",
     logo: SlInfo,
-    linkcolor: "status",
+    linkcolor: "project",
     notif: true,
   },
   {
@@ -70,7 +70,7 @@ export const dashdata: DashSideProp = [
 
   {
     name: "Upgrade account",
-    route: "/payment",
+    route: "/upgrade",
     logo: FaLayerGroup,
   },
 ];

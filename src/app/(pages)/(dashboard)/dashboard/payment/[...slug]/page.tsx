@@ -55,7 +55,8 @@ const Page = () => {
                   {payid?.images.map((img: any) => {
                     return (
                       <Image
-                        src={img.imageUrl}
+                        key={img?.imageUrl}
+                        src={img?.imageUrl}
                         alt="transactionimage"
                         width={0}
                         height={0}
@@ -98,9 +99,9 @@ const Page = () => {
                     </span>
                   </p>
                   <p>
-                    Thank you for choosing us! We're excited to have you onboard
-                    and look forward to providing you with great value during
-                    this period.
+                    Thank you for choosing us! {"We're"} excited to have you
+                    onboard and look forward to providing you with great value
+                    during this period.
                   </p>
 
                   <p>

@@ -1237,3 +1237,174 @@
     animation-delay: -0.1s;
   }
 }
+
+& .arch_upgrade {
+  & .pay_tablespinner {
+    min-height: 100vh;
+    @include center(column);
+    gap: 30px;
+
+    & p {
+      color: $primary;
+      font-weight: 700;
+      font-size: 2rem;
+    }
+  }
+  .pay_table {
+    margin-top: 50px;
+    margin-bottom: 250px;
+    @include center(column);
+  }
+
+  .pay_tabledesc {
+    width: 100%;
+    @include center(column);
+  }
+
+  .pay_tabledesc h1 {
+    margin: 0px 0px;
+    color: $primary;
+    font-weight: 700;
+    font-size: 3.2rem;
+  }
+  .pay_tabledesc p {
+    font-size: 2rem;
+    width: 100%;
+    text-align: center;
+    color: $dark-one;
+  }
+
+  table {
+    @include borderbox;
+    border-right: 1px solid $gray-text !important;
+    border-bottom: 1px solid $gray-text !important;
+  }
+  table,
+  th,
+  td {
+    border-bottom: 1px solid $gray-text;
+    border-collapse: collapse;
+  }
+  td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .pay_tableheaders :nth-child(1) {
+    /* background-color: red; */
+    width: 200px;
+  }
+  .pay_tablehead {
+    color: $white;
+    background-color: $primary;
+    font-size: 1.7rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 300px;
+  }
+
+  .pay_tableothers .pay_tabledatahead {
+    font-size: 1.5rem;
+    background-color: rgb(181, 181, 181);
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    width: 100px;
+    color: $dark;
+    font-weight: 600;
+  }
+  .pay_tableothers :nth-child(2) {
+    font-size: 1.5rem;
+    /* background-color: rgb(181, 181, 181); */
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100px;
+    color: $dark;
+    font-weight: 600;
+  }
+  .pay_tableothers :nth-child(3) {
+    font-size: 1.5rem;
+    /* background-color: rgb(181, 181, 181); */
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100px;
+    color: $dark;
+    font-weight: 600;
+  }
+  .pay_tableothers :nth-child(4) {
+    font-size: 1.5rem;
+    /* background-color: rgb(181, 181, 181); */
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100px;
+    color: $dark;
+    font-weight: 600;
+  }
+
+  .pay_tabledata {
+    text-align: center;
+  }
+
+  .pay_tabledata p {
+    text-align: center;
+  }
+
+  /* .pay_tablecomic {
+  
+  } */
+
+  .pay_comichead {
+    font-size: 15px;
+    background-color: rgb(181, 181, 181);
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100px;
+    color: $dark;
+    font-weight: 600;
+    text-align: center;
+  }
+  .pay_comichead p {
+    margin-top: -40px;
+  }
+
+  .pay_comicdata {
+    height: 100px;
+    text-align: center;
+  }
+
+  .pay_comicbtn {
+    @include center(column);
+    gap: 20px;
+  }
+
+  .pay_comicbtn span {
+    font-size: 1.5rem;
+    width: 100%;
+    text-align: center;
+    color: $dark;
+    font-weight: 600;
+  }
+
+  .pay_comicbtn button {
+    width: 70%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: $white;
+    font-weight: 600;
+    background-color: $primary;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      transition: 0.3s ease-in-out;
+      background-color: $secondary;
+    }
+    &:disabled {
+      background-color: $secondary;
+    }
+  }
+}

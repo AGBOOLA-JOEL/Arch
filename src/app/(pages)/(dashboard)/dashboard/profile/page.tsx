@@ -145,24 +145,21 @@ const Profile = () => {
                     )}
                   </p>
                   {editable && (
-                    <>
-                      {open && (
-                        <button
-                          type="button"
-                          className="dash_profedit"
-                          onClick={() => {
-                            setShowInput((prev) =>
-                              prev === name ? null : name
-                            );
-                          }}
-                        >
-                          <CiEdit />
-                          <span>
-                            {showInput === name ? "confirm" : "edit"}{" "}
-                          </span>
-                        </button>
-                      )}
-                    </>
+                    // <>
+                    //   {open && (
+                    <button
+                      type="button"
+                      className="dash_profedit"
+                      onClick={() => {
+                        setOpen((prev) => !prev);
+                        setShowInput((prev) => (prev === name ? null : name));
+                      }}
+                    >
+                      <CiEdit />
+                      <span>{showInput === name ? "confirm" : "edit"} </span>
+                    </button>
+                    //   )}
+                    // </>
                   )}
                 </div>
               </li>

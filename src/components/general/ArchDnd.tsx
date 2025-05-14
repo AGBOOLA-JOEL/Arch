@@ -4,13 +4,14 @@ import { useRef, useState } from "react";
 import { FaImage } from "react-icons/fa6";
 
 type ArchDndProp = {
+  fieldname: string;
   header: string;
   setValue: any;
 };
 
-const ArchDnd = ({ header, setValue }: ArchDndProp) => {
+const ArchDnd = ({ header, setValue, fieldname }: ArchDndProp) => {
   const onDndChange = (selectedImage: any) => {
-    setValue("newsImage", selectedImage);
+    setValue(fieldname, selectedImage);
     // Add the selected image to FormData
   };
   const [selectedImage, setSelectedImage] = useState(null);
