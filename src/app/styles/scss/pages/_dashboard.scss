@@ -197,6 +197,10 @@
     border-radius: 5px;
     background-color: $gray;
   }
+
+  &.admin {
+    background-color: $dark;
+  }
   & h1 {
     @include sm {
       display: none;
@@ -255,6 +259,23 @@
           margin-right: 25px;
           margin-left: auto;
         }
+      }
+
+      & .dash_sidechild {
+        margin-top: 7px;
+        margin-bottom: 7px;
+        @include flex(column);
+        gap: 10px;
+        @include borderbox;
+        padding-left: 31px;
+        & a {
+          font-size: 1.3rem;
+        }
+
+        // & span {
+        //   margin-left: 20px;
+        //   background-color: pink !important;
+        // }
       }
     }
   }

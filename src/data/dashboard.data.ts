@@ -8,7 +8,8 @@ import { BsSend } from "react-icons/bs";
 import { FaHistory } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { FaLayerGroup } from "react-icons/fa";
-import { DashSideProp } from "@/types/dashboard.type";
+import { AdminSideProp, DashSideProp } from "@/types/dashboard.type";
+import { IoIosArrowDropdown } from "react-icons/io";
 
 export const dashdata: DashSideProp = [
   {
@@ -72,5 +73,80 @@ export const dashdata: DashSideProp = [
     name: "Upgrade account",
     route: "/upgrade",
     logo: FaLayerGroup,
+  },
+];
+
+export const admindashdata: AdminSideProp = [
+  {
+    name: "Dashboard",
+    route: "/admin",
+    logo: IoHomeOutline,
+    linkcolor: "dashboard",
+  },
+  {
+    name: "Your profile",
+    route: "/admin/profile",
+    logo: LiaUserCircleSolid,
+    linkcolor: "profile",
+  },
+  // {
+  //   name: "Your portfolio",
+  //   route: "/admin/portfolio",
+  //   logo: GoBriefcase,
+  //   linkcolor: "portfolio",
+  // },
+  {
+    name: "Posts",
+    route: "/admin/posts",
+    logo: FaPenToSquare,
+    linkcolor: "posts",
+    notif: true,
+  },
+  {
+    name: "Messages",
+    route: "/admin/messages/all",
+    logo: FaEnvelopeOpenText,
+    linkcolor: "messages",
+    notif: true,
+  },
+  {
+    name: "Submissions",
+    logo: IoIosArrowDropdown,
+    linkcolor: "project",
+    notif: true,
+    children: [
+      {
+        name: "Project approval",
+        route: "/admin/project/pending",
+        linkcolor: "project",
+        notif: true,
+      },
+      {
+        name: "Project approvals",
+        route: "/admin/project/pending",
+        linkcolor: "project",
+        notif: true,
+      },
+    ],
+  },
+  {
+    name: "Payments",
+    logo: IoIosArrowDropdown,
+    linkcolor: "payment",
+    notif: true,
+    children: [
+      {
+        name: "All payment",
+        route: "/admin/payment/all",
+        linkcolor: "payment",
+        notif: true,
+      },
+      {
+        name: "Subscriptions",
+        route: "/admin/subscription",
+        linkcolor: "subscription",
+        notif: true,
+      },
+    ],
   },
 ];

@@ -12,11 +12,12 @@ import { FaRegCheckCircle } from "react-icons/fa";
 import { GiCancel } from "react-icons/gi";
 import { TbCategory } from "react-icons/tb";
 import { useReadMessage } from "@/_hooks/useMessages";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import ArchBack from "../general/ArchBack";
+import { PiIdentificationBadgeBold } from "react-icons/pi";
 
 type DashStatusProp = {
-  type: "messages" | "payment" | "project";
+  type: "messages" | "payment" | "project" | "admin-report";
   projecttype?: "Approved" | "Rejected" | "Pending";
   msgtype?: "all" | "unread";
   data: any;
@@ -27,8 +28,12 @@ const DashStatus = ({ type, projecttype, data, msgtype }: DashStatusProp) => {
   const mapdata = data;
 
   const router = useRouter();
+  const pathname = usePathname();
+  const pathsplit = pathname.split("/")[1];
   const handleMsgRead = (id: any) => {
-    router.push(`/dashboard/messages/${id}`);
+    router.push(
+      `${pathsplit === "admin" ? "/admin" : "/dashboard"}/messages/${id}`
+    );
     readmsgMutation.mutate(id);
   };
   return (
@@ -79,6 +84,7 @@ const DashStatus = ({ type, projecttype, data, msgtype }: DashStatusProp) => {
                     : "Your messages are empty"}
                 </h1>
               </div>
+              <ArchBack variant="white" />
             </div>
           )}
         </>
@@ -232,6 +238,60 @@ const DashStatus = ({ type, projecttype, data, msgtype }: DashStatusProp) => {
                 </h1>
               </div>
               <ArchBack variant="white" />
+            </div>
+          )}
+        </>
+      )}
+
+      {type === "admin-report" && (
+        <>
+          {mapdata?.length > 0 ? (
+            mapdata.map((msg: any) => {
+              return (
+                <div
+                  key={msg?.reportId}
+                  // style={{ opacity: `${msg?.hasRead === false ? 1 : 0.5}` }}
+                >
+                  <div className="dash_status">
+                    <MdOutlinePendingActions className="dash_statusicon" />
+
+                    <div className="dash_statusdetail">
+                      <h1
+                        className="dash_statustitle"
+                        onClick={() => {
+                          router.push(`report/${msg?.reportId}`);
+                        }}
+                        // onClick={() => handleMsgRead(msg?.messageId)}
+                      >
+                        {msg?.userEmail}
+                      </h1>
+
+                      <div className="dash_statusinfo">
+                        <p className="dash_statusdata">
+                          <CiCalendar />
+                          <span>{formatDate(msg?.receivedAt)}</span>
+                        </p>
+
+                        <p className="dash_statusdata">
+                          <BiCategory />
+                          <span>{msg?.category}</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <div className="dash_status">
+              {" "}
+              <div className="dash_statusdetail">
+                <h1 className="dash_statustitle">
+                  {msgtype === "unread"
+                    ? "You have no unread messages"
+                    : "Your messages are empty"}
+                </h1>
+              </div>
             </div>
           )}
         </>

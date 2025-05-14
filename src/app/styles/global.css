@@ -6248,6 +6248,9 @@ a {
     background-color: var(--gray);
   }
 }
+.app .dash_sidebar.admin {
+  background-color: var(--dark);
+}
 .app .dash_sidebar h1 {
   box-sizing: border-box;
   padding-left: 30px;
@@ -6324,6 +6327,21 @@ a {
 }
 .app .dash_sidebar .dash_sidelinks .dash_sidelist a .dash_sidenotif::before, .app .dash_sidebar .dash_sidelinks .dash_sidelist a .dash_sidenotif::after {
   box-sizing: border-box;
+}
+.app .dash_sidebar .dash_sidelinks .dash_sidelist .dash_sidechild {
+  margin-top: 7px;
+  margin-bottom: 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+  padding-left: 31px;
+}
+.app .dash_sidebar .dash_sidelinks .dash_sidelist .dash_sidechild::before, .app .dash_sidebar .dash_sidelinks .dash_sidelist .dash_sidechild::after {
+  box-sizing: border-box;
+}
+.app .dash_sidebar .dash_sidelinks .dash_sidelist .dash_sidechild a {
+  font-size: 1.3rem;
 }
 .app .dash_stat {
   border-top-right-radius: 5px;
