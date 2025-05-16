@@ -20,6 +20,21 @@ const FeedForm = ({ register, control, setValue, watch }: FeedFormProp) => {
   return (
     <>
       <Controller
+        name="categories"
+        control={control}
+        render={({ field }) => (
+          <ArchTags
+            // tag={field.value ?? []}
+            tag={(field.value ?? []).filter(
+              (v: any): v is string => typeof v === "string"
+            )}
+            setTag={field.onChange}
+            title="Add category 
+            (press enter to add new category)"
+          />
+        )}
+      />
+      <Controller
         name="tags"
         control={control}
         render={({ field }) => (

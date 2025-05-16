@@ -112,7 +112,11 @@ export const postnewsschema = yup.object().shape({
     .of(yup.string())
     .min(1, "Please add at least one tag")
     .nullable(),
-
+  categories: yup
+    .array()
+    .of(yup.string())
+    .min(1, "Please add at least one category")
+    .nullable(),
   newsImage: yup.mixed().nullable(),
 
   // .test("fileType", "Only image files are allowed", (value) => {

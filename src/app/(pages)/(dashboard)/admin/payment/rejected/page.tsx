@@ -1,6 +1,5 @@
 "use client";
-import { useProjectStatus } from "@/_hooks/useProjectStatus";
-import { useUser } from "@/_hooks/useUser";
+import { useAdminPayment } from "@/_hooks/usePayment";
 import DashStatus from "@/components/dashboard/DashStatus";
 import ArchPagination from "@/components/general/ArchPagination";
 import SkeletonStatus from "@/components/skeleton/skeletonstatus";
@@ -8,13 +7,7 @@ import SkeletonStatus from "@/components/skeleton/skeletonstatus";
 import React, { useState } from "react";
 
 const Page = () => {
-  const { prostatus, isLoading } = useProjectStatus();
-  const { user } = useUser();
-
-  const filterData =
-    prostatus
-      ?.filter((data: any) => data?.user?.user === user?.username)
-      .filter((data: any) => data?.status === "APPROVED") || [];
+  const { rejectedPayments, isLoading } = useAdminPayment();
 
   const [currentItems, setCurrentItems] = useState<any[]>([]);
   return (
@@ -23,14 +16,14 @@ const Page = () => {
         {!isLoading ? (
           <>
             <DashStatus
-              type={"project"}
-              statustype="Approved"
+              type={"admin-payment"}
               data={currentItems}
+              statustype="Rejected"
             />
-            {filterData.length > 0 && (
+            {rejectedPayments.length > 0 && (
               <ArchPagination
                 type="Columns"
-                data={filterData}
+                data={rejectedPayments}
                 setCurrentItems={setCurrentItems}
               />
             )}

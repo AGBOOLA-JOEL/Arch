@@ -24,7 +24,7 @@ const Page = () => {
           <>
             <DashStatus
               type={"project"}
-              projecttype="Pending"
+              statustype="Pending"
               data={currentItems}
             />
             {filterData.length && (

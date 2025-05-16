@@ -1,36 +1,37 @@
 "use client";
-import { useProjectStatus } from "@/_hooks/useProjectStatus";
-import { useUser } from "@/_hooks/useUser";
 import DashStatus from "@/components/dashboard/DashStatus";
 import ArchPagination from "@/components/general/ArchPagination";
 import SkeletonStatus from "@/components/skeleton/skeletonstatus";
-
 import React, { useState } from "react";
+import DashFilter from "@/components/dashboard/DashFilter";
+import { useAdminPayment } from "@/_hooks/usePayment";
 
 const Page = () => {
-  const { prostatus, isLoading } = useProjectStatus();
-  const { user } = useUser();
-
-  const filterData =
-    prostatus
-      ?.filter((data: any) => data?.user?.user === user?.username)
-      .filter((data: any) => data?.status === "APPROVED") || [];
+  const { pendingPayments, isLoading } = useAdminPayment();
 
   const [currentItems, setCurrentItems] = useState<any[]>([]);
   return (
     <>
+      <>
+        <DashFilter
+          options={filterOptions}
+          data={pendingPayments || []}
+          filterField="paymentStatus"
+          onFilter={setCurrentItems}
+        />
+      </>
       <div className="dash_statuspage">
         {!isLoading ? (
           <>
             <DashStatus
-              type={"project"}
-              statustype="Approved"
+              type={"admin-payment"}
               data={currentItems}
+              statustype="Approved"
             />
-            {filterData.length > 0 && (
+            {pendingPayments?.length > 0 && (
               <ArchPagination
                 type="Columns"
-                data={filterData}
+                data={pendingPayments}
                 setCurrentItems={setCurrentItems}
               />
             )}
@@ -46,3 +47,9 @@ const Page = () => {
 };
 
 export default Page;
+
+export const filterOptions = [
+  { label: "All", value: "all", matchValue: "" },
+  { label: "No Receipt", value: "pending", matchValue: "PENDING" },
+  { label: "With Receipt", value: "with", matchValue: "UNDER-REVIEW" },
+];

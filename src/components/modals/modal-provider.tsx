@@ -6,6 +6,7 @@ import ModalLogout from "./modal-logout";
 import ModalReport from "./modal-report";
 import ModalProfile from "./modal-profile";
 import ModalHelp from "./modal-help";
+import ModalRejectPayment from "./modal-rejectpayment";
 
 const ModalProvider = () => {
   const { activeModal, closeModal } = useModalStore();
@@ -42,6 +43,10 @@ const ModalProvider = () => {
 
       {activeModal === "help" && (
         <ModalHelp isOpen={true} onClose={closeModal} />
+      )}
+
+      {activeModal === "reject-payment" && (
+        <ModalRejectPayment isOpen={true} onClose={closeModal} />
       )}
     </div>
   );

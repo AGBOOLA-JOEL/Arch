@@ -15,15 +15,32 @@ import { useReadMessage } from "@/_hooks/useMessages";
 import { usePathname, useRouter } from "next/navigation";
 import ArchBack from "../general/ArchBack";
 import { PiIdentificationBadgeBold } from "react-icons/pi";
+import { FaClockRotateLeft } from "react-icons/fa6";
+import { ImPriceTags } from "react-icons/im";
+import { GrStatusInfo } from "react-icons/gr";
+import { MdOutlineCancel } from "react-icons/md";
 
 type DashStatusProp = {
-  type: "messages" | "payment" | "project" | "admin-report";
-  projecttype?: "Approved" | "Rejected" | "Pending";
+  type:
+    | "messages"
+    | "payment"
+    | "project"
+    | "admin-report"
+    | "admin-subscribe"
+    | "admin-payment";
+
   msgtype?: "all" | "unread";
+  statustype?: "Approved" | "Rejected" | "Pending";
   data: any;
 };
 
-const DashStatus = ({ type, projecttype, data, msgtype }: DashStatusProp) => {
+const DashStatus = ({
+  type,
+
+  data,
+  msgtype,
+  statustype,
+}: DashStatusProp) => {
   const { readmsgMutation } = useReadMessage();
   const mapdata = data;
 
@@ -105,7 +122,7 @@ const DashStatus = ({ type, projecttype, data, msgtype }: DashStatusProp) => {
                           router.push(`view/${data?.paymentId}`);
                         }}
                       >
-                        Payment id:{data?.paymentId}hiisis
+                        Payment id:{data?.paymentId}
                       </h1>
 
                       <div className="dash_statusinfo">
@@ -155,32 +172,6 @@ const DashStatus = ({ type, projecttype, data, msgtype }: DashStatusProp) => {
             </div>
           )}
         </>
-        // <div className="dash_status">
-        //   <GrCurrency className="dash_statusicon" />
-
-        //   <div className="dash_statusdetail">
-        //     <h1 className="dash_statustitle">Payment id:11222222222222</h1>
-
-        //     <div className="dash_statusinfo">
-        //       <p className="dash_statusdata">
-        //         <MdOutlinePayments />
-        //         <span>Plan : Basic</span>
-        //       </p>
-        //       <p className="dash_statusdata">
-        //         <BiCategory />
-        //         <span>Type : none</span>
-        //       </p>
-        //       <p className="dash_statusdata">
-        //         <CiCalendar />
-        //         <span>
-        //           {formatDate(
-        //             "Thu Dec 5 2024 21:50:26 GMT-00:00 (Coordinated Universal Time)"
-        //           )}
-        //         </span>
-        //       </p>
-        //     </div>
-        //   </div>
-        // </div>
       )}
       {type === "project" && (
         <>
@@ -189,13 +180,13 @@ const DashStatus = ({ type, projecttype, data, msgtype }: DashStatusProp) => {
               return (
                 <div key={data?.projectId}>
                   <div className="dash_status">
-                    {projecttype === "Approved" && (
+                    {statustype === "Approved" && (
                       <FaRegCheckCircle className="dash_statusicon" />
                     )}
-                    {projecttype === "Rejected" && (
+                    {statustype === "Rejected" && (
                       <GiCancel className="dash_statusicon" />
                     )}
-                    {projecttype === "Pending" && (
+                    {statustype === "Pending" && (
                       <MdOutlinePendingActions className="dash_statusicon" />
                     )}
 
@@ -217,8 +208,8 @@ const DashStatus = ({ type, projecttype, data, msgtype }: DashStatusProp) => {
                         <p className="dash_statusdata">
                           <BiCategory />
                           <span>
-                            {projecttype}{" "}
-                            {projecttype === "Pending" ? "since" : "on"}{" "}
+                            {statustype}{" "}
+                            {statustype === "Pending" ? "since" : "on"}{" "}
                             {formatDate(data?.updatedAt)}
                           </span>
                         </p>
@@ -232,9 +223,9 @@ const DashStatus = ({ type, projecttype, data, msgtype }: DashStatusProp) => {
             <div className="dash_status">
               <div className="dash_statusdetail">
                 <h1 className="dash_statustitle">
-                  You have no {projecttype === "Approved" && "Approval"}
-                  {projecttype === "Rejected" && "Rejection"}
-                  {projecttype === "Pending" && "Pending"} messsage
+                  You have no {statustype === "Approved" && "Approval"}
+                  {statustype === "Rejected" && "Rejection"}
+                  {statustype === "Pending" && "Pending"} messsage
                 </h1>
               </div>
               <ArchBack variant="white" />
@@ -287,9 +278,120 @@ const DashStatus = ({ type, projecttype, data, msgtype }: DashStatusProp) => {
               {" "}
               <div className="dash_statusdetail">
                 <h1 className="dash_statustitle">
+                  No report available
                   {msgtype === "unread"
                     ? "You have no unread messages"
                     : "Your messages are empty"}
+                </h1>
+              </div>
+            </div>
+          )}
+        </>
+      )}
+
+      {type === "admin-subscribe" && (
+        <>
+          {mapdata?.length > 0 ? (
+            mapdata.map((sub: any) => {
+              return (
+                <div
+                  key={sub?.subscriptionId}
+                  // style={{ opacity: `${msg?.hasRead === false ? 1 : 0.5}` }}
+                >
+                  <div className="dash_status">
+                    <MdOutlinePendingActions className="dash_statusicon" />
+
+                    <div className="dash_statusdetail">
+                      <h1
+                        className="dash_statustitle"
+                        onClick={() => {
+                          router.push(`subscription/${sub?.subscriptionId}`);
+                        }}
+                      >
+                        {sub?.user?.username}
+                      </h1>
+
+                      <div className="dash_statusinfo">
+                        <p className="dash_statusdata">
+                          <CiCalendar />
+                          <span>{formatDate(sub?.startDate)}</span>
+                        </p>
+
+                        <p className="dash_statusdata">
+                          <FaClockRotateLeft />
+                          <span>{sub?.type || "none"}</span>
+                        </p>
+                        <p className="dash_statusdata">
+                          <ImPriceTags />
+                          <span>{sub?.userPlan || "none"}</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <div className="dash_status">
+              {" "}
+              <div className="dash_statusdetail">
+                <h1 className="dash_statustitle">No subscription available</h1>
+              </div>
+            </div>
+          )}
+        </>
+      )}
+
+      {type === "admin-payment" && (
+        <>
+          {mapdata?.length > 0 ? (
+            mapdata.map((pay: any) => {
+              return (
+                <div key={pay?.paymentReference}>
+                  <div className="dash_status">
+                    {statustype === "Rejected" ? (
+                      <MdOutlineCancel className="dash_statusicon" />
+                    ) : (
+                      <MdOutlinePendingActions className="dash_statusicon" />
+                    )}
+
+                    <div className="dash_statusdetail">
+                      <h1
+                        className="dash_statustitle"
+                        onClick={() => {
+                          router.push(`view/${pay?.paymentReference}`);
+                        }}
+                      >
+                        {pay?.user?.username}
+                      </h1>
+
+                      <div className="dash_statusinfo">
+                        <p className="dash_statusdata">
+                          <CiCalendar />
+                          <span>{formatDate(pay?.initializedAt)}</span>
+                        </p>
+                        <p className="dash_statusdata">
+                          <ImPriceTags />
+                          <span>
+                            {pay?.user?.subscription?.currentUserPlan || "none"}
+                          </span>
+                        </p>
+
+                        <p className="dash_statusdata">
+                          <GrStatusInfo />
+                          <span>{pay?.paymentStatus || "none"}</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <div className="dash_status">
+              <div className="dash_statusdetail">
+                <h1 className="dash_statustitle">
+                  You have no payment messsage
                 </h1>
               </div>
             </div>

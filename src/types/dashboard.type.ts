@@ -20,12 +20,12 @@ export type AdminSideProp = {
   name: string;
   route?: string;
   logo: IconType;
-  linkcolor?: string;
+  linkcolor?: string[];
   notif?: boolean;
   children?: {
     name: string;
     route: string;
-    linkcolor?: string;
+    linkcolor?: string[];
     notif?: boolean;
   }[];
 }[];

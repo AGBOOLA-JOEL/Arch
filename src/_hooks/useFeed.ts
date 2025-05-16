@@ -26,11 +26,11 @@ export const useFeed = () => {
       });
       return res.data;
     },
-    onSuccess: () => {
-      openToast("Your post has been published successfully", 3000);
+    onSuccess: (res) => {
+      openToast(res?.description, 3000);
     },
-    onError: () => {
-      openToast("Sorry, something went wrong. Please try again later.", 3000);
+    onError: (err: any) => {
+      openToast(err?.response?.data?.message, 3000);
     },
   });
 

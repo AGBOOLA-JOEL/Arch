@@ -270,6 +270,9 @@
         padding-left: 31px;
         & a {
           font-size: 1.3rem;
+          &.active {
+            color: $secondary;
+          }
         }
 
         // & span {
@@ -828,6 +831,7 @@
     gap: 7px;
     @include sm {
       width: 100%;
+      // align-items: center;
     }
 
     & .dash_viewsubject {
@@ -853,12 +857,29 @@
 
       & span {
         color: $secondary;
-        font-weight: 600;
+        // font-weight: 600;
+      }
+    }
+
+    & .dash_viewimage {
+      @include flex(column);
+      gap: 20px;
+      @include sm {
+        @include center(column);
+      }
+      & img {
+        width: 400px;
+        height: 300px;
+        @include sm {
+          width: 85%;
+        }
       }
     }
   }
 
   & .dash_viewbtn {
+    @include flex(row);
+    gap: 20px;
     @include sm {
       @include center(row);
     }
@@ -956,6 +977,58 @@
       width: 100%;
       @include flex(row);
       justify-content: flex-end;
+    }
+  }
+}
+
+& .dash_filter {
+  @include flex(row);
+  align-items: center;
+
+  // & .dash_filtervalue {
+  //   &.all {
+  //     padding-bottom: 10px;
+  //     @include center(row);
+  //     width: 189px;
+  //     font-size: 1.4rem;
+  //     letter-spacing: 0em;
+  //     text-align: center;
+  //     color: $dark-one;
+  //     border-bottom: 2px solid $dark-one;
+  //     cursor: pointer;
+  //   }
+  //   &.unread {
+  //     padding-bottom: 10px;
+  //     @include center(row);
+  //     width: 189px;
+  //     font-size: 1.4rem;
+  //     letter-spacing: 0em;
+  //     text-align: center;
+  //     color: $gray-text;
+  //     border-bottom: 2px solid $gray-text;
+  //     cursor: pointer;
+  //   }
+  // }
+  .dash_filtervalue {
+    padding-bottom: 10px;
+    @include center(row);
+    width: 189px;
+    font-size: 1.4rem;
+    letter-spacing: 0em;
+    text-align: center;
+    cursor: pointer;
+
+    // 🔥 Add smooth transitions
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+
+    &.all {
+      color: $dark-one;
+      border-bottom: 2px solid $dark-one;
+    }
+
+    &.unread {
+      color: $gray-text;
+      border-bottom: 2px solid $gray-text;
     }
   }
 }

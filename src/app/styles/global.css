@@ -2492,6 +2492,31 @@ a {
   line-height: 28px;
   color: var(--darkone);
 }
+.app .modal_bg .modal_confirm .modal_confirmtextarea {
+  width: 80%;
+  height: 100px;
+  resize: none;
+  line-height: 15px;
+  margin-bottom: 20px;
+  color: var(--darkone);
+  border: 1px solid var(--graytext);
+  outline: none;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+  box-sizing: border-box;
+  padding: 10px 10px;
+}
+.app .modal_bg .modal_confirm .modal_confirmtextarea::before, .app .modal_bg .modal_confirm .modal_confirmtextarea::after {
+  box-sizing: border-box;
+}
+.app .modal_bg .modal_confirm .modal_confirmtextarea:focus {
+  transition: 0.3s ease-in-out;
+  outline: 2px solid var(--secondary); /* change this to your desired color */
+}
+.app .modal_bg .modal_confirm .modal_confirmtextarea:hover {
+  transition: 0.3s ease-in-out;
+  outline: 2px solid var(--secondary); /* change this to your desired color */
+}
 .app .modal_bg .modal_confirm .modal_confirmbtn {
   display: flex;
   flex-direction: row;
@@ -6343,6 +6368,9 @@ a {
 .app .dash_sidebar .dash_sidelinks .dash_sidelist .dash_sidechild a {
   font-size: 1.3rem;
 }
+.app .dash_sidebar .dash_sidelinks .dash_sidelist .dash_sidechild a.active {
+  color: var(--secondary);
+}
 .app .dash_stat {
   border-top-right-radius: 5px;
   width: 100%;
@@ -6974,7 +7002,33 @@ a {
 }
 .app .dash_view .dash_viewcontent p span {
   color: var(--secondary);
-  font-weight: 600;
+}
+.app .dash_view .dash_viewcontent .dash_viewimage {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+@media (max-width: 1012px) {
+  .app .dash_view .dash_viewcontent .dash_viewimage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+.app .dash_view .dash_viewcontent .dash_viewimage img {
+  width: 400px;
+  height: 300px;
+}
+@media (max-width: 1012px) {
+  .app .dash_view .dash_viewcontent .dash_viewimage img {
+    width: 85%;
+  }
+}
+.app .dash_view .dash_viewbtn {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 @media (max-width: 1012px) {
   .app .dash_view .dash_viewbtn {
@@ -7107,4 +7161,30 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+}
+.app .dash_filter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.app .dash_filter .dash_filtervalue {
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 189px;
+  font-size: 1.4rem;
+  letter-spacing: 0em;
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+.app .dash_filter .dash_filtervalue.all {
+  color: var(--darkone);
+  border-bottom: 2px solid var(--darkone);
+}
+.app .dash_filter .dash_filtervalue.unread {
+  color: var(--graytext);
+  border-bottom: 2px solid var(--graytext);
 }/*# sourceMappingURL=global.css.map */

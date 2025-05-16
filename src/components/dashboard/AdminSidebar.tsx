@@ -1,16 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { admindashdata, dashdata } from "@/data/dashboard.data";
-import { usePathname } from "next/navigation";
-import { useSelectedLayoutSegments } from "next/navigation";
+import { admindashdata } from "@/data/dashboard.data";
+import { usePathname, useSelectedLayoutSegments } from "next/navigation";
 
 const AdminSidebar = () => {
   const pathname = usePathname();
   const segments = useSelectedLayoutSegments();
-
-  //   const [drop, setDrop] = useState(false);
-
   const [isClicked, setIsClicked] = useState<string | null>(null);
 
   return (
@@ -18,54 +14,50 @@ const AdminSidebar = () => {
       <h1>Your links</h1>
       <ul className="dash_sidelinks">
         {admindashdata.map((nav) => {
+          // Handle linkcolor as an array
+          const navLinkColors = Array.isArray(nav.linkcolor)
+            ? nav.linkcolor
+            : [nav.linkcolor || ""];
+
           const isExactDashboard =
             pathname === "/admin" && nav.route === "/admin";
-          const isSegmentMatch = segments.includes(nav.linkcolor || "");
+          const isSegmentMatch = navLinkColors.some((color) =>
+            segments.includes(color)
+          );
           const isActive = isExactDashboard || isSegmentMatch;
 
-          const openClicked = isClicked === nav.linkcolor;
+          const openClicked =
+            navLinkColors.includes(isClicked || "") ||
+            nav.children?.some((child) =>
+              Array.isArray(child.linkcolor)
+                ? child.linkcolor.includes(isClicked || "")
+                : [child.linkcolor || ""].includes(isClicked || "")
+            );
+
           return (
             <li key={nav.name} className="dash_sidelist">
               <Link
-                href={nav.route || ""}
+                href={nav.route || "#"}
                 className={isActive ? "active" : ""}
                 onClick={() => {
+                  const primaryColor = navLinkColors[0];
                   setIsClicked((prev) =>
-                    prev === nav.linkcolor ? null : nav.linkcolor || null
+                    prev === primaryColor ? null : primaryColor
                   );
                 }}
               >
                 <nav.logo />
                 <span>{nav.name}</span>
-
-                {/* {nav.notif && nav.name === "Messages" && msgnotif > 0 && (
-                  <span className="dash_sidenotif">{msgnotif}</span>
-                )}
-
-                {nav.notif &&
-                  nav.name === "Payment history" &&
-                  paynotif > 0 && (
-                    <span className="dash_sidenotif">{paynotif}</span>
-                  )}
-                {nav.notif && nav.name === "Project status" && pronotif > 0 && (
-                  <span className="dash_sidenotif">{pronotif}</span>
-                )} */}
               </Link>
 
-              {nav.children && (
-                <>
-                  {openClicked && (
-                    <div className="dash_sidechild">
-                      {nav.children?.map((drop) => {
-                        return (
-                          <Link href={drop.route} key={drop.name}>
-                            {drop.name}
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  )}
-                </>
+              {nav.children && openClicked && (
+                <div className="dash_sidechild">
+                  {nav.children.map((drop) => (
+                    <Link href={drop.route || "#"} key={drop.name}>
+                      {drop.name}
+                    </Link>
+                  ))}
+                </div>
               )}
             </li>
           );

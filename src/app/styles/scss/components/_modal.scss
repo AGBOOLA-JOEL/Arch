@@ -68,6 +68,28 @@
       color: $dark-one;
     }
 
+    & .modal_confirmtextarea {
+      width: 80%;
+      height: 100px;
+      resize: none;
+      line-height: 15px;
+      margin-bottom: 20px;
+      color: $dark-one;
+      border: 1px solid $gray-text;
+      outline: none;
+      border-radius: 5px;
+      transition: 0.3s ease-in-out;
+      @include borderbox;
+      padding: 10px 10px;
+      &:focus {
+        transition: 0.3s ease-in-out;
+        outline: 2px solid $secondary; /* change this to your desired color */
+      }
+      &:hover {
+        transition: 0.3s ease-in-out;
+        outline: 2px solid $secondary; /* change this to your desired color */
+      }
+    }
     & .modal_confirmbtn {
       @include flex(row);
       align-items: center;
