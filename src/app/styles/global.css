@@ -2444,6 +2444,20 @@ a {
     width: 80%;
   }
 }
+.app .modal_bg .modal_spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 200px;
+}
+.app .modal_bg .modal_spinner p {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--primary);
+}
 .app .modal_bg .modal_confirm {
   width: 100%;
   display: flex;
@@ -6987,6 +7001,18 @@ a {
     text-align: center;
   }
 }
+.app .dash_view .dash_viewcontent .dash_viewclip {
+  width: 350px;
+}
+@media (max-width: 1012px) {
+  .app .dash_view .dash_viewcontent .dash_viewclip {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
 .app .dash_view .dash_viewcontent p {
   margin: 0px 0px;
   font-size: 1.35rem;
@@ -7187,4 +7213,43 @@ a {
 .app .dash_filter .dash_filtervalue.unread {
   color: var(--graytext);
   border-bottom: 2px solid var(--graytext);
+}
+.app .dash_clipboard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 20px;
+  box-sizing: border-box;
+  padding: 10px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--primary);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.app .dash_clipboard::before, .app .dash_clipboard::after {
+  box-sizing: border-box;
+}
+@media (max-width: 1012px) {
+  .app .dash_clipboard {
+    width: 90%;
+  }
+}
+.app .dash_clipboard p {
+  width: 90%;
+  overflow: hidden;
+  color: var(--secondary) !important;
+  font-size: 1.5rem;
+}
+.app .dash_clipboard span {
+  cursor: pointer;
+}
+.app .dash_clipboard span svg {
+  font-size: 2rem;
+  color: var(--darkone);
+  transition: 0.3s ease-in-out;
+}
+.app .dash_clipboard span svg:hover {
+  color: var(--secondary);
+  transition: 0.3s ease-in-out;
 }/*# sourceMappingURL=global.css.map */

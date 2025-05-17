@@ -15,15 +15,20 @@ const DashNavbar = ({ data }: DashNavProp) => {
   const linkState = (name: any) => {
     return pathname.split("/")[3] === name ? "active" : "";
   };
+
+  const isMessage =
+    pathname.split("/")[3] === "message" || pathname.split("/")[3] === "upload";
   return (
     <nav className="dash_navbar">
-      <ul className="dash_navbarmap">
-        {data.map((data) => (
-          <li key={data.name} className={linkState(data.linkstate)}>
-            <Link href={data.route}>{data.name}</Link>
-          </li>
-        ))}
-      </ul>
+      {!isMessage && (
+        <ul className="dash_navbarmap">
+          {data.map((data) => (
+            <li key={data.name} className={linkState(data.linkstate)}>
+              <Link href={data.route}>{data.name}</Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </nav>
   );
 };

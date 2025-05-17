@@ -42,7 +42,7 @@ const Page = () => {
 
               {status === "APPROVED" && (
                 <p>
-                  We're excited to inform you that your project{" "}
+                  {"We're"} excited to inform you that your project{" "}
                   <span>{proid?.projectName}</span> has been approved!. <br />
                   You can view the project details and status by following this
                   link:{" "}

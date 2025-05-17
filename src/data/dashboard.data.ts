@@ -112,13 +112,13 @@ export const admindashdata: AdminSideProp = [
   {
     name: "Submissions",
     logo: IoIosArrowDropdown,
-    linkcolor: ["project"],
+    linkcolor: ["projects"],
     notif: true,
     children: [
       {
         name: "Project approval",
-        route: "/admin/project/pending",
-        linkcolor: ["project"],
+        route: "/admin/projects/pending",
+        linkcolor: ["projects"],
         notif: true,
       },
     ],

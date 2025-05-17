@@ -27,6 +27,18 @@
   @include sm {
     width: 80%;
   }
+  & .modal_spinner {
+    @include center(column);
+    width: 100%;
+    height: 200px;
+
+    & p {
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: $primary;
+    }
+  }
   & .modal_confirm {
     width: 100%;
     @include center(column);

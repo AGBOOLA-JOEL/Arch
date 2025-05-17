@@ -3,6 +3,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { api } from "@/services/api";
 import { useGenselectors } from "@/_lib/store/general-store";
 import { useRouter } from "next/navigation";
+import useModalStore from "@/_lib/store/modal-store";
 
 export const usePaymentStatus = () => {
   const getPayStatus = async () => {
@@ -109,6 +110,7 @@ export const useAdminReference = (ref: any) => {
 export const useActionPayment = () => {
   const openToast = useGenselectors.use.openToast();
   const router = useRouter();
+  const { closeModal } = useModalStore();
 
   const confirmMutation = useMutation({
     mutationFn: async (ref: any) => {
@@ -122,6 +124,7 @@ export const useActionPayment = () => {
     },
     onSuccess: (res) => {
       // closeModal();
+
       router.push("/admin/subscription");
       openToast(res?.data?.message, 3000);
     },
@@ -141,6 +144,7 @@ export const useActionPayment = () => {
     onSuccess: () => {
       // closeModal();
       router.push("/admin/payment/rejected");
+      closeModal();
       // openToast(res?.data?.message, 3000);
     },
     onError: (err: any) => {

@@ -843,6 +843,14 @@
       font-weight: 500;
       margin: 0px 0px;
     }
+
+    & .dash_viewclip {
+      width: 350px;
+      @include sm {
+        width: 100%;
+        @include center(column);
+      }
+    }
     & p {
       @include sm {
         text-align: center;
@@ -1030,5 +1038,39 @@
       color: $gray-text;
       border-bottom: 2px solid $gray-text;
     }
+  }
+}
+
+& .dash_clipboard {
+  @include full-flex(center, space-between, row);
+  gap: 20px;
+  @include borderbox;
+  padding: 10px 10px;
+  border-radius: 4px;
+  border: 1px solid $primary;
+  overflow: hidden;
+  white-space: nowrap;
+  @include sm {
+    width: 90%;
+  }
+
+  & p {
+    width: 90%;
+    overflow: hidden;
+    color: $secondary !important;
+    font-size: 1.5rem;
+  }
+  & span {
+    & svg {
+      font-size: 2rem;
+      color: $dark-one;
+      transition: 0.3s ease-in-out;
+      &:hover {
+        color: $secondary;
+        transition: 0.3s ease-in-out;
+      }
+    }
+
+    cursor: pointer;
   }
 }
