@@ -1074,3 +1074,533 @@
     cursor: pointer;
   }
 }
+
+& .dash_uploadpage {
+  @include flex(column);
+  width: 100%;
+  height: 100%;
+
+  padding-left: 42px;
+  padding-right: 42px;
+  padding-top: 30px;
+  @include borderbox;
+  @include sm {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  & .dash_uploadskeleton {
+    @include sm {
+      @include center(column);
+    }
+  }
+  & .dash_uploadheader {
+    @include sm {
+      @include center(column);
+    }
+    margin-top: 0px;
+    & :nth-child(1) {
+      @include sm {
+        text-align: center;
+      }
+      margin-top: 0px;
+      font-size: 1.5rem;
+      // font-style: italic;
+      font-weight: 500;
+      line-height: 12px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: $dark-one;
+      margin-bottom: -10px;
+    }
+    & :nth-child(2) {
+      color: $primary;
+      font-weight: 600;
+      font-size: 1.8rem;
+      @include sm {
+        text-align: center;
+        width: 80%;
+      }
+    }
+  }
+  & .dash_uploadunavail {
+    color: $primary;
+    font-weight: 600;
+    font-size: 1.8rem;
+  }
+
+  & .dash_uploadedit {
+    @include full-flex(center, space-between, row);
+    @include borderbox;
+    @include strip-list;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 8px 10px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    background-color: $white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      background-color: $gray;
+    }
+
+    .dash_uploadedit_content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0; /* Prevents flex items from overflowing */
+    }
+
+    .dash_uploadedit_label {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $secondary;
+      margin-bottom: 4px;
+    }
+
+    .dash_uploadedit_value {
+      color: $dark-one;
+      margin: 0;
+      padding: 4px 0;
+      font-size: 1.4rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .dash_uploadedit_input {
+      @include borderbox;
+      padding: 8px 10px;
+      border: 1px solid $gray-text;
+      border-radius: 4px;
+      font-size: 1.4rem;
+      width: 100%;
+      transition: border-color 0.2s;
+    }
+
+    .dash_uploadedit_input:focus {
+      outline: none;
+      border-color: $secondary;
+      box-shadow: 0 0 0 2px $primary;
+    }
+
+    .dash_uploadedit_action {
+      @include center(row);
+      @include borderbox;
+      cursor: pointer;
+      color: $secondary;
+      font-weight: 500;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+      white-space: nowrap;
+      margin-left: 12px;
+      gap: 10px;
+    }
+
+    .dash_uploadedit_action:hover {
+      background-color: rgba(77, 171, 247, 0.1);
+    }
+
+    .dash_uploadedit_action_text {
+      font-size: 1.5rem;
+    }
+
+    .dash_uploadedit_icon {
+      font-size: 1.6rem;
+    }
+
+    /* Container for multiple dash_uploadedit items */
+    & .dash_uploadeditmap:has(.dash_uploadedit) {
+      padding: 0;
+      margin: 0;
+    }
+
+    /* Mobile Responsive Styles */
+    @include sm {
+      .dash_uploadedit {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px;
+      }
+
+      .dash_uploadedit_content {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .dash_uploadedit_input {
+        padding: 6px 8px;
+      }
+
+      .dash_uploadedit_action {
+        align-self: flex-end;
+        margin-left: 0;
+      }
+      .dash_uploadedit_action:hover {
+        background-color: none;
+        color: $primary;
+      }
+    }
+  }
+
+  & .dash_uploadcat {
+    @include borderbox;
+    width: 100%;
+    color: $dark-one;
+    background-color: $white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    .dash_uploadcat_title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: $primary;
+    }
+
+    .dash_uploadcat_categories,
+    .dash_uploadcat_subcategories {
+      @include borderbox;
+      padding: 1.5rem;
+    }
+
+    .dash_uploadcat_header {
+      @include full-flex(center, space-between, row);
+      gap: 20px;
+    }
+
+    .dash_uploadcat_back_btn {
+      background: none;
+      border: none;
+      color: $secondary;
+      cursor: pointer;
+      font-size: 1.3rem;
+      padding: 0;
+      text-decoration: underline;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+
+    .dash_uploadcat_list {
+      @include borderbox;
+      @include flex(column);
+      gap: 1rem;
+    }
+
+    .dash_uploadcat_item {
+      position: relative;
+      border-radius: 6px;
+      background-color: $gray;
+      transition: background-color 0.2s;
+    }
+
+    .dash_uploadcat_item:hover {
+      background-color: $gray-two;
+    }
+
+    .dash_uploadcat_item_content {
+      @include borderbox;
+      @include full-flex(center, space-between, row);
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+    }
+
+    .dash_uploadcat_item_name {
+      margin: 0;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: $dark-one;
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+        transition: 0.3s ease-in-out;
+        color: $secondary;
+      }
+    }
+
+    .dash_uploadcat_edit_btn {
+      background: none;
+      border: none;
+      color: $dark-one;
+      cursor: pointer;
+      padding: 0.25rem;
+      border-radius: 4px;
+      @include center(row);
+    }
+
+    .dash_uploadcat_edit_btn:hover {
+      background-color: $primary;
+    }
+
+    .dash_uploadcat_dropdown {
+      position: absolute;
+      right: 0.5rem;
+      top: 100%;
+      background-color: $white;
+      border-radius: 4px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      overflow: hidden;
+      width: 70px;
+    }
+
+    .dash_uploadcat_dropdown_item {
+      @include borderbox;
+      width: 100%;
+      padding: 1rem 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      @include center(row);
+    }
+
+    .dash_uploadcat_dropdown_item:hover {
+      background-color: $gray-two;
+    }
+
+    .dash_uploadcat_dropdown_item_delete {
+      color: #e53935;
+    }
+
+    .dash_uploadcat_dropdown_item_delete:hover {
+      background-color: $gray-two;
+    }
+
+    .dash_uploadcat_input {
+      @include borderbox;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .dash_uploadcat_input:focus {
+      border-color: $secondary;
+      box-shadow: 0 0 0 2px rgba(33, 148, 236, 0.2);
+    }
+
+    .dash_uploadcat_edit_container {
+      position: relative;
+      width: 100%;
+    }
+
+    .dash_uploadcat_button_spinner {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: dash_uploadcat_spin 1s linear infinite;
+      color: $secondary;
+    }
+
+    .dash_uploadcat_add {
+      margin-top: 0.75rem;
+    }
+
+    .dash_uploadcat_subcategory_add {
+      margin-bottom: 1.5rem;
+    }
+
+    .dash_uploadcat_add_btn {
+      @include borderbox;
+      @include flex(row);
+      align-items: center;
+      gap: 1rem;
+      background: none;
+      border: 1px dashed #ccc;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      width: 100%;
+      cursor: pointer;
+      color: $dark-one;
+      transition: all 0.2s;
+    }
+
+    .dash_uploadcat_add_btn:hover {
+      border-color: $secondary;
+      color: $secondary;
+      background-color: rgba(33, 148, 236, 0.05);
+    }
+
+    .dash_uploadcat_add_btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .dash_uploadcat_content {
+      @include flex(column);
+      gap: 1rem;
+    }
+
+    .dash_uploadcat_subcategory_list {
+      @include flex(column);
+      gap: 1.5rem;
+    }
+
+    .dash_uploadcat_subcategory {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .dash_uploadcat_subcategory_header {
+      @include borderbox;
+      position: relative;
+      background-color: $gray;
+      font-size: 1.4rem;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .dash_uploadcat_subcategory_title_wrapper {
+      @include full-flex(center, space-between, row);
+      & h3:hover {
+        color: $secondary;
+      }
+    }
+
+    .dash_uploadcat_subcategory_title {
+      margin: 0;
+      font-size: 1.4rem;
+      font-weight: 500;
+      cursor: pointer;
+      & :hover {
+        color: $secondary;
+      }
+    }
+
+    .dash_uploadcat_subcategory_title_active {
+      color: $secondary;
+    }
+
+    .dash_uploadcat_subcategory_dropdown {
+      top: calc(100% - 5px);
+      right: 1rem;
+    }
+
+    .dash_uploadcat_classes {
+      @include borderbox;
+      @include flex(column);
+      padding: 1rem;
+      gap: 0.75rem;
+    }
+
+    .dash_uploadcat_class {
+      position: relative;
+    }
+
+    .dash_uploadcat_class_content {
+      @include full-flex(center, space-between, row);
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .dash_uploadcat_class_content:hover {
+      background-color: rgba(0, 0, 0, 0.03);
+    }
+
+    .dash_uploadcat_class_name {
+      margin: 0;
+      font-size: 1.2rem;
+      color: $dark-one;
+      &:hover {
+        color: $secondary;
+      }
+    }
+
+    .dash_uploadcat_class_name_active {
+      color: $secondary;
+      font-weight: 500;
+    }
+
+    .dash_uploadcat_class_input {
+      font-size: 0.875rem;
+      padding: 0.5rem 0.75rem;
+    }
+
+    .dash_uploadcat_class_dropdown {
+      right: 0;
+    }
+
+    .dash_uploadcat_class_add_btn {
+      @include borderbox;
+      padding: 0.5rem 0.75rem;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .dash_uploadcat_class_add_input {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .dash_uploadcat_cancel_btn {
+      @include borderbox;
+      background: none;
+      border: none;
+      color: $dark-one;
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+
+    .dash_uploadcat_cancel_btn:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .dash_uploadcat_cancel_btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .dash_uploadspinner {
+      width: 100%;
+      @include center(row);
+      height: 200px;
+    }
+
+    .dash_uploadcat_loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+    }
+
+    .dash_uploadcat_spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(33, 148, 236, 0.2);
+      border-radius: 50%;
+      border-top-color: #2194ec;
+      animation: dash_uploadcat_spin 1s ease-in-out infinite;
+    }
+
+    .dash_uploadcat_error {
+      color: #e53935;
+      text-align: center;
+      padding: 2rem;
+      font-size: 1rem;
+    }
+
+    @keyframes dash_uploadcat_spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}
