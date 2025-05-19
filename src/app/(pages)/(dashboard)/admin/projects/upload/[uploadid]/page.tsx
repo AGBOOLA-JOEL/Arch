@@ -8,6 +8,9 @@ import DashUploadEditables from "@/components/dashboard/DashUploadEditables";
 import { useParams } from "next/navigation";
 import SkeletonStatus from "@/components/skeleton/skeletonstatus";
 import DashUploadCategories from "@/components/dashboard/DashUploadCategories";
+import DashUploadType from "@/components/dashboard/DashUploadType";
+import { useState } from "react";
+import DashUploadImages from "@/components/dashboard/DashUploadImages";
 
 const Page = () => {
   const params = useParams();
@@ -18,18 +21,22 @@ const Page = () => {
   const { register, handleSubmit, control, setValue, watch } = useForm({
     resolver: yupResolver(projectuploadschema),
   });
+  const builtshow = watch("built");
   const cat = watch("category");
   const subcat = watch("subCategory");
   const subclass = watch("subCategoryClass");
+  const premium = watch("isPremium");
 
   return (
     <form className="dash_uploadpage">
       {!isLoading ? (
         <>
-          {/* <DashUploadType /> */}
-          <DashUploadEditables data={proid} setValue={setValue} />
-          {cat}-{subcat}-{subclass}
+          {/* {premium ? "premium" : "basic"} */}
+          {/* {builtshow ? "true" : "false"} */}
+          <DashUploadEditables data={proid} setValue={setValue} watch={watch} />
+          {/* {cat}-{subcat}-{subclass} */}
           <DashUploadCategories setValue={setValue} />
+          <DashUploadImages data={proid} setValue={setValue} />
         </>
       ) : (
         <div className="dash_uploadskeleton">

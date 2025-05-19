@@ -2,17 +2,22 @@
 import { useForm } from "react-hook-form";
 import DashUploadEdit from "./DashUploadEdit";
 import { formatTime, fullFormatDate } from "@/_utils/formatdate";
+import DashUploadType from "./DashUploadType";
+import DashUploadPremium from "./DashUploadPremium";
 
 const DashUploadEditables = ({
   data,
   setValue,
+  watch,
 }: {
   data: any;
   setValue: any;
+  watch: any;
 }) => {
   // your form logic here
 
   const uploadData = data;
+  const builtshow = watch("built");
   return (
     <>
       {uploadData ? (
@@ -24,6 +29,8 @@ const DashUploadEditables = ({
             </p>
             <p>{uploadData?.projectName}</p>
           </div>
+          <DashUploadType data={uploadData} setValue={setValue} />
+          <DashUploadPremium data={uploadData} setValue={setValue} />
           <div className="dash_uploadeditmap">
             <DashUploadEdit
               label="Credit"
@@ -89,7 +96,7 @@ const DashUploadEditables = ({
                 <AdminTypeEdit isBuilt={data.built} setBuilt={setBuilt} />
               </div>
             </div> */}
-            {data?.built === true && (
+            {builtshow && (
               <DashUploadEdit
                 label="Year"
                 name="constructionYear"

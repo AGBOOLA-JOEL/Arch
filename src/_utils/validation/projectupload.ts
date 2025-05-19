@@ -58,7 +58,7 @@ export const projectuploadschema = Yup.object().shape({
     .nullable()
     .notRequired(), //done
 
-  built: Yup.boolean().required(),
+  built: Yup.boolean().required(), //done
 
   architect: Yup.string().required("Architect is required"),
 

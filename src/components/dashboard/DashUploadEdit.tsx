@@ -30,7 +30,7 @@ const DashUploadEdit = ({
   return (
     <div className="dash_uploadedit">
       <div className="dash_uploadedit_content">
-        <span className="dash_uploadedit_label">{label}:</span>
+        <span className="dash_uploadedit_label">{label}</span>
         {!editMode ? (
           <p className="dash_uploadedit_value">
             {inputVal || placeholder || "Add a value"}
