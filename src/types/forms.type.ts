@@ -5,6 +5,7 @@ import {
   submitschema,
   updateuserschema,
 } from "@/_utils/validation/forms";
+import { projectuploadschema } from "@/_utils/validation/projectupload";
 import { InferType } from "yup";
 
 export type FormInputProp = {
@@ -49,6 +50,8 @@ export type UpdateuserData = InferType<typeof updateuserschema>;
 export type PostNewsData = InferType<typeof postnewsschema>;
 
 export type ContactMoreData = InferType<typeof contactmoreschema>;
+
+export type DashUploadData = InferType<ReturnType<typeof projectuploadschema>>;
 // type SubmitData = {
 //   name: string;
 //   username: string;

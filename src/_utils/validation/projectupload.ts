@@ -1,72 +1,123 @@
 import * as Yup from "yup";
 
-export const projectuploadschema = Yup.object().shape({
-  projectStory: Yup.string()
-    .required("Project story is required")
-    .min(10, "Project story should be at least 10 characters"),
+export const projectuploadschema = (isStrict: boolean) =>
+  Yup.object().shape({
+    projectStory: Yup.mixed().required("Project story is required"),
 
-  coverImage: Yup.mixed().required("Cover image is required"),
+    // coverImage: Yup.mixed().required("Cover image is required"),
 
-  threeDImages: Yup.array()
-    .of(Yup.mixed())
-    .min(4, "At least four 3D image is required")
-    .optional(),
+    // threeDImages: Yup.array()
+    //   .of(Yup.mixed())
+    //   .min(4, "At least four 3D image is required")
+    //   .optional(),
 
-  sitePlan: Yup.array()
-    .of(Yup.mixed())
-    .min(1, "At least one site plan is required")
-    .optional(),
+    // sitePlan: Yup.array()
+    //   .of(Yup.mixed())
+    //   .min(1, "At least one site plan is required")
+    //   .optional(),
 
-  floorPlan: Yup.array()
-    .of(Yup.mixed())
-    .min(1, "At least one floor plan is required")
-    .optional(),
+    // floorPlan: Yup.array()
+    //   .of(Yup.mixed())
+    //   .min(1, "At least one floor plan is required")
+    //   .optional(),
 
-  elevations: Yup.array()
-    .of(Yup.mixed())
-    .min(2, "At least two elevations image is required")
-    .optional(),
+    // elevations: Yup.array()
+    //   .of(Yup.mixed())
+    //   .min(2, "At least two elevations image is required")
+    //   .optional(),
 
-  sections: Yup.array()
-    .of(Yup.mixed())
-    .min(1, "At least one section image is required")
-    .optional(),
+    // sections: Yup.array()
+    //   .of(Yup.mixed())
+    //   .min(1, "At least one section image is required")
+    //   .optional(),
 
-  details: Yup.array().of(Yup.mixed()).optional(),
+    // details: Yup.array().of(Yup.mixed()).optional(),
 
-  otherImages: Yup.array().of(Yup.mixed()).optional(),
+    // otherImages: Yup.array().of(Yup.mixed()).optional(),
+    //strict mode
 
-  name: Yup.string().nullable().notRequired(), //done
+    coverImage: isStrict
+      ? Yup.mixed().required("Cover image is required")
+      : Yup.mixed().nullable(),
 
-  institutionOrFirm: Yup.string().nullable().notRequired(), //done
+    threeDImages: Yup.array()
+      .of(Yup.mixed())
+      .when([], {
+        is: () => isStrict,
+        then: (schema) => schema.min(4, "At least four 3D images are required"),
+        otherwise: (schema) => schema.nullable(),
+      }),
 
-  website: Yup.string().url("Must be a valid URL").nullable().notRequired(), //done
+    sitePlan: Yup.array()
+      .of(Yup.mixed())
+      .when([], {
+        is: () => isStrict,
+        then: (schema) => schema.min(1, "At least one site plan is required"),
+        otherwise: (schema) => schema.nullable(),
+      }),
 
-  email: Yup.string().email("Must be a valid email").nullable().notRequired(), //done
+    floorPlan: Yup.array()
+      .of(Yup.mixed())
+      .when([], {
+        is: () => isStrict,
+        then: (schema) => schema.min(1, "At least one floor plan is required"),
+        otherwise: (schema) => schema.nullable(),
+      }),
 
-  country: Yup.string().nullable().notRequired(), //done
+    elevations: Yup.array()
+      .of(Yup.mixed())
+      .when([], {
+        is: () => isStrict,
+        then: (schema) => schema.min(2, "At least two elevations are required"),
+        otherwise: (schema) => schema.nullable(),
+      }),
 
-  consultant: Yup.string().nullable().notRequired(), //done
+    sections: Yup.array()
+      .of(Yup.mixed())
+      .when([], {
+        is: () => isStrict,
+        then: (schema) => schema.min(1, "At least one section is required"),
+        otherwise: (schema) => schema.nullable(),
+      }),
 
-  client: Yup.string().nullable().notRequired(), //done
+    details: Yup.array().of(Yup.mixed()).nullable(),
+    otherImages: Yup.array().of(Yup.mixed()).nullable(),
+    //strict mode
 
-  size: Yup.number().positive("Size must be positive").nullable().notRequired(), //done
+    name: Yup.string().nullable().notRequired(), //done
 
-  constructionYear: Yup.number()
-    .min(1800, "Year must be later than 1800")
-    .max(new Date().getFullYear(), "Year cannot be in the future")
-    .nullable()
-    .notRequired(), //done
+    institutionOrFirm: Yup.string().nullable().notRequired(), //done
 
-  built: Yup.boolean().required(), //done
+    website: Yup.string().url("Must be a valid URL").nullable().notRequired(), //done
 
-  architect: Yup.string().required("Architect is required"),
+    email: Yup.string().email("Must be a valid email").nullable().notRequired(), //done
 
-  isPremium: Yup.boolean().required(),
+    country: Yup.string().nullable().notRequired(), //done
 
-  category: Yup.string().required("Category is required"), //done
+    consultant: Yup.string().nullable().notRequired(), //done
 
-  subCategory: Yup.string().required("Sub category is required"), //done
+    client: Yup.string().nullable().notRequired(), //done
 
-  subCategoryClass: Yup.string().required("Sub category class is required"), //done
-});
+    size: Yup.number()
+      .positive("Size must be positive")
+      .nullable()
+      .notRequired(), //done
+
+    constructionYear: Yup.number()
+      .min(1800, "Year must be later than 1800")
+      .max(new Date().getFullYear(), "Year cannot be in the future")
+      .nullable()
+      .notRequired(), //done
+
+    built: Yup.boolean().required(), //done
+
+    architect: Yup.mixed().nullable(),
+
+    isPremium: Yup.boolean().required(), //done
+
+    category: Yup.string().required("Category is required"), //done
+
+    subCategory: Yup.string().required("Sub category is required"), //done
+
+    subCategoryClass: Yup.string().required("Sub category class is required"), //done
+  });

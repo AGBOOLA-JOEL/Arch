@@ -11,6 +11,10 @@ const DashUploadPremium = ({
 }) => {
   const [premium, setPremium] = useState<boolean>(false);
 
+  useEffect(() => {
+    setValue("isPremium", false);
+  }, [premium, setValue]);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const isPremium = e.target.value === "Premium";
     setValue("isPremium", isPremium);

@@ -42,8 +42,8 @@ export const useAuth = () => {
       return res.data;
     },
     onSuccess: async (data) => {
-      const { access_token, message } = data;
-      login(access_token);
+      const { accessToken, message } = data;
+      login(accessToken);
       openToast(message, 3000);
     },
     onError: (error: any) => {
