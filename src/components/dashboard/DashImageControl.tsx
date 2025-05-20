@@ -60,7 +60,7 @@ export default function DashImageControl({
           className="dash_uploadimgcontrol__selector"
           onClick={toggleSource}
         >
-          {isDevice ? "select from device" : "select from folder"}
+          {isDevice ? "select from folder" : "select from device"}
         </span>
       </div>
     </div>
