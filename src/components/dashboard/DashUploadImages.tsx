@@ -9,15 +9,18 @@ const DashUploadImages = ({
   setValue,
   isStrict,
   setIsStrict,
+  isDevice,
+  setIsDevice,
   resetField,
 }: {
   data: any;
   setValue: any;
   isStrict: boolean;
   setIsStrict: React.Dispatch<React.SetStateAction<boolean>>;
+  isDevice: boolean;
+  setIsDevice: React.Dispatch<React.SetStateAction<boolean>>;
   resetField: any;
 }) => {
-  const [isDevice, setIsDevice] = useState(false);
   const strictFields = [
     "coverImage",
     "threeDImages",

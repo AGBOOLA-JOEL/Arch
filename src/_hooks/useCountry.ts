@@ -18,7 +18,7 @@ export const useCountry = () => {
   });
 
   return {
-    country: data?.data || null,
+    country: data || null,
     isLoading,
     isError,
     refetchCountry: refetch,

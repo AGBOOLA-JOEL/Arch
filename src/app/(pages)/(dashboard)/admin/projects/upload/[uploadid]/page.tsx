@@ -15,13 +15,19 @@ import DashUploadDetails from "@/components/dashboard/DashUploadDetails";
 import ArchButton from "@/components/general/ArchButton";
 import { useGenselectors } from "@/_lib/store/general-store";
 import { DashUploadData } from "@/types/forms.type";
+import useModalStore from "@/_lib/store/modal-store";
+import { useUpload } from "@/_hooks/useUpload";
 
 const Page = () => {
   const params = useParams();
   const [isStrict, setIsStrict] = useState(false);
+  const [isDevice, setIsDevice] = useState(false);
+
   const uploadId = params?.uploadid;
   const { proid, status, isLoading } = useAdminProjectId(uploadId);
   const openToast = useGenselectors.use.openToast();
+  const { openModal, closeModal } = useModalStore();
+  const { uploadMutation } = useUpload(proid);
   const {
     register,
     handleSubmit,
@@ -31,22 +37,8 @@ const Page = () => {
     reset,
     resetField,
   } = useForm({
-    defaultValues: {
-      threeDImages: [],
-      sitePlan: [],
-      floorPlan: [],
-      elevations: [],
-      sections: [],
-      details: [],
-      otherImages: [],
-    },
     resolver: yupResolver(projectuploadschema(isStrict)),
   });
-  // const builtshow = watch("built");
-  // const cat = watch("category");
-  // const subcat = watch("subCategory");
-  // const subclass = watch("subCategoryClass");
-  // const premium = watch("isPremium");
 
   const onError = (errors: FieldErrors<DashUploadData>) => {
     for (const [fieldName, err] of Object.entries(errors)) {
@@ -57,7 +49,10 @@ const Page = () => {
     }
   };
   const onSubmit = (data: any) => {
-    // postMutation.mutate(data);
+    openModal("loading");
+
+    uploadMutation.mutate({ data, id: proid?.projectId, isDevice, isStrict });
+
     console.log(data);
   };
   return (
@@ -72,10 +67,7 @@ const Page = () => {
     >
       {!isLoading ? (
         <>
-          {/* {premium ? "premium" : "basic"} */}
-          {/* {builtshow ? "true" : "false"} */}
           <DashUploadEditables data={proid} setValue={setValue} watch={watch} />
-          {/* {cat}-{subcat}-{subclass} */}
 
           <DashUploadCategories setValue={setValue} />
           <DashUploadImages
@@ -83,15 +75,12 @@ const Page = () => {
             setValue={setValue}
             isStrict={isStrict}
             setIsStrict={setIsStrict}
+            isDevice={isDevice}
+            setIsDevice={setIsDevice}
             resetField={resetField}
           />
           <DashUploadDetails setValue={setValue} control={control} />
-          <ArchButton
-            name="Submit"
-            type={"submit"}
-            // onClick={handlePreviewClick}
-            variant="primary"
-          />
+          <ArchButton name="Submit" type={"submit"} variant="primary" />
         </>
       ) : (
         <div className="dash_uploadskeleton">

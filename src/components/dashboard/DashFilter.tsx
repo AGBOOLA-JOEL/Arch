@@ -162,15 +162,15 @@ const DashFilter: React.FC<FilterComponentProps> = ({
 
   return (
     <div className="dash_filter">
-      {options.map((option) => (
+      {options?.map((option) => (
         <p
           key={option.value}
           className={`dash_filtervalue ${
             activeFilter === option.value ? "all" : "unread"
           }`}
-          onClick={() => handleFilter(option.value)}
+          onClick={() => handleFilter(option?.value)}
         >
-          {option.label}
+          {option?.label}
         </p>
       ))}
     </div>

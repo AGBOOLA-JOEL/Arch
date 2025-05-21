@@ -19,7 +19,7 @@ function ArchQuill({ setValue, fieldname }: QuillProp) {
     editor: any
   ) => {
     setQuillState(value);
-    setValue(fieldname, editor.getContents());
+    setValue(fieldname, JSON.stringify(editor.getContents()));
   };
 
   const modules = {

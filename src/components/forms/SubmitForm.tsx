@@ -92,6 +92,14 @@ const SubmitForm = () => {
         )}
       />
 
+      <span
+        onClick={() => {
+          console.log("country", country);
+          console.log("year", year);
+        }}
+      >
+        console
+      </span>
       <Controller
         name="projectCategory"
         control={control}

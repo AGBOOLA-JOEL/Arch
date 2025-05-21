@@ -103,7 +103,7 @@ export const useAuth = () => {
     },
     onSuccess: () => {
       // const { description } = data;
-      router.push("/");
+      router.replace("/projects");
       closeModal();
       openToast("Project submitted ongoing review", 3000);
     },

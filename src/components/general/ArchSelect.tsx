@@ -28,8 +28,8 @@ const ArchSelect = ({ value, onChange, options, title }: ArchSelectProp) => {
         <FaAngleDown />
       </button>
       {open && (
-        <ul className={`arch_selectdrop ${options.length > 2 && "scroll"}`}>
-          {options.map((select) => {
+        <ul className={`arch_selectdrop ${options?.length > 2 && "scroll"}`}>
+          {options?.map((select) => {
             return (
               <li key={select} onClick={() => handleClick(select)}>
                 {select}

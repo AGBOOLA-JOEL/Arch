@@ -35,8 +35,8 @@ const FeedSelect = ({ value, setValue, options, title }: FeedSelectProp) => {
         )}
       </button>
       {open && (
-        <ul className={`feed_selectdrop ${options.length > 2 && "scroll"}`}>
-          {options.map((select) => {
+        <ul className={`feed_selectdrop ${options?.length > 2 && "scroll"}`}>
+          {options?.map((select) => {
             return (
               <li key={select} onClick={() => handleClick(select)}>
                 {select}

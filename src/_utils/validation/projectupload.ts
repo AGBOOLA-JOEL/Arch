@@ -4,38 +4,6 @@ export const projectuploadschema = (isStrict: boolean) =>
   Yup.object().shape({
     projectStory: Yup.mixed().required("Project story is required"),
 
-    // coverImage: Yup.mixed().required("Cover image is required"),
-
-    // threeDImages: Yup.array()
-    //   .of(Yup.mixed())
-    //   .min(4, "At least four 3D image is required")
-    //   .optional(),
-
-    // sitePlan: Yup.array()
-    //   .of(Yup.mixed())
-    //   .min(1, "At least one site plan is required")
-    //   .optional(),
-
-    // floorPlan: Yup.array()
-    //   .of(Yup.mixed())
-    //   .min(1, "At least one floor plan is required")
-    //   .optional(),
-
-    // elevations: Yup.array()
-    //   .of(Yup.mixed())
-    //   .min(2, "At least two elevations image is required")
-    //   .optional(),
-
-    // sections: Yup.array()
-    //   .of(Yup.mixed())
-    //   .min(1, "At least one section image is required")
-    //   .optional(),
-
-    // details: Yup.array().of(Yup.mixed()).optional(),
-
-    // otherImages: Yup.array().of(Yup.mixed()).optional(),
-    //strict mode
-
     coverImage: isStrict
       ? Yup.mixed().required("Cover image is required")
       : Yup.mixed().nullable(),
@@ -48,13 +16,9 @@ export const projectuploadschema = (isStrict: boolean) =>
         otherwise: (schema) => schema.nullable(),
       }),
 
-    sitePlan: Yup.array()
-      .of(Yup.mixed())
-      .when([], {
-        is: () => isStrict,
-        then: (schema) => schema.min(1, "At least one site plan is required"),
-        otherwise: (schema) => schema.nullable(),
-      }),
+    sitePlan: isStrict
+      ? Yup.mixed().required("Site plan is required")
+      : Yup.mixed().nullable(),
 
     floorPlan: Yup.array()
       .of(Yup.mixed())
@@ -80,7 +44,10 @@ export const projectuploadschema = (isStrict: boolean) =>
         otherwise: (schema) => schema.nullable(),
       }),
 
-    details: Yup.array().of(Yup.mixed()).nullable(),
+    details: isStrict
+      ? Yup.mixed().required("Details is required")
+      : Yup.mixed().nullable(),
+
     otherImages: Yup.array().of(Yup.mixed()).nullable(),
     //strict mode
 

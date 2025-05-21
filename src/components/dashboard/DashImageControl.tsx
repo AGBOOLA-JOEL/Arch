@@ -17,11 +17,21 @@ export default function DashImageControl({
     setIsStrict(!isStrict);
   };
 
+  // const toggleSource = () => {
+  //   if (isDevice === true) {
+  //     setIsStrict(false);
+  //   }
+  //   setIsDevice(!isDevice);
+  // };
   const toggleSource = () => {
-    if (isDevice === true) {
-      setIsStrict(false);
+    const newIsDevice = !isDevice;
+    setIsDevice(newIsDevice);
+
+    if (newIsDevice) {
+      setIsStrict(true); // Default to strict when selecting from device
+    } else {
+      setIsStrict(false); // Disable strict when switching to folder
     }
-    setIsDevice(!isDevice);
   };
 
   return (
