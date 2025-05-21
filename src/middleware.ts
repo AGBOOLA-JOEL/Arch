@@ -11,14 +11,14 @@ function decodeJWT(token: string): any {
 }
 
 export function middleware(req: NextRequest) {
-  const token = req.cookies.get("auth_token")?.value;
+  const token = req.cookies.get("role")?.value;
 
   if (!token) {
     return NextResponse.redirect(new URL("/login", req.url));
   }
 
-  const decoded = decodeJWT(token);
-  const role = decoded?.role;
+  // const decoded = decodeJWT(token);
+  const role = token;
 
   const pathname = req.nextUrl.pathname;
 
