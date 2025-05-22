@@ -1,6 +1,7 @@
 "use client";
 import { useFeed } from "@/_hooks/useFeed";
 import { useGenselectors } from "@/_lib/store/general-store";
+import useModalStore from "@/_lib/store/modal-store";
 import { postnewsschema } from "@/_utils/validation/forms";
 import FeedForm from "@/components/feed/FeedForm";
 import SubmitInput from "@/components/forms/SubmitInput";
@@ -14,6 +15,7 @@ import { FieldErrors, useForm } from "react-hook-form";
 const Page = () => {
   const [select, setSelect] = useState("News");
   const { postMutation } = useFeed();
+  const { openModal } = useModalStore();
   // const [post, setPost] = useState<PostNewsData>({} as PostNewsData);
 
   const openToast = useGenselectors.use.openToast();
@@ -32,6 +34,7 @@ const Page = () => {
     }
   };
   const onSubmit = (data: any) => {
+    openModal("loading");
     postMutation.mutate(data);
     console.log(data);
   };

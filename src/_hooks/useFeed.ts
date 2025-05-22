@@ -27,10 +27,16 @@ export const useFeed = () => {
       return res.data;
     },
     onSuccess: (res) => {
+      router.replace(`/news/${res?.data?.postId}`);
+      closeModal();
       openToast(res?.description, 3000);
     },
     onError: (err: any) => {
-      openToast(err?.response?.data?.message, 3000);
+      openToast(
+        err?.response?.data?.message ||
+          "Error occured while creating news, try again later",
+        3000
+      );
     },
   });
 

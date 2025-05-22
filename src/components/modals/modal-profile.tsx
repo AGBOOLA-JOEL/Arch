@@ -38,8 +38,18 @@ const ModalProfile = ({ isOpen, onClose }: ModalProp) => {
 
         <p className="modal_confirmtitle">You will lose unsaved changes?</p>
         <div className="modal_confirmbtn">
-          <ArchButton name="Yes" onClick={handleClick} variant="primary" />
-          <ArchButton name="Cancel" onClick={handleCancel} variant="cancel" />
+          <ArchButton
+            name="Yes"
+            onClick={handleClick}
+            variant="primary"
+            type="button"
+          />
+          <ArchButton
+            name="Cancel"
+            onClick={handleCancel}
+            variant="cancel"
+            type="button"
+          />
         </div>
       </div>
     </div>
