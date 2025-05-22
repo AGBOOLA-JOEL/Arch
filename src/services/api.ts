@@ -49,7 +49,7 @@ const processQueue = (error: any, token: string | null = null) => {
 
 api.interceptors.request.use((config) => {
   const accessToken = useAuthStore.getState().accessToken;
-  if (accessToken) {
+  if (accessToken && config.headers) {
     config.headers.Authorization = `Bearer ${accessToken}`;
   }
   return config;
@@ -82,82 +82,46 @@ api.interceptors.response.use(
       originalRequest._retry = true;
       isRefreshing = true;
 
-      // try {
-      //   // Extract refreshToken from cookie
-      //   const getCookie = (name: string) => {
-      //     const value = `; ${document.cookie}`;
-      //     const parts = value.split(`; ${name}=`);
-      //     if (parts.length === 2)
-      //       return parts.pop()?.split(";").shift() || null;
-      //     return null;
-      //   };
-
-      //   const refreshToken = getCookie("refreshToken");
-      //   if (!refreshToken) throw new Error("No refresh token found in cookies");
-
-      //   const response = await axios.post(`${baseURL}/auth/token/refresh`, {
-      //     refreshToken,
-      //   });
-
-      //   const { accessToken } = response.data;
-
-      //   useAuthStore.getState().setAccessToken(accessToken);
-
-      //   processQueue(null, accessToken);
-      //   isRefreshing = false;
-
-      //   originalRequest.headers.Authorization = `Bearer ${accessToken}`;
-      //   return axios(originalRequest);
-      // } catch (err) {
-      //   processQueue(err, null);
-      //   isRefreshing = false;
-      //   useAuthStore.getState().logout();
-      //   return Promise.reject(err);
-      // }
       try {
-        // Extract refreshToken from cookie
         const getCookie = (name: string) => {
           const value = `; ${document.cookie}`;
           const parts = value.split(`; ${name}=`);
-          if (parts.length === 2)
-            return parts.pop()?.split(";").shift() || null;
-          return null;
+          return parts.length === 2
+            ? parts.pop()?.split(";").shift() || null
+            : null;
         };
 
-        // const refreshToken = getCookie("refreshToken");
-        // if (!refreshToken) throw new Error("No refresh token found in cookies");
         const refreshToken = getCookie("refreshToken");
         if (!refreshToken) {
-          // No refresh token found, force logout and redirect to login page
           useAuthStore.getState().logout();
-          // window.location.href = "/login"; // redirect to login pages
-          return Promise.reject(new Error("No refresh token found in cookies"));
+          return Promise.reject(new Error("No refresh token"));
         }
 
-        // Call refresh token API
         const response = await axios.post(`${baseURL}/auth/token/refresh`, {
           refreshToken,
         });
 
         const { accessToken, refreshToken: newRefreshToken } = response.data;
 
-        // Update Zustand store with new access token
         useAuthStore.getState().setAccessToken(accessToken);
 
-        // Decode refresh token to set expiry cookie properly
         const decodedRef: any = jwtDecode(newRefreshToken);
         const refExpiresAt = decodedRef.exp * 1000;
 
-        // Update the refreshToken cookie with the new refresh token and expiry
         document.cookie = `refreshToken=${newRefreshToken}; Path=/; SameSite=Strict; Expires=${new Date(
           refExpiresAt
         ).toUTCString()}`;
 
-        // Process the queue of failed requests
+        const decoded: any = jwtDecode(accessToken);
+        document.cookie = `role=${
+          decoded.role
+        }; Path=/; SameSite=Strict; Expires=${new Date(
+          refExpiresAt
+        ).toUTCString()}`;
+
         processQueue(null, accessToken);
         isRefreshing = false;
 
-        // Retry the original request with new access token
         originalRequest.headers.Authorization = `Bearer ${accessToken}`;
         return axios(originalRequest);
       } catch (err) {

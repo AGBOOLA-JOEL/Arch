@@ -8,7 +8,6 @@ type UserPayload = {
   email: string;
   role: "USER" | "ADMIN";
   exp: number;
-  // add other fields if needed
 };
 
 type AuthState = {
@@ -17,48 +16,49 @@ type AuthState = {
   loggedIn: boolean;
   login: (accessToken: string, refreshToken: string) => void;
   logout: () => void;
-  setAccessToken: (token: string) => void; // For silent refresh
+  setAccessToken: (token: string) => void;
 };
 
 const useAuthStore = create<AuthState>((set) => ({
   accessToken: null,
   user: null,
   loggedIn: false,
+
   login: (accessToken, refreshToken) => {
     try {
       const decoded: UserPayload = jwtDecode(accessToken);
       const expiresAt = decoded.exp * 1000;
-      if (Date.now() > expiresAt) {
-        throw new Error("Auth Token expired");
-      }
+      if (Date.now() > expiresAt) throw new Error("Access token expired");
 
-      const decodedref: any = jwtDecode(refreshToken);
-      const refExpiresAt = decodedref.exp * 1000;
-      if (Date.now() > refExpiresAt) {
-        throw new Error("Refesh Token expired");
-      }
-
-      document.cookie = `role=${
-        decoded?.role
-      }; Path=/; SameSite=Strict; Expires=${new Date(expiresAt).toUTCString()}`;
+      const decodedRef: any = jwtDecode(refreshToken);
+      const refExpiresAt = decodedRef.exp * 1000;
+      if (Date.now() > refExpiresAt) throw new Error("Refresh token expired");
 
       document.cookie = `refreshToken=${refreshToken}; Path=/; SameSite=Strict; Expires=${new Date(
         refExpiresAt
       ).toUTCString()}`;
+      document.cookie = `role=${
+        decoded.role
+      }; Path=/; SameSite=Strict; Expires=${new Date(
+        refExpiresAt
+      ).toUTCString()}`;
 
-      set({ accessToken: accessToken, user: decoded, loggedIn: true });
+      set({ accessToken, user: decoded, loggedIn: true });
     } catch {
       set({ accessToken: null, user: null, loggedIn: false });
     }
   },
+
   logout: () => {
-    document.cookie = "role=; Max-Age=0; Path=/; SameSite=Strict";
     document.cookie = "refreshToken=; Max-Age=0; Path=/; SameSite=Strict";
+    document.cookie = "role=; Max-Age=0; Path=/; SameSite=Strict";
     set({ accessToken: null, user: null, loggedIn: false });
+
     if (window.location.pathname !== "/login") {
       window.location.href = "/login";
     }
   },
+
   setAccessToken: (token) => {
     try {
       const decoded: UserPayload = jwtDecode(token);
@@ -70,5 +70,4 @@ const useAuthStore = create<AuthState>((set) => ({
 }));
 
 export default useAuthStore;
-
 export const useAuthselectors = createSelectors(useAuthStore);

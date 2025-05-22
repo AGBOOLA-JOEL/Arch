@@ -1,37 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
 
-function decodeJWT(token: string): any {
-  try {
-    const payload = token.split(".")[1]; // Get the payload part
-    const decoded = JSON.parse(Buffer.from(payload, "base64url").toString());
-    return decoded;
-  } catch (e) {
-    return null;
-  }
-}
-
 export function middleware(req: NextRequest) {
-  const token = req.cookies.get("role")?.value;
+  const role = req.cookies.get("role")?.value;
 
-  if (!token) {
-    return NextResponse.redirect(new URL("/login", req.url));
-  }
-
-  // const decoded = decodeJWT(token);
-  const role = token;
-
-  const pathname = req.nextUrl.pathname;
+  const url = req.nextUrl.clone();
+  const path = url.pathname;
 
   if (!role) {
-    return NextResponse.redirect(new URL("/login", req.url));
+    url.pathname = "/login";
+    return NextResponse.redirect(url);
   }
 
-  if (pathname.startsWith("/admin") && role !== "ADMIN") {
-    return NextResponse.redirect(new URL("/not-found", req.url));
+  if (path.startsWith("/dashboard") && role !== "USER") {
+    url.pathname = "/not-found";
+    return NextResponse.redirect(url);
   }
-
-  if (pathname.startsWith("/dashboard") && role !== "USER") {
-    return NextResponse.redirect(new URL("/not-found", req.url));
+  // RBAC rules
+  if (path.startsWith("/admin") && role !== "ADMIN") {
+    url.pathname = "/not-found";
+    return NextResponse.redirect(url);
   }
 
   return NextResponse.next();
