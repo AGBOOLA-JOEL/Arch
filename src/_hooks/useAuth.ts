@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import useAuthStore from "@/_lib/store/auth-store";
+// import useAuthStore from "@/_lib/store/auth-store";
 import { useGenselectors } from "@/_lib/store/general-store";
 import useModalStore from "@/_lib/store/modal-store";
 import axios from "axios";
@@ -13,46 +13,46 @@ import { Router } from "next/router";
 import { useCart } from "./useCart";
 
 export const useAuth = () => {
-  const { login, logout } = useAuthStore();
+  // const { login, logout } = useAuthStore();
   const { openModal, closeModal } = useModalStore();
   const openToast = useGenselectors.use.openToast();
   const { user } = useUser();
   const router = useRouter();
   const { refetchCart } = useCart();
 
-  useEffect(() => {
-    const expiresAt = localStorage.getItem("expiresAt");
-    if (expiresAt && Date.now() > Number(expiresAt)) {
-      logout();
-    }
-  }, [logout]);
+  // useEffect(() => {
+  //   const expiresAt = localStorage.getItem("expiresAt");
+  //   if (expiresAt && Date.now() > Number(expiresAt)) {
+  //     logout();
+  //   }
+  // }, [logout]);
 
-  const loginMutation = useMutation({
-    mutationFn: async (data: LoginData) => {
-      openModal("loading");
+  // const loginMutation = useMutation({
+  //   mutationFn: async (data: LoginData) => {
+  //     openModal("loading");
 
-      const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_BACKEND_URL}/auth/login`,
-        data
-        // JSON.stringify(data)
-      );
+  //     const res = await axios.post(
+  //       `${process.env.NEXT_PUBLIC_API_BACKEND_URL}/auth/login`,
+  //       data
+  //       // JSON.stringify(data)
+  //     );
 
-      closeModal();
+  //     closeModal();
 
-      return res.data;
-    },
-    onSuccess: async (data) => {
-      const { accessToken, refreshToken } = data;
-      login(accessToken, refreshToken);
-      openToast("Login successful", 3000);
-    },
-    onError: (error: any) => {
-      const message = error?.response?.data?.message;
-      openToast(message, 3000);
-      closeModal();
-      logout();
-    },
-  });
+  //     return res.data;
+  //   },
+  //   onSuccess: async (data) => {
+  //     const { accessToken, refreshToken } = data;
+  //     login(accessToken, refreshToken);
+  //     openToast("Login successful", 3000);
+  //   },
+  //   onError: (error: any) => {
+  //     const message = error?.response?.data?.message;
+  //     openToast(message, 3000);
+  //     closeModal();
+  //     logout();
+  //   },
+  // });
   const registerMutation = useMutation({
     mutationFn: async (data: Omit<JoinData, "letter" | "terms">) => {
       openModal("loading");
@@ -115,7 +115,7 @@ export const useAuth = () => {
   });
 
   return {
-    loginMutation,
+    // loginMutation,
     newsletterMutation,
     registerMutation,
     submitMutation,

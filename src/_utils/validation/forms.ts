@@ -35,7 +35,7 @@ export const regschema = yup.object().shape({
 
 export const loginschema = yup.object().shape({
   username: yup.string().required("Username is required"),
-  password: yup.string().min(4).required(),
+  password: yup.string().required("Password is required"),
 });
 
 export const forgotschema = yup.object().shape({

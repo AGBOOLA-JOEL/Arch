@@ -1,4 +1,3 @@
-import { useAuthselectors } from "@/_lib/store/auth-store";
 import { HiOutlineX } from "react-icons/hi";
 import ArchButton from "../general/ArchButton";
 import { useState } from "react";
@@ -22,12 +21,6 @@ const ModalHelp = ({ isOpen, onClose }: ModalProp) => {
     resolver: yupResolver(contactmoreschema),
     mode: "onSubmit",
   });
-  const logout = useAuthselectors.use.logout();
-
-  const handleClick = () => {
-    logout();
-    onClose();
-  };
 
   const [showMore, setShowMore] = useState(false);
   const [more, setMore] = useState("");

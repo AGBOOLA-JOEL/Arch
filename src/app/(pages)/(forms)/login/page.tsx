@@ -8,12 +8,17 @@ import FormInput from "@/components/forms/FormInput";
 import { LoginData } from "@/types/forms.type";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FieldErrors } from "react-hook-form";
+import { signIn } from "next-auth/react";
+import useModalStore from "@/_lib/store/modal-store";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
+  const { openModal, closeModal } = useModalStore();
   const openToast = useGenselectors.use.openToast();
+  const router = useRouter();
   const { register, handleSubmit } = useForm<LoginData>({
     resolver: yupResolver(loginschema),
     mode: "onSubmit",
@@ -25,7 +30,7 @@ const Login = () => {
     setLogin({ ...login, [e.target.name]: e.target.value });
   };
 
-  const { loginMutation } = useAuth();
+  // const { loginMutation } = useAuth();
 
   const onError = (errors: FieldErrors<LoginData>) => {
     for (const [fieldName, err] of Object.entries(errors)) {
@@ -36,8 +41,28 @@ const Login = () => {
     }
   };
 
-  const onSubmit = (data: LoginData) => {
-    loginMutation.mutate(data);
+  const onSubmit = async (data: LoginData) => {
+    openModal("loading");
+
+    const { username, password } = data;
+
+    const result = await signIn("credentials", {
+      redirect: false,
+      username,
+      password,
+    });
+
+    if (result?.error) {
+      closeModal();
+      openToast(result.error, 4000);
+      return;
+    }
+
+    // Delay navigation to allow the modal to show briefly
+    setTimeout(() => {
+      router.replace("/");
+      closeModal();
+    }, 500); // adjust timing for UX
   };
   return (
     <form

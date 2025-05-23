@@ -3,7 +3,6 @@ import React from "react";
 import "react-quill-new/dist/quill.snow.css";
 import { useNews, useNewsById } from "@/_hooks/useNews";
 import { useUser } from "@/_hooks/useUser";
-import { useAuthselectors } from "@/_lib/store/auth-store";
 import FeedOthers from "@/components/feed/FeedOthers";
 import { useParams } from "next/navigation";
 import dynamic from "next/dynamic";
@@ -17,7 +16,6 @@ const Page = () => {
   const { news } = useNews();
   const { user } = useUser();
   const { openModal, closeModal } = useModalStore();
-  // const authenticated = useAuthselectors.use.loggedIn();
   const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
   const id = (params?.slug as string[])?.[0];
   const { newsid, isLoading, isError } = useNewsById(id);

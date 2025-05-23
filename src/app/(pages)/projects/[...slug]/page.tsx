@@ -9,18 +9,20 @@ import { useParams } from "next/navigation";
 import { useNews } from "@/_hooks/useNews";
 import { useProjectById } from "@/_hooks/useProject";
 import { useUser } from "@/_hooks/useUser";
-import { useAuthselectors } from "@/_lib/store/auth-store";
+
 // import ReactQuill from "react-quill-new";
 import dynamic from "next/dynamic";
 import SkeletonFeed from "@/components/skeleton/skeletonfeed";
 import Link from "next/link";
 import { formatDate, formatTime, fullFormatDate } from "@/_utils/formatdate";
+import { useSession } from "next-auth/react";
 
 const Propage = () => {
   const params = useParams();
   const { news } = useNews();
   const { user } = useUser();
-  const authenticated = useAuthselectors.use.loggedIn();
+  const { data: session, status } = useSession();
+
   const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
   const id = (params?.slug as string[])?.[0];
   const type = (params?.slug as string[])?.[1];
@@ -87,7 +89,7 @@ const Propage = () => {
         </div>
       ) : (
         <>
-          {!authenticated ? (
+          {status === "unauthenticated" ? (
             <div className="project_singlelogin">
               <p>
                 login or signup to view project full project details and unlock

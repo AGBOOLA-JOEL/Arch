@@ -1,17 +1,24 @@
-import { useAuthselectors } from "@/_lib/store/auth-store";
+// import { useAuthselectors } from "@/_lib/store/auth-store";
+import { signOut } from "next-auth/react";
 import { HiOutlineX } from "react-icons/hi";
 import ArchButton from "../general/ArchButton";
+import { useRouter } from "next/navigation";
+import useModalStore from "@/_lib/store/modal-store";
 
 interface ModalProp {
   isOpen: boolean;
   onClose: () => void;
 }
 const ModalLogout = ({ isOpen, onClose }: ModalProp) => {
-  const logout = useAuthselectors.use.logout();
+  const { openModal, closeModal } = useModalStore();
+  const router = useRouter();
   if (!isOpen) return null;
-  const handleClick = () => {
-    logout();
+  const handleClick = async () => {
     onClose();
+    openModal("loading");
+    await signOut();
+    await router.push("/login");
+    closeModal();
   };
   return (
     <div className="modal_bg">

@@ -6,12 +6,13 @@ import Link from "next/link";
 import NavInput from "./component/NavInput";
 import { useNavselectors } from "@/_lib/store/nav-store";
 import { usePathname } from "next/navigation";
-import { useAuthselectors } from "@/_lib/store/auth-store";
+
+import { useSession } from "next-auth/react";
 
 const NavSecondary = () => {
+  const { data: session, status } = useSession();
   const toggle = useNavselectors.use.toggle();
   const cartLength = useNavselectors.use.cartLength();
-  const authenticated = useAuthselectors.use.loggedIn();
 
   const pathname = usePathname();
   const linkColor = (name: string) => {
@@ -46,7 +47,7 @@ const NavSecondary = () => {
       <div className="nav_secinput">
         <NavInput />
       </div>
-      {authenticated && (
+      {status === "authenticated" && (
         <Link href="/dashboard/archive" className="nav_seccart">
           {cartLength && cartLength > 0 ? <span>{cartLength}</span> : ""}
 

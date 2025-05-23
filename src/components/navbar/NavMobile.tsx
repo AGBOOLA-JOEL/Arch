@@ -8,17 +8,20 @@ import { RxAvatar } from "react-icons/rx";
 import NavSearch from "./component/NavSearch";
 import NavMoblink from "./component/NavMoblink";
 import NavAccount from "./component/NavAccount";
-import { useAuthselectors } from "@/_lib/store/auth-store";
+ 
 import Link from "next/link";
 import { useState } from "react";
 import { useNavselectors } from "@/_lib/store/nav-store";
+import { useSession } from "next-auth/react";
 
 const NavMobile = () => {
-  const authenticated = useAuthselectors.use.loggedIn();
+ 
   const cartLength = useNavselectors.use.cartLength();
   const [account, setAccount] = useState(false);
   const [links, setLinks] = useState(false);
   const [search, setSearch] = useState(false);
+
+  const { data: session, status } = useSession();
   return (
     <nav className="nav_mobile">
       <div className="nav_mobham">
@@ -41,7 +44,7 @@ const NavMobile = () => {
       </div>
 
       <div className="nav_mobnavs">
-        {authenticated ? (
+        {status === "authenticated" ? (
           <div className="nav_mobtool">
             <button
               onClick={() => {
@@ -51,11 +54,17 @@ const NavMobile = () => {
             >
               <ImSearch />
             </button>
-            <Link href="/dashboard/archive">
-              {cartLength && <span className="nav_mobcart"> {cartLength}</span>}
 
-              <BsCart3 />
-            </Link>
+            {session?.user.role === "USER" && (
+              <Link href="/dashboard/archive">
+                {cartLength && (
+                  <span className="nav_mobcart"> {cartLength}</span>
+                )}
+
+                <BsCart3 />
+              </Link>
+            )}
+
             <button
               onClick={() => {
                 setLinks(false);
@@ -87,7 +96,7 @@ const NavMobile = () => {
 
       {account && (
         <div className="nav_mobaccount">
-          <NavAccount setAccount={setAccount} />
+          <NavAccount setAccount={setAccount} session={session} />
         </div>
       )}
     </nav>

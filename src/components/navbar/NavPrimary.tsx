@@ -4,24 +4,23 @@ import { navprimary } from "@/data/navbar";
 import Link from "next/link";
 import ArchLogo from "../general/ArchLogo";
 import { usePathname } from "next/navigation";
-import { useAuthselectors } from "@/_lib/store/auth-store";
 
 import useModalStore from "@/_lib/store/modal-store";
 import { useUser } from "@/_hooks/useUser";
-
+import { useSession } from "next-auth/react";
 const NavPrimary = ({}) => {
   const { user } = useUser();
   const pathname = usePathname();
-  const authenticated = useAuthselectors.use.loggedIn();
+  const { data: session, status } = useSession();
 
   const linkColor = (name: string) => {
     return pathname.split("/")[1] === name ? "linkcolor" : "";
   };
   const roleroute = () => {
-    if (user?.role === "USER") {
-      return "/dashboard";
-    } else if (user?.role === "ADMIN") {
+    if (session?.user.role === "ADMIN") {
       return "/admin";
+    } else if (session?.user.role === "USER") {
+      return "/dashboard";
     } else {
       return "/login";
     }
@@ -50,7 +49,7 @@ const NavPrimary = ({}) => {
       </ul>
       <div className="nav_primaryform">
         <div className="nav_primaryformbtn">
-          {authenticated ? (
+          {status === "authenticated" ? (
             <Link href={roleroute()} className="nav_primarydash">
               Dashboard
               {/* {user?.role} */}
@@ -61,7 +60,7 @@ const NavPrimary = ({}) => {
             </Link>
           )}
 
-          {authenticated ? (
+          {status === "authenticated" ? (
             <button
               className="nav_primaryout"
               onClick={() => {
