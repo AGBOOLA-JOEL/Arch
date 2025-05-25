@@ -165,3 +165,9 @@ export const contactmoreschema = yup.object().shape({
 });
 
 //add error pop up if requirement is not met
+
+export const upgradepaymentschema = yup.object().shape({
+  paymentReference: yup.string().nullable(),
+
+  paymentReceipt: yup.mixed().required("Payment receipt is required"),
+});

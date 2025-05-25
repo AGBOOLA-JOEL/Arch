@@ -206,3 +206,180 @@
     }
   }
 }
+
+& .info_paymentreceipt {
+  margin-top: 70px;
+  margin-bottom: 200px;
+  @include borderbox;
+  width: 100%;
+  padding: 2rem;
+  @include center(row);
+
+  /* Success State */
+  .info_paymentreceipt__success {
+    @include borderbox;
+    width: 50%;
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #f8fffe 0%, #f0fdf4 100%);
+    border-radius: 16px;
+    border: 1px solid #d1fae5;
+  }
+
+  .info_paymentreceipt__success-icon {
+    width: 80px;
+    height: 80px;
+    background: #10b981;
+    color: white;
+    border-radius: 50%;
+    @include center(row);
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+  }
+
+  .info_paymentreceipt__success-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #065f46;
+    margin: 0 0 1rem;
+  }
+
+  .info_paymentreceipt__success-text {
+    font-size: 1.4rem;
+    color: #047857;
+    margin: 0;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Form State */
+  .info_paymentreceipt__form-container {
+    width: 40%;
+    background: $white;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .info_paymentreceipt__header {
+    padding: 2rem 2rem 1.5rem;
+    background: linear-gradient(135deg, #fafafa 0%, #f9fafb 100%);
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .info_paymentreceipt__reference {
+    display: inline-block;
+    background: $secondary;
+    color: $white;
+    padding: 0.375rem 0.875rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .info_paymentreceipt__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $primary;
+    margin: 0 0 0.75rem;
+  }
+
+  .info_paymentreceipt__description {
+    font-size: 1rem;
+    color: $dark-one;
+    margin: 0;
+  }
+
+  .info_paymentreceipt__form {
+    padding: 2rem;
+  }
+
+  .info_paymentreceipt__upload-wrapper {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px dashed #d1d5db;
+    transition: border-color 0.2s ease;
+  }
+
+  .info_paymentreceipt__upload-wrapper:hover {
+    border-color: $secondary;
+  }
+
+  .info_paymentreceipt__submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, $secondary 0%, $primary 100%);
+    color: $white;
+    border: none;
+    padding: 1rem 1.7rem;
+    border-radius: 6px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  }
+
+  .info_paymentreceipt__submit-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+  }
+
+  .info_paymentreceipt__submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* Media Queries for Small Screens */
+  @include sm {
+    .info_paymentreceipt {
+      padding: 1rem;
+      max-width: 100%;
+    }
+
+    .info_paymentreceipt__success {
+      width: 100%;
+    }
+
+    .info_paymentreceipt__success-icon {
+      width: 60px;
+      height: 60px;
+      font-size: 2rem;
+    }
+
+    .info_paymentreceipt__success-title {
+      font-size: 1.5rem;
+    }
+
+    .info_paymentreceipt__form-container {
+      width: 100%;
+    }
+    .info_paymentreceipt__description {
+      text-align: justify;
+    }
+    .info_paymentreceipt__header {
+      padding: 1.5rem 1.5rem 1rem;
+    }
+
+    .info_paymentreceipt__title {
+      font-size: 1.25rem;
+    }
+
+    .info_paymentreceipt__form {
+      padding: 1.5rem;
+    }
+
+    .info_paymentreceipt__upload-wrapper {
+      height: 160px;
+      margin-bottom: 1.5rem;
+    }
+  }
+}

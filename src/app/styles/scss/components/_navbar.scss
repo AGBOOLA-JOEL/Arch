@@ -310,6 +310,7 @@
       background-color: $white;
       @include full-flex(center, space-between, row);
       height: 63px;
+      position: fixed;
     }
 
     & .nav_mobham {

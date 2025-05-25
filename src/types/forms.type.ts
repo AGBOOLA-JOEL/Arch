@@ -6,6 +6,7 @@ import {
   reportformschema,
   submitschema,
   updateuserschema,
+  upgradepaymentschema,
 } from "@/_utils/validation/forms";
 import { projectuploadschema } from "@/_utils/validation/projectupload";
 import { InferType } from "yup";
@@ -89,3 +90,5 @@ export type LoginData = {
 
 export type ForgotData = InferType<typeof forgotschema>;
 export type PasswordData = InferType<typeof passwordschema>;
+
+export type UpgradePaymentData = InferType<typeof upgradepaymentschema>;

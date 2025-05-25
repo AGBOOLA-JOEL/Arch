@@ -18,7 +18,7 @@ const CheckMail = () => {
       setName("password reset");
       setTimeout(() => {
         navigate.push("/");
-      }, 5000);
+      }, 10000);
     }
   }, [navigate, name, route]);
   return (

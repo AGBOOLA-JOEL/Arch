@@ -39,7 +39,7 @@ export const useForms = () => {
   const forgotMutation = useMutation({
     mutationFn: async (data: any) => {
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_BACKEND_URL}auth/request-password-reset`,
+        `${process.env.NEXT_PUBLIC_API_BACKEND_URL}/auth/request-password-reset`,
         data
       );
 
@@ -65,7 +65,7 @@ export const useForms = () => {
       userid: string;
     }) => {
       const res = await axios.post(
-        `${process.env.REACT_APP_CACHE_URL}/auth/reset-password/${token}/${userid}`,
+        `${process.env.NEXT_PUBLIC_API_BACKEND_URL}/auth/reset-password/${token}/${userid}`,
         data
       );
 
@@ -73,7 +73,7 @@ export const useForms = () => {
     },
     onSuccess: (data) => {
       openToast(data?.message, 3000);
-      router.push("/check-mail/forgot");
+      router.push("/login");
       closeModal();
     },
     onError: () => {

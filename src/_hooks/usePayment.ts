@@ -4,6 +4,7 @@ import { api } from "@/services/api";
 import { useGenselectors } from "@/_lib/store/general-store";
 import { useRouter } from "next/navigation";
 import useModalStore from "@/_lib/store/modal-store";
+import { UpgradePaymentData } from "@/types/forms.type";
 
 export const usePaymentStatus = () => {
   const getPayStatus = async () => {
@@ -11,7 +12,7 @@ export const usePaymentStatus = () => {
     return data;
   };
 
-  const { data, isLoading, isError, refetch } = useQuery({
+  const { data, isLoading, isError, refetch, isSuccess } = useQuery({
     queryKey: ["payment-status"], // Ensures the query runs only once
     queryFn: getPayStatus,
     staleTime: Infinity, // Prevents automatic background refetching
@@ -24,6 +25,7 @@ export const usePaymentStatus = () => {
     paystatus: data?.data?.payments || null,
     isLoading,
     isError,
+    isSuccess,
     refetchPayStatus: refetch,
   };
 };
@@ -51,7 +53,34 @@ export const usePaymentStatusId = (id: any) => {
     refetchPayStatusId: refetch,
   };
 };
+export const usePaymentReceipt = () => {
+  const openToast = useGenselectors.use.openToast();
+  const router = useRouter();
 
+  const confirmMutation = useMutation({
+    mutationFn: async (data: UpgradePaymentData) => {
+      const res = await api.post(`/payment/confirmation`, data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      return res.data;
+    },
+    onSuccess: (res) => {
+      // openToast(res?.data?.message, 3000);
+      setTimeout(() => {
+        router.push(`/dashboard/payment/${res?.paymentId}`);
+      }, 4000);
+    },
+    onError: (err: any) => {
+      openToast(err?.response?.data.message, 3000);
+    },
+  });
+
+  return {
+    confirmMutation,
+  };
+};
 export const useAdminPayment = () => {
   const getPayment = async () => {
     const { data } = await api.get(`/admin/payments`);

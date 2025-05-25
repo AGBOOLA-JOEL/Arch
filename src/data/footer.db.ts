@@ -15,7 +15,7 @@ export const footerTwo: FooterProp = [
   {
     id: uuid(),
     name: "Terms of use",
-    url: "/policy/terms-of-use",
+    url: "/policy/terms",
   },
   {
     id: uuid(),
@@ -38,17 +38,17 @@ export const footerThree: FooterProp = [
   {
     id: uuid(),
     name: "Showroom",
-    url: "/",
+    url: "/showroom",
   },
   {
     id: uuid(),
     name: "Architectural videos",
-    url: "/",
+    url: "/archmedia",
   },
   {
     id: uuid(),
     name: "IT placements",
-    url: "/all/placement",
+    url: "/placement",
   },
   {
     id: uuid(),
@@ -58,12 +58,12 @@ export const footerThree: FooterProp = [
   {
     id: uuid(),
     name: "Submit a project",
-    url: "form/submit",
+    url: "/submit",
   },
   {
     id: uuid(),
     name: "Admin area",
-    url: "/admin/adminDashboard",
+    url: "/admin",
   },
 ];
 
@@ -71,26 +71,26 @@ export const footerFour: FooterProp = [
   {
     id: uuid(),
     name: "Projects",
-    url: "/all/project",
+    url: "/projects",
   },
   {
     id: uuid(),
     name: "News",
-    url: "/all/news",
+    url: "/news",
   },
   {
     id: uuid(),
     name: "Portfolios",
-    url: "/all/portfolio",
+    url: "/portfolio",
   },
   {
     id: uuid(),
     name: "Competitions",
-    url: "/all/competition",
+    url: "/competition",
   },
   {
     id: uuid(),
     name: "Scholarships",
-    url: "/all/scholarships",
+    url: "/scholarship",
   },
 ];
