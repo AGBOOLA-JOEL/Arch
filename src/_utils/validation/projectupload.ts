@@ -1,3 +1,4 @@
+import { DashUploadData } from "@/types/forms.type";
 import * as Yup from "yup";
 
 export const projectuploadschema = (isStrict: boolean) =>
@@ -65,16 +66,18 @@ export const projectuploadschema = (isStrict: boolean) =>
 
     client: Yup.string().nullable().notRequired(), //done
 
-    size: Yup.number()
-      .positive("Size must be positive")
-      .nullable()
-      .notRequired(), //done
+    size: Yup.string().nullable().notRequired(), //done
+    // size: Yup.number()
+    //   .positive("Size must be positive")
+    //   .nullable()
+    //   .notRequired(), //done
 
-    constructionYear: Yup.number()
-      .min(1800, "Year must be later than 1800")
-      .max(new Date().getFullYear(), "Year cannot be in the future")
-      .nullable()
-      .notRequired(), //done
+    constructionYear: Yup.string().nullable().notRequired(),
+    // constructionYear: Yup.number()
+    //   .min(1800, "Year must be later than 1800")
+    //   .max(new Date().getFullYear(), "Year cannot be in the future")
+    //   .nullable()
+    //   .notRequired(), //done
 
     built: Yup.boolean().required(), //done
 

@@ -45,3 +45,164 @@
     }
   }
 }
+
+& .info_verifyemail {
+  min-height: 100vh;
+  @include center(row);
+  @include borderbox;
+  padding: 2rem;
+
+  .info_verifyemail__container {
+    @include borderbox;
+    background: $white;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .info_verifyemail__content {
+    margin-bottom: 2rem;
+  }
+
+  .info_verifyemail__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $primary;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.2;
+  }
+
+  .info_verifyemail__status {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin: 0 0 2rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .info_verifyemail__status--success {
+    background-color: #f0fff4;
+    color: #22543d;
+    border: 1px solid #9ae6b4;
+  }
+
+  .info_verifyemail__status--error {
+    background-color: #fff5f5;
+    color: #742a2a;
+    border: 1px solid #feb2b2;
+  }
+
+  .info_verifyemail__status--pending {
+    background-color: #fffbeb;
+    color: #744210;
+    border: 1px solid #f6e05e;
+  }
+
+  .info_verifyemail__image-wrapper {
+    margin: 2rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .info_verifyemail__image {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 300px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .info_verifyemail__button {
+    background: linear-gradient(135deg, $secondary 0%, $primary 100%);
+    color: $white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .info_verifyemail__button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+  }
+
+  .info_verifyemail__button:active {
+    transform: translateY(0);
+  }
+
+  .info_verifyemail__button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  .info_verifyemail__button:hover::before {
+    left: 100%;
+  }
+
+  /* Mobile Responsive Styles */
+  @include sm {
+    .info_verifyemail {
+      padding: 1rem;
+      min-height: 100vh;
+    }
+
+    .info_verifyemail__container {
+      padding: 2rem 1.5rem;
+      margin: 0;
+      border-radius: 12px;
+      max-width: 100%;
+    }
+
+    .info_verifyemail__title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .info_verifyemail__status {
+      font-size: 1rem;
+      padding: 0.875rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info_verifyemail__content {
+      margin-bottom: 1.5rem;
+    }
+
+    .info_verifyemail__image-wrapper {
+      margin: 1.5rem 0;
+    }
+
+    .info_verifyemail__image {
+      max-height: 200px;
+    }
+
+    .info_verifyemail__button {
+      padding: 0.875rem 1.5rem;
+      font-size: 0.9rem;
+    }
+  }
+}

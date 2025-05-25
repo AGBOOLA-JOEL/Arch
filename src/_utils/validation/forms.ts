@@ -39,15 +39,28 @@ export const loginschema = yup.object().shape({
 });
 
 export const forgotschema = yup.object().shape({
-  email: yup.string().email().required(),
+  email: yup.string().email().required("enter an email to proceed"),
 });
 
 export const passwordschema = yup.object().shape({
-  password: yup.string().min(4).max(10).required(),
+  password: yup
+    .string()
+    .min(8, "password must be at least 8 characters long")
+    .matches(/[A-Z]/, "password must contain at least one uppercase letter")
+    .matches(
+      /[!@#$%^&*(),.?":{}|<>]/,
+      "password must contain at least one special character"
+    )
+    .matches(/\d/, "password must contain at least one number")
+    .required("password is required"),
+
   confirmPassword: yup
     .string()
-    .oneOf([yup.ref("password")], "Password don't match")
-    .required(),
+    .test("password-match", "your passwords do not match", function (value) {
+      const { password } = this.parent; // Get parent values
+      return password && value === password;
+    })
+    .required("confirm your password"),
 });
 export const submitschema = yup.object().shape({
   projectName: yup.string().required("project name is a required field"), //set

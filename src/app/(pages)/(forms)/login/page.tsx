@@ -14,6 +14,7 @@ import { FieldErrors } from "react-hook-form";
 import { signIn } from "next-auth/react";
 import useModalStore from "@/_lib/store/modal-store";
 import { useRouter } from "next/navigation";
+import { useCart } from "@/_hooks/useCart";
 
 const Login = () => {
   const { openModal, closeModal } = useModalStore();
@@ -25,7 +26,7 @@ const Login = () => {
   });
 
   const [login, setLogin] = useState<LoginData>({} as LoginData);
-
+  const { refetchCart } = useCart();
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLogin({ ...login, [e.target.name]: e.target.value });
   };
@@ -62,6 +63,7 @@ const Login = () => {
     setTimeout(() => {
       router.replace("/");
       closeModal();
+      refetchCart();
     }, 500); // adjust timing for UX
   };
   return (
@@ -90,7 +92,7 @@ const Login = () => {
         ))}
       </div>
       <div className="login_forgot">
-        <p>forgot password?</p>
+        <Link href="/forgot">forgot password?</Link>
       </div>
 
       <div className="login_button">

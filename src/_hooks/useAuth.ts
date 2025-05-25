@@ -67,7 +67,8 @@ export const useAuth = () => {
       const { description } = data;
       closeModal();
       openToast(description, 3000);
-      await refetchCart();
+      router.push("/check-mail/register");
+
       // navigate to checkmail page
       //then redirect to sign in page after
     },

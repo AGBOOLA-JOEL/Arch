@@ -1,5 +1,7 @@
 import {
   contactmoreschema,
+  forgotschema,
+  passwordschema,
   postnewsschema,
   reportformschema,
   submitschema,
@@ -85,10 +87,5 @@ export type LoginData = {
   password: string;
 };
 
-export type ForgotData = {
-  email: string;
-};
-export type PasswordData = {
-  password: string;
-  confirmPassword: string;
-};
+export type ForgotData = InferType<typeof forgotschema>;
+export type PasswordData = InferType<typeof passwordschema>;

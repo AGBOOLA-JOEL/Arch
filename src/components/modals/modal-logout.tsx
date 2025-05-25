@@ -17,7 +17,7 @@ const ModalLogout = ({ isOpen, onClose }: ModalProp) => {
     onClose();
     openModal("loading");
     await signOut();
-    await router.push("/login");
+    router.push("/login");
     closeModal();
   };
   return (

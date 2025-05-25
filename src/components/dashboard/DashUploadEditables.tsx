@@ -86,7 +86,7 @@ const DashUploadEditables = ({
               name="size"
               placeholder={uploadData?.size}
               setValue={setValue}
-              type="number"
+              type="text"
             />
             {/* <div className="dash_uploadedit">
               <p>
@@ -102,7 +102,7 @@ const DashUploadEditables = ({
                 name="constructionYear"
                 placeholder={data.constructionYear}
                 setValue={setValue}
-                type="number"
+                type="text"
               />
             )}
           </div>

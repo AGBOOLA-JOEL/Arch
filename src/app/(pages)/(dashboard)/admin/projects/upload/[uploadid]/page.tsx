@@ -2,7 +2,10 @@
 
 import { useForm, FieldErrors } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { projectuploadschema } from "@/_utils/validation/projectupload";
+import {
+  projectuploadschema,
+  // uploadDefaultValues,
+} from "@/_utils/validation/projectupload";
 import { useAdminProjectId } from "@/_hooks/useProjectStatus";
 import DashUploadEditables from "@/components/dashboard/DashUploadEditables";
 import { useParams } from "next/navigation";
@@ -36,8 +39,9 @@ const Page = () => {
     watch,
     reset,
     resetField,
-  } = useForm({
+  } = useForm<DashUploadData>({
     resolver: yupResolver(projectuploadschema(isStrict)),
+    // defaultValues: uploadDefaultValues,
   });
 
   const onError = (errors: FieldErrors<DashUploadData>) => {

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 type RuleProp = {
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -27,23 +28,24 @@ const RegisterRule = ({ handleInputChange, register }: RuleProp) => {
 
         <p>
           I agree to the{" "}
-          <span
-          // onClick={() => {
-          //   navigator("/policy/terms-of-use");
-          // }}
+          <Link
+            href="/policy/terms"
+            // onClick={() => {
+            //   navigator("/policy/terms-of-use");
+            // }}
           >
-            {" "}
             Terms of use
-          </span>{" "}
+          </Link>{" "}
           and
-          <span
-          // onClick={() => {
-          //   navigator("/policy/privacy");
-          // }}
+          <Link
+            href="/policy/privacy"
+            // onClick={() => {
+            //   navigator("/policy/privacy");
+            // }}
           >
             {" "}
             Privacy policy
-          </span>
+          </Link>
         </p>
       </div>
     </div>

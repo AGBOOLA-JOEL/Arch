@@ -391,7 +391,8 @@
           }
         }
 
-        & span {
+        & a {
+          @include clear-btn;
           color: $secondary;
         }
       }
@@ -415,7 +416,8 @@
     @include sm {
       font-size: 1.7rem;
     }
-    & span {
+    & a {
+      @include clear-btn;
       color: $secondary;
       margin-left: 5px;
       cursor: pointer;
@@ -445,7 +447,8 @@
   & .login_forgot {
     @include center(row);
 
-    p {
+    a {
+      @include clear-btn;
       margin-top: 10px;
       width: 87%;
       font-size: 1.9rem;

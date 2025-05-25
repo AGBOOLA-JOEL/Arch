@@ -10,6 +10,7 @@ import RegisterRule from "@/components/forms/RegisterRule";
 import FormButton from "@/components/forms/FormButton";
 import { useGenselectors } from "@/_lib/store/general-store";
 import { useAuth } from "@/_hooks/useAuth";
+import Link from "next/link";
 
 const Register = () => {
   const { registerMutation, newsletterMutation } = useAuth();
@@ -99,7 +100,7 @@ const Register = () => {
 
       <h2 className="reg_signin">
         Already have an account?
-        <span>Sign in</span>
+        <Link href="/login">Sign in</Link>
       </h2>
     </form>
   );
