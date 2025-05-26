@@ -6,32 +6,49 @@ import ArchPagination from "@/components/general/ArchPagination";
 import React, { useState } from "react";
 import FeedNewsSearch from "../feed/FeedNewsSearch";
 import FeedPagination from "../feed/FeedPagination";
+import ArchSpinner from "../general/ArchSpinner";
+import ArchLoadmore from "../general/ArchLoadmore";
 
 const NewsPage = ({ initialNews }: { initialNews: any[] }) => {
-  const [currentItems, setCurrentItems] = useState<any[]>([]);
   const [news, setNews] = useState(initialNews);
   const [isLoading, setIsLoading] = useState(false);
-  //   const data = ["1"];
+  const [page, setPage] = useState(1);
 
+  const handleLoadMore = () => {
+    setPage((prev) => prev + 1);
+  };
   return (
     <div className="feed_display">
       <div className="feed_displayheader">
-        <FeedNewsSearch />
+        <FeedNewsSearch
+          data={news}
+          setData={setNews}
+          setIsLoading={setIsLoading}
+          page={page}
+        />
       </div>
 
       {news.map((data) => {
         return <FeedMap data={data} key={data?.postId} />;
       })}
+
+      {isLoading && (
+        <div>
+          <ArchSpinner />
+        </div>
+      )}
+
+      <ArchLoadmore onLoadMore={handleLoadMore} isLoading={isLoading} />
       {/* <FeedMap /> */}
 
-      <div className="feed_displayPagination">
-        {/* fix later */}
+      {/* <div className="feed_displayPagination">
+ 
         <FeedPagination
           data={news}
           type={"Columns"}
           setCurrentItems={setCurrentItems}
         />
-      </div>
+      </div> */}
     </div>
   );
 };

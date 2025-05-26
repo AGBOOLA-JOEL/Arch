@@ -10,9 +10,11 @@ import { formatTime, fullFormatDate } from "@/_utils/formatdate";
 import Image from "next/image";
 import useModalStore from "@/_lib/store/modal-store";
 import SkeletonFeed from "@/components/skeleton/skeletonfeed";
+import { useSession } from "next-auth/react";
 
 const Page = () => {
   const params = useParams();
+  const { data: session, status } = useSession();
   const { news } = useNews();
   const { user } = useUser();
   const { openModal, closeModal } = useModalStore();
@@ -33,6 +35,7 @@ const Page = () => {
     }
   }, [newsid?.body]);
 
+  const otherNews = news?.slice(0, 3);
   return (
     <>
       {!isLoading ? (
@@ -70,18 +73,21 @@ const Page = () => {
 
             <div className="feed_singleauthor">
               {/* <p>By {newsid?.user?.username}</p> */}
-              <button
-                className="feed_singlereport"
-                onClick={() => {
-                  openModal("report");
-                }}
-              >
-                Report
-              </button>
+
+              {status === "authenticated" && (
+                <button
+                  className="feed_singlereport"
+                  onClick={() => {
+                    openModal("report");
+                  }}
+                >
+                  Report
+                </button>
+              )}
             </div>
           </div>
           <div className="feed_singleothers">
-            <FeedOthers name={name} data={news} />
+            <FeedOthers name={name} data={otherNews} />
           </div>
         </div>
       ) : (

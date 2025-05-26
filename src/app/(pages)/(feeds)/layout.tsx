@@ -1,7 +1,6 @@
 "use client";
-import SideBar from "@/components/sidebar/SideBar";
+import FeedSidebar from "@/components/feed/FeedSidebar";
 import { usePathname } from "next/navigation";
-import NewsFeedSide from "./news/components/NewsFeedSide";
 
 export default function RootLayout({
   children,
@@ -16,8 +15,7 @@ export default function RootLayout({
       <div className="feeds_content">
         <div className="feeds_child">{children}</div>
         <div className="feeds_sidebar">
-          {/* <SideBar /> */}
-          <NewsFeedSide />
+          <FeedSidebar />
         </div>
       </div>
     </div>

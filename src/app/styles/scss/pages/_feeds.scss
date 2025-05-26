@@ -72,6 +72,7 @@
       // align-items: center;
     }
     & .feed_mapimg {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
       background-color: $primary;
       width: 48%;
       height: 100%;
@@ -285,6 +286,22 @@
     gap: 25px;
     width: 100%;
     @include flex(row);
+
+    & .feed_newssearch {
+      gap: 25px;
+      width: 100%;
+      @include flex(row);
+      @include sm {
+        @include center(row);
+        & .feed_select {
+          display: none !important;
+        }
+
+        & .feed_search {
+          width: 100% !important;
+        }
+      }
+    }
   }
 }
 
@@ -443,6 +460,7 @@
   & .feed_othersimage {
     height: 295px;
     width: 100%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     background-color: $primary;
     margin-bottom: 0px;
     & img {
