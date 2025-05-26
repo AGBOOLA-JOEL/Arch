@@ -22,6 +22,7 @@ const RegisterInput = ({
         // value={value}
         name={name}
         onChange={onChange}
+        autoComplete="off"
       />
       <label htmlFor="">{label}</label>
       {isPassword && (

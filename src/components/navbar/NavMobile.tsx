@@ -8,14 +8,13 @@ import { RxAvatar } from "react-icons/rx";
 import NavSearch from "./component/NavSearch";
 import NavMoblink from "./component/NavMoblink";
 import NavAccount from "./component/NavAccount";
- 
+
 import Link from "next/link";
 import { useState } from "react";
 import { useNavselectors } from "@/_lib/store/nav-store";
 import { useSession } from "next-auth/react";
 
 const NavMobile = () => {
- 
   const cartLength = useNavselectors.use.cartLength();
   const [account, setAccount] = useState(false);
   const [links, setLinks] = useState(false);
@@ -57,10 +56,14 @@ const NavMobile = () => {
 
             {session?.user.role === "USER" && (
               <Link href="/dashboard/archive">
-                {cartLength && (
+                {/* {cartLength && (
                   <span className="nav_mobcart"> {cartLength}</span>
+                )} */}
+                {cartLength && cartLength > 0 ? (
+                  <span className="nav_mobcart">{cartLength}</span>
+                ) : (
+                  ""
                 )}
-
                 <BsCart3 />
               </Link>
             )}

@@ -7,7 +7,7 @@ import { useParams } from "next/navigation";
 
 const Page = () => {
   const params = useParams();
-  const id = (params?.slug as string[])?.[0];
+  const id = (params?.slug as string[])?.[1];
 
   const { msgid, isLoading } = useMsgById(id);
 

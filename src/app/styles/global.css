@@ -2068,6 +2068,192 @@ a {
 .app .arch_upgrade .pay_comicbtn button:disabled {
   background-color: var(--secondary);
 }
+.app .arch_upgrade .mobile_plans_container {
+  display: none;
+}
+@media (max-width: 1012px) {
+  .app .arch_upgrade .pay_table {
+    margin-top: 30px;
+    margin-bottom: 100px;
+    padding: 0 15px;
+  }
+  .app .arch_upgrade .pay_tabledesc h1 {
+    font-size: 2.4rem;
+    text-align: center;
+    margin-bottom: 15px;
+    line-height: 1.2;
+  }
+  .app .arch_upgrade .pay_tabledesc p {
+    font-size: 1.4rem;
+    padding: 0 10px;
+    margin-bottom: 30px;
+  }
+  .app .arch_upgrade .pay_tablecontainer {
+    display: none;
+  }
+  .app .arch_upgrade .mobile_plans_container {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  .app .arch_upgrade .mobile_plan_card {
+    background: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+  .app .arch_upgrade .mobile_plan_card.featured {
+    border-color: var(--primary);
+    transform: scale(1.02);
+  }
+  .app .arch_upgrade .mobile_plan_header {
+    background: var(--primary);
+    color: var(--white);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+  }
+  .app .arch_upgrade .mobile_plan_header.gold {
+    background: linear-gradient(135deg, #ffd700, #ffa500);
+  }
+  .app .arch_upgrade .mobile_plan_header.platinum {
+    background: linear-gradient(135deg, #c0c0c0, #808080);
+  }
+  .app .arch_upgrade .mobile_plan_header .plan_badge {
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    background: var(--secondary);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .app .arch_upgrade .mobile_plan_title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .app .arch_upgrade .mobile_plan_price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+  }
+  .app .arch_upgrade .mobile_plan_duration {
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+  .app .arch_upgrade .mobile_plan_features {
+    padding: 25px 20px;
+  }
+  .app .arch_upgrade .mobile_feature_item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .app .arch_upgrade .mobile_feature_item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .app .arch_upgrade .feature_icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .app .arch_upgrade .feature_content {
+    flex: 1;
+  }
+  .app .arch_upgrade .feature_label {
+    font-size: 1rem;
+    color: var(--dark);
+    font-weight: 600;
+    margin-bottom: 3px;
+    line-height: 1.3;
+  }
+  .app .arch_upgrade .feature_value {
+    font-size: 1.1rem;
+    color: var(--primary);
+    font-weight: 700;
+  }
+  .app .arch_upgrade .feature_value.check {
+    color: #22c55e;
+    font-size: 1.3rem;
+  }
+  .app .arch_upgrade .feature_value.unavailable {
+    color: #ef4444;
+  }
+  .app .arch_upgrade .mobile_plan_action {
+    padding: 20px;
+    background: #f8f9fa;
+  }
+  .app .arch_upgrade .mobile_plan_button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--primary);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .app .arch_upgrade .mobile_plan_button:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+  .app .arch_upgrade .mobile_plan_button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  .app .arch_upgrade .mobile_plan_button.gold {
+    background: linear-gradient(135deg, #ffd700, #ffa500);
+  }
+  .app .arch_upgrade .mobile_plan_button.gold:hover {
+    background: linear-gradient(135deg, #ffa500, #ff8c00);
+  }
+  .app .arch_upgrade .mobile_plan_button.platinum {
+    background: linear-gradient(135deg, #c0c0c0, #808080);
+  }
+  .app .arch_upgrade .mobile_plan_button.platinum:hover {
+    background: linear-gradient(135deg, #808080, #696969);
+  }
+  .app .arch_upgrade .mobile_popular_badge {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .app .arch_upgrade .pay_tablespinner {
+    padding: 40px 20px;
+    gap: 25px;
+  }
+  .app .arch_upgrade .pay_tablespinner p {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+}
 .app .sidebar {
   width: 100%;
   border: 1px solid var(--graytwo);
@@ -7291,6 +7477,7 @@ a {
 @media (max-width: 1012px) {
   .app .dash_view .dash_viewhead {
     width: 100%;
+    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;

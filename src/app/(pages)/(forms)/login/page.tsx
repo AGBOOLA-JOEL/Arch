@@ -20,9 +20,13 @@ const Login = () => {
   const { openModal, closeModal } = useModalStore();
   const openToast = useGenselectors.use.openToast();
   const router = useRouter();
-  const { register, handleSubmit } = useForm<LoginData>({
+  const { register, handleSubmit, reset } = useForm<LoginData>({
     resolver: yupResolver(loginschema),
     mode: "onSubmit",
+    defaultValues: {
+      username: "",
+      password: "",
+    },
   });
 
   const [login, setLogin] = useState<LoginData>({} as LoginData);
@@ -64,10 +68,12 @@ const Login = () => {
       router.replace("/");
       closeModal();
       refetchCart();
+      reset();
     }, 500); // adjust timing for UX
   };
   return (
     <form
+      autoComplete="off"
       action=""
       className="login"
       onSubmit={handleSubmit(onSubmit, onError)}

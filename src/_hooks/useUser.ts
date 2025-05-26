@@ -14,7 +14,7 @@ export const useUser = () => {
   const { data, isLoading, isError, refetch, isFetching } = useQuery({
     queryKey: ["user"], // Ensures the query runs only once
     queryFn: getUser,
-    staleTime: Infinity, // Prevents automatic background refetching
+    staleTime: 0, // Prevents automatic background refetching
     enabled: true, // Ensures it runs only once on mount
     refetchOnWindowFocus: false, // Prevents refetching when tab is focused
     refetchOnReconnect: false, // Prevents refetching when internet reconnects
@@ -29,7 +29,7 @@ export const useUser = () => {
   };
 };
 
-export const useUpdateProfile = () => {
+export const useUpdateProfile = (refetchUser: () => void) => {
   const openToast = useGenselectors.use.openToast();
 
   const updateUserMutation = useMutation({
@@ -38,6 +38,7 @@ export const useUpdateProfile = () => {
       return res.data;
     },
     onSuccess: () => {
+      refetchUser();
       openToast("Your profile has been updated successfully", 3000);
     },
     onError: () => {

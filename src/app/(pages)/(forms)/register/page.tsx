@@ -16,7 +16,7 @@ const Register = () => {
   const { registerMutation, newsletterMutation } = useAuth();
   const [join, setJoin] = useState<JoinData>({} as JoinData);
   const openToast = useGenselectors.use.openToast();
-  const { register, handleSubmit } = useForm<JoinData>({
+  const { register, handleSubmit, reset } = useForm<JoinData>({
     resolver: yupResolver(regschema),
     mode: "onSubmit",
   });
@@ -42,6 +42,7 @@ const Register = () => {
   const onSubmit = (data: JoinData) => {
     const { terms, letter, ...apiData } = data;
     registerMutation.mutate(apiData);
+    registerMutation.isSuccess && reset();
     letter &&
       newsletterMutation.mutate({
         email: apiData.email,
@@ -50,6 +51,7 @@ const Register = () => {
   };
   return (
     <form
+      autoComplete="off"
       action=""
       className="register"
       onSubmit={handleSubmit(onSubmit, onError)}

@@ -14,11 +14,13 @@ const FormInput = ({
   return (
     <div className="form_input">
       <input
+        defaultValue={""}
         type={isPassword ? (toggle ? "text" : "password") : "text"}
         placeholder={label}
         {...register(name)}
         name={name}
         onChange={onChange}
+        autoComplete="off"
       />
 
       {isPassword && (

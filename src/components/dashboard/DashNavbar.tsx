@@ -17,7 +17,9 @@ const DashNavbar = ({ data }: DashNavProp) => {
   };
 
   const isMessage =
-    pathname.split("/")[3] === "message" || pathname.split("/")[3] === "upload";
+    pathname.split("/")[3] === "message" ||
+    pathname.split("/")[3] === "upload" ||
+    pathname.split("/")[3] === "view";
   return (
     <nav className="dash_navbar">
       {!isMessage && (

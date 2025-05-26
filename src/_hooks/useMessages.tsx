@@ -12,7 +12,7 @@ export const useMessages = () => {
   const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ["messages"], // Ensures the query runs only once
     queryFn: getMessages,
-    staleTime: Infinity, // Prevents automatic background refetching
+    staleTime: 0, // Prevents automatic background refetching
     enabled: true, // Ensures it runs only once on mount
     refetchOnWindowFocus: false, // Prevents refetching when tab is focused
     refetchOnReconnect: false, // Prevents refetching when internet reconnects
@@ -49,7 +49,7 @@ export const useMsgById = (id: string) => {
   };
 };
 
-export const useReadMessage = () => {
+export const useReadMessage = (refetchMsg: () => void) => {
   const openToast = useGenselectors.use.openToast();
   const readmsgMutation = useMutation({
     mutationFn: async (id) => {
@@ -57,6 +57,7 @@ export const useReadMessage = () => {
       return res.data;
     },
     onSuccess: () => {
+      refetchMsg();
       // openToast("Your message has been read", 3000);
     },
     onError: (err: any) => {

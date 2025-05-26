@@ -58,6 +58,7 @@ export const dashdata: DashSideProp = [
   },
   {
     name: "Payment history",
+    linkcolor: "payment",
     route: "/dashboard/payment/approved",
     logo: FaHistory,
     notif: true,

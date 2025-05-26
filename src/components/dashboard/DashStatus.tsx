@@ -32,6 +32,7 @@ type DashStatusProp = {
   msgtype?: "all" | "unread";
   statustype?: "Approved" | "Rejected" | "Pending";
   data: any;
+  refetch?: any;
 };
 
 const DashStatus = ({
@@ -40,8 +41,10 @@ const DashStatus = ({
   data,
   msgtype,
   statustype,
+  refetch,
 }: DashStatusProp) => {
-  const { readmsgMutation } = useReadMessage();
+  const { readmsgMutation } = useReadMessage(refetch);
+
   const mapdata = data;
 
   const router = useRouter();
@@ -49,7 +52,9 @@ const DashStatus = ({
   const pathsplit = pathname.split("/")[1];
   const handleMsgRead = (id: any) => {
     router.push(
-      `${pathsplit === "admin" ? "/admin" : "/dashboard"}/messages/${id}`
+      `${
+        pathsplit === "admin" ? "/admin" : "/dashboard"
+      }/messages/message/${id}`
     );
     readmsgMutation.mutate(id);
   };
@@ -62,7 +67,7 @@ const DashStatus = ({
               return (
                 <div
                   key={msg?.messageId}
-                  style={{ opacity: `${msg?.hasRead === false ? 1 : 0.5}` }}
+                  style={{ opacity: `${msg?.hasRead === false ? 0.5 : 1}` }}
                 >
                   <div className="dash_status">
                     <MdOutlinePendingActions className="dash_statusicon" />
