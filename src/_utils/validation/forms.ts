@@ -151,6 +151,13 @@ export const reportformschema = yup.object().shape({
   title: yup.string().required("Select a category"),
   desc: yup.string().nullable(),
 });
+export const contactsupportschema = yup.object().shape({
+  street: yup.string().required(),
+  city: yup.string().required(),
+  postal: yup.number().required(),
+  number: yup.number().required(),
+  issue: yup.string().required("Select an account issue"),
+});
 
 export const updateuserschema = yup.object().shape({
   institution: yup.string().nullable(""),
@@ -170,4 +177,14 @@ export const upgradepaymentschema = yup.object().shape({
   paymentReference: yup.string().nullable(),
 
   paymentReceipt: yup.mixed().required("Payment receipt is required"),
+});
+
+export const workschema = yup.object().shape({
+  firstName: yup.string().required(),
+  lastName: yup.string().required(),
+  email: yup.string().email().required(),
+  address: yup.string().required(),
+  number: yup.number().required(),
+  desc: yup.string().nullable(),
+  resume: yup.mixed().required(),
 });

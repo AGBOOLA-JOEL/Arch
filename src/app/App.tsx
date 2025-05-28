@@ -9,14 +9,7 @@ const App = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
 
   // Define paths or path prefixes where footer should show
-  const showFooterPaths = [
-    "/",
-    "/news",
-    "/submit",
-    "/login",
-    "/register",
-    "/forgot",
-  ];
+  const showFooterPaths = ["/", "/submit", "/login", "/register", "/forgot"];
   // const showFooterPaths = ["/", "/about", "/projects"];
   const showFooterStartsWith = ["/admin", "/newpass"]; // match any route starting with
 

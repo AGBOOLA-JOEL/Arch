@@ -45,14 +45,14 @@
 
 import NewsPage from "@/components/static-pages/NewsPage";
 
-export const revalidate = 60; // ISR every 60s
+// export const revalidate = 60; // ISR every 60s
 const page = 1;
 const Page = async () => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BACKEND_URL}/news/public/all?page=${page}`,
-    {
-      next: { revalidate: 60 },
-    }
+    `${process.env.NEXT_PUBLIC_API_BACKEND_URL}/news/public/all?page=${page}`
+    // {
+    //   next: { revalidate: 60 },
+    // }
   );
   const projects = await res.json();
 

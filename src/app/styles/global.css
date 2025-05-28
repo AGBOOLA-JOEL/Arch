@@ -2306,7 +2306,6 @@ a {
 .app .sidebar .newside {
   display: flex;
   flex-direction: column;
-  flex-direction: column;
   border-bottom: 1px solid var(--graytwo);
 }
 .app .sidebar .newside .newside_head {
@@ -2326,18 +2325,24 @@ a {
 }
 .app .sidebar .newside .newside_info {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
   flex-direction: row;
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
   gap: 25px;
   margin-bottom: 15px;
   width: 100%;
   overflow: hidden;
 }
+.app .sidebar .newside .newside_info::before, .app .sidebar .newside .newside_info::after {
+  box-sizing: border-box;
+}
 .app .sidebar .newside .newside_info .newside_image {
   height: 148px;
   width: 40%;
-  margin-left: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 @media (max-width: 1012px) {
   .app .sidebar .newside .newside_info .newside_image {
@@ -2350,9 +2355,7 @@ a {
   width: 100%;
 }
 .app .sidebar .newside .newside_info .newside_text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin-right: 20px;
   width: 60%;
 }
 @media (max-width: 1012px) {
@@ -2367,14 +2370,12 @@ a {
   letter-spacing: 0em;
   text-align: justify;
   color: #666666;
-  width: 283px;
   word-wrap: break-word;
 }
 .app .sidebar .newside .newside_info .newside_text :nth-child(2) {
   font-size: 12px;
   font-weight: 400;
   line-height: 20px;
-  width: 283px;
   word-wrap: break-word;
   color: #212121;
   text-align: left;

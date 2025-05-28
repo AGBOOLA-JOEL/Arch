@@ -48,7 +48,6 @@
   //style for news side
   & .newside {
     @include flex(column);
-    flex-direction: column;
     border-bottom: 1px solid $gray-two;
 
     & .newside_head {
@@ -57,7 +56,10 @@
     }
 
     & .newside_info {
-      @include center(row);
+      @include full-flex(center, space-between, row);
+      @include borderbox;
+      padding-left: 20px;
+      padding-right: 20px;
       gap: 25px;
       margin-bottom: 15px;
       width: 100%;
@@ -66,7 +68,8 @@
       & .newside_image {
         height: 148px;
         width: 40%;
-        margin-left: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
         // @include bgimage("../..//..//assets/images/mapimage.jpg");
         // background-image: url("../..//..//assets/images/mapimage.jpg");
         // background-repeat: no-repeat;
@@ -85,10 +88,10 @@
       }
 
       & .newside_text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        margin-right: 20px;
         width: 60%;
 
         @include sm {
@@ -102,14 +105,14 @@
           letter-spacing: 0em;
           text-align: justify;
           color: #666666;
-          width: 283px;
+          // width: 283px;
           word-wrap: break-word;
         }
         & :nth-child(2) {
           font-size: 12px;
           font-weight: 400;
           line-height: 20px;
-          width: 283px;
+          // width: 283px;
           word-wrap: break-word;
           color: #212121;
           text-align: left;

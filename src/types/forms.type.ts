@@ -1,5 +1,6 @@
 import {
   contactmoreschema,
+  contactsupportschema,
   forgotschema,
   passwordschema,
   postnewsschema,
@@ -7,6 +8,7 @@ import {
   submitschema,
   updateuserschema,
   upgradepaymentschema,
+  workschema,
 } from "@/_utils/validation/forms";
 import { projectuploadschema } from "@/_utils/validation/projectupload";
 import { InferType } from "yup";
@@ -53,6 +55,10 @@ export type UpdateuserData = InferType<typeof updateuserschema>;
 export type PostNewsData = InferType<typeof postnewsschema>;
 
 export type ContactMoreData = InferType<typeof contactmoreschema>;
+
+export type ContactSupportData = InferType<typeof contactsupportschema>;
+
+export type WorkData = InferType<typeof workschema>;
 
 export type DashUploadData = InferType<ReturnType<typeof projectuploadschema>>;
 // type SubmitData = {
