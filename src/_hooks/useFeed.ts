@@ -26,10 +26,20 @@ export const useFeed = () => {
       });
       return res.data;
     },
-    onSuccess: (res) => {
+    onSuccess: async (res) => {
       router.replace(`/news/${res?.data?.postId}`);
       closeModal();
       openToast(res?.description, 3000);
+
+      await fetch("/api/revalidate/news", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          secret: process.env.NEXT_PUBLIC_REVALIDATE_SECRET,
+        }),
+      });
     },
     onError: (err: any) => {
       openToast(

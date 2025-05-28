@@ -333,7 +333,7 @@
       font-size: 1.4rem;
       // font-style: italic;
       font-weight: 500;
-      line-height: 12px;
+      line-height: 16px;
       letter-spacing: 0em;
       text-align: left;
       color: $dark-one;
@@ -368,8 +368,20 @@
   }
 
   & .feed_singledesc {
+    width: 100%;
+    overflow: hidden;
+    @include sm {
+      width: 91.5%;
+    }
+
     & .ql-container.ql-snow {
       border: none !important;
+      @include sm {
+        width: 100% !important;
+        @include borderbox;
+        // padding: 20px 20px !important;
+        // background-color: red !important;
+      }
     }
   }
 
@@ -427,6 +439,9 @@
 & .feed_singleskeleton {
   @include center(row);
   gap: 30px;
+  @include sm {
+    @include center(column);
+  }
 }
 
 & .feed_others {

@@ -2347,7 +2347,7 @@ a {
 @media (max-width: 1012px) {
   .app .sidebar .newside .newside_info .newside_image {
     height: 148px;
-    width: 40%;
+    width: 50%;
   }
 }
 .app .sidebar .newside .newside_info .newside_image img {
@@ -2355,12 +2355,11 @@ a {
   width: 100%;
 }
 .app .sidebar .newside .newside_info .newside_text {
-  margin-right: 20px;
   width: 60%;
 }
 @media (max-width: 1012px) {
   .app .sidebar .newside .newside_info .newside_text {
-    width: 60%;
+    width: 50%;
   }
 }
 .app .sidebar .newside .newside_info .newside_text :nth-child(1) {
@@ -2385,7 +2384,7 @@ a {
   font-size: 10px;
   font-style: italic;
   font-weight: 500;
-  line-height: 12px;
+  line-height: 15px;
   font-style: italic;
   text-align: left;
   color: #7c7979;
@@ -5561,7 +5560,7 @@ a {
   margin-top: 0px;
   font-size: 1.4rem;
   font-weight: 500;
-  line-height: 12px;
+  line-height: 16px;
   letter-spacing: 0em;
   text-align: left;
   color: var(--darkone);
@@ -5602,8 +5601,26 @@ a {
   width: 100%;
   height: 100%;
 }
+.app .feed_single .feed_singledesc {
+  width: 100%;
+  overflow: hidden;
+}
+@media (max-width: 1012px) {
+  .app .feed_single .feed_singledesc {
+    width: 91.5%;
+  }
+}
 .app .feed_single .feed_singledesc .ql-container.ql-snow {
   border: none !important;
+}
+@media (max-width: 1012px) {
+  .app .feed_single .feed_singledesc .ql-container.ql-snow {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  .app .feed_single .feed_singledesc .ql-container.ql-snow::before, .app .feed_single .feed_singledesc .ql-container.ql-snow::after {
+    box-sizing: border-box;
+  }
 }
 .app .feed_single .feed_singleauthor {
   margin-top: 10px;
@@ -5653,6 +5670,14 @@ a {
   align-items: center;
   flex-direction: row;
   gap: 30px;
+}
+@media (max-width: 1012px) {
+  .app .feed_singleskeleton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 .app .feed_others {
   width: 100%;
