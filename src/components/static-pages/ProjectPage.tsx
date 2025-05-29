@@ -58,6 +58,7 @@ import ProjectFeed from "@/components/projects/ProjectFeed";
 import ProjectSearch from "../projects/ProjectSearch";
 import ArchSpinner from "../general/ArchSpinner";
 import ArchLoadmore from "../general/ArchLoadmore";
+import ArchFade from "../general/ArchFade";
 
 const ProjectPage = ({ initialProjects }: { initialProjects: any[] }) => {
   const [projects, setProjects] = useState(initialProjects);
@@ -82,7 +83,14 @@ const ProjectPage = ({ initialProjects }: { initialProjects: any[] }) => {
       <div className="projects_feeddisplay">
         {projects.map((data) => (
           <div key={data?.projectId}>
-            <ProjectFeed data={data} />
+            <ArchFade
+              blur={true}
+              duration={500}
+              easing="ease-out"
+              initialOpacity={0}
+            >
+              <ProjectFeed data={data} />
+            </ArchFade>
           </div>
         ))}
       </div>

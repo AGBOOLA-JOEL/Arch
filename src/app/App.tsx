@@ -1,5 +1,7 @@
 "use client";
 import Footer from "@/components/footer/Footer";
+import ArchFade from "@/components/general/ArchFade";
+import ArchScrollTop from "@/components/general/ArchScrollTop";
 import ArchToast from "@/components/general/ArchToast";
 import ModalProvider from "@/components/modals/modal-provider";
 import Navbar from "@/components/navbar/Navbar";
@@ -18,6 +20,7 @@ const App = ({ children }: { children: React.ReactNode }) => {
     showFooterStartsWith.some((prefix) => pathname.startsWith(prefix));
   return (
     <body className="app">
+      <ArchScrollTop />
       <ArchToast />
       <ModalProvider />
       <header className="app_navbar">

@@ -8,6 +8,7 @@ import FeedNewsSearch from "../feed/FeedNewsSearch";
 import FeedPagination from "../feed/FeedPagination";
 import ArchSpinner from "../general/ArchSpinner";
 import ArchLoadmore from "../general/ArchLoadmore";
+import ArchFade from "../general/ArchFade";
 
 const NewsPage = ({ initialNews }: { initialNews: any[] }) => {
   const [news, setNews] = useState(initialNews);
@@ -29,7 +30,17 @@ const NewsPage = ({ initialNews }: { initialNews: any[] }) => {
       </div>
 
       {news.map((data) => {
-        return <FeedMap data={data} key={data?.postId} />;
+        return (
+          <ArchFade
+            blur={true}
+            duration={500}
+            easing="ease-out"
+            initialOpacity={0}
+            key={data?.postId}
+          >
+            <FeedMap data={data} />
+          </ArchFade>
+        );
       })}
 
       {isLoading && (
