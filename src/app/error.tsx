@@ -1,5 +1,7 @@
 "use client";
 
+import ArchButton from "@/components/general/ArchButton";
+import ArchFuzzy from "@/components/general/ArchFuzzy";
 import { useEffect } from "react";
 
 export default function GlobalError({
@@ -14,10 +16,31 @@ export default function GlobalError({
   }, [error]);
 
   return (
-    <div style={{ padding: "2rem", textAlign: "center" }}>
-      <h2>Something went wrong!</h2>
-      <p>{error.message}</p>
-      <button onClick={() => reset()}>Try Again</button>
+    <div className="arch_notfound">
+      <ArchFuzzy
+        baseIntensity={0.2}
+        hoverIntensity={0.1}
+        enableHover={true}
+        fontSize={"6rem"}
+      >
+        Something went wrong!
+      </ArchFuzzy>
+      <ArchFuzzy
+        baseIntensity={0.2}
+        hoverIntensity={0.1}
+        enableHover={false}
+        fontSize={"4rem"}
+      >
+        {error.message}
+      </ArchFuzzy>
+      <ArchButton
+        variant="primary"
+        name="Try again"
+        type="button"
+        onClick={() => {
+          reset();
+        }}
+      />
     </div>
   );
 }
