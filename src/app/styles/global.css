@@ -2254,6 +2254,15 @@ a {
     text-align: center;
   }
 }
+.app .arch_notfound {
+  height: 600px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
 .app .sidebar {
   width: 100%;
   border: 1px solid var(--graytwo);
@@ -2339,6 +2348,11 @@ a {
 .app .sidebar .newside .newside_info::before, .app .sidebar .newside .newside_info::after {
   box-sizing: border-box;
 }
+@media (max-width: 1012px) {
+  .app .sidebar .newside .newside_info {
+    flex-direction: column;
+  }
+}
 .app .sidebar .newside .newside_info .newside_image {
   height: 148px;
   width: 40%;
@@ -2347,7 +2361,7 @@ a {
 @media (max-width: 1012px) {
   .app .sidebar .newside .newside_info .newside_image {
     height: 148px;
-    width: 50%;
+    width: 100%;
   }
 }
 .app .sidebar .newside .newside_info .newside_image img {
@@ -2359,33 +2373,37 @@ a {
 }
 @media (max-width: 1012px) {
   .app .sidebar .newside .newside_info .newside_text {
-    width: 50%;
+    width: 100%;
   }
 }
-.app .sidebar .newside .newside_info .newside_text :nth-child(1) {
+.app .sidebar .newside .newside_info .newside_text .newside_texttitle {
   font-size: 13.58px;
   font-weight: 600;
   line-height: 16px;
   letter-spacing: 0em;
   text-align: justify;
-  color: #666666;
+  color: var(--darkone);
   word-wrap: break-word;
+  overflow-wrap: break-word;
 }
-.app .sidebar .newside .newside_info .newside_text :nth-child(2) {
-  font-size: 12px;
+.app .sidebar .newside .newside_info .newside_text .newside_textdesc {
+  font-size: 1.2rem;
   font-weight: 400;
   line-height: 20px;
-  word-wrap: break-word;
-  color: #212121;
+  color: var(--darkone);
   text-align: left;
   margin-top: -5px;
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
 }
-.app .sidebar .newside .newside_info .newside_text :nth-child(3) {
-  font-size: 10px;
-  font-style: italic;
+.app .sidebar .newside .newside_info .newside_text .newside_textuser {
+  font-size: 1rem;
   font-weight: 500;
   line-height: 15px;
-  font-style: italic;
   text-align: left;
   color: #7c7979;
   margin-top: -5px;
@@ -5313,17 +5331,19 @@ a {
   }
 }
 .app .feed_map .feed_mapinfo .feed_mapdesc {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 28px;
   letter-spacing: -0.02em;
   text-align: left;
   color: var(--darkone);
-  word-wrap: break-word;
-  width: 100%;
   margin-bottom: 0px;
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
 }
 @media (max-width: 1012px) {
   .app .feed_map .feed_mapinfo .feed_mapdesc {

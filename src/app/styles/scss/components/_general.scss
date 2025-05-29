@@ -1630,3 +1630,10 @@
     }
   }
 }
+
+& .arch_notfound {
+  height: 600px;
+  width: 100%;
+  @include center(column);
+  gap: 20px;
+}

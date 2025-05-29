@@ -29,10 +29,9 @@ const NewSide = ({ news }: { news: any }) => {
               </div>
 
               <div className="newside_text">
-                <p>{singleData?.title}</p>
-                <p>{singleData?.desc}</p>
-                <p>
-                  {" "}
+                <p className="newside_texttitle">{singleData?.title}</p>
+                <p className="newside_textdesc">{singleData?.desc}</p>
+                <p className="newside_textuser">
                   By {singleData?.user?.username} on {formattedDate}{" "}
                 </p>
               </div>

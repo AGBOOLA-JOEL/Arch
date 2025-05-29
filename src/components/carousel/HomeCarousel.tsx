@@ -1,10 +1,12 @@
 "use client";
-
 import { Carousel } from "react-responsive-carousel";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { homecarousel } from "@/data/carousel.db";
 import Image from "next/image";
+import { useUser } from "@/_hooks/useUser";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 // // import useRole from "pages/hooks/useRole";
 
@@ -14,7 +16,9 @@ type HomeImgProp = {
 };
 const HomeCarousel = ({ deskimg, mobimg }: HomeImgProp) => {
   //   const role = useRole();
-
+  const { status } = useSession();
+  const { user } = useUser();
+  const navigate = useRouter();
   return (
     <div className="home_carousel">
       <div className="homecar_img">
@@ -54,18 +58,19 @@ const HomeCarousel = ({ deskimg, mobimg }: HomeImgProp) => {
                   <h1>{data.header}</h1>
                   <p>{data.info}</p>
 
-                  {/* <button
+                  <button
                     onClick={() => {
-                      if (role !== null) {
-                        navigate("/all/project");
+                      if (status === "authenticated") {
+                        navigate.push("/projects");
                       } else {
-                        navigate("/form/join");
+                        navigate.push("/register");
                       }
                     }}
                   >
-                    {role !== null ? "EXPLORE PROJECTS" : "GET STARTED"}
-                  </button> */}
-                  <button>GET STARTED</button>
+                    {status === "authenticated"
+                      ? "EXPLORE PROJECTS"
+                      : "GET STARTED"}
+                  </button>
                 </div>
               );
             })}
