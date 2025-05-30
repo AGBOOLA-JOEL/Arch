@@ -11,8 +11,13 @@ export default function RootLayout({
   const dropdata = [
     {
       name: "Create New",
-      route: "/dashboard/posts",
+      route: "/admin/posts",
       linkstate: undefined,
+    },
+    {
+      name: "Post Reports",
+      route: "/admin/posts/reports",
+      linkstate: "reports",
     },
     // {
     //   name: "Published Posts",

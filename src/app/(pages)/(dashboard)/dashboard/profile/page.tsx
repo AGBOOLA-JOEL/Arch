@@ -10,7 +10,7 @@ import { CiEdit } from "react-icons/ci";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 const Profile = () => {
-  const { user, isLoading, refetchUser } = useUser();
+  const { user, isLoading, refetchUser, isFetching } = useUser();
   const { updateUserMutation } = useUpdateProfile(refetchUser);
   const [open, setOpen] = useState(false);
 
@@ -61,7 +61,7 @@ const Profile = () => {
         }
       }}
     >
-      {!isLoading ? (
+      {!isFetching ? (
         <>
           <div className="dash_profavatar">
             <div className="dash_profimg">
@@ -113,8 +113,8 @@ const Profile = () => {
                           />
                         ) : (
                           <span>
-                            {value ||
-                              watch(registername as "institution" | "rank")}
+                            {watch(registername as "institution" | "rank") ||
+                              value}
                           </span>
                         )}
                       </>

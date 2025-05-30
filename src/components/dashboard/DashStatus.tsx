@@ -27,7 +27,8 @@ type DashStatusProp = {
     | "project"
     | "admin-report"
     | "admin-subscribe"
-    | "admin-payment";
+    | "admin-payment"
+    | "admin-postreport";
 
   msgtype?: "all" | "unread";
   statustype?: "Approved" | "Rejected" | "Pending";
@@ -398,6 +399,60 @@ const DashStatus = ({
                 <h1 className="dash_statustitle">
                   You have no payment messsage
                 </h1>
+              </div>
+            </div>
+          )}
+        </>
+      )}
+      {type === "admin-postreport" && (
+        <>
+          {mapdata?.length > 0 ? (
+            mapdata.map((rep: any) => {
+              return (
+                <div
+                  key={rep?.reportId}
+                  // style={{ opacity: `${msg?.hasRead === false ? 1 : 0.5}` }}
+                >
+                  <div className="dash_status">
+                    <MdOutlinePendingActions className="dash_statusicon" />
+
+                    <div className="dash_statusdetail">
+                      <h1
+                        className="dash_statustitle"
+                        onClick={() => {
+                          router.push(`reports/${rep?.reportId}`);
+                        }}
+                        // onClick={() => handleMsgRead(msg?.messageId)}
+                      >
+                        {rep?.categories}
+                      </h1>
+
+                      <div className="dash_statusinfo">
+                        <p className="dash_statusdata">
+                          <CiCalendar />
+                          <span>{formatDate(rep?.news?.date)}</span>
+                        </p>
+
+                        <p className="dash_statusdata">
+                          <BiCategory />
+                          <span>{rep?.status}</span>
+                        </p>
+
+                        <p className="dash_statusdata">
+                          <BiCategory />
+                          <span>{rep?.typeOfPost}</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <div className="dash_status">
+              {" "}
+              <div className="dash_statusdetail">
+                <h1 className="dash_statustitle">No report available</h1>
               </div>
             </div>
           )}

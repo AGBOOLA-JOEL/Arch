@@ -11,7 +11,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 const Profile = () => {
   const { user, isLoading, refetchUser, isFetching } = useUser();
-  const { updateUserMutation } = useUpdateProfile();
+  const { updateUserMutation } = useUpdateProfile(refetchUser);
   const [open, setOpen] = useState(false);
 
   const [showInput, setShowInput] = useState<string | null>(null);
@@ -47,23 +47,7 @@ const Profile = () => {
   }, [isSubmitSuccessful, reset]);
   const onSubmit = (data: UpdateuserData) => {
     console.log(data, "mydata");
-
-    if (institution === "" && rank === "") {
-      openToast("no changes made", 3000);
-      setOpen(false);
-      setShowInput(null);
-    } else {
-      setOpen(false);
-      updateUserMutation.mutate(data);
-      refetchUser();
-    }
-
-    // const reportdata = {
-    //   category: [data.title],
-    //   reason: data.desc ?? null,
-    // };
-    // console.log(reportdata, "report data");
-    // reportMutation.mutate({ data: reportdata, id });
+    updateUserMutation.mutate(data);
   };
 
   return (
@@ -77,7 +61,7 @@ const Profile = () => {
         }
       }}
     >
-      {!isLoading ? (
+      {!isFetching ? (
         <>
           <div className="dash_profavatar">
             <div className="dash_profimg">
@@ -131,12 +115,6 @@ const Profile = () => {
                           <span>
                             {watch(registername as "institution" | "rank") ||
                               value}
-                            {/* {watch(registername as "institution" | "rank") !==
-                            null
-                              ? watch(registername as "institution" | "rank")
-                              : value} */}
-                            {/* {value ||
-                              watch(registername as "institution" | "rank")} */}
                           </span>
                         )}
                       </>

@@ -8,6 +8,7 @@ import ModalProfile from "./modal-profile";
 import ModalHelp from "./modal-help";
 import ModalRejectPayment from "./modal-rejectpayment";
 import ModalRejectProject from "./modal-rejectproject";
+import ModalAdminReport from "./modal-adminreport";
 
 const ModalProvider = () => {
   const { activeModal, closeModal } = useModalStore();
@@ -51,6 +52,10 @@ const ModalProvider = () => {
       )}
       {activeModal === "reject-project" && (
         <ModalRejectProject isOpen={true} onClose={closeModal} />
+      )}
+
+      {activeModal === "admin-reportpost" && (
+        <ModalAdminReport isOpen={true} onClose={closeModal} />
       )}
     </div>
   );
