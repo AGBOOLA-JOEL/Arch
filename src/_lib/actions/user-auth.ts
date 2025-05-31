@@ -11,6 +11,7 @@ export async function login(
 }
 
 export async function refresh(refreshToken: string): Promise<Response> {
+  console.log("refresh", refreshToken);
   // Replace with your actual backend API endpoint
   return fetch(
     `${process.env.NEXT_PUBLIC_API_BACKEND_URL}/auth/token/refresh`,

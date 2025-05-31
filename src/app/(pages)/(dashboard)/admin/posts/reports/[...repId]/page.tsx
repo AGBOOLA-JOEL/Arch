@@ -84,20 +84,12 @@ const Page = () => {
 
             <div className="dash_viewbtn">
               {postReportId?.status === "UNRESOLVED" && (
-                <>
-                  <ArchButton
-                    name=" Unpublish news"
-                    variant="white"
-                    type="button"
-                    onClick={handleUnpublish}
-                  />
-                  <ArchButton
-                    name="Resolve news"
-                    variant="white"
-                    type="button"
-                    onClick={() => {}}
-                  />
-                </>
+                <ArchButton
+                  name=" Unpublish news"
+                  variant="white"
+                  type="button"
+                  onClick={handleUnpublish}
+                />
               )}
               <ArchBack variant="primary" />
             </div>

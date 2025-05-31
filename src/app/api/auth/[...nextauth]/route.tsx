@@ -86,6 +86,7 @@ export const authOptions: AuthOptions = {
 
           const access: DecodedJWT = jwtDecode(tokens.accessToken);
           const refresh: DecodedJWT = jwtDecode(tokens.refreshToken);
+          console.log("setRefresh", tokens.refreshToken);
           // Extract the user from the access token
           const user: UserObject = {
             username: access.username,
